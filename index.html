@@ -166,11 +166,9 @@
     .proof-lbl { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-50); }
 
     /* ── THREE PILLARS ── dark */
-    .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--teal-edge); border: 1px solid var(--teal-edge); border-radius: 8px; overflow: hidden; }
-    .pillar-card { background: var(--dark-card); padding: 40px 36px; }
-    .pillar-icon { width: 48px; height: 48px; border: 1px solid var(--teal-edge); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; background: rgba(44,196,176,0.06); }
-    .pillar-icon svg { width: 22px; height: 22px; color: var(--teal); }
-    .pillar-num { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; display: block; }
+    .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .pillar-card { background: var(--dark-card); padding: 40px 36px; border: 1px solid #3C3C4A; border-radius: 8px; }
+    .pillar-num { font-size: 28px; font-weight: 800; color: var(--accent); margin-bottom: 14px; display: block; line-height: 1; font-family: var(--body); letter-spacing: -0.02em; }
     .pillar-card h3 { font-size: 19px; font-weight: 700; color: var(--lt); margin-bottom: 12px; line-height: 1.3; }
     .pillar-card p { font-size: 14.5px; color: var(--lt-60); line-height: 1.7; }
 
@@ -194,26 +192,26 @@
     .old-way .x { font-size: 12px; font-weight: 700; color: var(--accent); flex-shrink: 0; padding-top: 2px; }
 
     /* ── WHO ── dark */
-    .who-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--teal-edge); border: 1px solid var(--teal-edge); border-radius: 8px; overflow: hidden; }
-    .who-col { padding: 40px 38px; }
-    .who-col.for-col  { background: var(--dark-card); }
-    .who-col.not-col  { background: rgba(255,255,255,0.025); }
+    .who-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .who-col { padding: 40px 38px; background: var(--dark-card); border-radius: 8px; }
+    .who-col.for-col  { border: 1px solid var(--accent); border-top: 3px solid var(--accent); }
+    .who-col.not-col  { border: 1px solid var(--teal);   border-top: 3px solid var(--teal); }
     .who-col-lbl { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 24px; display: block; }
-    .for-col .who-col-lbl { color: var(--teal); }
-    .not-col .who-col-lbl { color: var(--lt-40); }
+    .for-col .who-col-lbl { color: var(--accent); }
+    .not-col .who-col-lbl { color: var(--teal); }
     .who-list { list-style: none; }
     .who-list li { display: flex; align-items: flex-start; gap: 11px; padding: 11px 0; border-bottom: 1px solid var(--bd-dark); font-size: 14px; line-height: 1.55; }
     .who-list li:last-child { border-bottom: none; }
     .for-col .who-list li { color: var(--lt); }
-    .not-col .who-list li { color: var(--lt-40); }
+    .not-col .who-list li { color: var(--lt-60); }
     .wm { flex-shrink: 0; font-weight: 700; line-height: 1.55; }
-    .wm-for { color: var(--teal); }
-    .wm-not { color: var(--lt-20); }
+    .wm-for { color: var(--accent); }
+    .wm-not { color: var(--lt-40); }
 
     /* ── PROCESS ── grey */
     .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--grey-bd); border: 1px solid var(--grey-bd); }
     .step { background: var(--grey-card); padding: 40px 32px; }
-    .step-num { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 18px; display: block; }
+    .step-num { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; display: block; }
     .step h3 { font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 11px; }
     .step > p { font-size: 14.5px; color: var(--ink-70); line-height: 1.7; margin-bottom: 22px; }
     .step-list { list-style: none; }
@@ -224,24 +222,22 @@
     /* ── TRANSFORMATION ── dark */
     .compare {
       display: grid; grid-template-columns: 1fr 1fr;
-      gap: 1px; background: var(--teal-edge);
-      border: 1px solid var(--teal-edge);
-      border-radius: 8px; overflow: hidden;
+      gap: 16px;
       max-width: 900px; margin: 0 auto;
     }
-    .cmp-side { padding: 40px 36px; }
-    .before-side { background: rgba(255,255,255,0.025); }
-    .after-side  { background: var(--dark-card); }
+    .cmp-side { padding: 40px 36px; background: var(--dark-card); border-radius: 8px; }
+    .before-side { border: 1px solid var(--accent); border-top: 3px solid var(--accent); }
+    .after-side  { border: 1px solid var(--teal);  border-top: 3px solid var(--teal); }
     .cmp-lbl { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 24px; display: block; }
-    .before-side .cmp-lbl { color: var(--lt-40); }
+    .before-side .cmp-lbl { color: var(--accent); }
     .after-side  .cmp-lbl { color: var(--teal); }
     .cmp-list { list-style: none; }
     .cmp-list li { padding: 11px 0; border-bottom: 1px solid var(--bd-dark); font-size: 14px; display: flex; gap: 11px; align-items: flex-start; line-height: 1.5; }
     .cmp-list li:last-child { border-bottom: none; }
-    .before-side .cmp-list li { color: var(--lt-40); }
+    .before-side .cmp-list li { color: var(--lt-60); }
     .after-side  .cmp-list li { color: var(--lt); }
     .mk { flex-shrink: 0; font-weight: 700; }
-    .mk-b { color: var(--lt-20); }
+    .mk-b { color: var(--accent); }
     .mk-a { color: var(--teal); }
 
     /* ── TESTIMONIALS ── grey */
@@ -429,31 +425,22 @@
     <div class="panel panel--dark">
       <div class="panel-inner">
         <div class="section-hd" style="margin-bottom:52px;">
-          <span class="eyebrow eyebrow--teal">What We Do</span>
+          <span class="eyebrow">What We Do</span>
           <h2>Three pillars. <em>One system.</em></h2>
           <p>Everything we do is built around three interconnected priorities — all working simultaneously, all driven by your data.</p>
         </div>
         <div class="pillars-grid">
           <div class="pillar-card">
-            <div class="pillar-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
             <span class="pillar-num">01</span>
             <h3>Mitigate Health Risks</h3>
             <p>Identify and address cardiovascular, metabolic, and hormonal risks before they become liabilities. We don't wait for crisis — we prevent it with deep diagnostic precision.</p>
           </div>
           <div class="pillar-card">
-            <div class="pillar-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-            </div>
             <span class="pillar-num">02</span>
             <h3>Build Peak Performance</h3>
             <p>Optimize energy, cognition, body composition, and recovery so you operate at the highest level — in the boardroom, in the gym, and at home.</p>
           </div>
           <div class="pillar-card">
-            <div class="pillar-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            </div>
             <span class="pillar-num">03</span>
             <h3>Extend Longevity</h3>
             <p>Not just more years — more years at peak performance. We define longevity by how long you operate at your best, not simply how long you live.</p>
