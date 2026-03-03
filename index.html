@@ -208,8 +208,9 @@
     .wm-for { color: var(--accent); }
     .wm-not { color: var(--lt-40); }
 
-    /* ── PROCESS ── grey */
+    /* ── PROCESS ── dark */
     .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--grey-bd); border: 1px solid var(--grey-bd); }
+    .panel--dark .steps { background: var(--dark); border-color: var(--bd-dark); }
     .step { background: var(--grey-card); padding: 40px 32px; }
     .step-num { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; display: block; }
     .step h3 { font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 11px; }
@@ -219,13 +220,14 @@
     .step-list li:last-child { border-bottom: none; }
     .step-list li::before { content: ''; width: 3px; height: 3px; border-radius: 50%; background: var(--teal); flex-shrink: 0; margin-top: 7px; }
 
-    /* ── TRANSFORMATION ── dark */
+    /* ── TRANSFORMATION ── grey (compare boxes use white cards) */
     .compare {
       display: grid; grid-template-columns: 1fr 1fr;
       gap: 16px;
       max-width: 900px; margin: 0 auto;
     }
     .cmp-side { padding: 40px 36px; background: var(--dark-card); border-radius: 8px; }
+    .panel--grey .cmp-side { background: var(--grey-card); }
     .before-side { border: 1px solid rgba(177,102,116,0.45); border-top: 2px solid var(--accent); }
     .after-side  { border: 1px solid rgba(44,196,176,0.35);  border-top: 2px solid var(--teal); }
     .cmp-lbl { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 24px; display: block; }
@@ -236,6 +238,9 @@
     .cmp-list li:last-child { border-bottom: none; }
     .before-side .cmp-list li { color: var(--lt-60); }
     .after-side  .cmp-list li { color: var(--lt); }
+    .panel--grey .cmp-list li { border-bottom-color: var(--grey-bd); }
+    .panel--grey .before-side .cmp-list li { color: var(--ink-70); }
+    .panel--grey .after-side  .cmp-list li { color: var(--ink); }
     .mk { flex-shrink: 0; font-weight: 700; }
     .mk-b { color: var(--accent); }
     .mk-a { color: var(--teal); }
@@ -484,9 +489,9 @@
     </div>
   </div>
 
-  <!-- ─── PROCESS: grey panel ─── -->
+  <!-- ─── PROCESS: dark panel ─── -->
   <div id="process" class="sp">
-    <div class="panel panel--grey">
+    <div class="panel panel--dark">
       <div class="panel-inner">
         <div class="section-hd" style="margin-bottom:52px;">
           <span class="eyebrow">The Method</span>
@@ -538,9 +543,9 @@
     </div>
   </div>
 
-  <!-- ─── TRANSFORMATION: dark panel ─── -->
+  <!-- ─── TRANSFORMATION: grey panel ─── -->
   <div id="transformation" class="sp">
-    <div class="panel panel--dark">
+    <div class="panel panel--grey">
       <div class="panel-inner">
         <div class="section-hd" style="margin-bottom:52px;">
           <span class="eyebrow">The Outcome</span>
