@@ -13,267 +13,290 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --page-bg:    #FFFFFF;
-      --slate-bg:   #F4F4F6;
-      --border:     #E0E0E6;
-      --border-mid: #CACAD2;
-      --ink:        #111118;
-      --ink-70:     rgba(17, 17, 24, 0.70);
-      --ink-50:     rgba(17, 17, 24, 0.50);
-      --ink-35:     rgba(17, 17, 24, 0.35);
-      --hero-bg:    #101016;
-      --hero-text:  #F0F0F2;
-      --hero-60:    rgba(240, 240, 242, 0.60);
-      --hero-40:    rgba(240, 240, 242, 0.40);
-      --accent:     #B16674;
-      --accent-deep:#955561;
-      --display:    'Zodiak', Georgia, 'Times New Roman', serif;
-      --body:       'Satoshi', system-ui, -apple-system, sans-serif;
-      --radius:     2px;
+      --dark:        #0D0D12;
+      --dark-card:   #13131C;
+      --dark-raised: #1A1A26;
+      --grey:        #F2F3F5;
+      --grey-card:   #FFFFFF;
+      --grey-border: #D8D9DE;
+      --ink:         #0D0D12;
+      --ink-70:      rgba(13,13,18,0.70);
+      --ink-50:      rgba(13,13,18,0.50);
+      --ink-35:      rgba(13,13,18,0.35);
+      --lt:          #F0F0F2;
+      --lt-60:       rgba(240,240,242,0.60);
+      --lt-40:       rgba(240,240,242,0.40);
+      --lt-20:       rgba(240,240,242,0.20);
+      --lt-10:       rgba(240,240,242,0.10);
+      --accent:      #B16674;
+      --accent-deep: #955561;
+      --display:     'Zodiak', Georgia, 'Times New Roman', serif;
+      --body:        'Satoshi', system-ui, -apple-system, sans-serif;
     }
 
     html { scroll-behavior: smooth; }
-    body { background: var(--page-bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    body { background: var(--dark); color: var(--lt); font-family: var(--body); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
     img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
 
-    h1 { font-family: var(--display); font-weight: 600; line-height: 1.15; letter-spacing: -0.01em; }
-    h2 { font-family: var(--display); font-weight: 600; line-height: 1.22; letter-spacing: -0.01em; }
-    h3, h4 { font-family: var(--body); font-weight: 700; line-height: 1.3; }
-    .accent { color: var(--accent); }
-    .eyebrow { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
-
-    .container      { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
-    .container--mid { max-width: 860px;  margin: 0 auto; padding: 0 32px; }
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
     section { padding: 96px 0; }
+    .eyebrow { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
 
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: var(--body); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: background 0.18s, color 0.18s, border-color 0.18s; border-radius: var(--radius); }
-    .btn-primary-dark { background: var(--hero-text); color: var(--hero-bg); padding: 16px 44px; }
-    .btn-primary-dark:hover { background: rgba(240,240,242,0.88); }
-    .btn-outline-dark { background: transparent; color: var(--hero-text); padding: 15px 44px; border: 1px solid rgba(240,240,242,0.3); }
-    .btn-outline-dark:hover { border-color: rgba(240,240,242,0.65); }
-    .btn-primary { background: var(--ink); color: var(--page-bg); padding: 16px 44px; }
-    .btn-primary:hover { background: #2a2a35; }
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: var(--body); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.2s; }
+    .btn-solid { background: var(--lt); color: var(--dark); padding: 18px 52px; }
+    .btn-solid:hover { background: #dcdce4; }
+    .btn-ghost { background: transparent; color: var(--lt); padding: 17px 52px; border: 1px solid var(--lt-20); }
+    .btn-ghost:hover { border-color: var(--lt-60); }
+    .btn-solid-dark { background: var(--dark); color: var(--lt); padding: 18px 52px; border: 1px solid var(--lt-20); }
+    .btn-solid-dark:hover { border-color: var(--lt-60); background: var(--dark-raised); }
 
     /* NAV */
-    #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 28px 0; transition: background 0.3s, border-color 0.3s, padding 0.3s; }
-    #nav.hero-mode .nav-logo img { filter: brightness(0) invert(1); }
-    #nav.hero-mode .nav-cta { color: var(--hero-text); border-color: rgba(240,240,242,0.35); }
-    #nav.hero-mode .nav-cta:hover { border-color: rgba(240,240,242,0.75); background: rgba(255,255,255,0.06); }
-    #nav.stuck { background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); padding: 17px 0; }
-    #nav.stuck .nav-logo img { filter: brightness(0); }
-    #nav.stuck .nav-cta { color: var(--ink); border-color: var(--border-mid); }
-    #nav.stuck .nav-cta:hover { border-color: var(--ink); }
+    #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 28px 0; transition: background 0.3s, padding 0.3s; }
+    #nav.stuck { background: rgba(13,13,18,0.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--lt-10); padding: 18px 0; }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo img { height: 26px; width: auto; display: block; transition: filter 0.3s; }
-    .nav-cta { font-family: var(--body); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 22px; border: 1px solid transparent; background: transparent; cursor: pointer; text-decoration: none; transition: all 0.2s; border-radius: var(--radius); white-space: nowrap; }
+    .nav-logo img { height: 26px; width: auto; filter: brightness(0) invert(1); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-link { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lt-40); transition: color 0.2s; }
+    .nav-link:hover { color: var(--lt); }
+    .nav-cta { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 24px; border: 1px solid var(--lt-20); background: transparent; cursor: pointer; transition: all 0.2s; }
+    .nav-cta:hover { border-color: var(--lt-60); }
 
-    /* HERO */
-    #hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 120px; padding-bottom: 72px; background: var(--hero-bg); position: relative; overflow: hidden; }
-    #hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 50% at 50% -5%, rgba(177,102,116,0.08) 0%, transparent 60%); pointer-events: none; }
-    .hero-inner { position: relative; z-index: 1; text-align: center; }
-    .hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--hero-40); margin-bottom: 24px; display: block; }
-    .hero-headline { font-size: clamp(28px, 3.6vw, 50px); font-weight: 600; line-height: 1.18; letter-spacing: -0.01em; color: var(--hero-text); max-width: 780px; margin: 0 auto 20px; }
-    .hero-headline em { font-style: italic; color: var(--accent); }
-    .hero-sub { font-size: clamp(15px, 1.4vw, 17px); color: var(--hero-60); max-width: 420px; margin: 0 auto 44px; line-height: 1.6; }
-    .vsl-wrap { max-width: 780px; margin: 0 auto 44px; }
-    .vsl-frame { position: relative; padding-bottom: 56.25%; height: 0; background: #18181F; border: 1px solid rgba(240,240,242,0.08); overflow: hidden; }
-    .vsl-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; cursor: pointer; background: #18181F; }
-    .vsl-play { width: 68px; height: 68px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; transition: transform 0.2s, background 0.2s; }
-    .vsl-play:hover { transform: scale(1.06); background: var(--accent-deep); }
+    /* ─── HERO ─── dark */
+    #hero { background: var(--dark); min-height: 100vh; display: flex; align-items: center; padding: 120px 0 80px; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lt-40); margin-bottom: 28px; display: block; }
+    .hero-headline { font-family: var(--body); font-size: clamp(38px, 4.8vw, 68px); line-height: 1.03; letter-spacing: -0.02em; color: var(--lt); text-transform: uppercase; margin-bottom: 24px; }
+    .hero-headline .thin { font-weight: 300; display: block; }
+    .hero-headline .bold { font-weight: 800; display: block; }
+    .hero-headline .bold-accent { font-weight: 800; display: block; color: var(--accent); }
+    .hero-sub { font-size: 16px; color: var(--lt-60); max-width: 400px; line-height: 1.7; margin-bottom: 40px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+    .hero-footnote { font-size: 11px; color: var(--lt-40); letter-spacing: 0.05em; }
+    /* video */
+    .vsl-frame { position: relative; padding-bottom: 56.25%; background: #08080E; border: 1px solid var(--lt-10); overflow: hidden; }
+    .vsl-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; cursor: pointer; }
+    .vsl-play { width: 68px; height: 68px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; transition: transform 0.2s, background 0.2s; flex-shrink: 0; }
+    .vsl-play:hover { transform: scale(1.07); background: var(--accent-deep); }
     .vsl-play svg { width: 24px; height: 24px; fill: #fff; margin-left: 4px; }
-    .vsl-label { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--hero-40); }
-    .hero-cta { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
-    .hero-footnote { margin-top: 16px; font-size: 12px; color: var(--hero-40); letter-spacing: 0.04em; }
+    .vsl-caption { margin-top: 14px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; color: var(--lt-40); line-height: 1.65; text-align: center; max-width: 480px; margin-left: auto; margin-right: auto; }
 
-    /* PROOF BAR */
-    #proof-bar { padding: 0; background: var(--page-bg); border-bottom: 1px solid var(--border); }
-    .proof-row { display: flex; align-items: stretch; }
-    .proof-cell { flex: 1; padding: 32px 24px; text-align: center; border-right: 1px solid var(--border); }
+    /* ─── PROOF BAR ─── light grey */
+    #proof-bar { background: var(--grey); border-top: none; }
+    .proof-row { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .proof-cell { padding: 36px 24px; text-align: center; border-right: 1px solid var(--grey-border); }
     .proof-cell:last-child { border-right: none; }
-    .proof-num { font-family: var(--display); font-size: 30px; font-weight: 600; color: var(--ink); line-height: 1; margin-bottom: 6px; display: block; }
+    .proof-num { font-family: var(--display); font-size: 38px; font-weight: 600; color: var(--ink); line-height: 1; margin-bottom: 8px; display: block; }
     .proof-lbl { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-50); }
 
-    /* PROBLEM */
-    #problem { background: var(--page-bg); }
-    .problem-lead { font-family: var(--display); font-size: clamp(22px, 2.6vw, 36px); font-weight: 600; line-height: 1.22; letter-spacing: -0.01em; text-align: center; max-width: 620px; margin: 0 auto 56px; }
-    .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
-    .pain-cell { background: var(--page-bg); padding: 28px 26px; display: flex; align-items: flex-start; gap: 16px; }
-    .pain-icon { width: 34px; height: 34px; flex-shrink: 0; border: 1px solid var(--border); background: var(--slate-bg); display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+    /* ─── PROBLEM ─── dark */
+    #problem { background: var(--dark); }
+    .section-hd { text-align: center; margin-bottom: 56px; }
+    .section-hd h2 { font-family: var(--display); font-size: clamp(24px, 3vw, 42px); font-weight: 600; line-height: 1.2; }
+    .section-hd h2 em { font-style: italic; color: var(--accent); }
+    .section-hd p { font-size: 17px; color: var(--lt-60); max-width: 480px; margin: 16px auto 0; line-height: 1.65; }
+    .section-hd.on-grey h2 { color: var(--ink); }
+    .section-hd.on-grey p { color: var(--ink-70); }
+    .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--lt-10); border: 1px solid var(--lt-10); }
+    .pain-cell { background: var(--dark-card); padding: 30px 28px; display: flex; align-items: flex-start; gap: 16px; }
+    .pain-icon { width: 36px; height: 36px; flex-shrink: 0; border: 1px solid var(--lt-10); background: var(--dark-raised); display: flex; align-items: center; justify-content: center; margin-top: 2px; }
     .pain-icon svg { width: 15px; height: 15px; color: var(--accent); }
-    .pain-cell h4 { font-size: 14px; font-weight: 700; margin-bottom: 5px; line-height: 1.35; }
-    .pain-cell p { font-size: 13.5px; color: var(--ink-70); line-height: 1.55; }
+    .pain-cell h4 { font-size: 14px; font-weight: 700; color: var(--lt); margin-bottom: 5px; line-height: 1.35; }
+    .pain-cell p { font-size: 13.5px; color: var(--lt-60); line-height: 1.6; }
 
-    /* ROOT CAUSE */
-    #root-cause { background: var(--slate-bg); }
-    .root-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
-    .root-left h2 { font-size: clamp(24px, 2.8vw, 38px); margin-bottom: 20px; }
-    .root-left p { font-size: 17px; color: var(--ink-70); margin-bottom: 16px; line-height: 1.65; }
-    .old-way { list-style: none; margin-top: 32px; border: 1px solid var(--border); background: var(--page-bg); }
-    .old-way li { display: flex; align-items: flex-start; gap: 14px; padding: 15px 20px; border-bottom: 1px solid var(--border); font-size: 14px; color: var(--ink-70); line-height: 1.5; }
+    /* ─── ROOT CAUSE ─── light grey */
+    #root-cause { background: var(--grey); }
+    .root-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .root-left h2 { font-family: var(--display); font-size: clamp(24px, 2.8vw, 38px); font-weight: 600; color: var(--ink); line-height: 1.22; margin-bottom: 20px; }
+    .root-left h2 .accent { color: var(--accent); }
+    .root-left p { font-size: 16px; color: var(--ink-70); margin-bottom: 16px; line-height: 1.7; }
+    .old-way-hd { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-50); margin-bottom: 14px; }
+    .old-way { list-style: none; border: 1px solid var(--grey-border); background: var(--grey-card); }
+    .old-way li { display: flex; align-items: flex-start; gap: 14px; padding: 14px 20px; border-bottom: 1px solid var(--grey-border); font-size: 14px; color: var(--ink-70); line-height: 1.55; }
     .old-way li:last-child { border-bottom: none; }
-    .old-way .x { font-size: 14px; font-weight: 700; color: var(--accent); flex-shrink: 0; }
+    .old-way .x { font-size: 12px; font-weight: 700; color: var(--accent); flex-shrink: 0; padding-top: 2px; }
 
-    /* WHO */
-    #who { background: var(--page-bg); }
-    .section-header { text-align: center; margin-bottom: 64px; }
-    .section-header h2 { font-size: clamp(26px, 3.2vw, 44px); margin-bottom: 16px; }
-    .section-header p { font-size: 17px; color: var(--ink-70); max-width: 480px; margin: 0 auto; line-height: 1.65; }
-    .who-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    /* ─── WHO ─── dark */
+    #who { background: var(--dark); }
+    .who-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--lt-10); border: 1px solid var(--lt-10); }
     .who-col { padding: 44px 40px; }
-    .who-col.for-col { background: var(--page-bg); }
-    .who-col.not-col { background: var(--slate-bg); }
+    .who-col.for-col { background: var(--dark-card); }
+    .who-col.not-col { background: rgba(255,255,255,0.02); }
     .who-col-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 28px; display: block; }
     .for-col .who-col-label { color: var(--accent); }
-    .not-col .who-col-label { color: var(--ink-50); }
+    .not-col .who-col-label { color: var(--lt-40); }
     .who-list { list-style: none; }
-    .who-list li { display: flex; align-items: flex-start; gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--border); font-size: 14.5px; line-height: 1.5; }
+    .who-list li { display: flex; align-items: flex-start; gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--lt-10); font-size: 14.5px; line-height: 1.55; }
     .who-list li:last-child { border-bottom: none; }
-    .for-col .who-list li { color: var(--ink); }
-    .not-col .who-list li { color: var(--ink-70); }
-    .who-mark { flex-shrink: 0; font-weight: 700; line-height: 1.5; }
+    .for-col .who-list li { color: var(--lt); }
+    .not-col .who-list li { color: var(--lt-40); }
+    .who-mark { flex-shrink: 0; font-weight: 700; line-height: 1.55; }
     .for-mark { color: var(--accent); }
-    .not-mark { color: var(--ink-35); }
+    .not-mark { color: var(--lt-20); }
 
-    /* PROCESS */
-    #process { background: var(--slate-bg); }
-    .steps { display: grid; grid-template-columns: repeat(3, 1fr); background: var(--border); border: 1px solid var(--border); gap: 1px; }
-    .step { background: var(--page-bg); padding: 44px 36px; position: relative; }
-    .step-num { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 22px; display: block; }
-    .step h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+    /* ─── PROCESS ─── light grey */
+    #process { background: var(--grey); }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--grey-border); border: 1px solid var(--grey-border); }
+    .step { background: var(--grey-card); padding: 44px 36px; position: relative; }
+    .step-num { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: block; }
+    .step h3 { font-size: 19px; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
     .step > p { font-size: 15px; color: var(--ink-70); line-height: 1.7; margin-bottom: 24px; }
     .step-list { list-style: none; }
-    .step-list li { font-size: 13px; color: var(--ink-50); padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 10px; line-height: 1.45; }
+    .step-list li { font-size: 13px; color: var(--ink-50); padding: 8px 0; border-bottom: 1px solid var(--grey-border); display: flex; gap: 10px; line-height: 1.5; }
     .step-list li:last-child { border-bottom: none; }
-    .step-list li::before { content: ''; width: 3px; height: 3px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 6px; }
-    .step:not(:last-child)::after { content: ''; position: absolute; top: 54px; right: -1px; width: 0; height: 0; border-top: 7px solid transparent; border-bottom: 7px solid transparent; border-left: 7px solid var(--accent); z-index: 2; }
+    .step-list li::before { content: ''; width: 3px; height: 3px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 7px; }
 
-    /* TRANSFORMATION */
-    #transformation { background: var(--page-bg); }
-    .compare { display: grid; grid-template-columns: 1fr 1fr; background: var(--border); border: 1px solid var(--border); gap: 1px; max-width: 860px; margin: 0 auto; }
+    /* ─── TRANSFORMATION ─── dark */
+    #transformation { background: var(--dark); }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--lt-10); border: 1px solid var(--lt-10); max-width: 920px; margin: 0 auto; }
     .compare-side { padding: 44px 40px; }
-    .compare-side.before-side { background: var(--slate-bg); }
-    .compare-side.after-side { background: var(--page-bg); }
+    .before-side { background: rgba(255,255,255,0.025); }
+    .after-side { background: var(--dark-card); }
     .compare-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 28px; display: block; }
-    .before-side .compare-label { color: var(--ink-35); }
+    .before-side .compare-label { color: var(--lt-40); }
     .after-side .compare-label { color: var(--accent); }
     .compare-items { list-style: none; }
-    .compare-items li { padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 14.5px; display: flex; gap: 12px; align-items: flex-start; line-height: 1.5; }
+    .compare-items li { padding: 12px 0; border-bottom: 1px solid var(--lt-10); font-size: 14.5px; display: flex; gap: 12px; align-items: flex-start; line-height: 1.5; }
     .compare-items li:last-child { border-bottom: none; }
-    .before-side .compare-items li { color: var(--ink-50); }
-    .after-side .compare-items li { color: var(--ink); }
+    .before-side .compare-items li { color: var(--lt-40); }
+    .after-side .compare-items li { color: var(--lt); }
     .mk { flex-shrink: 0; font-weight: 700; line-height: 1.5; }
-    .before-mk { color: var(--ink-35); }
+    .before-mk { color: var(--lt-20); }
     .after-mk { color: var(--accent); }
 
-    /* DATA PROOF */
-    #data-proof { background: var(--slate-bg); }
-    .data-grid { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--border); border: 1px solid var(--border); gap: 1px; }
-    .data-cell { background: var(--page-bg); padding: 32px 24px; text-align: center; }
-    .data-n { font-family: var(--display); font-size: 40px; font-weight: 600; color: var(--ink); line-height: 1; margin-bottom: 10px; display: block; }
-    .data-l { font-size: 12px; color: var(--ink-50); line-height: 1.5; }
+    /* ─── TESTIMONIALS ─── light grey */
+    #testimonials { background: var(--grey); }
+    .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--grey-border); border: 1px solid var(--grey-border); }
+    .t-card { background: var(--grey-card); padding: 36px 32px; display: flex; flex-direction: column; }
+    .t-stars { color: var(--accent); font-size: 14px; margin-bottom: 20px; letter-spacing: 2px; }
+    .t-quote { font-size: 15px; color: var(--ink-70); line-height: 1.8; font-style: italic; flex: 1; margin-bottom: 24px; }
+    .t-name { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
+    .t-title { font-size: 12px; color: var(--ink-50); letter-spacing: 0.04em; }
 
-    /* TESTIMONIALS */
-    #testimonials { background: var(--page-bg); }
-    .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); background: var(--border); border: 1px solid var(--border); gap: 1px; }
-    .t-card { background: var(--page-bg); padding: 36px 32px; display: flex; flex-direction: column; }
-    .t-stars { display: flex; gap: 2px; margin-bottom: 20px; color: var(--accent); font-size: 14px; }
-    .t-quote { font-size: 15px; color: var(--ink-70); line-height: 1.75; font-style: italic; flex: 1; margin-bottom: 24px; }
-    .t-author-name { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
-    .t-author-title { font-size: 12px; color: var(--ink-50); letter-spacing: 0.04em; }
-
-    /* CTA */
-    #heaven { background: var(--slate-bg); text-align: center; }
-    .heaven-inner { max-width: 620px; margin: 0 auto; }
-    .heaven-inner h2 { font-size: clamp(26px, 3.2vw, 42px); margin-bottom: 20px; }
-    .heaven-inner h2 em { font-style: italic; color: var(--accent); }
-    .heaven-inner > p { font-size: 17px; color: var(--ink-70); line-height: 1.65; max-width: 540px; margin: 0 auto 44px; }
+    /* ─── CTA ─── dark */
+    #cta-section { background: var(--dark); text-align: center; }
+    .cta-inner { max-width: 640px; margin: 0 auto; }
+    .cta-inner h2 { font-family: var(--display); font-size: clamp(26px, 3.4vw, 46px); font-weight: 600; color: var(--lt); line-height: 1.18; margin-bottom: 20px; }
+    .cta-inner h2 em { font-style: italic; color: var(--accent); }
+    .cta-inner > p { font-size: 17px; color: var(--lt-60); line-height: 1.65; max-width: 520px; margin: 0 auto 44px; }
     .cta-stack { display: flex; flex-direction: column; align-items: center; gap: 16px; }
-    .cta-fine { font-size: 12px; color: var(--ink-50); max-width: 380px; line-height: 1.6; }
+    .cta-fine { font-size: 12px; color: var(--lt-40); max-width: 380px; line-height: 1.65; }
 
     /* FOOTER */
-    footer { padding: 40px 0; border-top: 1px solid var(--border); background: var(--page-bg); }
+    footer { background: var(--dark); padding: 40px 0; border-top: 1px solid var(--lt-10); }
     .footer-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-    .footer-logo img { height: 20px; width: auto; display: block; filter: brightness(0); opacity: 0.4; }
-    .footer-copy { font-size: 12px; color: var(--ink-35); }
-    .footer-links { display: flex; gap: 22px; }
-    .footer-links a { font-size: 12px; color: var(--ink-50); transition: color 0.18s; }
-    .footer-links a:hover { color: var(--ink); }
+    .footer-logo img { height: 20px; filter: brightness(0) invert(1); opacity: 0.35; }
+    .footer-copy { font-size: 12px; color: var(--lt-40); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 12px; color: var(--lt-40); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--lt); }
 
     /* RESPONSIVE */
-    @media (max-width: 900px) {
+    @media (max-width: 960px) {
       section { padding: 72px 0; }
-      .root-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 52px; }
+      #hero { min-height: auto; padding: 108px 0 72px; }
+      .root-grid { grid-template-columns: 1fr; gap: 48px; }
       .steps { grid-template-columns: 1fr; }
-      .step:not(:last-child)::after { display: none; }
       .compare { grid-template-columns: 1fr; }
-      .data-grid { grid-template-columns: repeat(2, 1fr); }
       .testimonial-grid { grid-template-columns: 1fr; }
       .who-cols { grid-template-columns: 1fr; }
       .pain-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
     }
     @media (max-width: 640px) {
-      section { padding: 56px 0; }
-      .container, .container--mid { padding: 0 20px; }
+      .container { padding: 0 20px; }
       .pain-grid { grid-template-columns: 1fr; }
-      .who-cols { grid-template-columns: 1fr; }
-      .proof-row { flex-wrap: wrap; }
-      .proof-cell { flex: 0 0 50%; border-right: none; border-bottom: 1px solid var(--border); }
-      .proof-cell:nth-child(odd) { border-right: 1px solid var(--border); }
-      .proof-cell:nth-last-child(-n+2) { border-bottom: none; }
-      .hero-cta { flex-direction: column; width: 100%; }
-      .btn-primary-dark, .btn-outline-dark { width: 100%; }
-      .data-grid { grid-template-columns: repeat(2, 1fr); }
+      .proof-row { grid-template-columns: repeat(2, 1fr); }
+      .proof-cell:nth-child(2) { border-right: none; }
+      .proof-cell { border-bottom: 1px solid var(--grey-border); }
+      .proof-cell:last-child { border-bottom: none; grid-column: 1/-1; }
+      .hero-actions { flex-direction: column; }
+      .btn-solid, .btn-ghost { width: 100%; text-align: center; }
+      .hero-headline { font-size: clamp(36px, 11vw, 52px); }
     }
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
   <nav id="nav">
     <div class="container">
       <div class="nav-inner">
         <a href="#" class="nav-logo"><img src="logo-white.png" alt="Second Prime" /></a>
-        <a href="#cta" class="nav-cta">Apply Now</a>
+        <div class="nav-links">
+          <a href="#problem" class="nav-link">The Problem</a>
+          <a href="#process" class="nav-link">The Method</a>
+          <a href="#testimonials" class="nav-link">Results</a>
+        </div>
+        <a href="#cta-section" class="nav-cta">Apply Now</a>
       </div>
     </div>
   </nav>
 
+  <!-- ─── HERO ─── dark -->
   <section id="hero">
-    <div class="container hero-inner">
-      <span class="hero-eyebrow">Health · Performance · Longevity</span>
-      <h1 class="hero-headline">Your prime isn't in your past.<br><em>It's waiting to be engineered.</em></h1>
-      <p class="hero-sub">Built for leaders who refuse to accept decline.</p>
-      <div class="vsl-wrap">
-        <div class="vsl-frame">
-          <div class="vsl-overlay" id="vslOverlay">
-            <div class="vsl-play" aria-label="Play video">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <span class="vsl-label">Watch — 18 minutes that will change your next decade</span>
+    <div class="container">
+      <div class="hero-grid">
+
+        <div class="hero-left">
+          <span class="hero-eyebrow">Health · Performance · Longevity</span>
+          <h1 class="hero-headline">
+            <span class="thin">Ready to go from</span>
+            <span class="bold">depleted</span>
+            <span class="bold-accent">to dominant?</span>
+          </h1>
+          <p class="hero-sub">For business owners and executives who refuse to accept decline.</p>
+          <div class="hero-actions">
+            <a href="#cta-section" class="btn btn-solid">Apply for Your Assessment</a>
+            <a href="#process" class="btn btn-ghost">See How It Works</a>
           </div>
+          <p class="hero-footnote">Limited to 8 new clients per month &nbsp;·&nbsp; Application required</p>
         </div>
+
+        <div class="hero-right">
+          <div class="vsl-frame">
+            <div class="vsl-overlay" id="vslOverlay">
+              <div class="vsl-play" aria-label="Play video">
+                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
+          <p class="vsl-caption">Physician reveals the exact biomarker protocol helping elite executives reclaim peak performance at 40, 50, and beyond</p>
+        </div>
+
       </div>
-      <div class="hero-cta">
-        <a href="#cta" class="btn btn-primary-dark" style="font-size:13px;padding:18px 48px;">Apply for Your Executive Assessment</a>
-        <a href="#process" class="btn btn-outline-dark">See How It Works</a>
-      </div>
-      <p class="hero-footnote">Limited to 8 new clients per month &nbsp;·&nbsp; Private application required</p>
     </div>
   </section>
 
+  <!-- ─── PROOF BAR ─── light grey -->
   <div id="proof-bar">
     <div class="container">
       <div class="proof-row">
-        <div class="proof-cell"><span class="proof-num">1,000+</span><span class="proof-lbl">Biomarkers Analyzed</span></div>
-        <div class="proof-cell"><span class="proof-num">4,000+</span><span class="proof-lbl">Data Points Per Client</span></div>
-        <div class="proof-cell"><span class="proof-num">40–55</span><span class="proof-lbl">Peak Client Age Range</span></div>
+        <div class="proof-cell">
+          <span class="proof-num">1,000+</span>
+          <span class="proof-lbl">Biomarkers Analyzed</span>
+        </div>
+        <div class="proof-cell">
+          <span class="proof-num">4,000+</span>
+          <span class="proof-lbl">Data Points Per Client</span>
+        </div>
+        <div class="proof-cell">
+          <span class="proof-num">40–55</span>
+          <span class="proof-lbl">Peak Client Age Range</span>
+        </div>
       </div>
     </div>
   </div>
 
+  <!-- ─── PROBLEM ─── dark -->
   <section id="problem">
     <div class="container">
-      <p class="problem-lead">You're doing <span class="accent">everything right.</span><br>And you're still falling behind.</p>
+      <div class="section-hd">
+        <span class="eyebrow">Sound Familiar?</span>
+        <h2>You're doing <em>everything right.</em><br>And you're still falling behind.</h2>
+      </div>
       <div class="pain-grid">
         <div class="pain-cell">
           <div class="pain-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg></div>
@@ -281,7 +304,7 @@
         </div>
         <div class="pain-cell">
           <div class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-          <div><h4>Brain fog slowing your decisions</h4><p>Names slip, thoughts scatter, calls that used to be easy now drain you.</p></div>
+          <div><h4>Brain fog slowing your decisions</h4><p>Names slip, thoughts scatter. Calls that used to be easy now drain you.</p></div>
         </div>
         <div class="pain-cell">
           <div class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
@@ -297,12 +320,13 @@
         </div>
         <div class="pain-cell">
           <div class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <div><h4>Too depleted to be present at home</h4><p>Your kids want to play. Your partner wants you there. You're too drained.</p></div>
+          <div><h4>Too depleted to be present at home</h4><p>Your kids want you there. Your partner needs you. You're too drained to show up.</p></div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ─── ROOT CAUSE ─── light grey -->
   <section id="root-cause">
     <div class="container">
       <div class="root-grid">
@@ -313,13 +337,13 @@
           <p>The advice that works for everyone else fails when applied to your stress load, your hormonal shift, your performance requirements. You're not broken. You've been given the wrong tools.</p>
         </div>
         <div class="root-right">
-          <span class="eyebrow" style="color:var(--ink-50);">Why Your Current Approach Isn't Working</span>
+          <p class="old-way-hd">Why your current approach isn't working</p>
           <ul class="old-way">
             <li><span class="x">✕</span>Generic programs ignore your stress load and recovery capacity</li>
             <li><span class="x">✕</span>Basic labs miss functional optimization and early dysfunction</li>
             <li><span class="x">✕</span>Trendy diets don't account for your individual metabolic state</li>
             <li><span class="x">✕</span>Random supplements create interactions without fixing root causes</li>
-            <li><span class="x">✕</span>Fragmented specialists miss how your systems interact and compensate</li>
+            <li><span class="x">✕</span>Fragmented specialists miss how your systems interact</li>
             <li><span class="x">✕</span>Biohacking without strategy creates complexity, not results</li>
             <li><span class="x">✕</span>More effort without proper recovery compounds the problem</li>
           </ul>
@@ -328,11 +352,12 @@
     </div>
   </section>
 
+  <!-- ─── WHO ─── dark -->
   <section id="who">
     <div class="container">
-      <div class="section-header">
+      <div class="section-hd" style="margin-bottom:56px;">
         <span class="eyebrow">Who This Is For</span>
-        <h2>Built for a very specific<br>kind of <span class="accent">operator.</span></h2>
+        <h2>Built for a very specific<br>kind of <em>operator.</em></h2>
       </div>
       <div class="who-cols">
         <div class="who-col for-col">
@@ -359,12 +384,13 @@
     </div>
   </section>
 
+  <!-- ─── PROCESS ─── light grey -->
   <section id="process">
     <div class="container">
-      <div class="section-header">
+      <div class="section-hd on-grey" style="margin-bottom:56px;">
         <span class="eyebrow">The Method</span>
-        <h2>Precision-engineered.<br>Built around <span class="accent">your data.</span></h2>
-        <p>Not a program. Not a template. A performance system designed from your physiology up.</p>
+        <h2>Precision-engineered.<br>Built around <em style="color:var(--accent);">your data.</em></h2>
+        <p>Not a program. Not a template. A performance system built from your physiology up.</p>
       </div>
       <div class="steps">
         <div class="step">
@@ -412,11 +438,12 @@
     </div>
   </section>
 
+  <!-- ─── TRANSFORMATION ─── dark -->
   <section id="transformation">
     <div class="container">
-      <div class="section-header">
+      <div class="section-hd" style="margin-bottom:56px;">
         <span class="eyebrow">The Outcome</span>
-        <h2>Before Second Prime.<br>After <span class="accent">Second Prime.</span></h2>
+        <h2>Before Second Prime.<br>After <em>Second Prime.</em></h2>
       </div>
       <div class="compare">
         <div class="compare-side before-side">
@@ -449,56 +476,42 @@
     </div>
   </section>
 
-  <section id="data-proof">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">By The Numbers</span>
-        <h2>Precision isn't a promise.<br>It's a <span class="accent">process.</span></h2>
-        <p>Every protocol is built on data — not guesswork, not trends, not what worked for someone else.</p>
-      </div>
-      <div class="data-grid">
-        <div class="data-cell"><span class="data-n">1,000+</span><span class="data-l">Biomarkers in your<br>Executive Assessment</span></div>
-        <div class="data-cell"><span class="data-n">4,000+</span><span class="data-l">Individual data points<br>analyzed per client</span></div>
-        <div class="data-cell"><span class="data-n">3×</span><span class="data-l">More comprehensive than<br>standard executive physicals</span></div>
-        <div class="data-cell"><span class="data-n">100%</span><span class="data-l">Personalized protocols —<br>nothing generic</span></div>
-      </div>
-    </div>
-  </section>
-
+  <!-- ─── TESTIMONIALS ─── light grey -->
   <section id="testimonials">
     <div class="container">
-      <div class="section-header">
+      <div class="section-hd on-grey" style="margin-bottom:56px;">
         <span class="eyebrow">Client Results</span>
-        <h2>When effort finally meets<br>the right <span class="accent">system.</span></h2>
+        <h2>When effort finally meets<br>the right <em style="color:var(--accent);">system.</em></h2>
       </div>
       <div class="testimonial-grid">
         <div class="t-card">
           <div class="t-stars">★★★★★</div>
           <p class="t-quote">"I've worked with trainers, doctors, and specialists for years. No one connected the dots the way Second Prime did. My testosterone doubled, my inflammation markers are down, and I'm performing at a level I haven't seen since my 30s."</p>
-          <div><p class="t-author-name">J.M.</p><p class="t-author-title">Founder & CEO · Real Estate · Age 47</p></div>
+          <div><p class="t-name">J.M.</p><p class="t-title">Founder & CEO · Real Estate · Age 47</p></div>
         </div>
         <div class="t-card">
           <div class="t-stars">★★★★★</div>
-          <p class="t-quote">"The brain fog I thought was just 'getting older' is completely gone. My decision-making is sharper, my energy is consistent all day, and I'm present with my kids in a way I wasn't before. This is the best investment I've made."</p>
-          <div><p class="t-author-name">D.R.</p><p class="t-author-title">Founder · Construction · Age 52</p></div>
+          <p class="t-quote">"The brain fog I thought was just 'getting older' is completely gone. My decision-making is sharper, my energy is consistent all day, and I'm present with my kids in a way I wasn't before. Best investment I've made."</p>
+          <div><p class="t-name">D.R.</p><p class="t-title">Founder · Construction · Age 52</p></div>
         </div>
         <div class="t-card">
           <div class="t-stars">★★★★★</div>
           <p class="t-quote">"I was doing everything right and getting worse. Turns out I had three major root cause issues nobody had identified. Six months later I'm leaner than I was at 35 and my cardiovascular risk profile is completely transformed."</p>
-          <div><p class="t-author-name">T.K.</p><p class="t-author-title">Managing Partner · Asset Management · Age 49</p></div>
+          <div><p class="t-name">T.K.</p><p class="t-title">Managing Partner · Asset Management · Age 49</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="heaven">
+  <!-- ─── CTA ─── dark -->
+  <section id="cta-section">
     <div class="container">
-      <div class="heaven-inner" id="cta">
+      <div class="cta-inner">
         <span class="eyebrow">Your Next Chapter</span>
-        <h2>You're not slowing down.<br><em>You're just getting <span class="accent">started.</span></em></h2>
-        <p>You wake up sharp before your alarm. Biomarkers optimized. Decisions faster. Body leaner than your 30s. Fully present at home every night. Your body is an asset, not a liability.</p>
+        <h2>You're not slowing down.<br><em>You're just getting started.</em></h2>
+        <p>Wake up sharp. Biomarkers optimized. Decisions faster. Body leaner than your 30s. Fully present at home every night. Your body is an asset — it's time to treat it like one.</p>
         <div class="cta-stack">
-          <a href="#" class="btn btn-primary" style="font-size:13px;padding:20px 52px;">Apply for Your Executive Assessment</a>
+          <a href="#" class="btn btn-solid" style="font-size:13px;padding:20px 56px;">Apply for Your Executive Assessment</a>
           <p class="cta-fine">Limited to 8 new clients per month. Application required.<br>We'll reach out within 24 hours to confirm fit.</p>
         </div>
       </div>
@@ -522,8 +535,7 @@
   <script>
     const nav = document.getElementById('nav');
     function updateNav() {
-      if (window.scrollY > 60) { nav.classList.add('stuck'); nav.classList.remove('hero-mode'); }
-      else { nav.classList.remove('stuck'); nav.classList.add('hero-mode'); }
+      nav.classList.toggle('stuck', window.scrollY > 60);
     }
     updateNav();
     window.addEventListener('scroll', updateNav, { passive: true });
@@ -533,8 +545,9 @@
         if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
       });
     });
-    const vsl = document.getElementById('vslOverlay');
-    if (vsl) vsl.addEventListener('click', () => console.log('VSL clicked'));
+    document.getElementById('vslOverlay').addEventListener('click', () => {
+      console.log('VSL play clicked');
+    });
   </script>
 
 </body>
