@@ -10,9 +10,10 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* Break out of GHL section padding/background */
     .sp-page {
-      width: 100%;
-      min-height: 100vh;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
       background: #0D0D12;
       color: #F0F0F2;
       font-family: 'Satoshi', system-ui, -apple-system, sans-serif;
@@ -51,18 +52,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 48px 24px 80px;
+      padding: 64px 24px 80px;
       max-width: 820px;
       margin: 0 auto;
     }
 
-    .sp-logo {
-      margin-bottom: 52px;
-    }
-    .sp-logo img {
-      height: 40px;
-      display: block;
-    }
+    .sp-logo { margin-bottom: 52px; }
+    .sp-logo img { height: 40px; display: block; }
 
     .sp-eyebrow {
       font-size: 10.5px;
@@ -75,7 +71,6 @@
     }
 
     .sp-h1 {
-      font-family: 'Satoshi', system-ui, sans-serif;
       font-size: clamp(28px, 4.2vw, 52px);
       font-weight: 800;
       line-height: 1.05;
@@ -96,10 +91,7 @@
       margin-bottom: 44px;
     }
 
-    .sp-video-wrap {
-      width: 100%;
-      margin-bottom: 40px;
-    }
+    .sp-video-wrap { width: 100%; margin-bottom: 40px; }
     .sp-video-frame {
       position: relative;
       padding-bottom: 56.25%;
@@ -147,13 +139,127 @@
       text-align: center;
     }
 
+    /* ── Footer ── */
+    .sp-footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 36px 24px;
+      text-align: center;
+    }
+    .sp-footer-logo { margin-bottom: 16px; }
+    .sp-footer-logo img { height: 28px; opacity: 0.55; display: inline-block; }
+    .sp-footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .sp-footer-links a {
+      font-size: 11px;
+      color: rgba(240,240,242,0.35);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .sp-footer-links a:hover { color: rgba(240,240,242,0.7); }
+    .sp-footer-copy {
+      font-size: 11px;
+      color: rgba(240,240,242,0.22);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Modal ── */
+    .sp-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .sp-modal-overlay.open { display: flex; }
+
+    .sp-modal {
+      background: #0D0D12;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      width: 100%;
+      max-width: 560px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      padding: 40px 32px 36px;
+      animation: sp-modal-in 0.22s ease;
+    }
+    @keyframes sp-modal-in {
+      from { opacity: 0; transform: translateY(16px) scale(0.98); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .sp-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 32px;
+      height: 32px;
+      background: rgba(255,255,255,0.07);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(240,240,242,0.5);
+      font-size: 18px;
+      line-height: 1;
+      transition: background 0.2s, color 0.2s;
+    }
+    .sp-modal-close:hover { background: rgba(255,255,255,0.12); color: #F0F0F2; }
+
+    .sp-modal-heading {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #F0F0F2;
+      margin-bottom: 6px;
+      text-align: center;
+    }
+    .sp-modal-sub {
+      font-size: 13px;
+      color: rgba(240,240,242,0.45);
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    /* GHL form iframe container — swap in your GHL embed code here */
+    .sp-modal-form {
+      width: 100%;
+      min-height: 420px;
+    }
+    .sp-modal-form iframe {
+      width: 100%;
+      border: none;
+      min-height: 420px;
+    }
+
     @media (max-width: 600px) {
-      .sp-inner { padding: 36px 20px 60px; }
+      .sp-inner { padding: 48px 20px 64px; }
       .sp-logo { margin-bottom: 36px; }
+      .sp-modal { padding: 32px 20px 28px; }
     }
   </style>
 </head>
 <body>
+
+<!-- ── Main page ── -->
 <div class="sp-page">
   <div class="sp-noise"></div>
   <div class="sp-glow"></div>
@@ -179,12 +285,58 @@
     </div>
 
     <div class="sp-cta">
-      <a href="PASTE-YOUR-NEXT-STEP-URL-HERE" class="sp-btn">Apply for Second Prime</a>
+      <button class="sp-btn" onclick="spOpenModal()">Apply for Second Prime</button>
       <span class="sp-note">Limited to 8 new clients per month &nbsp;&middot;&nbsp; Application required</span>
     </div>
 
   </div>
+
+  <!-- ── Footer ── -->
+  <footer class="sp-footer">
+    <div class="sp-footer-logo">
+      <img src="logo-white.png" alt="Second Prime" />
+    </div>
+    <nav class="sp-footer-links">
+      <a href="/privacy-policy">Privacy Policy</a>
+      <a href="/terms">Terms &amp; Conditions</a>
+      <a href="/disclaimer">Disclaimer</a>
+      <a href="mailto:support@secondprime.com">Contact</a>
+    </nav>
+    <p class="sp-footer-copy">&copy; 2026 Second Prime. All rights reserved.</p>
+  </footer>
 </div>
+
+<!-- ── Modal ── -->
+<div class="sp-modal-overlay" id="spModal" onclick="spOverlayClose(event)">
+  <div class="sp-modal">
+    <button class="sp-modal-close" onclick="spCloseModal()" aria-label="Close">&times;</button>
+    <p class="sp-modal-heading">Start Your Application</p>
+    <p class="sp-modal-sub">Takes less than 3 minutes. We'll be in touch to confirm your spot.</p>
+
+    <div class="sp-modal-form">
+      <!-- PASTE YOUR GHL FORM EMBED CODE BELOW (replace this iframe) -->
+      <iframe src="PASTE-YOUR-GHL-FORM-URL-HERE" scrolling="no"></iframe>
+      <!-- END GHL FORM EMBED -->
+    </div>
+  </div>
+</div>
+
 <script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+  function spOpenModal() {
+    document.getElementById('spModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function spCloseModal() {
+    document.getElementById('spModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function spOverlayClose(e) {
+    if (e.target === document.getElementById('spModal')) spCloseModal();
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') spCloseModal();
+  });
+</script>
 </body>
 </html>
