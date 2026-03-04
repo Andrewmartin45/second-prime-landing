@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Second Prime — Watch This First</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    .sp-page {
+      width: 100%;
+      min-height: 100vh;
+      background: #0D0D12;
+      color: #F0F0F2;
+      font-family: 'Satoshi', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sp-noise {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.04;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .sp-glow {
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 600px;
+      background: radial-gradient(ellipse at center top, rgba(177,102,116,0.18) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .sp-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 24px 80px;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .sp-logo {
+      margin-bottom: 52px;
+    }
+    .sp-logo img {
+      height: 40px;
+      display: block;
+    }
+
+    .sp-eyebrow {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #8A9BB0;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .sp-h1 {
+      font-family: 'Satoshi', system-ui, sans-serif;
+      font-size: clamp(28px, 4.2vw, 52px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      text-transform: uppercase;
+      text-align: center;
+      color: #F0F0F2;
+      margin-bottom: 20px;
+    }
+    .sp-h1 .thin { font-weight: 300; display: block; }
+
+    .sp-sub {
+      font-size: 17px;
+      color: rgba(240,240,242,0.60);
+      text-align: center;
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 44px;
+    }
+
+    .sp-video-wrap {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    .sp-video-frame {
+      position: relative;
+      padding-bottom: 56.25%;
+      background: #07070E;
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .sp-video-frame iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+    }
+
+    .sp-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    .sp-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Satoshi', system-ui, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: #B16674;
+      color: #fff;
+      padding: 20px 64px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .sp-btn:hover { background: #955561; transform: translateY(-1px); }
+
+    .sp-note {
+      font-size: 11px;
+      color: rgba(240,240,242,0.40);
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .sp-inner { padding: 36px 20px 60px; }
+      .sp-logo { margin-bottom: 36px; }
+    }
+  </style>
+</head>
+<body>
+<div class="sp-page">
+  <div class="sp-noise"></div>
+  <div class="sp-glow"></div>
+  <div class="sp-inner">
+
+    <div class="sp-logo">
+      <img src="logo-white.png" alt="Second Prime" />
+    </div>
+
+    <span class="sp-eyebrow">For Founders &amp; Executives 40+ Who Refuse to Decline</span>
+
+    <h1 class="sp-h1">
+      <span class="thin">The system that gives you</span>
+      Your Peak Decade Back
+    </h1>
+
+    <p class="sp-sub">Watch the short video to learn the data-driven system for high-performing men to reclaim their energy, transform their body, and optimize their health.</p>
+
+    <div class="sp-video-wrap">
+      <div class="sp-video-frame">
+        <iframe src="https://player.vimeo.com/video/1170398256?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Second Prime VSL"></iframe>
+      </div>
+    </div>
+
+    <div class="sp-cta">
+      <a href="PASTE-YOUR-NEXT-STEP-URL-HERE" class="sp-btn">Apply for Second Prime</a>
+      <span class="sp-note">Limited to 8 new clients per month &nbsp;&middot;&nbsp; Application required</span>
+    </div>
+
+  </div>
+</div>
+<script src="https://player.vimeo.com/api/player.js"></script>
+</body>
+</html>
