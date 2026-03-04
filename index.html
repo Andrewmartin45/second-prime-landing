@@ -187,7 +187,7 @@
 
     /* ── THREE PILLARS ── dark */
     .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .pillar-card { background: var(--dark-card); padding: 40px 36px; border: 1px solid #3C3C4A; border-radius: 8px; }
+    /* .pillar-card padding moved to .pillar-body — see image components above */
     .pillar-num { font-size: 28px; font-weight: 800; color: var(--accent); margin-bottom: 14px; display: block; line-height: 1; font-family: var(--body); letter-spacing: -0.02em; }
     .pillar-card h3 { font-size: 19px; font-weight: 700; color: var(--lt); margin-bottom: 12px; line-height: 1.3; }
     .pillar-card p { font-size: 14.5px; color: var(--lt-60); line-height: 1.7; }
@@ -282,6 +282,44 @@
     .t-title { font-size: 12px; color: var(--ink-50); letter-spacing: 0.04em; }
     .panel--dark .t-title { color: var(--lt-40); }
 
+    /* ── HERO PHOTO STRIP ── */
+    .hero-photo-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: 100%; margin-top: 48px; }
+    .hero-photo-strip img { width: 100%; height: 160px; object-fit: cover; border-radius: 6px; filter: brightness(0.55) saturate(0.75); display: block; }
+
+    /* ── PILLAR CARD WITH PHOTO ── */
+    .pillar-card { background: var(--dark-card); border: 1px solid #3C3C4A; border-radius: 8px; overflow: hidden; padding: 0; }
+    .pillar-img { width: 100%; height: 190px; object-fit: cover; display: block; }
+    .pillar-body { padding: 32px 36px 40px; }
+
+    /* ── WHO PHOTO BANNER ── */
+    .who-photo-wrap { margin-bottom: 48px; border-radius: 8px; overflow: hidden; }
+    .who-photo-wrap img { width: 100%; height: 340px; object-fit: cover; object-position: center 30%; display: block; }
+
+    /* ── TRANSFORMATION PHOTO ── */
+    .transform-photo { margin-top: 48px; border-radius: 8px; overflow: hidden; max-width: 900px; margin-left: auto; margin-right: auto; }
+    .transform-photo img { width: 100%; height: 320px; object-fit: cover; object-position: center 45%; display: block; }
+
+    /* ── TESTIMONIAL AVATARS ── */
+    .t-avatar { width: 38px; height: 38px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; letter-spacing: 0.02em; margin-bottom: 16px; }
+    .t-avatar--1 { background: rgba(177,102,116,0.20); color: var(--accent); }
+    .t-avatar--2 { background: rgba(44,196,176,0.14); color: var(--teal); }
+    .t-avatar--3 { background: rgba(240,240,242,0.10); color: var(--lt); border: 1px solid var(--bd-dark); }
+    .t-lifestyle { margin-top: 48px; border-radius: 8px; overflow: hidden; }
+    .t-lifestyle img { width: 100%; height: 260px; object-fit: cover; object-position: center 40%; display: block; filter: brightness(0.7) saturate(0.85); }
+
+    /* ── FOUNDER SECTION ── */
+    #founder .panel-inner { padding-top: 80px; padding-bottom: 80px; }
+    .founder-grid { display: grid; grid-template-columns: 380px 1fr; gap: 80px; align-items: start; }
+    .founder-photo { border-radius: 8px; overflow: hidden; }
+    .founder-photo img { width: 100%; height: 540px; object-fit: cover; object-position: center top; display: block; }
+    .founder-text { padding-top: 8px; }
+    .founder-text h2 { font-family: var(--display); font-size: clamp(22px, 2.8vw, 36px); font-weight: 600; color: var(--ink); line-height: 1.22; margin-bottom: 18px; }
+    .founder-text h2 .accent { color: var(--accent); }
+    .founder-text p { font-size: 15.5px; color: var(--ink-70); margin-bottom: 14px; line-height: 1.7; }
+    .founder-creds { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--grey-bd); padding-top: 28px; margin-top: 32px; }
+    .cred-val { display: block; font-family: var(--display); font-size: 30px; font-weight: 600; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 6px; }
+    .cred-lbl { font-size: 11px; color: var(--ink-50); font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; line-height: 1.45; }
+
     /* ── CTA ── grey */
     .cta-inner { max-width: 620px; margin: 0 auto; text-align: center; }
     .cta-inner h2 { font-family: var(--display); font-size: clamp(24px, 3.2vw, 44px); font-weight: 600; color: var(--lt); line-height: 1.18; margin-bottom: 18px; }
@@ -315,6 +353,8 @@
       .t-grid    { grid-template-columns: 1fr; }
       .pain-grid { grid-template-columns: repeat(2, 1fr); }
       .pillars-grid { grid-template-columns: 1fr; }
+      .founder-grid { grid-template-columns: 1fr; gap: 40px; }
+      .founder-photo img { height: 400px; }
       .panel-inner, .panel-inner--sm { padding-left: 48px; padding-right: 48px; }
     }
     .nav-cta-mob { display: none; }
@@ -371,6 +411,11 @@
         </div>
         <a href="#cta-section" class="btn btn--accent">Join Second Prime</a>
         <p class="hero-note">Limited to 8 new clients per month &nbsp;·&nbsp; Application required</p>
+        <div class="hero-photo-strip">
+          <img src="photo-run.jpg"  alt="">
+          <img src="photo-row.jpg"  alt="">
+          <img src="photo-walk.jpg" alt="">
+        </div>
       </div>
     </div>
   </div>
@@ -468,19 +513,28 @@
         </div>
         <div class="pillars-grid">
           <div class="pillar-card">
-            <span class="pillar-num">01</span>
-            <h3>Mitigate Health Risks</h3>
-            <p>Identify and address cardiovascular, metabolic, and hormonal risks before they become liabilities. We don't wait for crisis — we prevent it with deep diagnostic precision.</p>
+            <img class="pillar-img" src="photo-sauna.jpg" alt="">
+            <div class="pillar-body">
+              <span class="pillar-num">01</span>
+              <h3>Mitigate Health Risks</h3>
+              <p>Identify and address cardiovascular, metabolic, and hormonal risks before they become liabilities. We don't wait for crisis — we prevent it with deep diagnostic precision.</p>
+            </div>
           </div>
           <div class="pillar-card">
-            <span class="pillar-num">02</span>
-            <h3>Build Peak Performance</h3>
-            <p>Optimize energy, cognition, body composition, and recovery so you operate at the highest level — in the boardroom, in the gym, and at home.</p>
+            <img class="pillar-img" src="photo-spin.jpg" alt="">
+            <div class="pillar-body">
+              <span class="pillar-num">02</span>
+              <h3>Build Peak Performance</h3>
+              <p>Optimize energy, cognition, body composition, and recovery so you operate at the highest level — in the boardroom, in the gym, and at home.</p>
+            </div>
           </div>
           <div class="pillar-card">
-            <span class="pillar-num">03</span>
-            <h3>Extend Longevity</h3>
-            <p>Not just more years — more years at peak performance. We define longevity by how long you operate at your best, not simply how long you live.</p>
+            <img class="pillar-img" src="photo-tennis.jpg" alt="">
+            <div class="pillar-body">
+              <span class="pillar-num">03</span>
+              <h3>Extend Longevity</h3>
+              <p>Not just more years — more years at peak performance. We define longevity by how long you operate at your best, not simply how long you live.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -491,9 +545,12 @@
   <div id="who" class="sp">
     <div class="panel panel--grey">
       <div class="panel-inner">
-        <div class="section-hd" style="margin-bottom:52px;">
+        <div class="section-hd" style="margin-bottom:40px;">
           <span class="eyebrow">Who This Is For</span>
           <h2>Built for a very specific<br>kind of <em>operator.</em></h2>
+        </div>
+        <div class="who-photo-wrap">
+          <img src="photo-trail.jpg" alt="">
         </div>
         <div class="who-cols">
           <div class="who-col for-col">
@@ -611,6 +668,9 @@
             </ul>
           </div>
         </div>
+        <div class="transform-photo">
+          <img src="photo-cycling.jpg" alt="">
+        </div>
       </div>
     </div>
   </div>
@@ -625,19 +685,59 @@
         </div>
         <div class="t-grid">
           <div class="t-card">
+            <div class="t-avatar t-avatar--1">JM</div>
             <div class="t-stars">★★★★★</div>
             <p class="t-quote">"I've worked with trainers, doctors, and specialists for years. No one connected the dots the way Second Prime did. My testosterone doubled, inflammation markers are down, and I'm performing at a level I haven't seen since my 30s."</p>
             <div><p class="t-name">J.M.</p><p class="t-title">Founder & CEO · Real Estate · Age 47</p></div>
           </div>
           <div class="t-card">
+            <div class="t-avatar t-avatar--2">DR</div>
             <div class="t-stars">★★★★★</div>
             <p class="t-quote">"The brain fog I thought was just 'getting older' is completely gone. My decision-making is sharper, energy is consistent all day, and I'm present with my kids in a way I wasn't before. Best investment I've made."</p>
             <div><p class="t-name">D.R.</p><p class="t-title">Founder · Construction · Age 52</p></div>
           </div>
           <div class="t-card">
+            <div class="t-avatar t-avatar--3">TK</div>
             <div class="t-stars">★★★★★</div>
             <p class="t-quote">"I was doing everything right and getting worse. Turns out I had three major root cause issues nobody had identified. Six months later I'm leaner than I was at 35 and my cardiovascular risk profile is transformed."</p>
             <div><p class="t-name">T.K.</p><p class="t-title">Managing Partner · Asset Management · Age 49</p></div>
+          </div>
+        </div>
+        <div class="t-lifestyle">
+          <img src="photo-garage.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── FOUNDER: grey panel ─── -->
+  <div id="founder" class="sp">
+    <div class="panel panel--grey">
+      <div class="panel-inner">
+        <div class="founder-grid">
+          <div class="founder-photo">
+            <img src="photo-soccer.jpg" alt="[Founder Name], Founder of Second Prime">
+          </div>
+          <div class="founder-text">
+            <span class="eyebrow">Who's Behind This</span>
+            <h2>Built by a biologist.<br><span class="accent">Run for operators.</span></h2>
+            <p>Second Prime was founded by [Founder Name], a functional biologist with over a decade of clinical experience optimizing performance in high-demand executives and elite athletes.</p>
+            <p>The system came from a simple observation: the people running the hardest were getting the least useful guidance. Standard medicine flags crisis — it doesn't build performance. Generic fitness culture is built for average demands, not yours.</p>
+            <p>We built Second Prime to close that gap — with the rigor of clinical research and the precision your physiology actually demands.</p>
+            <div class="founder-creds">
+              <div>
+                <span class="cred-val">12+ yr</span>
+                <span class="cred-lbl">Clinical &amp; Performance Research</span>
+              </div>
+              <div>
+                <span class="cred-val">300+</span>
+                <span class="cred-lbl">Executive Clients Optimized</span>
+              </div>
+              <div>
+                <span class="cred-val">1,000+</span>
+                <span class="cred-lbl">Biomarkers Per Assessment</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
