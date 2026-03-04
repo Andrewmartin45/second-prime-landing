@@ -91,17 +91,17 @@
       left: 100px;
       right: 100px;
       z-index: 300;
-      background: rgba(13,13,18,0.40);
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
+      background: rgba(13,13,18,0.18);
+      backdrop-filter: blur(32px) saturate(180%);
+      -webkit-backdrop-filter: blur(32px) saturate(180%);
       border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.13);
       padding: 14px 24px;
       display: flex; align-items: center; justify-content: space-between;
       transition: background 0.25s, border-color 0.25s;
     }
-    #nav.scrolled-dark { background: rgba(13,13,18,0.88); border-color: rgba(255,255,255,0.13); }
-    #nav.light-mode    { background: rgba(255,255,255,0.80); border-color: rgba(13,13,18,0.10); }
+    #nav.scrolled-dark { background: rgba(13,13,18,0.45); border-color: rgba(255,255,255,0.14); }
+    #nav.light-mode    { background: rgba(255,255,255,0.45); border-color: rgba(13,13,18,0.10); }
 
     .nav-logo img { height: 36px; filter: brightness(0) invert(1); transition: filter 0.25s; }
     .nav-links { display: flex; align-items: center; gap: 28px; }
