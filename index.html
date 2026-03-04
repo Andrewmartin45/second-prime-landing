@@ -59,16 +59,25 @@
     .sp { display: block; margin-bottom: var(--gap); }
 
     /* Panels */
-    .panel { width: 100%; border-radius: 16px; overflow: hidden; }
+    .panel { width: 100%; border-radius: 16px; overflow: hidden; position: relative; }
     .panel--dark { background: var(--dark); color: var(--lt); }
+    .panel--dark::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.045;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+    }
     .panel--grey { background: var(--grey); color: var(--ink); }
 
-    .panel-inner    { max-width: 1140px; margin: 0 auto; padding: 80px 56px; }
-    .panel-inner--sm{ max-width: 1140px; margin: 0 auto; padding: 36px 56px; }
+    .panel-inner    { max-width: 1140px; margin: 0 auto; padding: 100px 72px; position: relative; z-index: 1; }
+    .panel-inner--sm{ max-width: 1140px; margin: 0 auto; padding: 40px 72px;  position: relative; z-index: 1; }
 
     .eyebrow { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
     .eyebrow--teal { color: var(--teal); }
-    .section-hd { text-align: center; margin-bottom: 56px; }
+    .section-hd { text-align: center; margin-bottom: 72px; }
     .section-hd h2 { font-family: var(--display); font-size: clamp(24px, 3vw, 42px); font-weight: 600; line-height: 1.2; }
     .section-hd h2 em { font-style: italic; color: var(--accent); }
     .section-hd p { font-size: 16px; max-width: 460px; margin: 14px auto 0; line-height: 1.65; }
@@ -123,6 +132,16 @@
       min-height: 100vh;
       display: flex; align-items: center; justify-content: center;
       border-radius: 16px; overflow: hidden;
+      position: relative;
+    }
+    .hero-panel::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 700px;
+      background: radial-gradient(ellipse at center top, rgba(177,102,116,0.22) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
     }
     .hero-inner {
       max-width: 1000px;
@@ -131,6 +150,7 @@
       display: flex; flex-direction: column; align-items: center;
       text-align: center;
       width: 100%;
+      position: relative; z-index: 1;
     }
     .hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lt-40); margin-bottom: 22px; }
     .hero-h1 {
@@ -160,9 +180,9 @@
 
     /* ── PROOF BAR ── grey */
     .proof-row { display: grid; grid-template-columns: repeat(3, 1fr); }
-    .proof-cell { padding: 32px 24px; text-align: center; border-right: 1px solid var(--grey-bd); }
+    .proof-cell { padding: 44px 24px; text-align: center; border-right: 1px solid var(--grey-bd); }
     .proof-cell:last-child { border-right: none; }
-    .proof-num { font-family: var(--display); font-size: 36px; font-weight: 600; color: var(--ink); line-height: 1; margin-bottom: 7px; display: block; }
+    .proof-num { font-family: var(--display); font-size: 54px; font-weight: 600; color: var(--ink); line-height: 1; margin-bottom: 10px; display: block; letter-spacing: -0.02em; }
     .proof-lbl { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-50); }
 
     /* ── THREE PILLARS ── dark */
@@ -295,7 +315,7 @@
       .t-grid    { grid-template-columns: 1fr; }
       .pain-grid { grid-template-columns: repeat(2, 1fr); }
       .pillars-grid { grid-template-columns: 1fr; }
-      .panel-inner, .panel-inner--sm { padding-left: 36px; padding-right: 36px; }
+      .panel-inner, .panel-inner--sm { padding-left: 48px; padding-right: 48px; }
     }
     .nav-cta-mob { display: none; }
     @media (max-width: 600px) {
