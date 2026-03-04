@@ -107,7 +107,7 @@
     .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-link { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lt-40); transition: color 0.2s; }
     .nav-link:hover { color: var(--lt); }
-    .nav-cta { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lt); padding: 9px 22px; border: 1px solid var(--lt-20); border-radius: 10px; transition: all 0.2s; }
+    .nav-cta { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lt); padding: 9px 22px; border: 1px solid var(--lt-20); border-radius: 10px; white-space: nowrap; transition: all 0.2s; }
     .nav-cta:hover { border-color: var(--lt-60); }
 
     #nav.light-mode .nav-logo img { filter: brightness(0); }
@@ -297,9 +297,12 @@
       .pillars-grid { grid-template-columns: 1fr; }
       .panel-inner, .panel-inner--sm { padding-left: 36px; padding-right: 36px; }
     }
+    .nav-cta-mob { display: none; }
     @media (max-width: 600px) {
       :root { --rail: 12px; }
       #nav { left: 22px; right: 22px; padding: 13px 18px; top: 10px; border-radius: 16px; }
+      .nav-cta-desk { display: none; }
+      .nav-cta-mob  { display: inline; }
       .pain-grid { grid-template-columns: 1fr; }
       .proof-row { grid-template-columns: 1fr 1fr; }
       .proof-cell:nth-child(2) { border-right: none; }
@@ -323,7 +326,7 @@
       <a href="#process"      class="nav-link">The Method</a>
       <a href="#testimonials" class="nav-link">Results</a>
     </div>
-    <a href="#cta-section" class="nav-cta">Join 2nd Prime</a>
+    <a href="#cta-section" class="nav-cta"><span class="nav-cta-desk">Join Second Prime</span><span class="nav-cta-mob">Join 2nd Prime</span></a>
   </nav>
 
   <!-- ─── HERO: dark panel, starts near top so nav is embedded ─── -->
