@@ -341,12 +341,18 @@
 <script src="https://app.fitnessforms.co/js/form_embed.js"></script>
 <script>
   function spOpenModal() {
+    // Prevent iOS from zooming in when tapping inputs inside the iframe
+    var vp = document.querySelector('meta[name="viewport"]');
+    vp.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0');
     document.getElementById('spModal').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
   function spCloseModal() {
     document.getElementById('spModal').classList.remove('open');
     document.body.style.overflow = '';
+    // Restore normal viewport so pinch-zoom works outside the modal
+    var vp = document.querySelector('meta[name="viewport"]');
+    vp.setAttribute('content', 'width=device-width, initial-scale=1.0');
   }
   function spOverlayClose(e) {
     if (e.target === document.getElementById('spModal')) spCloseModal();
