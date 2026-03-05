@@ -354,6 +354,25 @@
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') spCloseModal();
   });
+
+  // Redirect to booking page when the survey is completed
+  window.addEventListener('message', function(e) {
+    if (!e.data) return;
+    var d = e.data;
+    // fitnessforms / GHL survey completion signals
+    if (
+      d === 'form-submitted' ||
+      d === 'survey_submitted' ||
+      (typeof d === 'object' && (
+        d.type === 'form-submitted' ||
+        d.event === 'survey_submitted' ||
+        d.action === 'redirect' ||
+        d.type === 'surveyComplete'
+      ))
+    ) {
+      window.location.href = '/book';
+    }
+  });
 </script>
 </body>
 </html>
