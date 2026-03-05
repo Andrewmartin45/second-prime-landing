@@ -172,44 +172,29 @@
       letter-spacing: 0.04em;
     }
 
-    /* ── Modal ── */
+    /* ── Modal — always full-screen ── */
     .sp-modal-overlay {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.75);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
       z-index: 9999;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
     }
     .sp-modal-overlay.open { display: flex; }
 
     .sp-modal {
       background: #0D0D12;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 14px;
       width: 100%;
-      max-width: 600px;
-      max-height: 90vh;
+      height: 100%;
       overflow: hidden;
       position: relative;
-      padding: 40px 32px 36px;
-      animation: sp-modal-in 0.22s ease;
       display: flex;
       flex-direction: column;
-    }
-    @keyframes sp-modal-in {
-      from { opacity: 0; transform: translateY(16px) scale(0.98); }
-      to   { opacity: 1; transform: translateY(0) scale(1); }
     }
 
     .sp-modal-close {
       position: absolute;
-      top: 16px;
-      right: 16px;
+      top: 12px;
+      right: 12px;
       width: 32px;
       height: 32px;
       background: rgba(255,255,255,0.07);
@@ -223,29 +208,15 @@
       font-size: 18px;
       line-height: 1;
       transition: background 0.2s, color 0.2s;
-      flex-shrink: 0;
+      z-index: 1;
     }
     .sp-modal-close:hover { background: rgba(255,255,255,0.12); color: #F0F0F2; }
 
-    .sp-modal-heading {
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      text-transform: uppercase;
-      color: #F0F0F2;
-      margin-bottom: 6px;
-      text-align: center;
-      flex-shrink: 0;
-    }
-    .sp-modal-sub {
-      font-size: 13px;
-      color: rgba(240,240,242,0.45);
-      text-align: center;
-      margin-bottom: 16px;
-      flex-shrink: 0;
-    }
+    /* Hide heading/sub — Typeform shows Second Prime branding inside */
+    .sp-modal-heading,
+    .sp-modal-sub { display: none; }
 
-    /* Typeform widget container — grows to fill available modal height */
+    /* Typeform iframe fills the entire modal */
     .sp-modal-form {
       width: 100%;
       flex: 1 1 auto;
@@ -259,7 +230,6 @@
       display: block;
     }
 
-    /* ── Mobile: full-screen modal ── */
     @media (max-width: 600px) {
       .sp-inner { padding: 36px 20px 48px; }
       .sp-logo { margin-bottom: 28px; }
@@ -280,18 +250,6 @@
         line-height: 1.65;
       }
       .sp-video-wrap { margin-bottom: 28px; }
-
-      /* Full-screen takeover on mobile */
-      .sp-modal-overlay { padding: 0; }
-      .sp-modal {
-        border-radius: 0;
-        border: none;
-        max-width: 100%;
-        max-height: 100%;
-        height: 100%;
-        width: 100%;
-        padding: 20px 12px 12px;
-      }
     }
   </style>
 </head>
