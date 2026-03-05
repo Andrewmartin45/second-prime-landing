@@ -12,10 +12,14 @@
       margin: 0;
       padding: 0;
       background: #0D0D12;
+      min-height: 100%;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     .sp-page {
-      width: 100%;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      margin-top: -60px;
+      padding-top: 60px;
       background: #0D0D12;
       color: #F0F0F2;
       font-family: 'Satoshi', system-ui, -apple-system, sans-serif;
@@ -39,7 +43,7 @@
     }
     .sp-glow {
       position: absolute;
-      top: -120px;
+      top: 0;
       left: 50%;
       transform: translateX(-50%);
       width: 900px;
