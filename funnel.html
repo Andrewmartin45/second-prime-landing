@@ -191,9 +191,9 @@
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 14px;
       width: 100%;
-      max-width: 560px;
+      max-width: 600px;
       max-height: 90vh;
-      overflow-y: auto;
+      overflow: hidden;
       position: relative;
       padding: 40px 32px 36px;
       animation: sp-modal-in 0.22s ease;
@@ -239,15 +239,10 @@
       margin-bottom: 28px;
     }
 
-    /* GHL form iframe container — swap in your GHL embed code here */
+    /* Typeform widget container */
     .sp-modal-form {
       width: 100%;
-      min-height: 420px;
-    }
-    .sp-modal-form iframe {
-      width: 100%;
-      border: none;
-      min-height: 420px;
+      height: 480px;
     }
 
     @media (max-width: 600px) {
@@ -331,22 +326,39 @@
     <p class="sp-modal-heading">Start Your Application</p>
     <p class="sp-modal-sub">Takes less than 3 minutes. We'll be in touch to confirm your spot.</p>
 
-    <div class="sp-modal-form">
-      <iframe src="https://app.fitnessforms.co/widget/survey/EMOKLtyh37pTXEUmxEQc" style="border:none;width:100%;" scrolling="no" id="EMOKLtyh37pTXEUmxEQc" title="survey"></iframe>
-    </div>
+    <div class="sp-modal-form" id="spTfContainer"></div>
   </div>
 </div>
 
 <script src="https://player.vimeo.com/api/player.js"></script>
-<script src="https://app.fitnessforms.co/js/form_embed.js"></script>
+<script src="//embed.typeform.com/next/embed.js"></script>
 <script>
+  var spTfWidget = null;
+
+  function spInitTypeform() {
+    if (spTfWidget || !window.tf) return;
+    spTfWidget = window.tf.createWidget('T6fa2a2p', {
+      container: document.getElementById('spTfContainer'),
+      hideHeaders: true,
+      onSubmit: function() {
+        window.location.href = 'https://apply.secondprime.io/book';
+      }
+    });
+  }
+
   function spOpenModal() {
     // Prevent iOS from zooming in when tapping inputs inside the iframe
     var vp = document.querySelector('meta[name="viewport"]');
     vp.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0');
     document.getElementById('spModal').classList.add('open');
     document.body.style.overflow = 'hidden';
+    if (window.tf) {
+      spInitTypeform();
+    } else {
+      document.querySelector('script[src*="typeform"]').addEventListener('load', spInitTypeform);
+    }
   }
+
   function spCloseModal() {
     document.getElementById('spModal').classList.remove('open');
     document.body.style.overflow = '';
@@ -354,30 +366,13 @@
     var vp = document.querySelector('meta[name="viewport"]');
     vp.setAttribute('content', 'width=device-width, initial-scale=1.0');
   }
+
   function spOverlayClose(e) {
     if (e.target === document.getElementById('spModal')) spCloseModal();
   }
+
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') spCloseModal();
-  });
-
-  // Redirect to booking page when the survey is completed
-  window.addEventListener('message', function(e) {
-    if (!e.data) return;
-    var d = e.data;
-    // fitnessforms / GHL survey completion signals
-    if (
-      d === 'form-submitted' ||
-      d === 'survey_submitted' ||
-      (typeof d === 'object' && (
-        d.type === 'form-submitted' ||
-        d.event === 'survey_submitted' ||
-        d.action === 'redirect' ||
-        d.type === 'surveyComplete'
-      ))
-    ) {
-      window.location.href = '/book';
-    }
   });
 </script>
 </body>
