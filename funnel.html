@@ -243,6 +243,8 @@
     .sp-modal-form {
       width: 100%;
       height: 480px;
+      overflow: hidden;
+      -webkit-overflow-scrolling: touch;
     }
 
     @media (max-width: 600px) {
@@ -326,37 +328,31 @@
     <p class="sp-modal-heading">Start Your Application</p>
     <p class="sp-modal-sub">Takes less than 3 minutes. We'll be in touch to confirm your spot.</p>
 
-    <div class="sp-modal-form" id="spTfContainer"></div>
+    <div class="sp-modal-form" id="spTfContainer">
+      <iframe id="spTfIframe"
+        src=""
+        frameborder="0"
+        allow="camera; microphone; autoplay; encrypted-media; fullscreen"
+        style="width:100%;height:100%;border:none;"
+        title="Apply for Second Prime"
+      ></iframe>
+    </div>
   </div>
 </div>
 
 <script src="https://player.vimeo.com/api/player.js"></script>
-<script src="//embed.typeform.com/next/embed.js"></script>
 <script>
-  var spTfWidget = null;
-
-  function spInitTypeform() {
-    if (spTfWidget || !window.tf) return;
-    spTfWidget = window.tf.createWidget('T6fa2a2p', {
-      container: document.getElementById('spTfContainer'),
-      hideHeaders: true,
-      onSubmit: function() {
-        window.location.href = 'https://apply.secondprime.io/book';
-      }
-    });
-  }
-
   function spOpenModal() {
     // Prevent iOS from zooming in when tapping inputs inside the iframe
     var vp = document.querySelector('meta[name="viewport"]');
     vp.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0');
+    // Lazy-load the iframe src only when modal opens
+    var iframe = document.getElementById('spTfIframe');
+    if (!iframe.src || iframe.src === window.location.href) {
+      iframe.src = 'https://form.typeform.com/to/T6fa2a2p';
+    }
     document.getElementById('spModal').classList.add('open');
     document.body.style.overflow = 'hidden';
-    if (window.tf) {
-      spInitTypeform();
-    } else {
-      document.querySelector('script[src*="typeform"]').addEventListener('load', spInitTypeform);
-    }
   }
 
   function spCloseModal() {
