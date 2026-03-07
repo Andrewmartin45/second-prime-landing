@@ -765,7 +765,7 @@
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const t = document.querySelector(a.getAttribute('href'));
-        if (t) { e.preventDefault(); window.__spGoTo && window.__spGoTo(t); }
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
       });
     });
     document.getElementById('vslOverlay').addEventListener('click', () => {
@@ -773,49 +773,5 @@
     });
   </script>
 
-  <script>
-    (function () {
-      const sections = Array.from(document.querySelectorAll('.sp'));
-      let current = 0;
-      let locked = false;
-
-      function goToEl(el) {
-        const idx = sections.indexOf(el);
-        if (idx !== -1) goTo(idx);
-        else { window.scrollTo({ top: el.offsetTop, behavior: 'smooth' }); }
-      }
-      window.__spGoTo = goToEl;
-
-      function goTo(idx) {
-        if (locked || idx < 0 || idx >= sections.length) return;
-        locked = true;
-        current = idx;
-        window.scrollTo({ top: sections[idx].offsetTop, behavior: 'smooth' });
-        setTimeout(function () { locked = false; }, 900);
-      }
-
-      window.addEventListener('scroll', function () {
-        const mid = window.scrollY + window.innerHeight / 2;
-        sections.forEach(function (s, i) { if (s.offsetTop <= mid) current = i; });
-      }, { passive: true });
-
-      window.addEventListener('wheel', function (e) {
-        e.preventDefault();
-        goTo(current + (e.deltaY > 0 ? 1 : -1));
-      }, { passive: false });
-
-      window.addEventListener('keydown', function (e) {
-        if (e.key === 'ArrowDown' || e.key === 'PageDown') { e.preventDefault(); goTo(current + 1); }
-        if (e.key === 'ArrowUp'   || e.key === 'PageUp')   { e.preventDefault(); goTo(current - 1); }
-      });
-
-      var touchY = 0;
-      window.addEventListener('touchstart', function (e) { touchY = e.touches[0].clientY; }, { passive: true });
-      window.addEventListener('touchend',   function (e) {
-        var diff = touchY - e.changedTouches[0].clientY;
-        if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
-      }, { passive: true });
-    })();
-  </script>
 </body>
 </html>
