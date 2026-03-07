@@ -62,10 +62,10 @@
     img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
 
-    .sp { display: block; margin-bottom: var(--gap); }
+    .sp { display: block; height: 100vh; overflow: hidden; }
 
     /* Panels */
-    .panel { width: 100%; border-radius: 16px; overflow: hidden; position: relative; }
+    .panel { width: 100%; height: 100%; border-radius: 16px; overflow: hidden; position: relative; }
     .panel--dark { background: var(--dark); color: var(--lt); }
     .panel--dark::after {
       content: '';
@@ -134,10 +134,10 @@
     #nav.light-mode .nav-cta:hover { border-color: rgba(13,13,18,0.65); }
 
     /* ── HERO ── dark panel, starts near top so nav floats inside it */
-    #hero { margin-top: 4px; margin-bottom: var(--gap); }
+    #hero { margin: 0; }
     .hero-panel {
       background: var(--dark);
-      min-height: 100vh;
+      height: 100%;
       display: flex; align-items: center; justify-content: center;
       border-radius: 16px; overflow: hidden;
       position: relative;
@@ -765,7 +765,7 @@
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const t = document.querySelector(a.getAttribute('href'));
-        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+        if (t) { e.preventDefault(); window.__spGoTo && window.__spGoTo(t); }
       });
     });
     document.getElementById('vslOverlay').addEventListener('click', () => {
@@ -776,30 +776,44 @@
   <script>
     (function () {
       const sections = Array.from(document.querySelectorAll('.sp'));
-      let snapTimer = null;
-      let userScrolling = false;
-      let userScrollTimer = null;
+      let current = 0;
+      let locked = false;
 
-      function snapToNearest() {
-        let closest = null;
-        let minDist = Infinity;
-        sections.forEach(function (s) {
-          const dist = Math.abs(s.getBoundingClientRect().top);
-          if (dist < minDist) { minDist = dist; closest = s; }
-        });
-        if (closest && minDist > 4) {
-          closest.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+      function goToEl(el) {
+        const idx = sections.indexOf(el);
+        if (idx !== -1) goTo(idx);
+        else { window.scrollTo({ top: el.offsetTop, behavior: 'smooth' }); }
+      }
+      window.__spGoTo = goToEl;
+
+      function goTo(idx) {
+        if (locked || idx < 0 || idx >= sections.length) return;
+        locked = true;
+        current = idx;
+        window.scrollTo({ top: sections[idx].offsetTop, behavior: 'smooth' });
+        setTimeout(function () { locked = false; }, 900);
       }
 
       window.addEventListener('scroll', function () {
-        userScrolling = true;
-        clearTimeout(userScrollTimer);
-        clearTimeout(snapTimer);
-        userScrollTimer = setTimeout(function () { userScrolling = false; }, 50);
-        snapTimer = setTimeout(function () {
-          if (!userScrolling) snapToNearest();
-        }, 160);
+        const mid = window.scrollY + window.innerHeight / 2;
+        sections.forEach(function (s, i) { if (s.offsetTop <= mid) current = i; });
+      }, { passive: true });
+
+      window.addEventListener('wheel', function (e) {
+        e.preventDefault();
+        goTo(current + (e.deltaY > 0 ? 1 : -1));
+      }, { passive: false });
+
+      window.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowDown' || e.key === 'PageDown') { e.preventDefault(); goTo(current + 1); }
+        if (e.key === 'ArrowUp'   || e.key === 'PageUp')   { e.preventDefault(); goTo(current - 1); }
+      });
+
+      var touchY = 0;
+      window.addEventListener('touchstart', function (e) { touchY = e.touches[0].clientY; }, { passive: true });
+      window.addEventListener('touchend',   function (e) {
+        var diff = touchY - e.changedTouches[0].clientY;
+        if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
       }, { passive: true });
     })();
   </script>
