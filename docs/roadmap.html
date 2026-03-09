@@ -23,6 +23,7 @@
       --teal-200:   #65C8D0;
       --teal-500:   #458D93;
       --teal-700:   #2B5C60;
+      --sand-100:   #FDFBF8;
       --sand-300:   #F7F4F0;
       --sand-500:   #EDE5D8;
       --sand-700:   #D9C8AE;
@@ -136,6 +137,8 @@
       color: var(--teal-500);
       margin-bottom: 10px;
       margin-top: 18px;
+      border-left: 2px solid var(--sand-700);
+      padding-left: 8px;
     }
 
     p {
@@ -375,6 +378,7 @@
     }
 
     /* ── SECTION DIVIDER PAGE ── */
+    .divider-page { background: var(--sand-100); }
     .divider-page .page-inner {
       justify-content: flex-end;
       padding-bottom: 1in;
@@ -410,7 +414,7 @@
     }
     .card {
       background: var(--sand-300);
-      border: 1px solid rgba(0,0,0,0.1);
+      border: 1px solid var(--sand-700);
       border-radius: 4px;
       padding: 20px 22px;
     }
@@ -447,7 +451,8 @@
       font-size: 12px;
       white-space: nowrap;
     }
-    .td-dark { background: rgba(0,0,0,0.03); }
+    .td-dark { background: var(--sand-300); }
+    .timeline-grid tr:nth-child(even) td { background: var(--sand-100); }
 
     /* ── CHECKLIST ── */
     .checklist { width: 100%; border-collapse: collapse; }
@@ -468,6 +473,7 @@
       padding: 11px 12px;
     }
     .checklist tbody tr:last-child td { border-bottom: none; }
+    .checklist tbody tr:nth-child(even) td { background: var(--sand-100); }
     .check-box {
       width: 18px;
       height: 18px;
