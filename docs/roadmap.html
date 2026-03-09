@@ -51,6 +51,18 @@
       position: relative;
       overflow: hidden;
     }
+    /* Teal brand strip at the very top of every page */
+    .page::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--teal-500);
+      z-index: 10;
+    }
     .page--dark,
     .page--light,
     .page--white {
@@ -241,53 +253,74 @@
     }
 
     /* ── TEST CARD ── */
+    /* Full-bleed warm header — bleeds to physical page edges */
     .test-header {
-      background: var(--slate-1000);
-      border-top: 2px solid var(--teal-500);
-      padding: 20px 24px;
-      margin-bottom: 24px;
+      background: var(--sand-300);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      margin: -0.75in -1in 0.45in -1in;
+      padding: 0.35in 1in 0.3in 1in;
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      gap: 20px;
+      gap: 24px;
+      position: relative;
+      overflow: hidden;
     }
-    .test-header-left { flex: 1; }
+    /* Subtle large watermark numeral, driven by the data-num attribute */
+    .test-header::after {
+      content: attr(data-num);
+      position: absolute;
+      right: 0.7in;
+      top: -0.08in;
+      font-family: var(--display);
+      font-size: 180px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: rgba(0,0,0,0.04);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+    .test-header-left { flex: 1; position: relative; z-index: 1; }
     .test-num {
       font-size: 10px;
       font-weight: 700;
-      letter-spacing: 0.14em;
-      color: var(--teal-200);
+      letter-spacing: 0.16em;
+      color: var(--teal-500);
       text-transform: uppercase;
       display: block;
-      margin-bottom: 6px;
+      margin-bottom: 10px;
     }
     .test-title {
-      font-family: var(--body);
-      font-size: 22px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--slate-50);
+      font-family: var(--display);
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--slate-1000);
       line-height: 1.1;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
+      text-transform: none;
     }
     .test-sub {
       font-size: 12px;
       color: var(--slate-500);
-      line-height: 1.5;
+      line-height: 1.6;
       margin: 0;
     }
     .test-badge {
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
-      color: var(--teal-200);
-      border: 1px solid var(--teal-700);
-      padding: 5px 12px;
-      border-radius: 3px;
+      color: var(--teal-500);
+      border: 1px solid var(--teal-500);
+      padding: 6px 16px;
+      border-radius: 20px;
       white-space: nowrap;
       flex-shrink: 0;
+      margin-top: 6px;
+      position: relative;
+      z-index: 1;
     }
 
     /* ── INFO BOX ── */
@@ -481,7 +514,12 @@
 ═══════════════════════════════════════════ -->
 <div class="page page--dark">
   <div class="page-inner">
-    <div style="margin-top: auto; margin-bottom: auto; padding: 0.5in 0; display:flex; align-items: stretch; gap: 28px;">
+    <!-- Logo lockup at top -->
+    <div style="margin-bottom: auto;">
+      <img src="../Logo-black.png" alt="Second Prime" style="height: 26px; opacity: 0.85;" />
+    </div>
+    <!-- Centered hero title -->
+    <div style="margin: auto 0; padding: 0.4in 0; display:flex; align-items: stretch; gap: 28px;">
       <span class="cover-accent"></span>
       <div>
         <h1 class="display">The<br>Roadmap.</h1>
@@ -489,7 +527,9 @@
       </div>
     </div>
     <div class="cover-meta">
-      <span>Second Prime</span>
+      <span style="display:flex; align-items:center; gap:10px;">
+        <img src="../Logo-black.png" alt="Second Prime" style="height: 16px; opacity: 0.4;" />
+      </span>
       <span>Version 2.0 &nbsp;·&nbsp; Q1 2026</span>
       <span>Confidential</span>
     </div>
@@ -557,56 +597,100 @@
     <h2 class="section-hd" style="margin-bottom: 8px;">16 Tests. One complete picture.</h2>
     <p style="margin-bottom:20px; font-size:13px;">Effort invested here compounds into every decision we make in your protocol.</p>
 
-    <!-- 3-Bucket Graphic -->
-    <div style="display:flex; align-items:stretch; gap:0; margin-bottom:14px;">
+    <!-- 3-Tier Graphic — vertical top-to-bottom flow -->
+    <div style="display:flex; flex-direction:column; gap:0; margin-bottom:14px;">
 
-      <!-- Bucket 1: Input-Based Assessments -->
-      <div style="flex:1; background:var(--sand-300); border:1px solid rgba(0,0,0,0.1); border-radius:4px; padding:18px 16px; display:flex; flex-direction:column;">
-        <div style="font-size:9px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--sand-900); margin-bottom:8px;">Bucket 1</div>
-        <div style="font-size:15px; font-weight:700; color:var(--slate-1000); line-height:1.25; margin-bottom:14px;">Input-Based<br>Assessments</div>
-        <div style="border-top:1px solid rgba(0,0,0,0.08); padding-top:12px; margin-bottom:10px;">
-          <div style="font-size:9px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--slate-500); margin-bottom:6px;">Questionnaires</div>
-          <div style="font-size:11.5px; color:var(--slate-800); line-height:1.9;">Health Profile<br>Resiliency · Perceived Stress<br>Cellular Biomapping</div>
+      <!-- Tier 1: Input-Based Assessments -->
+      <div style="background:var(--sand-300); border:1px solid rgba(0,0,0,0.1); border-radius:4px 4px 0 0; padding:16px 22px 18px;">
+        <div style="font-size:10px; font-weight:800; letter-spacing:0.14em; text-transform:uppercase; color:var(--slate-800); margin-bottom:12px; padding-bottom:10px; border-bottom:1px solid rgba(0,0,0,0.08); display:flex; align-items:center; justify-content:space-between;">
+          <span>Input-Based Assessments</span>
+          <span style="font-size:10px; font-weight:400; color:var(--slate-500); font-style:italic; letter-spacing:0; text-transform:none;">What am I putting into my body?</span>
         </div>
-        <div>
-          <div style="font-size:9px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--slate-500); margin-bottom:6px;">Tracking</div>
-          <div style="font-size:11.5px; color:var(--slate-800); line-height:1.9;">Nutrient Tracking<br>Lifestyle Tracking</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+          <div>
+            <div style="font-size:9px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal-500); margin-bottom:8px;">Questionnaires</div>
+            <div style="font-size:12px; color:var(--slate-800); line-height:2;">
+              Health Profile<br>
+              Resiliency<br>
+              Perceived Stress<br>
+              Cellular Biomapping
+            </div>
+          </div>
+          <div>
+            <div style="font-size:9px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal-500); margin-bottom:8px;">Daily Tracking</div>
+            <div style="font-size:12px; color:var(--slate-800); line-height:2;">
+              Macronutrients<br>
+              Micronutrient Inputs<br>
+              Food Reactions<br>
+              Sleep Quality<br>
+              Hydration<br>
+              HRV &amp; Recovery<br>
+              Daily Movement
+            </div>
+          </div>
         </div>
-        <div style="margin-top:auto; padding-top:14px; font-size:11px; color:var(--sand-900); font-style:italic;">What am I putting into my body?</div>
       </div>
 
-      <!-- Arrow 1 -->
-      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0 10px; flex-shrink:0; gap:6px;">
-        <div style="font-size:8.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal-500); white-space:nowrap;">influences</div>
-        <svg width="28" height="14" viewBox="0 0 28 14" fill="none"><line x1="0" y1="7" x2="22" y2="7" stroke="#458D93" stroke-width="1.5"/><polygon points="21,3 28,7 21,11" fill="#458D93"/></svg>
+      <!-- Arrow 1 — influences -->
+      <div style="display:flex; flex-direction:column; align-items:center; padding:7px 0 5px; gap:3px;">
+        <div style="font-size:8px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal-500);">influences</div>
+        <svg width="12" height="22" viewBox="0 0 12 22" fill="none"><line x1="6" y1="0" x2="6" y2="16" stroke="#458D93" stroke-width="1.5"/><polygon points="2,14 6,22 10,14" fill="#458D93"/></svg>
       </div>
 
-      <!-- Bucket 2: Internal Health Assessment -->
-      <div style="flex:1; background:rgba(69,141,147,0.08); border:1px solid var(--teal-500); border-radius:4px; padding:18px 16px; display:flex; flex-direction:column;">
-        <div style="font-size:9px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--teal-500); margin-bottom:8px;">Bucket 2</div>
-        <div style="font-size:15px; font-weight:700; color:var(--slate-1000); line-height:1.25; margin-bottom:14px;">Internal Health<br>Assessment</div>
-        <div style="border-top:1px solid rgba(69,141,147,0.25); padding-top:12px;">
-          <div style="font-size:9px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--slate-500); margin-bottom:6px;">Biomarker Tests</div>
-          <div style="font-size:11.5px; color:var(--slate-800); line-height:1.9;">Vibrant Blood Panel<br>Gut Zoomer · Hormone Zoomer<br>Food Sensitivity Complete<br>Toxic Heavy Metals</div>
+      <!-- Tier 2: Internal Health Assessment -->
+      <div style="background:rgba(69,141,147,0.07); border:1px solid var(--teal-500); border-radius:0; padding:16px 22px 18px;">
+        <div style="font-size:10px; font-weight:800; letter-spacing:0.14em; text-transform:uppercase; color:var(--teal-700); margin-bottom:12px; padding-bottom:10px; border-bottom:1px solid rgba(69,141,147,0.2); display:flex; align-items:center; justify-content:space-between;">
+          <span>Internal Health Assessment</span>
+          <span style="font-size:10px; font-weight:400; color:var(--teal-500); font-style:italic; letter-spacing:0; text-transform:none;">What's happening inside my body?</span>
         </div>
-        <div style="margin-top:auto; padding-top:14px; font-size:11px; color:var(--teal-500); font-style:italic;">What's happening inside my body?</div>
-      </div>
-
-      <!-- Arrow 2 -->
-      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0 10px; flex-shrink:0; gap:6px;">
-        <div style="font-size:8.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal-500); white-space:nowrap;">drives</div>
-        <svg width="28" height="14" viewBox="0 0 28 14" fill="none"><line x1="0" y1="7" x2="22" y2="7" stroke="#458D93" stroke-width="1.5"/><polygon points="21,3 28,7 21,11" fill="#458D93"/></svg>
-      </div>
-
-      <!-- Bucket 3: Performance Assessments -->
-      <div style="flex:1; background:var(--sand-300); border:1px solid rgba(0,0,0,0.1); border-radius:4px; padding:18px 16px; display:flex; flex-direction:column;">
-        <div style="font-size:9px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--slate-500); margin-bottom:8px;">Bucket 3</div>
-        <div style="font-size:15px; font-weight:700; color:var(--slate-1000); line-height:1.25; margin-bottom:14px;">Performance<br>Assessments</div>
-        <div style="border-top:1px solid rgba(0,0,0,0.08); padding-top:12px;">
-          <div style="font-size:9px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--slate-500); margin-bottom:6px;">Physical Assessments</div>
-          <div style="font-size:11.5px; color:var(--slate-800); line-height:1.9;">Body Composition<br>CO2 Tolerance · VO2 Max<br>Survival Strength<br>Movement Screen</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+          <div>
+            <div style="font-size:9px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal-500); margin-bottom:8px;">Biomarker Tests</div>
+            <div style="font-size:12px; color:var(--slate-800); line-height:2;">
+              Vibrant Blood Panel<br>
+              Gut Zoomer<br>
+              Hormone Zoomer
+            </div>
+          </div>
+          <div>
+            <div style="font-size:9px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal-500); margin-bottom:8px;">&nbsp;</div>
+            <div style="font-size:12px; color:var(--slate-800); line-height:2;">
+              Food Sensitivity Complete<br>
+              Toxic Heavy Metals
+            </div>
+          </div>
         </div>
-        <div style="margin-top:auto; padding-top:14px; font-size:11px; color:var(--slate-500); font-style:italic;">How is my body performing?</div>
+      </div>
+
+      <!-- Arrow 2 — drives -->
+      <div style="display:flex; flex-direction:column; align-items:center; padding:7px 0 5px; gap:3px;">
+        <div style="font-size:8px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal-500);">drives</div>
+        <svg width="12" height="22" viewBox="0 0 12 22" fill="none"><line x1="6" y1="0" x2="6" y2="16" stroke="#458D93" stroke-width="1.5"/><polygon points="2,14 6,22 10,14" fill="#458D93"/></svg>
+      </div>
+
+      <!-- Tier 3: Performance Assessments -->
+      <div style="background:var(--sand-300); border:1px solid rgba(0,0,0,0.1); border-radius:0 0 4px 4px; padding:16px 22px 18px;">
+        <div style="font-size:10px; font-weight:800; letter-spacing:0.14em; text-transform:uppercase; color:var(--slate-800); margin-bottom:12px; padding-bottom:10px; border-bottom:1px solid rgba(0,0,0,0.08); display:flex; align-items:center; justify-content:space-between;">
+          <span>Performance Assessments</span>
+          <span style="font-size:10px; font-weight:400; color:var(--slate-500); font-style:italic; letter-spacing:0; text-transform:none;">How is my body performing?</span>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+          <div>
+            <div style="font-size:9px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal-500); margin-bottom:8px;">Physical Assessments</div>
+            <div style="font-size:12px; color:var(--slate-800); line-height:2;">
+              Body Composition<br>
+              CO2 Tolerance<br>
+              VO2 Max
+            </div>
+          </div>
+          <div>
+            <div style="font-size:9px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal-500); margin-bottom:8px;">&nbsp;</div>
+            <div style="font-size:12px; color:var(--slate-800); line-height:2;">
+              Survival Strength<br>
+              Movement Screen
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -716,7 +800,7 @@
 ═══════════════════════════════════════════ -->
 <div class="page page--white">
   <div class="page-inner">
-    <div class="test-header">
+    <div class="test-header" data-num="01">
       <div class="test-header-left">
         <span class="test-num">Test 01</span>
         <p class="test-title">Health Profile</p>
@@ -740,7 +824,7 @@
 ═══════════════════════════════════════════ -->
 <div class="page page--white">
   <div class="page-inner">
-    <div class="test-header">
+    <div class="test-header" data-num="02">
       <div class="test-header-left">
         <span class="test-num">Test 02</span>
         <p class="test-title">Resiliency</p>
@@ -762,7 +846,7 @@
 ═══════════════════════════════════════════ -->
 <div class="page page--white">
   <div class="page-inner">
-    <div class="test-header">
+    <div class="test-header" data-num="03">
       <div class="test-header-left">
         <span class="test-num">Test 03</span>
         <p class="test-title">Perceived Stress</p>
@@ -784,7 +868,7 @@
 ═══════════════════════════════════════════ -->
 <div class="page page--white">
   <div class="page-inner">
-    <div class="test-header">
+    <div class="test-header" data-num="04">
       <div class="test-header-left">
         <span class="test-num">Test 04</span>
         <p class="test-title">Cellular Biomapping</p>
@@ -820,7 +904,7 @@
 ═══════════════════════════════════════════ -->
 <div class="page page--white">
   <div class="page-inner">
-    <div class="test-header">
+    <div class="test-header" data-num="05">
       <div class="test-header-left">
         <span class="test-num">Test 05</span>
         <p class="test-title">Vibrant Blood Panel</p>
@@ -850,7 +934,7 @@
 ═══════════════════════════════════════════ -->
 <div class="page page--white">
   <div class="page-inner">
-    <div class="test-header">
+    <div class="test-header" data-num="06">
       <div class="test-header-left">
         <span class="test-num">Test 06</span>
         <p class="test-title">Gut Zoomer</p>
@@ -879,7 +963,7 @@
 ═══════════════════════════════════════════ -->
 <div class="page page--white">
   <div class="page-inner">
-    <div class="test-header">
+    <div class="test-header" data-num="07">
       <div class="test-header-left">
         <span class="test-num">Test 07</span>
         <p class="test-title">Food Sensitivity Complete</p>
@@ -910,7 +994,7 @@
 ═══════════════════════════════════════════ -->
 <div class="page page--white">
   <div class="page-inner">
-    <div class="test-header">
+    <div class="test-header" data-num="08">
       <div class="test-header-left">
         <span class="test-num">Test 08</span>
         <p class="test-title">Hormone Zoomer</p>
@@ -954,7 +1038,7 @@
 ═══════════════════════════════════════════ -->
 <div class="page page--white">
   <div class="page-inner">
-    <div class="test-header">
+    <div class="test-header" data-num="09">
       <div class="test-header-left">
         <span class="test-num">Test 09</span>
         <p class="test-title">Toxic Heavy Metals</p>
@@ -991,7 +1075,7 @@
 ═══════════════════════════════════════════ -->
 <div class="page page--white">
   <div class="page-inner">
-    <div class="test-header">
+    <div class="test-header" data-num="10">
       <div class="test-header-left">
         <span class="test-num">Test 10</span>
         <p class="test-title">Body Composition</p>
@@ -1020,7 +1104,7 @@
 ═══════════════════════════════════════════ -->
 <div class="page page--white">
   <div class="page-inner">
-    <div class="test-header">
+    <div class="test-header" data-num="11">
       <div class="test-header-left">
         <span class="test-num">Test 11</span>
         <p class="test-title">Nutrient Tracking</p>
@@ -1045,7 +1129,7 @@
 ═══════════════════════════════════════════ -->
 <div class="page page--white">
   <div class="page-inner">
-    <div class="test-header">
+    <div class="test-header" data-num="12">
       <div class="test-header-left">
         <span class="test-num">Test 12</span>
         <p class="test-title">Lifestyle Tracking</p>
@@ -1074,7 +1158,7 @@
 ═══════════════════════════════════════════ -->
 <div class="page page--white">
   <div class="page-inner">
-    <div class="test-header">
+    <div class="test-header" data-num="13">
       <div class="test-header-left">
         <span class="test-num">Test 13</span>
         <p class="test-title">CO2 Tolerance</p>
@@ -1104,7 +1188,7 @@
 ═══════════════════════════════════════════ -->
 <div class="page page--white">
   <div class="page-inner">
-    <div class="test-header">
+    <div class="test-header" data-num="14">
       <div class="test-header-left">
         <span class="test-num">Test 14</span>
         <p class="test-title">Survival Strength</p>
@@ -1136,7 +1220,7 @@
 ═══════════════════════════════════════════ -->
 <div class="page page--white">
   <div class="page-inner">
-    <div class="test-header">
+    <div class="test-header" data-num="15">
       <div class="test-header-left">
         <span class="test-num">Test 15</span>
         <p class="test-title">VO2 Max</p>
@@ -1169,7 +1253,7 @@
 ═══════════════════════════════════════════ -->
 <div class="page page--white">
   <div class="page-inner">
-    <div class="test-header">
+    <div class="test-header" data-num="16">
       <div class="test-header-left">
         <span class="test-num">Test 16</span>
         <p class="test-title">Movement Screen</p>
@@ -1344,6 +1428,7 @@
 <div class="page page--dark">
   <div class="page-inner page-inner--center">
     <div style="max-width:480px;">
+      <img src="../Logo-black.png" alt="Second Prime" style="height: 22px; opacity: 0.5; margin-bottom: 40px; display:block; margin-left:auto; margin-right:auto;" />
       <div style="width:3px;height:40px;background:var(--teal-500);margin:0 auto 32px;"></div>
       <h2 class="section-hd" style="font-size:44px;margin-bottom:16px;">Your prime isn't in the past.</h2>
       <p style="font-size:16px;color:var(--slate-800);font-style:italic;margin-bottom:4px;">It's waiting to be engineered.</p>
