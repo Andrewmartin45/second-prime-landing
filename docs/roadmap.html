@@ -214,9 +214,9 @@
     .cover-accent {
       display: block;
       width: 3px;
-      height: 48px;
       background: var(--teal-200);
-      margin-bottom: 28px;
+      align-self: stretch;
+      flex-shrink: 0;
     }
     .cover-sub {
       font-size: 13px;
@@ -523,10 +523,12 @@
 ═══════════════════════════════════════════ -->
 <div class="page page--dark">
   <div class="page-inner">
-    <div style="margin-top: auto; margin-bottom: auto; padding: 0.5in 0;">
+    <div style="margin-top: auto; margin-bottom: auto; padding: 0.5in 0; display:flex; align-items: stretch; gap: 28px;">
       <span class="cover-accent"></span>
-      <h1 class="display">The<br>Roadmap.</h1>
-      <p class="cover-sub">Your health &amp; performance optimization protocol</p>
+      <div>
+        <h1 class="display">The<br>Roadmap.</h1>
+        <p class="cover-sub">Your health &amp; performance optimization protocol</p>
+      </div>
     </div>
     <div class="cover-meta">
       <span>Second Prime</span>
@@ -545,11 +547,11 @@
     <h2 class="section-hd" style="margin-bottom: 36px;">What's Inside</h2>
     <ul class="toc-list">
       <li><span class="toc-num">01</span><span class="toc-title">Overview</span><span class="toc-pg">3</span></li>
-      <li><span class="toc-num">02</span><span class="toc-title">17 Tests</span><span class="toc-pg">4</span></li>
+      <li><span class="toc-num">02</span><span class="toc-title">16 Tests</span><span class="toc-pg">4</span></li>
       <li><span class="toc-num">03</span><span class="toc-title">28-Day Workflow</span><span class="toc-pg">5</span></li>
       <li><span class="toc-num">04</span><span class="toc-title">Questionnaires — Tests 1–4</span><span class="toc-pg">7</span></li>
       <li><span class="toc-num">05</span><span class="toc-title">Biomarker Tests — Tests 5–9</span><span class="toc-pg">11</span></li>
-      <li><span class="toc-num">06</span><span class="toc-title">Assessments — Tests 10–17</span><span class="toc-pg">16</span></li>
+      <li><span class="toc-num">06</span><span class="toc-title">Assessments — Tests 10–16</span><span class="toc-pg">16</span></li>
       <li><span class="toc-num">07</span><span class="toc-title">What Happens Next</span><span class="toc-pg">24</span></li>
       <li><span class="toc-num">08</span><span class="toc-title">Roadmap Workflow</span><span class="toc-pg">25</span></li>
       <li><span class="toc-num">09</span><span class="toc-title">Checklist</span><span class="toc-pg">26</span></li>
@@ -564,11 +566,11 @@
   <div class="page-inner">
     <span class="label">Overview</span>
     <h2 class="section-hd" style="margin-bottom: 24px;">The most comprehensive health analysis available.</h2>
-    <p>You're going to complete 17 unique tests capturing over 500 biomarkers and 4,000 total data points. Every protocol we build is grounded in your data — not assumptions.</p>
+    <p>You're going to complete 16 unique tests capturing over 500 biomarkers and 4,000 total data points. Every protocol we build is grounded in your data — not assumptions.</p>
     <div class="rule"></div>
     <div class="two-col">
       <div>
-        <h4>16 Self-Administered Tests</h4>
+        <h4>15 Self-Administered Tests</h4>
         <p style="font-size:13px;">Completed on your own — questionnaires, at-home kits, and physical assessments.</p>
         <h4 style="margin-top:20px;">1 Requires a Phlebotomist</h4>
         <p style="font-size:13px;">Your comprehensive blood panel requires a blood draw. A kit ships directly to your home.</p>
@@ -579,11 +581,11 @@
         <p style="font-size:13px; margin-bottom:8px;"><strong style="color:var(--slate-50);">Test 5</strong> — Blood panel kit, shipped to your home. Phlebotomist required.</p>
         <p style="font-size:13px; margin-bottom:8px;"><strong style="color:var(--slate-50);">Tests 6–9</strong> — At-home lab kits: gut, food, hormones, metals.</p>
         <p style="font-size:13px; margin-bottom:8px;"><strong style="color:var(--slate-50);">Tests 10–15</strong> — Physical assessments you perform on your own.</p>
-        <p style="font-size:13px;"><strong style="color:var(--slate-50);">Tests 16–17</strong> — Movement screen and interview with our team.</p>
+        <p style="font-size:13px;"><strong style="color:var(--slate-50);">Test 16</strong> — Movement screen with our team via Zoom.</p>
       </div>
     </div>
     <div class="infobox" style="margin-top:28px;">
-      <p><strong>Critical timing:</strong> Tests 5–9 must be completed immediately — they require 14–21 days for lab analysis. Tests 1–4 and 10–17 can be completed in any order, but all must be done by Day 21 to stay on target for your 30-day protocol delivery.</p>
+      <p><strong>Critical timing:</strong> Tests 5–9 must be completed immediately — they require 14–21 days for lab analysis. Tests 1–4 and 10–16 can be completed in any order, but all must be done by Day 21 to stay on target for your 30-day protocol delivery.</p>
     </div>
   </div>
 </div>
@@ -594,40 +596,63 @@
 <div class="page page--dark">
   <div class="page-inner">
     <span class="label">The Tests</span>
-    <h2 class="section-hd" style="margin-bottom: 8px;">17 Tests. One complete picture.</h2>
-    <p style="margin-bottom:28px; font-size:13px;">Effort invested here compounds into every decision we make in your protocol.</p>
-    <div class="two-col">
-      <div>
-        <span class="label label--muted" style="margin-bottom:12px;">Questionnaires</span>
-        <div style="margin-bottom:20px;">
-          <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:var(--teal-200); font-weight:700; font-size:12px; min-width:20px;">1</span><span style="font-size:13px;color:var(--slate-200);">Health Profile</span></div>
-          <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:var(--teal-200); font-weight:700; font-size:12px; min-width:20px;">2</span><span style="font-size:13px;color:var(--slate-200);">Resiliency</span></div>
-          <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:var(--teal-200); font-weight:700; font-size:12px; min-width:20px;">3</span><span style="font-size:13px;color:var(--slate-200);">Perceived Stress</span></div>
-          <div style="display:flex; gap:12px; padding:8px 0;"><span style="color:var(--teal-200); font-weight:700; font-size:12px; min-width:20px;">4</span><span style="font-size:13px;color:var(--slate-200);">Cellular Biomapping</span></div>
+    <h2 class="section-hd" style="margin-bottom: 8px;">16 Tests. One complete picture.</h2>
+    <p style="margin-bottom:20px; font-size:13px;">Effort invested here compounds into every decision we make in your protocol.</p>
+
+    <!-- 3-Bucket Graphic -->
+    <div style="display:flex; align-items:stretch; gap:0; margin-bottom:14px;">
+
+      <!-- Bucket 1: Input-Based Assessments -->
+      <div style="flex:1; background:var(--slate-900); border:1px solid var(--slate-700); border-radius:4px; padding:18px 16px; display:flex; flex-direction:column;">
+        <div style="font-size:9px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--sand-700); margin-bottom:8px;">Bucket 1</div>
+        <div style="font-size:15px; font-weight:700; color:var(--slate-50); line-height:1.25; margin-bottom:14px;">Input-Based<br>Assessments</div>
+        <div style="border-top:1px solid rgba(255,255,255,0.07); padding-top:12px; margin-bottom:10px;">
+          <div style="font-size:9px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--slate-500); margin-bottom:6px;">Questionnaires</div>
+          <div style="font-size:11.5px; color:var(--slate-200); line-height:1.9;">Health Profile<br>Resiliency · Perceived Stress<br>Cellular Biomapping</div>
         </div>
-        <span class="label label--muted" style="margin-bottom:12px;">Biomarkers</span>
         <div>
-          <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:var(--teal-200); font-weight:700; font-size:12px; min-width:20px;">5</span><span style="font-size:13px;color:var(--slate-200);">Vibrant Blood Panel</span></div>
-          <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:var(--teal-200); font-weight:700; font-size:12px; min-width:20px;">6</span><span style="font-size:13px;color:var(--slate-200);">Gut Zoomer</span></div>
-          <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:var(--teal-200); font-weight:700; font-size:12px; min-width:20px;">7</span><span style="font-size:13px;color:var(--slate-200);">Food Sensitivity Complete</span></div>
-          <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:var(--teal-200); font-weight:700; font-size:12px; min-width:20px;">8</span><span style="font-size:13px;color:var(--slate-200);">Hormone Zoomer</span></div>
-          <div style="display:flex; gap:12px; padding:8px 0;"><span style="color:var(--teal-200); font-weight:700; font-size:12px; min-width:20px;">9</span><span style="font-size:13px;color:var(--slate-200);">Toxic Heavy Metals</span></div>
+          <div style="font-size:9px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--slate-500); margin-bottom:6px;">Tracking</div>
+          <div style="font-size:11.5px; color:var(--slate-200); line-height:1.9;">Nutrient Tracking<br>Lifestyle Tracking</div>
         </div>
+        <div style="margin-top:auto; padding-top:14px; font-size:11px; color:var(--sand-900); font-style:italic;">What am I putting into my body?</div>
       </div>
-      <div>
-        <span class="label label--muted" style="margin-bottom:12px;">Assessments</span>
-        <div>
-          <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:var(--teal-200); font-weight:700; font-size:12px; min-width:20px;">10</span><span style="font-size:13px;color:var(--slate-200);">Body Composition</span></div>
-          <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:var(--teal-200); font-weight:700; font-size:12px; min-width:20px;">11</span><span style="font-size:13px;color:var(--slate-200);">Nutrient Tracking</span></div>
-          <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:var(--teal-200); font-weight:700; font-size:12px; min-width:20px;">12</span><span style="font-size:13px;color:var(--slate-200);">Lifestyle Tracking</span></div>
-          <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:var(--teal-200); font-weight:700; font-size:12px; min-width:20px;">13</span><span style="font-size:13px;color:var(--slate-200);">CO2 Tolerance</span></div>
-          <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:var(--teal-200); font-weight:700; font-size:12px; min-width:20px;">14</span><span style="font-size:13px;color:var(--slate-200);">Survival Strength</span></div>
-          <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:var(--teal-200); font-weight:700; font-size:12px; min-width:20px;">15</span><span style="font-size:13px;color:var(--slate-200);">VO2 Max</span></div>
-          <div style="display:flex; gap:12px; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:var(--teal-200); font-weight:700; font-size:12px; min-width:20px;">16</span><span style="font-size:13px;color:var(--slate-200);">Movement Screen</span></div>
-          <div style="display:flex; gap:12px; padding:8px 0;"><span style="color:var(--teal-200); font-weight:700; font-size:12px; min-width:20px;">17</span><span style="font-size:13px;color:var(--slate-200);">Interview</span></div>
+
+      <!-- Arrow 1 -->
+      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0 10px; flex-shrink:0; gap:6px;">
+        <div style="font-size:8.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal-200); white-space:nowrap;">influences</div>
+        <svg width="28" height="14" viewBox="0 0 28 14" fill="none"><line x1="0" y1="7" x2="22" y2="7" stroke="#65C8D0" stroke-width="1.5"/><polygon points="21,3 28,7 21,11" fill="#65C8D0"/></svg>
+      </div>
+
+      <!-- Bucket 2: Internal Health Assessment -->
+      <div style="flex:1; background:rgba(44,140,147,0.07); border:1px solid var(--teal-700); border-radius:4px; padding:18px 16px; display:flex; flex-direction:column;">
+        <div style="font-size:9px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--teal-200); margin-bottom:8px;">Bucket 2</div>
+        <div style="font-size:15px; font-weight:700; color:var(--slate-50); line-height:1.25; margin-bottom:14px;">Internal Health<br>Assessment</div>
+        <div style="border-top:1px solid rgba(101,200,208,0.15); padding-top:12px;">
+          <div style="font-size:9px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--slate-500); margin-bottom:6px;">Biomarker Tests</div>
+          <div style="font-size:11.5px; color:var(--slate-200); line-height:1.9;">Vibrant Blood Panel<br>Gut Zoomer · Hormone Zoomer<br>Food Sensitivity Complete<br>Toxic Heavy Metals</div>
         </div>
+        <div style="margin-top:auto; padding-top:14px; font-size:11px; color:var(--teal-200); font-style:italic;">What's happening inside my body?</div>
       </div>
+
+      <!-- Arrow 2 -->
+      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0 10px; flex-shrink:0; gap:6px;">
+        <div style="font-size:8.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal-200); white-space:nowrap;">drives</div>
+        <svg width="28" height="14" viewBox="0 0 28 14" fill="none"><line x1="0" y1="7" x2="22" y2="7" stroke="#65C8D0" stroke-width="1.5"/><polygon points="21,3 28,7 21,11" fill="#65C8D0"/></svg>
+      </div>
+
+      <!-- Bucket 3: Performance Assessments -->
+      <div style="flex:1; background:var(--slate-900); border:1px solid var(--slate-700); border-radius:4px; padding:18px 16px; display:flex; flex-direction:column;">
+        <div style="font-size:9px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--slate-500); margin-bottom:8px;">Bucket 3</div>
+        <div style="font-size:15px; font-weight:700; color:var(--slate-50); line-height:1.25; margin-bottom:14px;">Performance<br>Assessments</div>
+        <div style="border-top:1px solid rgba(255,255,255,0.07); padding-top:12px;">
+          <div style="font-size:9px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--slate-500); margin-bottom:6px;">Physical Assessments</div>
+          <div style="font-size:11.5px; color:var(--slate-200); line-height:1.9;">Body Composition<br>CO2 Tolerance · VO2 Max<br>Survival Strength<br>Movement Screen</div>
+        </div>
+        <div style="margin-top:auto; padding-top:14px; font-size:11px; color:var(--slate-500); font-style:italic;">How is my body performing?</div>
+      </div>
+
     </div>
+    <p style="text-align:center; font-size:12px; color:var(--slate-500); font-style:italic; margin-bottom:0;">Your inputs shape your internal health — your internal health determines your capacity to perform at your peak.</p>
   </div>
 </div>
 
@@ -705,7 +730,6 @@
           <li>Survival Strength (Test 14)</li>
           <li>VO2 Max (Test 15)</li>
           <li>Movement Screen (Test 16)</li>
-          <li>Interview (Test 17)</li>
         </ul>
       </div>
     </div>
@@ -1000,7 +1024,7 @@
   <div class="page-inner">
     <div class="divider-rule"></div>
     <p class="big-label">Assessments</p>
-    <p class="sub-label">Tests 10 – 17</p>
+    <p class="sub-label">Tests 10 – 16</p>
   </div>
 </div>
 
@@ -1211,37 +1235,13 @@
 </div>
 
 <!-- ══════════════════════════════════════════
-     TEST 17 — INTERVIEW
-═══════════════════════════════════════════ -->
-<div class="page page--white">
-  <div class="page-inner">
-    <div class="test-header">
-      <div class="test-header-left">
-        <span class="test-num">Test 17</span>
-        <p class="test-title">Interview</p>
-        <p class="test-sub">Contextual Analysis · Data Clarification · Root Cause Confirmation</p>
-      </div>
-      <span class="test-badge">Zoom Meeting</span>
-    </div>
-    <p>Data alone doesn't tell the full story. Once your lab results are in, we identify the flags that require deeper context — and we come to you with specific questions. This session is how we confirm root causes before finalizing your protocol.</p>
-    <p>The interview is not a consultation. It is a targeted clarification session based on your specific findings. Every question has a purpose.</p>
-    <h4>Details</h4>
-    <ul>
-      <li>We will contact you to schedule once all assessment results are received.</li>
-      <li>Approximately 30 minutes via Zoom.</li>
-      <li>Questions are drawn directly from your data — no generic intake questions.</li>
-    </ul>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════
      WHAT IS NEXT
 ═══════════════════════════════════════════ -->
 <div class="page page--dark">
   <div class="page-inner">
     <span class="label">What Happens Next</span>
     <h2 class="section-hd" style="margin-bottom:24px;">From data to protocol.</h2>
-    <p>Upon completion of all 17 tests by Day 21, we anticipate receiving laboratory results around Day 25. Our team dedicates a full day to analyzing your complete dataset — not a review, a deep analysis. This is where everything comes together.</p>
+    <p>Upon completion of all 16 tests by Day 21, we anticipate receiving laboratory results around Day 25. Our team dedicates a full day to analyzing your complete dataset — not a review, a deep analysis. This is where everything comes together.</p>
     <p>Following analysis, your personalized protocol is built. You will receive a comprehensive video breakdown walking through your results, a full written report, and your complete protocol — all in one delivery.</p>
     <div class="rule"></div>
     <div class="card-grid">
@@ -1263,7 +1263,7 @@
       </div>
     </div>
     <div class="infobox" style="margin-top:20px;">
-      <p>The faster you complete your assessments, the faster your protocol arrives. Potential delays include: kit shipping durations, lab processing, weekends, holidays, and scheduling for Tests 16–17. Complete Tests 5–9 immediately — these are the long poles in the timeline.</p>
+      <p>The faster you complete your assessments, the faster your protocol arrives. Potential delays include: kit shipping durations, lab processing, weekends, holidays, and scheduling for Test 16. Complete Tests 5–9 immediately — these are the long poles in the timeline.</p>
     </div>
   </div>
 </div>
@@ -1319,11 +1319,6 @@
           <td>Movement Screen (Test 16) — virtual Zoom session.</td>
           <td>Schedule 15–18 days post sign-up.</td>
         </tr>
-        <tr class="td-dark">
-          <td class="td-num">Day 14–21</td>
-          <td>Schedule Interview (Test 17).</td>
-          <td>We contact you to set the time.</td>
-        </tr>
         <tr>
           <td class="td-num">Day 21</td>
           <td style="color:var(--sand-700); font-weight:600;">All tests complete.</td>
@@ -1378,10 +1373,8 @@
         <tr><td class="check-num">11</td><td>Complete VO2 Max (Test 15)</td><td style="text-align:center;"><div class="check-box" style="margin:0 auto;"></div></td></tr>
         <tr><td class="check-num">12</td><td>Complete Survival Strength (Test 14)</td><td style="text-align:center;"><div class="check-box" style="margin:0 auto;"></div></td></tr>
         <tr><td class="check-num">13</td><td>Complete Movement Screen (Test 16)</td><td style="text-align:center;"><div class="check-box" style="margin:0 auto;"></div></td></tr>
-        <tr><td class="check-num">14</td><td>Schedule Interview</td><td style="text-align:center;"><div class="check-box" style="margin:0 auto;"></div></td></tr>
-        <tr><td class="check-num">15</td><td>Complete Interview (Test 17)</td><td style="text-align:center;"><div class="check-box" style="margin:0 auto;"></div></td></tr>
-        <tr><td class="check-num">16</td><td>Receive report, protocol, and video analysis</td><td style="text-align:center;"><div class="check-box" style="margin:0 auto;"></div></td></tr>
-        <tr><td class="check-num">17</td><td>Buy food, supplements, meal prep, print protocol — begin Day 1</td><td style="text-align:center;"><div class="check-box" style="margin:0 auto;"></div></td></tr>
+        <tr><td class="check-num">14</td><td>Receive report, protocol, and video analysis</td><td style="text-align:center;"><div class="check-box" style="margin:0 auto;"></div></td></tr>
+        <tr><td class="check-num">15</td><td>Buy food, supplements, meal prep, print protocol — begin Day 1</td><td style="text-align:center;"><div class="check-box" style="margin:0 auto;"></div></td></tr>
       </tbody>
     </table>
   </div>
