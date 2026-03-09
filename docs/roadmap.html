@@ -510,6 +510,51 @@
 <body>
 
 <!-- ══════════════════════════════════════════
+     QUESTIONNAIRE LINKS CONFIG
+     ─────────────────────────────────────────
+     Paste each assessment URL below.
+     Leave a URL as '' to hide the button.
+═══════════════════════════════════════════ -->
+<script>
+  const QUESTIONNAIRE_LINKS = {
+    '01': '',   // Health Profile
+    '02': '',   // Resiliency
+    '03': '',   // Perceived Stress
+    '04': '',   // Cellular Biomapping
+  };
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    Object.entries(QUESTIONNAIRE_LINKS).forEach(function ([num, url]) {
+      if (!url) return;
+      var header = document.querySelector('.test-header[data-num="' + num + '"]');
+      if (!header) return;
+      var btn = document.createElement('a');
+      btn.href = url;
+      btn.target = '_blank';
+      btn.rel = 'noopener';
+      btn.textContent = 'Access Assessment →';
+      btn.style.cssText = [
+        'display:inline-block',
+        'margin-top:18px',
+        'font-size:11px',
+        'font-weight:700',
+        'letter-spacing:0.1em',
+        'text-transform:uppercase',
+        'color:#458D93',
+        'border:1px solid #458D93',
+        'border-radius:20px',
+        'padding:7px 20px',
+        'text-decoration:none',
+        'position:relative',
+        'z-index:1',
+      ].join(';');
+      header.querySelector('.test-header-left').appendChild(btn);
+    });
+  });
+</script>
+
+<!-- ══════════════════════════════════════════
      COVER
 ═══════════════════════════════════════════ -->
 <div class="page page--dark">
