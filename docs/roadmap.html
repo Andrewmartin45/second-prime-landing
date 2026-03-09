@@ -506,46 +506,6 @@
       .page { box-shadow: 0 4px 32px rgba(0,0,0,0.15); }
     }
 
-    /* ── DARK PAGE THEME ── */
-    /* Remap CSS variables within dark-page context so inline styles & classes
-       all inherit correct colours automatically. */
-    .page--dark {
-      background: #1F1F27;
-      --slate-1000: #F0F0F4;
-      --slate-800:  #B4B4C4;
-      --slate-700:  #C8C8D8;
-      --slate-500:  #74748A;
-      --sand-300:   #252530;
-      --sand-500:   #1E1E2A;
-      --sand-700:   #888898;
-      --sand-900:   #A8A8B8;
-    }
-    /* Hardcoded-rgba overrides that can't be handled via variable remapping */
-    .page--dark .rule              { background: rgba(255,255,255,0.1); }
-    .page--dark .infobox           { background: rgba(69,141,147,0.16); border-left-color: var(--teal-200); }
-    .page--dark .infobox p         { color: var(--slate-200); }
-    .page--dark .infobox strong    { color: #ffffff; }
-    .page--dark .cover-meta        { border-top-color: rgba(255,255,255,0.12); }
-    .page--dark .toc-list li       { border-bottom-color: rgba(255,255,255,0.07); }
-    .page--dark ul li,
-    .page--dark ol li              { border-bottom-color: rgba(255,255,255,0.07); }
-    .page--dark h1.display         { color: #ffffff; }
-    .page--dark h1.display em      { color: var(--teal-100); }
-    .page--dark h2.section-hd      { color: #ffffff; }
-    .page--dark h3                 { color: #ffffff; }
-    .page--dark .big-label         { color: #ffffff; }
-    .page--dark .timeline-grid th  { border-bottom-color: rgba(255,255,255,0.12); }
-    .page--dark .timeline-grid td  { border-bottom-color: rgba(255,255,255,0.06); }
-    .page--dark .td-dark           { background: rgba(255,255,255,0.03); }
-    .page--dark .checklist thead th{ border-bottom-color: rgba(255,255,255,0.12); }
-    .page--dark .checklist tbody td{ border-bottom-color: rgba(255,255,255,0.06); }
-    .page--dark .check-box         { border-color: rgba(255,255,255,0.25); }
-    .page--dark .card              { border-color: rgba(255,255,255,0.08); }
-    .page--dark .step-panel        { border-color: rgba(255,255,255,0.08); }
-    .page--dark .contact-block     { border-top-color: rgba(255,255,255,0.1); }
-    .page--dark .contact-block p   { color: var(--slate-500); }
-    .page--dark .contact-block strong { color: #ffffff; }
-
     /* ── ACTION BUTTONS ── */
     .btn-action {
       display: inline-block;
@@ -588,7 +548,7 @@
       left: 8px;
       right: 8px;
       height: 2px;
-      background: rgba(255,255,255,0.12);
+      background: rgba(0,0,0,0.1);
     }
     .wf-node {
       flex: 1;
@@ -611,7 +571,7 @@
     }
     .wf-dot--dim {
       background: transparent;
-      border-color: rgba(255,255,255,0.2);
+      border-color: rgba(0,0,0,0.15);
     }
     .wf-when {
       font-size: 9px;
@@ -624,7 +584,7 @@
     }
     .wf-what {
       font-size: 10px;
-      color: rgba(255,255,255,0.5);
+      color: var(--slate-500);
       line-height: 1.4;
       white-space: nowrap;
     }
@@ -697,7 +657,7 @@
   <div class="page-inner">
     <!-- Logo lockup at top -->
     <div style="margin-bottom: auto;">
-      <img src="logo-white.png" alt="Second Prime" style="height: 56px; opacity: 0.9;" />
+      <img src="Logo-black.png" alt="Second Prime" style="height: 56px; opacity: 0.9;" />
     </div>
     <!-- Centered hero title -->
     <div style="margin: auto 0; padding: 0.4in 0; display:flex; align-items: stretch; gap: 28px;">
@@ -709,7 +669,7 @@
     </div>
     <div class="cover-meta">
       <span style="display:flex; align-items:center; gap:10px;">
-        <img src="logo-white.png" alt="Second Prime" style="height: 24px; opacity: 0.35;" />
+        <img src="Logo-black.png" alt="Second Prime" style="height: 24px; opacity: 0.35;" />
       </span>
       <span>Version 2.0 &nbsp;·&nbsp; Q1 2026</span>
       <span>Confidential</span>
@@ -969,7 +929,7 @@
       </div>
       <div class="wf-node">
         <div class="wf-dot wf-dot--dim"></div>
-        <div class="wf-when" style="color:rgba(255,255,255,0.3);">Day 30–45</div>
+        <div class="wf-when" style="color:rgba(0,0,0,0.25);">Day 30–45</div>
         <div class="wf-what">Protocol<br>delivered</div>
       </div>
     </div>
@@ -1797,7 +1757,7 @@
   <div class="page-inner">
     <!-- Logo at top, matching cover -->
     <div style="margin-bottom: auto;">
-      <img src="logo-white.png" alt="Second Prime" style="height: 52px; opacity: 0.9;" />
+      <img src="Logo-black.png" alt="Second Prime" style="height: 52px; opacity: 0.9;" />
     </div>
     <!-- Vertical accent + content, matching cover layout -->
     <div style="display:flex; align-items:stretch; gap:28px; margin:auto 0;">
@@ -1814,7 +1774,7 @@
     </div>
     <div class="cover-meta">
       <span style="display:flex; align-items:center;">
-        <img src="logo-white.png" alt="Second Prime" style="height: 24px; opacity: 0.3;" />
+        <img src="Logo-black.png" alt="Second Prime" style="height: 24px; opacity: 0.3;" />
       </span>
       <span>Version 2.0 &nbsp;·&nbsp; Q1 2026</span>
       <span>Confidential</span>
