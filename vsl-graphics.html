@@ -322,6 +322,69 @@
     }
     .disq-t { font-size: 14px; color: var(--s200); }
 
+    /* ── PROGRESSIVE HIGHLIGHT STATES ── */
+
+    /* Agenda rows */
+    .agenda-row.inactive {
+      background: transparent;
+      border-color: var(--s900);
+    }
+    .agenda-row.inactive .agenda-n { color: var(--s800); }
+    .agenda-row.inactive .agenda-t { color: var(--s700); }
+
+    .agenda-row.active {
+      background: var(--s900);
+      border-color: var(--s700);
+      border-left: 3px solid var(--t200);
+    }
+    .agenda-row.active .agenda-n { color: var(--t200); }
+    .agenda-row.active .agenda-t { color: var(--s50); }
+
+    /* Pillars */
+    .pillar.inactive {
+      border-top-color: var(--s800);
+      opacity: 0.25;
+    }
+    .pillar.active {
+      border-top-color: var(--t200);
+    }
+    .pillar.active .pillar-n { color: var(--t200); }
+    .pillar.active .pillar-t { color: var(--s50); }
+
+    /* Disqualification rows */
+    .disq-row.inactive {
+      background: transparent;
+      border-color: var(--s900);
+    }
+    .disq-row.inactive .disq-x { color: var(--s800); }
+    .disq-row.inactive .disq-t  { color: var(--s700); }
+
+    .disq-row.active {
+      background: var(--s900);
+      border-color: var(--s700);
+      border-left: 3px solid var(--t200);
+    }
+    .disq-row.active .disq-x { color: var(--t200); }
+    .disq-row.active .disq-t  { color: var(--s50); }
+
+    /* Process phases */
+    .phase.inactive {
+      border-color: var(--s900);
+    }
+    .phase.inactive .phase-n,
+    .phase.inactive .phase-t,
+    .phase.inactive .phase-d { color: var(--s800); }
+    .phase.inactive .sand-rule { background: var(--s800); }
+
+    .phase.active {
+      background: var(--s800);
+      border-color: var(--s700);
+      border-top: 2px solid var(--t200);
+    }
+    .phase.active .phase-n { color: var(--t200); }
+    .phase.active .phase-t { color: var(--s50); }
+    .phase.active .phase-d { color: var(--s200); }
+
     /* ════════════════════════════════════════════
        LOWER THIRD OVERLAYS
     ════════════════════════════════════════════ */
@@ -471,11 +534,12 @@
   </div>
 
 
-  <!-- G03 ── AGENDA -->
+  <!-- G03 ── AGENDA (4 progressive highlight cards) -->
+
   <div class="gm">
-    <span class="gm-id">G03</span>
-    <span class="gm-name">Agenda — Four Questions</span>
-    <span class="gm-ts">0:38 – 0:50</span>
+    <span class="gm-id">G03-1</span>
+    <span class="gm-name">Agenda — Highlight: Why trust us</span>
+    <span class="gm-ts">0:38 – 0:42</span>
   </div>
   <div class="slide">
     <div class="card">
@@ -484,19 +548,118 @@
         <div class="h-section">Four questions answered.</div>
         <div class="sand-rule"></div>
         <div class="agenda-list">
-          <div class="agenda-row">
+          <div class="agenda-row active">
             <span class="agenda-n">01</span>
             <span class="agenda-t">Why you should trust us with your health, performance, and longevity</span>
           </div>
-          <div class="agenda-row">
+          <div class="agenda-row inactive">
             <span class="agenda-n">02</span>
             <span class="agenda-t">Who this is — and who it isn't — for</span>
           </div>
-          <div class="agenda-row">
+          <div class="agenda-row inactive">
             <span class="agenda-n">03</span>
             <span class="agenda-t">The specific problems we solve and exactly how we solve them</span>
           </div>
-          <div class="agenda-row">
+          <div class="agenda-row inactive">
+            <span class="agenda-n">04</span>
+            <span class="agenda-t">What the next step looks like if you're interested in working together</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gm">
+    <span class="gm-id">G03-2</span>
+    <span class="gm-name">Agenda — Highlight: Who it's for</span>
+    <span class="gm-ts">0:42 – 0:45</span>
+  </div>
+  <div class="slide">
+    <div class="card">
+      <div class="card-body">
+        <span class="micro">In the next few minutes</span>
+        <div class="h-section">Four questions answered.</div>
+        <div class="sand-rule"></div>
+        <div class="agenda-list">
+          <div class="agenda-row inactive">
+            <span class="agenda-n">01</span>
+            <span class="agenda-t">Why you should trust us with your health, performance, and longevity</span>
+          </div>
+          <div class="agenda-row active">
+            <span class="agenda-n">02</span>
+            <span class="agenda-t">Who this is — and who it isn't — for</span>
+          </div>
+          <div class="agenda-row inactive">
+            <span class="agenda-n">03</span>
+            <span class="agenda-t">The specific problems we solve and exactly how we solve them</span>
+          </div>
+          <div class="agenda-row inactive">
+            <span class="agenda-n">04</span>
+            <span class="agenda-t">What the next step looks like if you're interested in working together</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gm">
+    <span class="gm-id">G03-3</span>
+    <span class="gm-name">Agenda — Highlight: Problems we solve</span>
+    <span class="gm-ts">0:45 – 0:48</span>
+  </div>
+  <div class="slide">
+    <div class="card">
+      <div class="card-body">
+        <span class="micro">In the next few minutes</span>
+        <div class="h-section">Four questions answered.</div>
+        <div class="sand-rule"></div>
+        <div class="agenda-list">
+          <div class="agenda-row inactive">
+            <span class="agenda-n">01</span>
+            <span class="agenda-t">Why you should trust us with your health, performance, and longevity</span>
+          </div>
+          <div class="agenda-row inactive">
+            <span class="agenda-n">02</span>
+            <span class="agenda-t">Who this is — and who it isn't — for</span>
+          </div>
+          <div class="agenda-row active">
+            <span class="agenda-n">03</span>
+            <span class="agenda-t">The specific problems we solve and exactly how we solve them</span>
+          </div>
+          <div class="agenda-row inactive">
+            <span class="agenda-n">04</span>
+            <span class="agenda-t">What the next step looks like if you're interested in working together</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gm">
+    <span class="gm-id">G03-4</span>
+    <span class="gm-name">Agenda — Highlight: Next step</span>
+    <span class="gm-ts">0:48 – 0:50</span>
+  </div>
+  <div class="slide">
+    <div class="card">
+      <div class="card-body">
+        <span class="micro">In the next few minutes</span>
+        <div class="h-section">Four questions answered.</div>
+        <div class="sand-rule"></div>
+        <div class="agenda-list">
+          <div class="agenda-row inactive">
+            <span class="agenda-n">01</span>
+            <span class="agenda-t">Why you should trust us with your health, performance, and longevity</span>
+          </div>
+          <div class="agenda-row inactive">
+            <span class="agenda-n">02</span>
+            <span class="agenda-t">Who this is — and who it isn't — for</span>
+          </div>
+          <div class="agenda-row inactive">
+            <span class="agenda-n">03</span>
+            <span class="agenda-t">The specific problems we solve and exactly how we solve them</span>
+          </div>
+          <div class="agenda-row active">
             <span class="agenda-n">04</span>
             <span class="agenda-t">What the next step looks like if you're interested in working together</span>
           </div>
@@ -506,11 +669,12 @@
   </div>
 
 
-  <!-- G06 ── SYSTEM PILLARS -->
+  <!-- G06 ── SYSTEM PILLARS (4 progressive highlight cards) -->
+
   <div class="gm">
-    <span class="gm-id">G06</span>
-    <span class="gm-name">System Pillars — The Four Inputs</span>
-    <span class="gm-ts">1:20 – 1:40</span>
+    <span class="gm-id">G06-1</span>
+    <span class="gm-name">Pillars — Highlight: Nutrition</span>
+    <span class="gm-ts">1:20 – 1:25</span>
   </div>
   <div class="slide">
     <div class="card">
@@ -518,22 +682,130 @@
         <span class="micro">The Second Prime System</span>
         <div class="h-section">Built around your unique biology.</div>
         <div class="pillars" style="margin-top:32px;">
-          <div class="pillar">
+          <div class="pillar active">
             <span class="pillar-n">01</span>
             <span class="pillar-t">Nutrition</span>
             <span class="pillar-d">Precision fueling calibrated to your metabolic profile and hormonal state.</span>
           </div>
-          <div class="pillar">
+          <div class="pillar inactive">
             <span class="pillar-n">02</span>
             <span class="pillar-t">Training</span>
             <span class="pillar-d">Structured programming matched to your recovery capacity and output goals.</span>
           </div>
-          <div class="pillar">
+          <div class="pillar inactive">
             <span class="pillar-n">03</span>
             <span class="pillar-t">Supplementation</span>
             <span class="pillar-d">Precision compounds targeting the specific gaps your data reveals.</span>
           </div>
-          <div class="pillar">
+          <div class="pillar inactive">
+            <span class="pillar-n">04</span>
+            <span class="pillar-t">Advanced Therapies</span>
+            <span class="pillar-d">Peptides, HRT, and medical protocols — with full clinical oversight.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gm">
+    <span class="gm-id">G06-2</span>
+    <span class="gm-name">Pillars — Highlight: Training</span>
+    <span class="gm-ts">1:25 – 1:30</span>
+  </div>
+  <div class="slide">
+    <div class="card">
+      <div class="card-body">
+        <span class="micro">The Second Prime System</span>
+        <div class="h-section">Built around your unique biology.</div>
+        <div class="pillars" style="margin-top:32px;">
+          <div class="pillar inactive">
+            <span class="pillar-n">01</span>
+            <span class="pillar-t">Nutrition</span>
+            <span class="pillar-d">Precision fueling calibrated to your metabolic profile and hormonal state.</span>
+          </div>
+          <div class="pillar active">
+            <span class="pillar-n">02</span>
+            <span class="pillar-t">Training</span>
+            <span class="pillar-d">Structured programming matched to your recovery capacity and output goals.</span>
+          </div>
+          <div class="pillar inactive">
+            <span class="pillar-n">03</span>
+            <span class="pillar-t">Supplementation</span>
+            <span class="pillar-d">Precision compounds targeting the specific gaps your data reveals.</span>
+          </div>
+          <div class="pillar inactive">
+            <span class="pillar-n">04</span>
+            <span class="pillar-t">Advanced Therapies</span>
+            <span class="pillar-d">Peptides, HRT, and medical protocols — with full clinical oversight.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gm">
+    <span class="gm-id">G06-3</span>
+    <span class="gm-name">Pillars — Highlight: Supplementation</span>
+    <span class="gm-ts">1:30 – 1:35</span>
+  </div>
+  <div class="slide">
+    <div class="card">
+      <div class="card-body">
+        <span class="micro">The Second Prime System</span>
+        <div class="h-section">Built around your unique biology.</div>
+        <div class="pillars" style="margin-top:32px;">
+          <div class="pillar inactive">
+            <span class="pillar-n">01</span>
+            <span class="pillar-t">Nutrition</span>
+            <span class="pillar-d">Precision fueling calibrated to your metabolic profile and hormonal state.</span>
+          </div>
+          <div class="pillar inactive">
+            <span class="pillar-n">02</span>
+            <span class="pillar-t">Training</span>
+            <span class="pillar-d">Structured programming matched to your recovery capacity and output goals.</span>
+          </div>
+          <div class="pillar active">
+            <span class="pillar-n">03</span>
+            <span class="pillar-t">Supplementation</span>
+            <span class="pillar-d">Precision compounds targeting the specific gaps your data reveals.</span>
+          </div>
+          <div class="pillar inactive">
+            <span class="pillar-n">04</span>
+            <span class="pillar-t">Advanced Therapies</span>
+            <span class="pillar-d">Peptides, HRT, and medical protocols — with full clinical oversight.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gm">
+    <span class="gm-id">G06-4</span>
+    <span class="gm-name">Pillars — Highlight: Advanced Therapies</span>
+    <span class="gm-ts">1:35 – 1:40</span>
+  </div>
+  <div class="slide">
+    <div class="card">
+      <div class="card-body">
+        <span class="micro">The Second Prime System</span>
+        <div class="h-section">Built around your unique biology.</div>
+        <div class="pillars" style="margin-top:32px;">
+          <div class="pillar inactive">
+            <span class="pillar-n">01</span>
+            <span class="pillar-t">Nutrition</span>
+            <span class="pillar-d">Precision fueling calibrated to your metabolic profile and hormonal state.</span>
+          </div>
+          <div class="pillar inactive">
+            <span class="pillar-n">02</span>
+            <span class="pillar-t">Training</span>
+            <span class="pillar-d">Structured programming matched to your recovery capacity and output goals.</span>
+          </div>
+          <div class="pillar inactive">
+            <span class="pillar-n">03</span>
+            <span class="pillar-t">Supplementation</span>
+            <span class="pillar-d">Precision compounds targeting the specific gaps your data reveals.</span>
+          </div>
+          <div class="pillar active">
             <span class="pillar-n">04</span>
             <span class="pillar-t">Advanced Therapies</span>
             <span class="pillar-d">Peptides, HRT, and medical protocols — with full clinical oversight.</span>
@@ -609,11 +881,12 @@
   </div>
 
 
-  <!-- G10 ── DISQUALIFICATION -->
+  <!-- G10 ── DISQUALIFICATION (3 progressive highlight cards) -->
+
   <div class="gm">
-    <span class="gm-id">G10</span>
-    <span class="gm-name">Disqualification — Not For You</span>
-    <span class="gm-ts">2:30 – 2:48</span>
+    <span class="gm-id">G10-1</span>
+    <span class="gm-name">Disqualification — Highlight: Short-term</span>
+    <span class="gm-ts">2:30 – 2:37</span>
   </div>
   <div class="slide">
     <div class="card">
@@ -621,15 +894,71 @@
         <span class="micro">Who this is not for</span>
         <div class="h-section">Second Prime is not a quick fix.</div>
         <div class="disq-list">
-          <div class="disq-row">
+          <div class="disq-row active">
             <span class="disq-x">—</span>
             <span class="disq-t">You're looking for a 30-day challenge or short-term program</span>
           </div>
-          <div class="disq-row">
+          <div class="disq-row inactive">
             <span class="disq-x">—</span>
             <span class="disq-t">You want someone to run labs without a real protocol behind them</span>
           </div>
-          <div class="disq-row">
+          <div class="disq-row inactive">
+            <span class="disq-x">—</span>
+            <span class="disq-t">You're not ready to invest seriously in long-term performance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gm">
+    <span class="gm-id">G10-2</span>
+    <span class="gm-name">Disqualification — Highlight: Labs only</span>
+    <span class="gm-ts">2:37 – 2:43</span>
+  </div>
+  <div class="slide">
+    <div class="card">
+      <div class="card-body">
+        <span class="micro">Who this is not for</span>
+        <div class="h-section">Second Prime is not a quick fix.</div>
+        <div class="disq-list">
+          <div class="disq-row inactive">
+            <span class="disq-x">—</span>
+            <span class="disq-t">You're looking for a 30-day challenge or short-term program</span>
+          </div>
+          <div class="disq-row active">
+            <span class="disq-x">—</span>
+            <span class="disq-t">You want someone to run labs without a real protocol behind them</span>
+          </div>
+          <div class="disq-row inactive">
+            <span class="disq-x">—</span>
+            <span class="disq-t">You're not ready to invest seriously in long-term performance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gm">
+    <span class="gm-id">G10-3</span>
+    <span class="gm-name">Disqualification — Highlight: Not investing</span>
+    <span class="gm-ts">2:43 – 2:48</span>
+  </div>
+  <div class="slide">
+    <div class="card">
+      <div class="card-body">
+        <span class="micro">Who this is not for</span>
+        <div class="h-section">Second Prime is not a quick fix.</div>
+        <div class="disq-list">
+          <div class="disq-row inactive">
+            <span class="disq-x">—</span>
+            <span class="disq-t">You're looking for a 30-day challenge or short-term program</span>
+          </div>
+          <div class="disq-row inactive">
+            <span class="disq-x">—</span>
+            <span class="disq-t">You want someone to run labs without a real protocol behind them</span>
+          </div>
+          <div class="disq-row active">
             <span class="disq-x">—</span>
             <span class="disq-t">You're not ready to invest seriously in long-term performance</span>
           </div>
@@ -639,11 +968,12 @@
   </div>
 
 
-  <!-- G12 ── THREE-PHASE PROCESS -->
+  <!-- G12 ── THREE-PHASE PROCESS (3 progressive highlight cards) -->
+
   <div class="gm">
-    <span class="gm-id">G12</span>
-    <span class="gm-name">Process — Three Phases</span>
-    <span class="gm-ts">3:05 – 3:48</span>
+    <span class="gm-id">G12-1</span>
+    <span class="gm-name">Process — Highlight: Deep Assessment</span>
+    <span class="gm-ts">3:05 – 3:22</span>
   </div>
   <div class="slide">
     <div class="card">
@@ -651,21 +981,93 @@
         <span class="micro">How it works</span>
         <div class="h-section">Three phases. One integrated system.</div>
         <div class="process">
-          <div class="phase">
+          <div class="phase active">
             <span class="phase-n">Phase 01</span>
             <span class="phase-t">Deep Assessment</span>
             <div class="sand-rule" style="margin:8px 0;"></div>
             <span class="phase-d">Comprehensive analysis of 1,000+ biomarkers — hormones, metabolism, inflammation, gut health, and cardiovascular risk.</span>
           </div>
           <div class="phase-sep">→</div>
-          <div class="phase">
+          <div class="phase inactive">
             <span class="phase-n">Phase 02</span>
             <span class="phase-t">Performance Blueprint</span>
             <div class="sand-rule" style="margin:8px 0;"></div>
             <span class="phase-d">A personalized protocol addressing the specific gaps in your biology — built around your goals and lifestyle.</span>
           </div>
           <div class="phase-sep">→</div>
-          <div class="phase">
+          <div class="phase inactive">
+            <span class="phase-n">Phase 03</span>
+            <span class="phase-t">Execute &amp; Monitor</span>
+            <div class="sand-rule" style="margin:8px 0;"></div>
+            <span class="phase-d">Ongoing team support, biomarker monitoring, and protocol adjustments to ensure the plan keeps working.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gm">
+    <span class="gm-id">G12-2</span>
+    <span class="gm-name">Process — Highlight: Performance Blueprint</span>
+    <span class="gm-ts">3:22 – 3:36</span>
+  </div>
+  <div class="slide">
+    <div class="card">
+      <div class="card-body">
+        <span class="micro">How it works</span>
+        <div class="h-section">Three phases. One integrated system.</div>
+        <div class="process">
+          <div class="phase inactive">
+            <span class="phase-n">Phase 01</span>
+            <span class="phase-t">Deep Assessment</span>
+            <div class="sand-rule" style="margin:8px 0;"></div>
+            <span class="phase-d">Comprehensive analysis of 1,000+ biomarkers — hormones, metabolism, inflammation, gut health, and cardiovascular risk.</span>
+          </div>
+          <div class="phase-sep">→</div>
+          <div class="phase active">
+            <span class="phase-n">Phase 02</span>
+            <span class="phase-t">Performance Blueprint</span>
+            <div class="sand-rule" style="margin:8px 0;"></div>
+            <span class="phase-d">A personalized protocol addressing the specific gaps in your biology — built around your goals and lifestyle.</span>
+          </div>
+          <div class="phase-sep">→</div>
+          <div class="phase inactive">
+            <span class="phase-n">Phase 03</span>
+            <span class="phase-t">Execute &amp; Monitor</span>
+            <div class="sand-rule" style="margin:8px 0;"></div>
+            <span class="phase-d">Ongoing team support, biomarker monitoring, and protocol adjustments to ensure the plan keeps working.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gm">
+    <span class="gm-id">G12-3</span>
+    <span class="gm-name">Process — Highlight: Execute &amp; Monitor</span>
+    <span class="gm-ts">3:36 – 3:48</span>
+  </div>
+  <div class="slide">
+    <div class="card">
+      <div class="card-body">
+        <span class="micro">How it works</span>
+        <div class="h-section">Three phases. One integrated system.</div>
+        <div class="process">
+          <div class="phase inactive">
+            <span class="phase-n">Phase 01</span>
+            <span class="phase-t">Deep Assessment</span>
+            <div class="sand-rule" style="margin:8px 0;"></div>
+            <span class="phase-d">Comprehensive analysis of 1,000+ biomarkers — hormones, metabolism, inflammation, gut health, and cardiovascular risk.</span>
+          </div>
+          <div class="phase-sep">→</div>
+          <div class="phase inactive">
+            <span class="phase-n">Phase 02</span>
+            <span class="phase-t">Performance Blueprint</span>
+            <div class="sand-rule" style="margin:8px 0;"></div>
+            <span class="phase-d">A personalized protocol addressing the specific gaps in your biology — built around your goals and lifestyle.</span>
+          </div>
+          <div class="phase-sep">→</div>
+          <div class="phase active">
             <span class="phase-n">Phase 03</span>
             <span class="phase-t">Execute &amp; Monitor</span>
             <div class="sand-rule" style="margin:8px 0;"></div>
