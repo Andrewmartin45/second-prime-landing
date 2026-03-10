@@ -1315,7 +1315,7 @@
   <div id="export-status" style="font-size:11px; color:#fff; background:rgba(0,0,0,0.6); padding:4px 10px; border-radius:4px; display:none;"></div>
 </div>
 
-<script src="https://unpkg.com/html-to-image@1.11.11/dist/html-to-image.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
 async function exportSlides() {
   const btn    = document.getElementById('export-btn');
@@ -1324,9 +1324,6 @@ async function exportSlides() {
   btn.disabled = true;
   btn.textContent = 'Exporting…';
   status.style.display = 'block';
-
-  // Hide the export UI so it doesn't appear in screenshots
-  document.getElementById('export-ui').style.visibility = 'hidden';
 
   await document.fonts.ready;
 
@@ -1347,17 +1344,20 @@ async function exportSlides() {
 
     status.textContent = `${filename}  (${done + 1} / ${slides.length})`;
 
-    // Clone slide into an isolated container at (0,0) so html-to-image
-    // doesn't include the surrounding page offset in the canvas.
-    const container = document.createElement('div');
-    container.style.cssText = 'position:fixed;top:0;left:0;width:960px;height:540px;overflow:hidden;z-index:-1;opacity:0;pointer-events:none;';
-    const clone = slide.cloneNode(true);
-    clone.style.cssText = 'width:960px;height:540px;margin:0;position:static;';
-    container.appendChild(clone);
-    document.body.appendChild(container);
+    // Scroll into view so html2canvas can measure the element correctly
+    slide.scrollIntoView({ block: 'center' });
+    await new Promise(r => setTimeout(r, 80));
 
     try {
-      const dataUrl = await htmlToImage.toPng(container, { pixelRatio: 2 });
+      const canvas = await html2canvas(slide, {
+        scale: 2,
+        useCORS: true,
+        allowTaint: false,
+        logging: false,
+        width: 960,
+        height: 540,
+      });
+      const dataUrl = canvas.toDataURL('image/png');
       const a = document.createElement('a');
       a.href = dataUrl;
       a.download = `${filename}.png`;
@@ -1366,12 +1366,9 @@ async function exportSlides() {
       await new Promise(r => setTimeout(r, 400));
     } catch (err) {
       console.error(`Failed: ${filename}`, err);
-    } finally {
-      document.body.removeChild(container);
     }
   }
 
-  document.getElementById('export-ui').style.visibility = 'visible';
   btn.disabled = false;
   btn.textContent = 'Export PNGs';
   status.textContent = `✓ Done — ${done} PNGs saved to Downloads`;
