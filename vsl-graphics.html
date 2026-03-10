@@ -1347,16 +1347,27 @@ async function exportSlides() {
 
     status.textContent = `${filename}  (${done + 1} / ${slides.length})`;
 
+    // Clone slide into an isolated container at (0,0) so html-to-image
+    // doesn't include the surrounding page offset in the canvas.
+    const container = document.createElement('div');
+    container.style.cssText = 'position:fixed;top:0;left:0;width:960px;height:540px;overflow:hidden;z-index:-1;opacity:0;pointer-events:none;';
+    const clone = slide.cloneNode(true);
+    clone.style.cssText = 'width:960px;height:540px;margin:0;position:static;';
+    container.appendChild(clone);
+    document.body.appendChild(container);
+
     try {
-      const dataUrl = await htmlToImage.toPng(slide, { pixelRatio: 2, width: 960, height: 540 });
+      const dataUrl = await htmlToImage.toPng(container, { pixelRatio: 2 });
       const a = document.createElement('a');
       a.href = dataUrl;
       a.download = `${filename}.png`;
       a.click();
       done++;
-      await new Promise(r => setTimeout(r, 400)); // pause so browser can handle each download
+      await new Promise(r => setTimeout(r, 400));
     } catch (err) {
       console.error(`Failed: ${filename}`, err);
+    } finally {
+      document.body.removeChild(container);
     }
   }
 
