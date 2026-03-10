@@ -89,6 +89,12 @@
       margin: 0 auto 56px;
       overflow: hidden;
     }
+    /* Overlay slides: show a simulated video bg so the transparent PNG previews correctly.
+       This bg is for browser preview only — the exported PNG itself is transparent. */
+    .slide:has(.overlay-lt),
+    .slide:has(.overlay-callout) {
+      background: linear-gradient(160deg, #2a3a4a 0%, #1a2535 55%, #0e1925 100%);
+    }
 
     /* ════════════════════════════════════════════
        FULL-SCREEN CARD BASE
@@ -415,7 +421,7 @@
     ════════════════════════════════════════════ */
     .overlay-lt {
       width: 100%; height: 100%;
-      background: #000;
+      background: transparent;
       position: relative;
       display: flex; align-items: flex-end;
     }
@@ -461,7 +467,7 @@
     ════════════════════════════════════════════ */
     .overlay-callout {
       width: 100%; height: 100%;
-      background: #000;
+      background: transparent;
       position: relative;
       display: flex; align-items: center; justify-content: center;
     }
@@ -532,9 +538,9 @@
     <h1>VSL Video Graphics — v2</h1>
     <p>
       <strong>Full-screen cards</strong> replace the talking head view — cut to them in your timeline like B-roll.<br>
-      <strong>Overlay graphics</strong> sit on top of your talking head footage. The black areas are transparent —
-      in your video editor, set the clip's blend mode to <strong>Screen</strong> (Premiere, FCP, DaVinci) and pure black becomes invisible, leaving only the graphic element.<br>
-      Export screenshots at 960×540 or set browser zoom to 200% for native 1920×1080.
+      <strong>Overlay graphics</strong> sit on top of your talking head footage with true alpha transparency —
+      use <strong>Normal blend mode</strong> (Premiere, FCP, DaVinci) at full opacity. The transparent areas show your footage through; the slate panels appear as solid overlays.<br>
+      To export with transparency: open DevTools (F12) → Elements panel → right-click the <code>.slide</code> element → <strong>Capture node screenshot</strong>. This saves a PNG with real alpha. Export at 960×540 or zoom to 200% for 1920×1080.
     </p>
   </div>
 
