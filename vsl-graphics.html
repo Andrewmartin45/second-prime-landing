@@ -42,22 +42,6 @@
       padding: 48px 24px 100px;
       -webkit-font-smoothing: antialiased;
     }
-    body.export-mode {
-      background: transparent !important;
-    }
-
-    /* ── EXPORT TOGGLE BUTTON ── */
-    #export-toggle {
-      position: fixed; top: 16px; right: 16px; z-index: 9999;
-      padding: 8px 18px; border-radius: 6px; border: none; cursor: pointer;
-      font-family: var(--body); font-size: 12px; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      background: var(--t200); color: #000;
-      transition: background 0.15s;
-    }
-    #export-toggle.active {
-      background: #f87171; color: #fff;
-    }
 
     /* ── PAGE HEADER ── */
     .page-header {
@@ -540,12 +524,6 @@
 </head>
 <body>
 
-  <button id="export-toggle" onclick="
-    document.body.classList.toggle('export-mode');
-    this.classList.toggle('active');
-    this.textContent = document.body.classList.contains('export-mode') ? 'Exit Export Mode' : 'Export Mode';
-  ">Export Mode</button>
-
   <!-- ════════════════════════════════════
        PAGE HEADER
   ════════════════════════════════════ -->
@@ -555,8 +533,8 @@
     <p>
       <strong>Full-screen cards</strong> replace the talking head view — cut to them in your timeline like B-roll.<br>
       <strong>Overlay graphics</strong> sit on top of your talking head footage with true alpha transparency —
-      use <strong>Normal blend mode</strong> (Premiere, FCP, DaVinci) at full opacity. The transparent areas show your footage through; the slate panels appear as solid overlays.<br>
-      To export with transparency: open DevTools (F12) → Elements panel → right-click the <code>.slide</code> element → <strong>Capture node screenshot</strong>. This saves a PNG with real alpha. Export at 960×540 or zoom to 200% for 1920×1080.
+      hover over any overlay slide and click <strong>↓ Download PNG</strong> to export it with a real alpha channel.
+      In your video editor (CapCut, Premiere, DaVinci, FCP), import the PNG and set blend mode to <strong>Normal at 100% opacity</strong>. The transparent areas show your footage; the slate panel sits solid on top.
     </p>
   </div>
 
@@ -1366,6 +1344,7 @@ async function exportSlides() {
         useCORS: true,
         allowTaint: false,
         logging: false,
+        backgroundColor: null,
         width: 960,
         height: 540,
       });
