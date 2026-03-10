@@ -1360,7 +1360,15 @@ async function exportSlides() {
           doc.body.style.background = 'transparent';
         },
       });
-      const dataUrl = canvas.toDataURL('image/png');
+      // Force sRGB color space so CapCut doesn't misread Display P3 tags
+      // (html2canvas on Mac M-series outputs P3-tagged canvases which CapCut
+      //  interprets as blue-shifted on dark neutrals)
+      const srgb = document.createElement('canvas');
+      srgb.width = canvas.width;
+      srgb.height = canvas.height;
+      const sctx = srgb.getContext('2d', { colorSpace: 'srgb' });
+      sctx.drawImage(canvas, 0, 0);
+      const dataUrl = srgb.toDataURL('image/png');
       const a = document.createElement('a');
       a.href = dataUrl;
       a.download = `${filename}.png`;
