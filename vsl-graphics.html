@@ -367,6 +367,31 @@
     .disq-row.active .disq-x { color: var(--t200); }
     .disq-row.active .disq-t  { color: var(--s50); }
 
+    /* Past (already spoken — still readable, just not the focus) */
+    .agenda-row.past {
+      background: transparent;
+      border-color: var(--s800);
+    }
+    .agenda-row.past .agenda-n { color: var(--s700); }
+    .agenda-row.past .agenda-t { color: var(--s500); }
+
+    .pillar.past {
+      opacity: 0.55;
+      border-top-color: var(--t500);
+    }
+
+    .disq-row.past {
+      background: transparent;
+      border-color: var(--s800);
+    }
+    .disq-row.past .disq-x { color: var(--s700); }
+    .disq-row.past .disq-t  { color: var(--s500); }
+
+    .phase.past .phase-n { color: var(--s700); }
+    .phase.past .phase-t { color: var(--s500); }
+    .phase.past .phase-d { color: var(--s700); }
+    .phase.past .sand-rule { background: var(--s700); }
+
     /* Process phases */
     .phase.inactive {
       border-color: var(--s900);
@@ -581,7 +606,7 @@
         <div class="h-section">Four questions answered.</div>
         <div class="sand-rule"></div>
         <div class="agenda-list">
-          <div class="agenda-row inactive">
+          <div class="agenda-row past">
             <span class="agenda-n">01</span>
             <span class="agenda-t">Why you should trust us with your health, performance, and longevity</span>
           </div>
@@ -614,11 +639,11 @@
         <div class="h-section">Four questions answered.</div>
         <div class="sand-rule"></div>
         <div class="agenda-list">
-          <div class="agenda-row inactive">
+          <div class="agenda-row past">
             <span class="agenda-n">01</span>
             <span class="agenda-t">Why you should trust us with your health, performance, and longevity</span>
           </div>
-          <div class="agenda-row inactive">
+          <div class="agenda-row past">
             <span class="agenda-n">02</span>
             <span class="agenda-t">Who this is — and who it isn't — for</span>
           </div>
@@ -647,15 +672,15 @@
         <div class="h-section">Four questions answered.</div>
         <div class="sand-rule"></div>
         <div class="agenda-list">
-          <div class="agenda-row inactive">
+          <div class="agenda-row past">
             <span class="agenda-n">01</span>
             <span class="agenda-t">Why you should trust us with your health, performance, and longevity</span>
           </div>
-          <div class="agenda-row inactive">
+          <div class="agenda-row past">
             <span class="agenda-n">02</span>
             <span class="agenda-t">Who this is — and who it isn't — for</span>
           </div>
-          <div class="agenda-row inactive">
+          <div class="agenda-row past">
             <span class="agenda-n">03</span>
             <span class="agenda-t">The specific problems we solve and exactly how we solve them</span>
           </div>
@@ -718,7 +743,7 @@
         <span class="micro">The Second Prime System</span>
         <div class="h-section">Built around your unique biology.</div>
         <div class="pillars" style="margin-top:32px;">
-          <div class="pillar inactive">
+          <div class="pillar past">
             <span class="pillar-n">01</span>
             <span class="pillar-t">Nutrition</span>
             <span class="pillar-d">Precision fueling calibrated to your metabolic profile and hormonal state.</span>
@@ -754,12 +779,12 @@
         <span class="micro">The Second Prime System</span>
         <div class="h-section">Built around your unique biology.</div>
         <div class="pillars" style="margin-top:32px;">
-          <div class="pillar inactive">
+          <div class="pillar past">
             <span class="pillar-n">01</span>
             <span class="pillar-t">Nutrition</span>
             <span class="pillar-d">Precision fueling calibrated to your metabolic profile and hormonal state.</span>
           </div>
-          <div class="pillar inactive">
+          <div class="pillar past">
             <span class="pillar-n">02</span>
             <span class="pillar-t">Training</span>
             <span class="pillar-d">Structured programming matched to your recovery capacity and output goals.</span>
@@ -790,17 +815,17 @@
         <span class="micro">The Second Prime System</span>
         <div class="h-section">Built around your unique biology.</div>
         <div class="pillars" style="margin-top:32px;">
-          <div class="pillar inactive">
+          <div class="pillar past">
             <span class="pillar-n">01</span>
             <span class="pillar-t">Nutrition</span>
             <span class="pillar-d">Precision fueling calibrated to your metabolic profile and hormonal state.</span>
           </div>
-          <div class="pillar inactive">
+          <div class="pillar past">
             <span class="pillar-n">02</span>
             <span class="pillar-t">Training</span>
             <span class="pillar-d">Structured programming matched to your recovery capacity and output goals.</span>
           </div>
-          <div class="pillar inactive">
+          <div class="pillar past">
             <span class="pillar-n">03</span>
             <span class="pillar-t">Supplementation</span>
             <span class="pillar-d">Precision compounds targeting the specific gaps your data reveals.</span>
@@ -922,7 +947,7 @@
         <span class="micro">Who this is not for</span>
         <div class="h-section">Second Prime is not a quick fix.</div>
         <div class="disq-list">
-          <div class="disq-row inactive">
+          <div class="disq-row past">
             <span class="disq-x">—</span>
             <span class="disq-t">You're looking for a 30-day challenge or short-term program</span>
           </div>
@@ -950,11 +975,11 @@
         <span class="micro">Who this is not for</span>
         <div class="h-section">Second Prime is not a quick fix.</div>
         <div class="disq-list">
-          <div class="disq-row inactive">
+          <div class="disq-row past">
             <span class="disq-x">—</span>
             <span class="disq-t">You're looking for a 30-day challenge or short-term program</span>
           </div>
-          <div class="disq-row inactive">
+          <div class="disq-row past">
             <span class="disq-x">—</span>
             <span class="disq-t">You want someone to run labs without a real protocol behind them</span>
           </div>
@@ -1017,7 +1042,7 @@
         <span class="micro">How it works</span>
         <div class="h-section">Three phases. One integrated system.</div>
         <div class="process">
-          <div class="phase inactive">
+          <div class="phase past">
             <span class="phase-n">Phase 01</span>
             <span class="phase-t">Deep Assessment</span>
             <div class="sand-rule" style="margin:8px 0;"></div>
@@ -1053,14 +1078,14 @@
         <span class="micro">How it works</span>
         <div class="h-section">Three phases. One integrated system.</div>
         <div class="process">
-          <div class="phase inactive">
+          <div class="phase past">
             <span class="phase-n">Phase 01</span>
             <span class="phase-t">Deep Assessment</span>
             <div class="sand-rule" style="margin:8px 0;"></div>
             <span class="phase-d">Comprehensive analysis of 1,000+ biomarkers — hormones, metabolism, inflammation, gut health, and cardiovascular risk.</span>
           </div>
           <div class="phase-sep">→</div>
-          <div class="phase inactive">
+          <div class="phase past">
             <span class="phase-n">Phase 02</span>
             <span class="phase-t">Performance Blueprint</span>
             <div class="sand-rule" style="margin:8px 0;"></div>
@@ -1087,7 +1112,7 @@
   </div>
   <div class="slide">
     <div class="card">
-      <div class="card-body center">
+      <div class="card-body">
         <span class="micro">The next step is simple</span>
         <div class="h-section">Three steps. No obligation.</div>
         <div class="steps">
@@ -1128,10 +1153,10 @@
     <div class="card">
       <div style="position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--t200);"></div>
       <div class="card-body" style="padding-left:80px; justify-content:center;">
-        <div class="h-display" style="font-size:58px; line-height:1.15;">
+        <div class="h-display" style="font-size:44px; line-height:1.15; white-space:nowrap;">
           Your prime isn't in your past.
         </div>
-        <div class="h-display" style="font-size:58px; line-height:1.15; color:var(--d700); font-style:italic; margin-top:8px;">
+        <div class="h-display" style="font-size:44px; line-height:1.15; color:var(--d700); font-style:italic; margin-top:8px; white-space:nowrap;">
           It's waiting to be engineered.
         </div>
         <div class="sand-rule" style="margin-top:32px; margin-bottom:20px;"></div>
