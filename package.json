@@ -1,0 +1,19 @@
+{
+  "name": "second-prime-landing",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "export": "node export-slides.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://local_proxy@127.0.0.1:38369/git/Andrewmartin45/second-prime-landing"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^24.0.0"
+  }
+}
