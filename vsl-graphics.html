@@ -1347,6 +1347,9 @@ async function exportSlides() {
         backgroundColor: null,
         width: 960,
         height: 540,
+        onclone: (doc) => {
+          doc.body.style.background = 'transparent';
+        },
       });
       const dataUrl = canvas.toDataURL('image/png');
       const a = document.createElement('a');
