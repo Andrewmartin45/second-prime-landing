@@ -42,6 +42,22 @@
       padding: 48px 24px 100px;
       -webkit-font-smoothing: antialiased;
     }
+    body.export-mode {
+      background: transparent !important;
+    }
+
+    /* ── EXPORT TOGGLE BUTTON ── */
+    #export-toggle {
+      position: fixed; top: 16px; right: 16px; z-index: 9999;
+      padding: 8px 18px; border-radius: 6px; border: none; cursor: pointer;
+      font-family: var(--body); font-size: 12px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      background: var(--t200); color: #000;
+      transition: background 0.15s;
+    }
+    #export-toggle.active {
+      background: #f87171; color: #fff;
+    }
 
     /* ── PAGE HEADER ── */
     .page-header {
@@ -523,6 +539,12 @@
   </style>
 </head>
 <body>
+
+  <button id="export-toggle" onclick="
+    document.body.classList.toggle('export-mode');
+    this.classList.toggle('active');
+    this.textContent = document.body.classList.contains('export-mode') ? 'Exit Export Mode' : 'Export Mode';
+  ">Export Mode</button>
 
   <!-- ════════════════════════════════════
        PAGE HEADER
