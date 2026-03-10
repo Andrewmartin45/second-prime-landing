@@ -335,7 +335,7 @@
     .agenda-row.active {
       background: var(--s900);
       border-color: var(--s700);
-      border-left: 3px solid var(--t200);
+      box-shadow: inset 3px 0 0 var(--t200);
     }
     .agenda-row.active .agenda-n { color: var(--t200); }
     .agenda-row.active .agenda-t { color: var(--s50); }
@@ -1159,11 +1159,62 @@
 
 
   <!-- ════════════════════════════════════
+       HOOK OVERLAYS
+  ════════════════════════════════════ -->
+  <div class="sec-div">
+    <div class="sec-div-line"></div>
+    <span class="sec-div-label teal">Hook Overlays — Default blend · first 15 seconds</span>
+    <div class="sec-div-line"></div>
+  </div>
+
+
+  <!-- G00-A ── HOOK PATTERN INTERRUPT -->
+  <div class="gm">
+    <span class="gm-id">G00-A</span>
+    <span class="gm-name">Hook — Pattern Interrupt</span>
+    <span class="gm-ts">0:01 – 0:07 &nbsp;·&nbsp; Centered overlay</span>
+  </div>
+  <div class="slide">
+    <div class="overlay-callout">
+      <div class="transp-label" style="top:25%; transform:translate(-50%,0);">Transparent</div>
+      <div class="callout-box" style="max-width:460px;">
+        <span style="font-size:9px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--t200); display:block; margin-bottom:20px;">A message for high performers</span>
+        <div style="font-family:var(--body); font-size:46px; font-weight:800; letter-spacing:-0.03em; line-height:1; color:var(--s50);">
+          You've optimized<br>everything.
+        </div>
+        <div style="font-family:var(--body); font-size:46px; font-weight:300; letter-spacing:-0.03em; line-height:1; color:var(--t200); margin-top:10px;">
+          Except this.
+        </div>
+        <div class="sand-rule center" style="margin:22px 0 16px;"></div>
+        <p style="font-size:12px; color:var(--s500); letter-spacing:0.02em;">What you're about to hear changes that.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- G00-B ── HOOK QUALIFIER BAR -->
+  <div class="gm">
+    <span class="gm-id">G00-B</span>
+    <span class="gm-name">Hook — Audience Qualifier</span>
+    <span class="gm-ts">0:08 – 0:14 &nbsp;·&nbsp; Bottom bar overlay</span>
+  </div>
+  <div class="slide">
+    <div class="overlay-callout bottom-center">
+      <div class="transp-label" style="top:30%;">Transparent — you remain visible</div>
+      <div class="callout-box bottom-bar">
+        <div class="sc-dot"></div>
+        <span class="sc-text">Designed for executives, founders &amp; athletes who know they have more performance to unlock.</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════
        LOWER THIRD OVERLAYS
   ════════════════════════════════════ -->
   <div class="sec-div">
     <div class="sec-div-line"></div>
-    <span class="sec-div-label teal">Lower Third Overlays — Set clip to Screen blend mode in editor</span>
+    <span class="sec-div-label teal">Lower Third Overlays — Default blend · Normal at 100% opacity</span>
     <div class="sec-div-line"></div>
   </div>
 
