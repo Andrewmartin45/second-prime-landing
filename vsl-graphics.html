@@ -1336,7 +1336,15 @@ async function exportSlides() {
 
     // Scroll into view so html2canvas can measure the element correctly
     slide.scrollIntoView({ block: 'center' });
-    await new Promise(r => setTimeout(r, 80));
+    await new Promise(r => setTimeout(r, 150));
+
+    // Inject a style that forces the page background transparent before html2canvas
+    // clones the document — the injected tag travels into the clone so it works
+    // even if onclone isn't called correctly in all browsers/versions.
+    const bgOverride = document.createElement('style');
+    bgOverride.id = '__export_bg_override';
+    bgOverride.textContent = 'html, body { background: transparent !important; }';
+    document.head.appendChild(bgOverride);
 
     try {
       const canvas = await html2canvas(slide, {
@@ -1348,6 +1356,7 @@ async function exportSlides() {
         width: 960,
         height: 540,
         onclone: (doc) => {
+          doc.documentElement.style.background = 'transparent';
           doc.body.style.background = 'transparent';
         },
       });
@@ -1360,6 +1369,8 @@ async function exportSlides() {
       await new Promise(r => setTimeout(r, 400));
     } catch (err) {
       console.error(`Failed: ${filename}`, err);
+    } finally {
+      document.getElementById('__export_bg_override')?.remove();
     }
   }
 
