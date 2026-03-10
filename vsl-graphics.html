@@ -419,22 +419,12 @@
       position: relative;
       display: flex; align-items: flex-end;
     }
-    /* transparent indicator label */
-    .transp-label {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -60%);
-      font-size: 9px; font-weight: 700; letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.12);
-      border: 1px dashed rgba(255,255,255,0.1);
-      padding: 8px 16px; border-radius: 2px;
-    }
+    .transp-label { display: none; }
 
     .lt-panel {
       width: 100%;
-      background: rgba(24, 24, 31, 0.96);
-      border-top: 1px solid var(--s800);
+      background: rgba(51, 65, 85, 0.97);
+      border-top: 1px solid rgba(148,163,184,0.15);
       padding: 22px 64px 30px;
       display: flex; align-items: center; gap: 0;
       position: relative;
@@ -484,8 +474,8 @@
 
     /* callout box */
     .callout-box {
-      background: rgba(24, 24, 31, 0.96);
-      border: 1px solid var(--s800);
+      background: rgba(51, 65, 85, 0.97);
+      border: 1px solid rgba(148,163,184,0.15);
       border-top: 2px solid var(--t200);
       border-radius: 4px;
       padding: 28px 40px;
@@ -504,7 +494,7 @@
       border-top: 2px solid var(--t200);
       padding: 20px 64px;
       display: flex; align-items: center; gap: 24px;
-      background: rgba(24, 24, 31, 0.95);
+      background: rgba(51, 65, 85, 0.97);
     }
 
     /* stat number */
