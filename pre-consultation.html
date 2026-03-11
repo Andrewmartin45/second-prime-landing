@@ -863,6 +863,177 @@
     .footer-copy { font-size: 13px; color: var(--text-60); margin-bottom: 8px; }
     .footer-legal { font-size: 12px; color: rgba(240,240,242,0.30); font-style: italic; }
 
+    /* ── PRINT / PDF ── */
+    @media print {
+      @page {
+        size: letter;
+        margin: 0.65in 0.70in;
+      }
+
+      /* Force all background colors and images to render */
+      *, *::before, *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      /* Reset body */
+      body { font-size: 11px; }
+
+      /* Kill scroll behavior, smooth transitions */
+      html { scroll-behavior: auto; }
+
+      /* Full width layout */
+      .wrap { max-width: 100%; padding: 0; }
+
+      /* Compress section padding */
+      section { padding: 40px 0; }
+      section + section { border-top: 1px solid rgba(255,255,255,0.08); }
+
+      /* ── HERO ── */
+      .hero {
+        min-height: auto;
+        padding: 52px 0 44px;
+        page-break-after: always;
+        break-after: page;
+      }
+      .hero h1 { font-size: 44px; }
+      .hero-sub { font-size: 13px; }
+      .hero-logo img { height: 32px; }
+      .hero-logo { margin-bottom: 32px; }
+
+      /* ── HEADINGS ── */
+      h1 { font-size: 44px; }
+      h2 { font-size: 24px; white-space: normal; }
+      h3 { font-size: 16px; }
+      h4 { font-size: 12px; }
+      .section-subtitle { font-size: 12px; margin-bottom: 28px; }
+
+      /* ── FOUNDER ── */
+      .founder-letter { padding: 36px 40px; }
+      .founder-photo { width: 88px; height: 88px; }
+      .founder-letter p { font-size: 11px; line-height: 1.7; }
+      .credential-strip { flex-direction: row; }
+      .credential-num { font-size: 17px; }
+      .credential-label { font-size: 9px; }
+
+      /* ── CARDS / BLOCKS ── */
+      .card { padding: 24px; }
+      .for-card { padding: 28px 24px; }
+      .for-list li { font-size: 11px; }
+
+      /* ── RANGE GRAPHIC ── */
+      .range-bar { height: 44px !important; }
+      .rz-label { font-size: 9px !important; }
+      .rz-label.lg { font-size: 11px !important; }
+      .range-bar-note { font-size: 10px; }
+
+      /* ── PILLAR PHOTOS ── */
+      .pillar-split { break-inside: avoid; }
+      .pillar-photo-slot { min-height: 220px; }
+      .pillar-text-col { padding: 32px 28px; }
+      .pillar-number { font-size: 52px; }
+      .pillar-content h3 { font-size: 20px; }
+      .pillar-content p { font-size: 11px; }
+
+      /* ── PHOTO BANNER ── */
+      .photo-banner { height: 200px; margin: 32px 0 0; }
+      .photo-banner-quote { font-size: 18px; }
+
+      /* ── PROCESS ── */
+      .phase-block { break-inside: avoid; }
+      .phase-body { padding: 20px 24px; }
+      .phase-points li { font-size: 11px; }
+      .phase-callout { font-size: 11px; padding: 12px 16px; }
+
+      /* ── ASSESSMENTS ── */
+      .assess-categories { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+      .assess-item { padding: 10px 14px; }
+      .assess-item-name { font-size: 10px; }
+      .assess-item-desc { font-size: 9px; }
+      .assess-intro { font-size: 11px; margin-bottom: 28px; }
+
+      /* ── COMPARISON CHART ── */
+      .compare-grid {
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        font-size: 9px;
+        gap: 1px;
+        margin-bottom: 24px;
+        break-inside: avoid;
+      }
+      .col-head { padding: 12px 8px; font-size: 8px; }
+      .col-head-logo { height: 16px; }
+      .compare-cell { padding: 9px 7px; font-size: 9px; }
+      .compare-cell.feature { padding: 9px 11px; font-size: 9.5px; }
+      .check { font-size: 13px; }
+      .cross { font-size: 13px; }
+      .diff-card { padding: 18px 22px; break-inside: avoid; }
+      .diff-card h4 { font-size: 13px; }
+      .diff-card p { font-size: 11px; }
+
+      /* ── STATS ── */
+      .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 12px; }
+      .stat-card { padding: 20px 16px; break-inside: avoid; }
+      .stat-num { font-size: 2rem; }
+      .stat-label { font-size: 10px; }
+
+      /* ── TESTIMONIALS ── */
+      .photo-banner { break-inside: avoid; }
+      .testimonial-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+      .testimonial-card { padding: 20px 16px; break-inside: avoid; }
+      .testimonial-quote { font-size: 10px; }
+      .testimonial-name { font-size: 12px; }
+      .testimonial-role { font-size: 9px; }
+
+      /* ── VIDEO SECTION ── (hide play buttons in PDF, show as image placeholders) */
+      .video-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+      .video-info { padding: 12px 14px; }
+      .video-client { font-size: 11px; }
+      .video-result { font-size: 9px; }
+
+      /* ── TRANSFORM ── */
+      .transform-card { padding: 24px; }
+      .transform-list li { font-size: 11px; }
+
+      /* ── FAQ ── */
+      .faq-item { break-inside: avoid; }
+      .faq-q { padding: 16px 20px; font-size: 14px; }
+      .faq-a { padding: 16px 20px; font-size: 11px; }
+
+      /* ── NEXT STEPS ── */
+      .step-card { break-inside: avoid; }
+      .step-num-col { font-size: 24px; }
+      .step-content { padding: 18px 22px; }
+      .step-content h3 { font-size: 15px; }
+      .step-content p { font-size: 11px; }
+      .next-note { padding: 16px 22px; font-size: 11px; }
+
+      /* ── FOOTER ── */
+      .footer { padding: 40px 0 32px; }
+      .footer-logo-wrap img { height: 24px; }
+      .footer-copy { font-size: 10px; }
+      .footer-legal { font-size: 9px; }
+
+      /* ── PAGE BREAK CONTROL ── */
+      /* Don't break inside these elements */
+      .founder-letter,
+      .for-grid,
+      .range-compare-row,
+      .pillar-split,
+      .phase-block,
+      .stat-card,
+      .testimonial-card,
+      .faq-item,
+      .step-card,
+      .diff-card,
+      .problem-card { break-inside: avoid; }
+
+      /* Suggested page breaks before major sections */
+      .pillar-grid,
+      .assess-categories,
+      .compare-grid,
+      .testimonial-grid { break-before: auto; }
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       h2 { white-space: normal; }
