@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Second Prime — Pre-Consultation Overview</title>
+  <title>Second Prime — Your Second Prime Begins Here</title>
   <link rel="preconnect" href="https://api.fontshare.com" />
   <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600,700,800&f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet" />
   <style>
@@ -555,52 +555,72 @@
     /* ── COMPARISON ── */
     .compare-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
+      grid-template-columns: 2fr 1.1fr 1.1fr 1.1fr 1.1fr;
       gap: 2px;
-      background: var(--border);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
       border-radius: var(--radius-md);
       overflow: hidden;
       margin-bottom: 40px;
     }
     .col-head {
-      background: var(--highlight);
-      padding: 16px 18px;
-      font-size: 11px;
+      background: #1A1A28;
+      padding: 18px 16px;
+      font-size: 10px;
       font-weight: 700;
-      letter-spacing: 0.10em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--text-60);
-      line-height: 1.4;
+      line-height: 1.45;
+      text-align: center;
     }
-    .col-head.sp { color: var(--teal); }
+    .col-head:first-child { text-align: left; }
+    .col-head.sp {
+      color: var(--teal);
+      background: rgba(44,196,176,0.06);
+    }
     .col-head-sub {
       display: block;
       font-size: 9px;
       font-weight: 400;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.03em;
       text-transform: none;
-      color: rgba(240,240,242,0.35);
-      margin-top: 4px;
-      line-height: 1.3;
+      color: rgba(240,240,242,0.30);
+      margin-top: 5px;
+      line-height: 1.4;
     }
     .compare-cell {
       background: var(--card);
-      padding: 14px 18px;
-      font-size: 14px;
+      padding: 14px 12px;
+      font-size: 13px;
       color: var(--text-60);
       line-height: 1.5;
       display: flex;
       align-items: center;
       justify-content: center;
+      text-align: center;
     }
     .compare-cell.feature {
       justify-content: flex-start;
-      color: var(--text-60);
+      text-align: left;
+      padding: 14px 18px;
+      font-size: 13.5px;
+      color: rgba(240,240,242,0.70);
     }
-    .compare-cell.sp { color: var(--text); font-weight: 500; background: rgba(93,221,232,0.04); }
-    .check { color: var(--teal); font-size: 18px; font-weight: 700; }
-    .cross { color: rgba(240,240,242,0.20); font-size: 18px; }
-    .partial { color: var(--sand); font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+    .compare-cell.sp {
+      background: rgba(44,196,176,0.04);
+    }
+    /* Alternating row shading — every other set of 5 cells */
+    .compare-grid > *:nth-child(10n+6),
+    .compare-grid > *:nth-child(10n+7),
+    .compare-grid > *:nth-child(10n+8),
+    .compare-grid > *:nth-child(10n+9),
+    .compare-grid > *:nth-child(10n+10) {
+      filter: brightness(0.93);
+    }
+    .check { color: var(--teal); font-size: 17px; font-weight: 700; }
+    .cross { color: rgba(240,240,242,0.18); font-size: 17px; }
+    .partial { color: var(--sand); font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
 
     .diff-cards { display: flex; flex-direction: column; gap: 12px; }
     .diff-card {
@@ -795,7 +815,8 @@
       .differentiator-grid { grid-template-columns: 1fr; }
       .assess-categories { grid-template-columns: 1fr; }
       .compare-grid { grid-template-columns: 2fr 1fr 1fr; }
-      .compare-grid > *:nth-child(4n) { display: none; }
+      .compare-grid > *:nth-child(5n+4),
+      .compare-grid > *:nth-child(5n+5) { display: none; }
       .founder-letter { padding: 36px 28px; }
       .founder-photo { width: 80px; height: 80px; margin: 0 0 12px 16px; }
       .pillar-card { flex-direction: column; gap: 12px; }
@@ -825,7 +846,7 @@
 
     <div class="hero-pill">Health &nbsp;&middot;&nbsp; Performance &nbsp;&middot;&nbsp; Longevity</div>
 
-    <h1>Built to a different <span class="h1-accent">standard</span>.<br>This is what that looks like.</h1>
+    <h1>Your Second Prime <span class="h1-accent">Begins Here</span>.</h1>
 
     <p class="hero-sub">
       Everything you need to understand what Second Prime is, how we work, and whether this is right for you &mdash; before your consultation.
@@ -874,10 +895,6 @@
       <div class="credential-item">
         <span class="credential-num">500+</span>
         <span class="credential-label">Executives &amp; Business Owners</span>
-      </div>
-      <div class="credential-item">
-        <span class="credential-num">1,000+</span>
-        <span class="credential-label">Biomarkers Per Assessment</span>
       </div>
     </div>
   </div>
@@ -1056,11 +1073,14 @@
         </div>
         <div class="phase-body">
           <ul class="phase-points">
-            <li>1,000+ biomarkers analyzed across blood, gut, hormones &amp; metabolic function</li>
-            <li>Continuous glucose monitoring, genetic screening, and microbiome analysis</li>
-            <li>Body composition assessment and cardiovascular risk profiling</li>
-            <li>Hormonal optimization baseline established</li>
-            <li>All results interpreted through optimal performance ranges &mdash; not just &ldquo;normal&rdquo;</li>
+            <li>Advanced blood panel: 1,000+ biomarkers across metabolic, hormonal, immune, inflammatory, and micronutrient markers</li>
+            <li>Gut microbiome analysis, food sensitivity testing (209 foods), and toxic heavy metal panel</li>
+            <li>DEXA body composition scan &mdash; body fat %, lean mass, visceral fat, and bone density</li>
+            <li>VO2 Max cardiovascular assessment &mdash; the single strongest predictor of all-cause mortality</li>
+            <li>Hormonal optimization baseline: testosterone, estrogen, cortisol, thyroid, and adrenal function</li>
+            <li>Strength, movement, and mobility assessment (grip strength, single-leg power, range of motion)</li>
+            <li>Comprehensive health &amp; lifestyle questionnaires: symptoms, sleep patterns, stress load, nutrition habits</li>
+            <li>All results interpreted against precision performance ranges &mdash; not just &ldquo;normal&rdquo;</li>
           </ul>
           <div class="phase-callout">&ldquo;Most clients discover 3&ndash;5 root cause issues that have never been identified.&rdquo;</div>
         </div>
@@ -1132,43 +1152,43 @@
         <div class="assess-item">
           <div class="assess-dot"></div>
           <div class="assess-item-text">
-            <div class="assess-item-name">Advanced Blood Panel</div>
-            <div class="assess-item-desc">1,000+ biomarkers covering metabolic, hormonal, immune, and nutritional status</div>
+            <div class="assess-item-name">Nutrition Assessment</div>
+            <div class="assess-item-desc">Macronutrient &amp; micronutrient intake, meal timing, digestion quality</div>
           </div>
         </div>
         <div class="assess-item">
           <div class="assess-dot"></div>
           <div class="assess-item-text">
-            <div class="assess-item-name">Continuous Glucose Monitoring</div>
-            <div class="assess-item-desc">14-day real-world metabolic response tracking</div>
+            <div class="assess-item-name">Lifestyle Tracking</div>
+            <div class="assess-item-desc">Daily activity, water intake, alcohol consumption, bowel function, energy rating</div>
           </div>
         </div>
         <div class="assess-item">
           <div class="assess-dot"></div>
           <div class="assess-item-text">
-            <div class="assess-item-name">Genetic Screening</div>
-            <div class="assess-item-desc">Hereditary risk factors and pharmacogenomic sensitivities</div>
+            <div class="assess-item-name">Sleep Quality</div>
+            <div class="assess-item-desc">Bed &amp; wake times, sleep hours, nighttime wakes, recovery patterns</div>
           </div>
         </div>
         <div class="assess-item">
           <div class="assess-dot"></div>
           <div class="assess-item-text">
-            <div class="assess-item-name">Microbiome Analysis</div>
-            <div class="assess-item-desc">Gut bacteria composition and diversity</div>
+            <div class="assess-item-name">Environmental Exposure</div>
+            <div class="assess-item-desc">Toxic burden, heavy metals, CO2 tolerance, nervous system stress load</div>
           </div>
         </div>
         <div class="assess-item">
           <div class="assess-dot"></div>
           <div class="assess-item-text">
-            <div class="assess-item-name">Heavy Metal &amp; Toxin Panel</div>
-            <div class="assess-item-desc">Environmental burden affecting performance</div>
+            <div class="assess-item-name">Stress &amp; Psychological Load</div>
+            <div class="assess-item-desc">Stress management capacity, coping patterns, mental toughness, adaptive behavior</div>
           </div>
         </div>
         <div class="assess-item">
           <div class="assess-dot"></div>
           <div class="assess-item-text">
-            <div class="assess-item-name">Blood Fatty Acid Balance</div>
-            <div class="assess-item-desc">Omega-3/6 ratio and lipid composition</div>
+            <div class="assess-item-name">Health History Questionnaires</div>
+            <div class="assess-item-desc">Symptom inventory, medical history, medications, and performance goals</div>
           </div>
         </div>
       </div>
@@ -1181,8 +1201,15 @@
         <div class="assess-item">
           <div class="assess-dot"></div>
           <div class="assess-item-text">
+            <div class="assess-item-name">Advanced Blood Panel</div>
+            <div class="assess-item-desc">1,000+ biomarkers: cardiometabolic, immunity, thyroid, electrolytes, vitamins &amp; minerals</div>
+          </div>
+        </div>
+        <div class="assess-item">
+          <div class="assess-dot"></div>
+          <div class="assess-item-text">
             <div class="assess-item-name">Hormonal Panel (Full)</div>
-            <div class="assess-item-desc">Thyroid, adrenal, sex hormones, and precursors</div>
+            <div class="assess-item-desc">Testosterone, estrogen, progesterone, DHEA, cortisol, thyroid function</div>
           </div>
         </div>
         <div class="assess-item">
@@ -1195,43 +1222,43 @@
         <div class="assess-item">
           <div class="assess-dot"></div>
           <div class="assess-item-text">
-            <div class="assess-item-name">Metabolic Function Testing</div>
-            <div class="assess-item-desc">Insulin sensitivity, fasting glucose, HbA1c</div>
+            <div class="assess-item-name">Cellular Biomapping</div>
+            <div class="assess-item-desc">Cell health, cellular energy production, and metabolic efficiency</div>
           </div>
         </div>
         <div class="assess-item">
           <div class="assess-dot"></div>
           <div class="assess-item-text">
-            <div class="assess-item-name">Gut Permeability &amp; Digestive Enzymes</div>
-            <div class="assess-item-desc">Intestinal integrity and absorption capacity</div>
+            <div class="assess-item-name">Gut Microbiome Analysis</div>
+            <div class="assess-item-desc">Microbiome diversity, pathogenic bacteria, yeast, parasites, leaky gut, maldigestion</div>
           </div>
         </div>
         <div class="assess-item">
           <div class="assess-dot"></div>
           <div class="assess-item-text">
-            <div class="assess-item-name">Mitochondrial Function Markers</div>
-            <div class="assess-item-desc">Cellular energy production efficiency</div>
+            <div class="assess-item-name">Food Sensitivity Testing</div>
+            <div class="assess-item-desc">Reactivity to 209 foods, preservatives, additives, food dyes &amp; pesticides</div>
           </div>
         </div>
         <div class="assess-item">
           <div class="assess-dot"></div>
           <div class="assess-item-text">
-            <div class="assess-item-name">Neurotransmitter Metabolites</div>
-            <div class="assess-item-desc">Serotonin, dopamine, GABA pathway indicators</div>
+            <div class="assess-item-name">Inflammatory Markers</div>
+            <div class="assess-item-desc">CRP, IL-6, homocysteine, fibrinogen, and metabolic inflammation indicators</div>
           </div>
         </div>
         <div class="assess-item">
           <div class="assess-dot"></div>
           <div class="assess-item-text">
-            <div class="assess-item-name">Cardiovascular Risk Assessment</div>
-            <div class="assess-item-desc">Advanced lipid panel, ApoB, Lp(a)</div>
+            <div class="assess-item-name">Toxic Heavy Metals</div>
+            <div class="assess-item-desc">Arsenic, lead, mercury &amp; 17 additional metals &mdash; environmental burden assessment</div>
           </div>
         </div>
         <div class="assess-item">
           <div class="assess-dot"></div>
           <div class="assess-item-text">
-            <div class="assess-item-name">Immune System Mapping</div>
-            <div class="assess-item-desc">WBC differential, NK cell activity, autoimmune markers</div>
+            <div class="assess-item-name">Cardiovascular Risk</div>
+            <div class="assess-item-desc">Advanced lipid panel, ApoB, Lp(a), insulin sensitivity, HbA1c</div>
           </div>
         </div>
       </div>
@@ -1244,50 +1271,50 @@
         <div class="assess-item">
           <div class="assess-dot"></div>
           <div class="assess-item-text">
-            <div class="assess-item-name">VO2 Max / Aerobic Capacity</div>
-            <div class="assess-item-desc">Cardiovascular fitness and oxygen efficiency</div>
+            <div class="assess-item-name">VO2 Max Testing</div>
+            <div class="assess-item-desc">Cardiovascular fitness &amp; oxygen utilization &mdash; the strongest predictor of all-cause mortality</div>
           </div>
         </div>
         <div class="assess-item">
           <div class="assess-dot"></div>
           <div class="assess-item-text">
-            <div class="assess-item-name">Body Composition (DEXA-equivalent)</div>
-            <div class="assess-item-desc">Lean mass, fat mass, visceral fat</div>
+            <div class="assess-item-name">DEXA Body Composition</div>
+            <div class="assess-item-desc">Body fat %, lean mass, visceral fat, bone density, and basal metabolic rate</div>
           </div>
         </div>
         <div class="assess-item">
           <div class="assess-dot"></div>
           <div class="assess-item-text">
-            <div class="assess-item-name">Sleep Architecture Analysis</div>
-            <div class="assess-item-desc">Sleep stages, HRV, recovery quality</div>
+            <div class="assess-item-name">Sleep Architecture</div>
+            <div class="assess-item-desc">Sleep stages, HRV, nighttime recovery quality and patterns</div>
           </div>
         </div>
         <div class="assess-item">
           <div class="assess-dot"></div>
           <div class="assess-item-text">
-            <div class="assess-item-name">Cognitive Performance Metrics</div>
-            <div class="assess-item-desc">Focus, memory, processing speed baselines</div>
+            <div class="assess-item-name">Cognitive Performance</div>
+            <div class="assess-item-desc">Focus, memory, and processing speed baselines</div>
           </div>
         </div>
         <div class="assess-item">
           <div class="assess-dot"></div>
           <div class="assess-item-text">
-            <div class="assess-item-name">HRV &amp; Nervous System Resilience</div>
-            <div class="assess-item-desc">Autonomic balance and stress response</div>
+            <div class="assess-item-name">Strength Assessment</div>
+            <div class="assess-item-desc">Grip strength, single-leg power, functional output &amp; fall risk screening</div>
           </div>
         </div>
         <div class="assess-item">
           <div class="assess-dot"></div>
           <div class="assess-item-text">
-            <div class="assess-item-name">Strength &amp; Movement Assessment</div>
-            <div class="assess-item-desc">Functional capacity and injury risk</div>
+            <div class="assess-item-name">Movement &amp; Mobility</div>
+            <div class="assess-item-desc">Range of motion, joint flexibility, movement quality &amp; injury risk assessment</div>
           </div>
         </div>
         <div class="assess-item">
           <div class="assess-dot"></div>
           <div class="assess-item-text">
-            <div class="assess-item-name">Stress &amp; Cortisol Mapping</div>
-            <div class="assess-item-desc">Diurnal cortisol pattern and stress load</div>
+            <div class="assess-item-name">HRV &amp; Nervous System</div>
+            <div class="assess-item-desc">Autonomic balance, CO2 tolerance, and stress response capacity</div>
           </div>
         </div>
       </div>
@@ -1524,24 +1551,24 @@
   <div class="wrap">
     <span class="eyebrow">The Data</span>
     <div class="teal-line"></div>
-    <h2>The Numbers Speak</h2>
+    <h2>What Changes When You Have the Right System</h2>
 
     <div class="stats-grid">
       <div class="stat-card">
-        <span class="stat-num">1,000+</span>
-        <span class="stat-label">Clients Served</span>
+        <span class="stat-num">12 Yrs</span>
+        <span class="stat-label">Average reduction in biological age achieved by clients</span>
       </div>
       <div class="stat-card">
-        <span class="stat-num">500+</span>
-        <span class="stat-label">Executives &amp; Business Owners</span>
+        <span class="stat-num">&minus;10%</span>
+        <span class="stat-label">Average body fat reduction within 6 months</span>
       </div>
       <div class="stat-card">
-        <span class="stat-num">10</span>
-        <span class="stat-label">Years of Clinical Experience</span>
+        <span class="stat-num">5&times;</span>
+        <span class="stat-label">Lower all-cause mortality risk: elite vs. low VO2 Max performers</span>
       </div>
       <div class="stat-card">
-        <span class="stat-num">1,000+</span>
-        <span class="stat-label">Biomarkers Per Assessment</span>
+        <span class="stat-num">3&ndash;5</span>
+        <span class="stat-label">Root cause issues uncovered per client &mdash; never previously identified</span>
       </div>
     </div>
   </div>
