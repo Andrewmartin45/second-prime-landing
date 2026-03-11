@@ -879,7 +879,6 @@
       border-radius: var(--radius-md);
       padding: 24px 22px;
     }
-    .exp-icon { font-size: 20px; margin-bottom: 12px; display: block; }
     .exp-title {
       font-family: var(--font-display);
       font-size: 15px;
@@ -887,7 +886,14 @@
       color: var(--text);
       margin-bottom: 8px;
     }
-    .exp-quote { font-size: 12.5px; color: var(--text-60); line-height: 1.55; font-style: italic; }
+    .exp-quote { font-size: 12.5px; color: var(--text-60); line-height: 1.55; font-style: italic; margin-bottom: 0; }
+    .exp-attr {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--teal);
+      margin-top: 14px;
+      letter-spacing: 0.01em;
+    }
 
     /* ── STATS ── */
     .stats-grid {
@@ -1182,9 +1188,9 @@
       .results-disclaimer { font-size: 9px; }
       .exp-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
       .exp-card { padding: 16px 14px; break-inside: avoid; }
-      .exp-icon { font-size: 14px; margin-bottom: 8px; }
       .exp-title { font-size: 11px; margin-bottom: 4px; }
       .exp-quote { font-size: 9px; }
+      .exp-attr { font-size: 8px; margin-top: 8px; }
 
       /* ── TRANSFORM ── */
       .transform-card { padding: 24px; }
@@ -1998,7 +2004,7 @@
         </div>
       </div>
 
-      <div class="stats-grid">
+      <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr);">
 
         <!-- Biological Age -->
         <div class="stat-card">
@@ -2008,18 +2014,29 @@
           <div class="stat-bar-track">
             <div class="stat-bar-fill" style="width:60%;"></div>
           </div>
-          <div class="stat-context">Average biological age reduction achieved across our client base</div>
+          <div class="stat-context">Average reduction in epigenetic biological age across our client base</div>
         </div>
 
-        <!-- Body Fat -->
+        <!-- Free Testosterone -->
         <div class="stat-card">
-          <div class="stat-badge">&#8595; Decrease</div>
-          <div class="stat-delta">&minus;10%</div>
-          <div class="stat-sublabel">Body Fat</div>
+          <div class="stat-badge">&#8593; Increase</div>
+          <div class="stat-delta">+40%</div>
+          <div class="stat-sublabel">Free Testosterone</div>
           <div class="stat-bar-track">
             <div class="stat-bar-fill" style="width:40%;"></div>
           </div>
-          <div class="stat-context">Average body fat reduction achieved within the first 6 months</div>
+          <div class="stat-context">Average increase in free testosterone levels achieved within 6 months</div>
+        </div>
+
+        <!-- Insulin Resistance -->
+        <div class="stat-card">
+          <div class="stat-badge">&#8595; Decrease</div>
+          <div class="stat-delta">&minus;35%</div>
+          <div class="stat-sublabel">Insulin Resistance (HOMA-IR)</div>
+          <div class="stat-bar-track">
+            <div class="stat-bar-fill" style="width:35%;"></div>
+          </div>
+          <div class="stat-context">Average HOMA-IR reduction — a primary driver of metabolic decline and energy loss</div>
         </div>
 
         <!-- Mortality Risk -->
@@ -2040,19 +2057,26 @@
           <div class="stat-context">All-cause mortality risk: elite vs. low VO&#8322; Max performers</div>
         </div>
 
-        <!-- Root Causes -->
+        <!-- Body Composition -->
         <div class="stat-card">
-          <div class="stat-badge">&#9679; Identified</div>
-          <div class="stat-delta">3&ndash;5</div>
-          <div class="stat-sublabel">Root Causes Found</div>
-          <div class="stat-dots">
-            <span class="stat-dot on"></span>
-            <span class="stat-dot on"></span>
-            <span class="stat-dot on"></span>
-            <span class="stat-dot on"></span>
-            <span class="stat-dot off"></span>
+          <div class="stat-badge">&#8595; Decrease</div>
+          <div class="stat-delta">&minus;10%</div>
+          <div class="stat-sublabel">Body Fat</div>
+          <div class="stat-bar-track">
+            <div class="stat-bar-fill" style="width:40%;"></div>
           </div>
-          <div class="stat-context">Root cause issues uncovered per client — never previously identified</div>
+          <div class="stat-context">Average body fat reduction within the first 6 months — without sacrificing lean mass</div>
+        </div>
+
+        <!-- Inflammatory Markers -->
+        <div class="stat-card">
+          <div class="stat-badge">&#8595; Decrease</div>
+          <div class="stat-delta">&minus;52%</div>
+          <div class="stat-sublabel">Inflammatory Markers (hsCRP)</div>
+          <div class="stat-bar-track">
+            <div class="stat-bar-fill" style="width:52%;"></div>
+          </div>
+          <div class="stat-context">Average reduction in high-sensitivity CRP — a leading marker of systemic inflammation and disease risk</div>
         </div>
 
       </div>
@@ -2071,39 +2095,39 @@
       <div class="exp-grid">
 
         <div class="exp-card">
-          <span class="exp-icon">&#9889;</span>
           <div class="exp-title">Energy &amp; Stamina</div>
-          <div class="exp-quote">&ldquo;Sustained energy from morning through evening — no afternoon crash, no dependency on stimulants.&rdquo;</div>
+          <div class="exp-quote">&ldquo;I used to need two coffees before 9am just to feel human. Now I&rsquo;m sustaining energy through a full day of back-to-back meetings without hitting a wall.&rdquo;</div>
+          <div class="exp-attr">D.R. &mdash; Construction CEO, 52</div>
         </div>
 
         <div class="exp-card">
-          <span class="exp-icon">&#129504;</span>
           <div class="exp-title">Cognitive Clarity</div>
-          <div class="exp-quote">&ldquo;The brain fog lifted within the first 90 days. My decision-making is sharper than it was in my 30s.&rdquo;</div>
+          <div class="exp-quote">&ldquo;There were months where I was making decisions I knew weren&rsquo;t sharp. The brain fog is gone. I&rsquo;m thinking the way I was when I was building my first company.&rdquo;</div>
+          <div class="exp-attr">T.K. &mdash; Asset Management, 46</div>
         </div>
 
         <div class="exp-card">
-          <span class="exp-icon">&#127769;</span>
           <div class="exp-title">Sleep Quality</div>
-          <div class="exp-quote">&ldquo;Deep, restorative sleep returned. I wake up recovered instead of already behind.&rdquo;</div>
+          <div class="exp-quote">&ldquo;I hadn&rsquo;t had a full night of restorative sleep in years. Within 60 days, my HRV doubled and I wake up actually recovered.&rdquo;</div>
+          <div class="exp-attr">J.M. &mdash; Real Estate Founder, 48</div>
         </div>
 
         <div class="exp-card">
-          <span class="exp-icon">&#128106;</span>
           <div class="exp-title">Presence &amp; Attention</div>
-          <div class="exp-quote">&ldquo;I'm actually present with my family. Not distracted, not depleted — actually there.&rdquo;</div>
+          <div class="exp-quote">&ldquo;My wife noticed before I did. I was there — at the table, at the game — not just physically but actually present.&rdquo;</div>
+          <div class="exp-attr">M.A. &mdash; Private Equity, 51</div>
         </div>
 
         <div class="exp-card">
-          <span class="exp-icon">&#128170;</span>
           <div class="exp-title">Physical Confidence</div>
-          <div class="exp-quote">&ldquo;I feel like myself again — the version I was before stress and age started compounding.&rdquo;</div>
+          <div class="exp-quote">&ldquo;I lost 22 pounds, but that wasn&rsquo;t what changed everything. It&rsquo;s the way I carry myself. I feel capable again.&rdquo;</div>
+          <div class="exp-attr">R.S. &mdash; Tech Founder, 44</div>
         </div>
 
         <div class="exp-card">
-          <span class="exp-icon">&#127919;</span>
           <div class="exp-title">Drive &amp; Motivation</div>
-          <div class="exp-quote">&ldquo;My drive is back. Not forced, not caffeinated — it's just there, like it was when I was building everything.&rdquo;</div>
+          <div class="exp-quote">&ldquo;I&rsquo;d been running on obligation for three years &mdash; doing what needed to be done, not what I wanted to build. That shifted around month four.&rdquo;</div>
+          <div class="exp-attr">C.W. &mdash; Manufacturing CEO, 49</div>
         </div>
 
       </div>
