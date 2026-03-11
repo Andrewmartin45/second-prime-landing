@@ -799,6 +799,96 @@
     .video-result { font-size: 12px; color: var(--text-60); font-style: italic; line-height: 1.4; }
     .video-note { text-align: center; font-size: 13px; color: var(--text-60); margin-top: 28px; font-style: italic; }
 
+    /* ── RESULTS: 3-CATEGORY SECTION ── */
+    .results-category { margin-bottom: 60px; }
+    .results-category:last-child { margin-bottom: 0; }
+    .results-cat-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .results-cat-num {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--teal);
+      line-height: 1;
+      opacity: 0.45;
+      flex-shrink: 0;
+      min-width: 42px;
+    }
+    .results-cat-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 5px;
+    }
+    .results-cat-desc { font-size: 14px; color: var(--text-60); line-height: 1.5; }
+
+    /* Before / After grid */
+    .ba-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .ba-slot {
+      aspect-ratio: 3/4;
+      background: var(--highlight);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .ba-slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .ba-ph-icon { font-size: 22px; opacity: 0.25; }
+    .ba-ph-num {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-60);
+      opacity: 0.5;
+    }
+    .results-disclaimer {
+      font-size: 11px;
+      color: var(--text-60);
+      opacity: 0.55;
+      font-style: italic;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* Subjective Experience grid */
+    .exp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .exp-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px 22px;
+    }
+    .exp-icon { font-size: 20px; margin-bottom: 12px; display: block; }
+    .exp-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .exp-quote { font-size: 12.5px; color: var(--text-60); line-height: 1.55; font-style: italic; }
+
     /* ── STATS ── */
     .stats-grid {
       display: grid;
@@ -1012,7 +1102,8 @@
       .for-list li { font-size: 11px; }
 
       /* ── PILLAR PHOTOS ── */
-      .pillar-split { break-inside: avoid; }
+      /* Don't use break-inside:avoid on pillars — they're too tall and cause blank pages */
+      .pillar-split { break-inside: auto; }
       .pillar-photo-slot { min-height: 220px; }
       .pillar-text-col { padding: 32px 28px; }
       .pillar-number { font-size: 52px; }
@@ -1079,11 +1170,21 @@
       .testimonial-name { font-size: 12px; }
       .testimonial-role { font-size: 9px; }
 
-      /* ── VIDEO SECTION ── (hide play buttons in PDF, show as image placeholders) */
-      .video-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
-      .video-info { padding: 12px 14px; }
-      .video-client { font-size: 11px; }
-      .video-result { font-size: 9px; }
+      /* ── RESULTS SECTION ── */
+      .results-category { margin-bottom: 32px; }
+      .results-cat-header { margin-bottom: 16px; padding-bottom: 12px; gap: 14px; }
+      .results-cat-num { font-size: 24px; }
+      .results-cat-title { font-size: 14px; margin-bottom: 2px; }
+      .results-cat-desc { font-size: 9px; }
+      .ba-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 8px; }
+      .ba-slot { aspect-ratio: 3/4; break-inside: avoid; }
+      .ba-ph-num { font-size: 8px; }
+      .results-disclaimer { font-size: 9px; }
+      .exp-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+      .exp-card { padding: 16px 14px; break-inside: avoid; }
+      .exp-icon { font-size: 14px; margin-bottom: 8px; }
+      .exp-title { font-size: 11px; margin-bottom: 4px; }
+      .exp-quote { font-size: 9px; }
 
       /* ── TRANSFORM ── */
       .transform-card { padding: 24px; }
@@ -1112,14 +1213,17 @@
       /* Don't break inside these elements */
       .founder-letter,
       .for-grid,
-      .pillar-split,
       .phase-block,
       .stat-card,
       .testimonial-card,
       .faq-item,
       .step-card,
-      .diff-card,
-      .problem-card { break-inside: avoid; }
+      .diff-card { break-inside: avoid; }
+
+      /* problem-cards are small — allow natural flow, just prevent overflow clipping */
+      .problem-card { overflow: visible; break-inside: avoid; }
+      /* Don't let the grid itself get stranded mid-page; break between rows is fine */
+      .problem-grid { break-inside: auto; }
     }
 
     /* ── RESPONSIVE ── */
@@ -1779,26 +1883,6 @@
 </section>
 
 <!-- ════════════════════════
-     10. PHOTO BANNER
-════════════════════════ -->
-<section style="padding: 0; border-top: 1px solid var(--border);">
-  <div class="wrap" style="padding-top: 96px; padding-bottom: 96px;">
-    <div class="photo-banner">
-      <!-- PHOTO: Wide-format executive lifestyle photo — a high-performer in motion. Could be a boardroom, a private gym, or looking out over a city. Dark, cinematic, confident. -->
-      <div class="photo-banner-placeholder">
-        <div class="photo-ph-icon" style="font-size:40px;">📸</div>
-        <div class="photo-ph-label" style="font-size:12px; color: rgba(240,240,242,0.45); letter-spacing:0.14em; text-transform:uppercase;">Photo Placeholder</div>
-        <div class="photo-ph-hint" style="font-size:12px; color:rgba(240,240,242,0.30); max-width:420px; text-align:center; line-height:1.6;">Suggested: Wide cinematic shot of a high-performer — boardroom, private gym, or overlooking a city. Dark, confident, aspirational.</div>
-      </div>
-      <div class="photo-banner-overlay">
-        <div class="photo-banner-label">The Standard</div>
-        <div class="photo-banner-quote">&ldquo;The people who get the most from this are already good. They just haven&rsquo;t had the right data.&rdquo;</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════
      10. TESTIMONIALS
 ════════════════════════ -->
 <section>
@@ -1842,120 +1926,189 @@
 </section>
 
 <!-- ════════════════════════
-     11. VIDEO TESTIMONIALS
+     11. CLIENT RESULTS
 ════════════════════════ -->
 <section>
   <div class="wrap">
-    <span class="eyebrow">Video Testimonials</span>
-    <div class="teal-line"></div>
-    <h2>Hear It Directly</h2>
-    <p class="section-subtitle">Video testimonials from clients who&rsquo;ve gone through the full system.</p>
-
-    <div class="video-grid">
-
-      <div class="video-thumb">
-        <div class="video-placeholder">
-          <div class="play-btn">&#9654;</div>
-        </div>
-        <div class="video-info">
-          <div class="video-client">J.M. &middot; Real Estate Founder</div>
-          <div class="video-result">&ldquo;I haven&rsquo;t felt like this since my 30s&rdquo;</div>
-        </div>
-      </div>
-
-      <div class="video-thumb">
-        <div class="video-placeholder">
-          <div class="play-btn">&#9654;</div>
-        </div>
-        <div class="video-info">
-          <div class="video-client">D.R. &middot; Construction Founder</div>
-          <div class="video-result">&ldquo;The brain fog is completely gone&rdquo;</div>
-        </div>
-      </div>
-
-      <div class="video-thumb">
-        <div class="video-placeholder">
-          <div class="play-btn">&#9654;</div>
-        </div>
-        <div class="video-info">
-          <div class="video-client">T.K. &middot; Asset Management</div>
-          <div class="video-result">&ldquo;Three root causes nobody had ever found&rdquo;</div>
-        </div>
-      </div>
-
-    </div>
-
-    <p class="video-note">Full video testimonials available upon request.</p>
-  </div>
-</section>
-
-<!-- ════════════════════════
-     12. THE NUMBERS
-════════════════════════ -->
-<section>
-  <div class="wrap">
-    <span class="eyebrow">The Data</span>
+    <span class="eyebrow">Client Results</span>
     <div class="teal-line"></div>
     <h2>What Changes When You Have the Right System</h2>
+    <p class="section-subtitle">This is not a body composition program — though the body transforms. Results show up across three dimensions: what you see, what your labs confirm, and what you feel every day.</p>
 
-    <div class="stats-grid">
-
-      <!-- Biological Age -->
-      <div class="stat-card">
-        <div class="stat-badge">&#8595; Decrease</div>
-        <div class="stat-delta">&minus;12</div>
-        <div class="stat-sublabel">Years — Biological Age</div>
-        <div class="stat-bar-track">
-          <div class="stat-bar-fill" style="width:60%;"></div>
+    <!-- ── 01: Aesthetic Results ── -->
+    <div class="results-category">
+      <div class="results-cat-header">
+        <span class="results-cat-num">01</span>
+        <div>
+          <div class="results-cat-title">Aesthetic Results</div>
+          <div class="results-cat-desc">Physical transformation is a byproduct of the system — not the goal. These are representative client outcomes.</div>
         </div>
-        <div class="stat-context">Average biological age reduction achieved across our client base</div>
       </div>
 
-      <!-- Body Fat -->
-      <div class="stat-card">
-        <div class="stat-badge">&#8595; Decrease</div>
-        <div class="stat-delta">&minus;10%</div>
-        <div class="stat-sublabel">Body Fat</div>
-        <div class="stat-bar-track">
-          <div class="stat-bar-fill" style="width:40%;"></div>
+      <div class="ba-grid">
+        <div class="ba-slot">
+          <!-- Replace src with before-after-1.jpg -->
+          <div class="ba-ph-icon">&#128247;</div>
+          <div class="ba-ph-num">Client 01</div>
         </div>
-        <div class="stat-context">Average body fat reduction achieved within the first 6 months</div>
+        <div class="ba-slot">
+          <div class="ba-ph-icon">&#128247;</div>
+          <div class="ba-ph-num">Client 02</div>
+        </div>
+        <div class="ba-slot">
+          <div class="ba-ph-icon">&#128247;</div>
+          <div class="ba-ph-num">Client 03</div>
+        </div>
+        <div class="ba-slot">
+          <div class="ba-ph-icon">&#128247;</div>
+          <div class="ba-ph-num">Client 04</div>
+        </div>
+        <div class="ba-slot">
+          <div class="ba-ph-icon">&#128247;</div>
+          <div class="ba-ph-num">Client 05</div>
+        </div>
+        <div class="ba-slot">
+          <div class="ba-ph-icon">&#128247;</div>
+          <div class="ba-ph-num">Client 06</div>
+        </div>
+        <div class="ba-slot">
+          <div class="ba-ph-icon">&#128247;</div>
+          <div class="ba-ph-num">Client 07</div>
+        </div>
+        <div class="ba-slot">
+          <div class="ba-ph-icon">&#128247;</div>
+          <div class="ba-ph-num">Client 08</div>
+        </div>
+        <div class="ba-slot">
+          <div class="ba-ph-icon">&#128247;</div>
+          <div class="ba-ph-num">Client 09</div>
+        </div>
       </div>
 
-      <!-- Mortality Risk -->
-      <div class="stat-card">
-        <div class="stat-badge">&#8595; Lower Risk</div>
-        <div class="stat-delta">5&times;</div>
-        <div class="stat-sublabel">Mortality Risk Reduction</div>
-        <div class="stat-compare">
-          <div class="stat-compare-row">
-            <span class="stat-compare-lbl">Low VO&#8322;</span>
-            <div class="stat-compare-track"><div class="stat-compare-fill risk" style="width:100%;"></div></div>
-          </div>
-          <div class="stat-compare-row">
-            <span class="stat-compare-lbl">Elite VO&#8322;</span>
-            <div class="stat-compare-track"><div class="stat-compare-fill safe" style="width:20%;"></div></div>
-          </div>
-        </div>
-        <div class="stat-context">All-cause mortality risk: elite vs. low VO&#8322; Max performers</div>
-      </div>
-
-      <!-- Root Causes -->
-      <div class="stat-card">
-        <div class="stat-badge">&#9679; Identified</div>
-        <div class="stat-delta">3&ndash;5</div>
-        <div class="stat-sublabel">Root Causes Found</div>
-        <div class="stat-dots">
-          <span class="stat-dot on"></span>
-          <span class="stat-dot on"></span>
-          <span class="stat-dot on"></span>
-          <span class="stat-dot on"></span>
-          <span class="stat-dot off"></span>
-        </div>
-        <div class="stat-context">Root cause issues uncovered per client — never previously identified</div>
-      </div>
-
+      <p class="results-disclaimer">Results shown with client permission. Individual outcomes depend on starting point, protocol adherence, and biological factors. These are not typical results.</p>
     </div>
+
+    <!-- ── 02: Biomarker & Health Changes ── -->
+    <div class="results-category">
+      <div class="results-cat-header">
+        <span class="results-cat-num">02</span>
+        <div>
+          <div class="results-cat-title">Biomarker &amp; Health Marker Changes</div>
+          <div class="results-cat-desc">The numbers that determine how long — and how well — you operate</div>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+
+        <!-- Biological Age -->
+        <div class="stat-card">
+          <div class="stat-badge">&#8595; Decrease</div>
+          <div class="stat-delta">&minus;12</div>
+          <div class="stat-sublabel">Years — Biological Age</div>
+          <div class="stat-bar-track">
+            <div class="stat-bar-fill" style="width:60%;"></div>
+          </div>
+          <div class="stat-context">Average biological age reduction achieved across our client base</div>
+        </div>
+
+        <!-- Body Fat -->
+        <div class="stat-card">
+          <div class="stat-badge">&#8595; Decrease</div>
+          <div class="stat-delta">&minus;10%</div>
+          <div class="stat-sublabel">Body Fat</div>
+          <div class="stat-bar-track">
+            <div class="stat-bar-fill" style="width:40%;"></div>
+          </div>
+          <div class="stat-context">Average body fat reduction achieved within the first 6 months</div>
+        </div>
+
+        <!-- Mortality Risk -->
+        <div class="stat-card">
+          <div class="stat-badge">&#8595; Lower Risk</div>
+          <div class="stat-delta">5&times;</div>
+          <div class="stat-sublabel">Mortality Risk Reduction</div>
+          <div class="stat-compare">
+            <div class="stat-compare-row">
+              <span class="stat-compare-lbl">Low VO&#8322;</span>
+              <div class="stat-compare-track"><div class="stat-compare-fill risk" style="width:100%;"></div></div>
+            </div>
+            <div class="stat-compare-row">
+              <span class="stat-compare-lbl">Elite VO&#8322;</span>
+              <div class="stat-compare-track"><div class="stat-compare-fill safe" style="width:20%;"></div></div>
+            </div>
+          </div>
+          <div class="stat-context">All-cause mortality risk: elite vs. low VO&#8322; Max performers</div>
+        </div>
+
+        <!-- Root Causes -->
+        <div class="stat-card">
+          <div class="stat-badge">&#9679; Identified</div>
+          <div class="stat-delta">3&ndash;5</div>
+          <div class="stat-sublabel">Root Causes Found</div>
+          <div class="stat-dots">
+            <span class="stat-dot on"></span>
+            <span class="stat-dot on"></span>
+            <span class="stat-dot on"></span>
+            <span class="stat-dot on"></span>
+            <span class="stat-dot off"></span>
+          </div>
+          <div class="stat-context">Root cause issues uncovered per client — never previously identified</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── 03: Subjective Experience ── -->
+    <div class="results-category">
+      <div class="results-cat-header">
+        <span class="results-cat-num">03</span>
+        <div>
+          <div class="results-cat-title">How Clients Describe the Shift</div>
+          <div class="results-cat-desc">These changes show up in how you feel before they show up in your labs</div>
+        </div>
+      </div>
+
+      <div class="exp-grid">
+
+        <div class="exp-card">
+          <span class="exp-icon">&#9889;</span>
+          <div class="exp-title">Energy &amp; Stamina</div>
+          <div class="exp-quote">&ldquo;Sustained energy from morning through evening — no afternoon crash, no dependency on stimulants.&rdquo;</div>
+        </div>
+
+        <div class="exp-card">
+          <span class="exp-icon">&#129504;</span>
+          <div class="exp-title">Cognitive Clarity</div>
+          <div class="exp-quote">&ldquo;The brain fog lifted within the first 90 days. My decision-making is sharper than it was in my 30s.&rdquo;</div>
+        </div>
+
+        <div class="exp-card">
+          <span class="exp-icon">&#127769;</span>
+          <div class="exp-title">Sleep Quality</div>
+          <div class="exp-quote">&ldquo;Deep, restorative sleep returned. I wake up recovered instead of already behind.&rdquo;</div>
+        </div>
+
+        <div class="exp-card">
+          <span class="exp-icon">&#128106;</span>
+          <div class="exp-title">Presence &amp; Attention</div>
+          <div class="exp-quote">&ldquo;I'm actually present with my family. Not distracted, not depleted — actually there.&rdquo;</div>
+        </div>
+
+        <div class="exp-card">
+          <span class="exp-icon">&#128170;</span>
+          <div class="exp-title">Physical Confidence</div>
+          <div class="exp-quote">&ldquo;I feel like myself again — the version I was before stress and age started compounding.&rdquo;</div>
+        </div>
+
+        <div class="exp-card">
+          <span class="exp-icon">&#127919;</span>
+          <div class="exp-title">Drive &amp; Motivation</div>
+          <div class="exp-quote">&ldquo;My drive is back. Not forced, not caffeinated — it's just there, like it was when I was building everything.&rdquo;</div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </section>
 
