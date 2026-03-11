@@ -803,30 +803,84 @@
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
+      gap: 20px;
     }
     .stat-card {
-      padding: 32px 24px;
-      border: 1px solid var(--border);
-      border-top: 3px solid rgba(255,255,255,0.10);
       background: var(--card);
-      border-radius: var(--radius-md);
-      text-align: left;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      overflow: hidden;
     }
-    .stat-num {
+    .stat-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: rgba(101,200,208,0.08);
+      border: 1px solid var(--border-teal);
+      border-radius: 4px;
+      padding: 4px 8px;
+      margin-bottom: 16px;
+      width: fit-content;
+    }
+    .stat-delta {
       font-family: var(--font-display);
-      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-size: 52px;
       font-weight: 800;
       color: var(--text);
       line-height: 1;
-      display: block;
+      margin-bottom: 4px;
     }
-    .stat-label {
-      font-size: 0.9rem;
+    .stat-sublabel {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       color: var(--text-60);
-      margin-top: 12px;
-      line-height: 1.4;
-      font-weight: 500;
+      margin-bottom: 18px;
+    }
+    /* Generic progress bar */
+    .stat-bar-track {
+      height: 6px;
+      background: var(--highlight);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+    .stat-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-dark));
+    }
+    /* Comparison bars (mortality card) */
+    .stat-compare { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+    .stat-compare-row { display: flex; align-items: center; gap: 10px; }
+    .stat-compare-lbl { font-size: 9px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-60); min-width: 52px; }
+    .stat-compare-track { flex: 1; height: 6px; background: var(--highlight); border-radius: 3px; overflow: hidden; }
+    .stat-compare-fill { height: 100%; border-radius: 3px; }
+    .stat-compare-fill.risk  { background: var(--brick); }
+    .stat-compare-fill.safe  { background: linear-gradient(90deg, var(--teal), var(--teal-dark)); }
+    /* Dot row (root causes card) */
+    .stat-dots { display: flex; gap: 7px; align-items: center; margin-bottom: 14px; }
+    .stat-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .stat-dot.on  { background: var(--teal); box-shadow: 0 0 6px rgba(101,200,208,0.40); }
+    .stat-dot.off { background: var(--highlight); border: 1px solid var(--border); }
+    .stat-context {
+      font-size: 12px;
+      color: var(--text-60);
+      line-height: 1.55;
+      margin-top: auto;
     }
 
     /* ── FAQ ── */
@@ -1007,10 +1061,15 @@
       .diff-card p { font-size: 11px; }
 
       /* ── STATS ── */
-      .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 12px; }
-      .stat-card { padding: 20px 16px; break-inside: avoid; }
-      .stat-num { font-size: 2rem; }
-      .stat-label { font-size: 10px; }
+      .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+      .stat-card { padding: 16px 14px; break-inside: avoid; }
+      .stat-delta { font-size: 32px; }
+      .stat-sublabel { font-size: 8px; margin-bottom: 10px; }
+      .stat-badge { font-size: 8px; padding: 3px 6px; margin-bottom: 10px; }
+      .stat-context { font-size: 9px; }
+      .stat-compare-lbl { font-size: 8px; min-width: 40px; }
+      .stat-dots { gap: 5px; margin-bottom: 10px; }
+      .stat-dot { width: 8px; height: 8px; }
 
       /* ── TESTIMONIALS ── */
       .photo-banner { break-inside: avoid; }
@@ -1269,7 +1328,7 @@
           </div>
         </div>
         <div class="pillar-photo-slot">
-          <img src="photo-runner.jpg" alt="Peak performance training" />
+          <img src="photo-runner.jpg" alt="Peak performance training" style="object-position: center 15%;" />
         </div>
       </div>
 
@@ -1840,22 +1899,62 @@
     <h2>What Changes When You Have the Right System</h2>
 
     <div class="stats-grid">
+
+      <!-- Biological Age -->
       <div class="stat-card">
-        <span class="stat-num">12 Yrs</span>
-        <span class="stat-label">Average reduction in biological age achieved by clients</span>
+        <div class="stat-badge">&#8595; Decrease</div>
+        <div class="stat-delta">&minus;12</div>
+        <div class="stat-sublabel">Years — Biological Age</div>
+        <div class="stat-bar-track">
+          <div class="stat-bar-fill" style="width:60%;"></div>
+        </div>
+        <div class="stat-context">Average biological age reduction achieved across our client base</div>
       </div>
+
+      <!-- Body Fat -->
       <div class="stat-card">
-        <span class="stat-num">&minus;10%</span>
-        <span class="stat-label">Average body fat reduction within 6 months</span>
+        <div class="stat-badge">&#8595; Decrease</div>
+        <div class="stat-delta">&minus;10%</div>
+        <div class="stat-sublabel">Body Fat</div>
+        <div class="stat-bar-track">
+          <div class="stat-bar-fill" style="width:40%;"></div>
+        </div>
+        <div class="stat-context">Average body fat reduction achieved within the first 6 months</div>
       </div>
+
+      <!-- Mortality Risk -->
       <div class="stat-card">
-        <span class="stat-num">5&times;</span>
-        <span class="stat-label">Lower all-cause mortality risk: elite vs. low VO2 Max performers</span>
+        <div class="stat-badge">&#8595; Lower Risk</div>
+        <div class="stat-delta">5&times;</div>
+        <div class="stat-sublabel">Mortality Risk Reduction</div>
+        <div class="stat-compare">
+          <div class="stat-compare-row">
+            <span class="stat-compare-lbl">Low VO&#8322;</span>
+            <div class="stat-compare-track"><div class="stat-compare-fill risk" style="width:100%;"></div></div>
+          </div>
+          <div class="stat-compare-row">
+            <span class="stat-compare-lbl">Elite VO&#8322;</span>
+            <div class="stat-compare-track"><div class="stat-compare-fill safe" style="width:20%;"></div></div>
+          </div>
+        </div>
+        <div class="stat-context">All-cause mortality risk: elite vs. low VO&#8322; Max performers</div>
       </div>
+
+      <!-- Root Causes -->
       <div class="stat-card">
-        <span class="stat-num">3&ndash;5</span>
-        <span class="stat-label">Root cause issues uncovered per client &mdash; never previously identified</span>
+        <div class="stat-badge">&#9679; Identified</div>
+        <div class="stat-delta">3&ndash;5</div>
+        <div class="stat-sublabel">Root Causes Found</div>
+        <div class="stat-dots">
+          <span class="stat-dot on"></span>
+          <span class="stat-dot on"></span>
+          <span class="stat-dot on"></span>
+          <span class="stat-dot on"></span>
+          <span class="stat-dot off"></span>
+        </div>
+        <div class="stat-context">Root cause issues uncovered per client — never previously identified</div>
       </div>
+
     </div>
   </div>
 </section>
