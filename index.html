@@ -11,6 +11,7 @@
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { overflow-x: hidden; }
 
     :root {
       --dark:      #0D0D12;
@@ -346,12 +347,13 @@
       .pillars-grid { grid-template-columns: 1fr; }
       .founder-grid { grid-template-columns: 1fr; gap: 40px; }
       .founder-photo img { height: 400px; }
-      .panel-inner, .panel-inner--sm { padding-left: 48px; padding-right: 48px; }
+      .panel-inner     { padding: 72px 48px; }
+      .panel-inner--sm { padding: 40px 48px; }
     }
     .nav-cta-mob { display: none; }
     @media (max-width: 600px) {
       :root { --rail: 12px; }
-      #nav { left: 22px; right: 22px; padding: 13px 18px; top: 10px; border-radius: 16px; }
+      #nav { left: 12px; right: 12px; padding: 13px 18px; top: 10px; border-radius: 16px; }
       .nav-cta-desk { display: none; }
       .nav-cta-mob  { display: inline; }
       .pain-grid { grid-template-columns: 1fr; }
@@ -360,10 +362,14 @@
       .proof-cell { border-bottom: 1px solid var(--grey-bd); }
       .proof-cell:last-child { border-bottom: none; grid-column: 1/-1; }
       .hero-inner { padding: 90px 20px 64px; }
-      .hero-h1 { font-size: clamp(30px, 9vw, 52px); }
-      #problem .section-hd h2 br { display: none; }
+      .hero-h1 { font-size: clamp(28px, 8vw, 52px); }
+      .section-hd h2 { font-size: clamp(22px, 6vw, 38px); }
+      .section-hd h2 br { display: none; }
       .cta-inner h2 { font-size: 22px; }
-      .panel-inner, .panel-inner--sm { padding-left: 24px; padding-right: 24px; }
+      .panel-inner     { padding: 52px 20px; }
+      .panel-inner--sm { padding: 32px 20px; }
+      .founder-creds { grid-template-columns: 1fr 1fr; }
+      .who-col { padding: 28px 22px; }
     }
   </style>
 </head>
