@@ -1063,8 +1063,8 @@
       /* Full width layout */
       .wrap { max-width: 100%; padding: 0; }
 
-      /* Section padding + page breaks — every section starts on its own page */
-      section { padding: 40px 0; }
+      /* Section padding — tighter in print to maximize content per page */
+      section { padding: 28px 0; }
       section + section { border-top: none; }
       section:not(.hero) {
         break-before: page;
@@ -1095,12 +1095,20 @@
       .section-subtitle { font-size: 12px; margin-bottom: 28px; }
 
       /* ── FOUNDER ── */
-      .founder-letter { padding: 36px 40px; }
-      .founder-photo { width: 88px; height: 88px; }
-      .founder-letter p { font-size: 11px; line-height: 1.7; }
-      .credential-strip { flex-direction: row; }
-      .credential-num { font-size: 17px; }
-      .credential-label { font-size: 9px; }
+      .founder-letter { padding: 24px 28px; }
+      .founder-photo { width: 72px; height: 72px; }
+      .founder-letter p { font-size: 10px; line-height: 1.55; }
+      /* Credential strip: keep together — this is the source of the blank-page bug */
+      .credential-strip {
+        flex-direction: row;
+        break-inside: avoid;
+        break-before: avoid;
+        overflow: visible; /* prevent print-clipping of content at page edge */
+        margin-top: 20px;
+      }
+      .credential-item { break-inside: avoid; }
+      .credential-num { font-size: 16px; }
+      .credential-label { font-size: 8px; }
 
       /* ── CARDS / BLOCKS ── */
       .card { padding: 24px; }
