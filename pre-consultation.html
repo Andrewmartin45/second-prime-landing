@@ -11,15 +11,15 @@
       --bg:           #0D0D12;
       --card:         #1C1C2A;
       --highlight:    #24243A;
-      --teal-bright:  #5DDDE8;
-      --teal:         #2CC4B0;
-      --teal-dark:    #239E8E;
+      --teal-bright:  #65C8D0;
+      --teal:         #65C8D0;
+      --teal-dark:    #458D93;
       --sand:         #D9C8AE;
       --brick:        #B16674;
       --text:         #F0F0F2;
       --text-60:      rgba(240,240,242,0.60);
       --border:       rgba(255,255,255,0.08);
-      --border-teal:  rgba(93,221,232,0.20);
+      --border-teal:  rgba(101,200,208,0.20);
       --border-brick: rgba(177,102,116,0.30);
       --font-display: 'Zodiak', Georgia, serif;
       --font-body:    'Satoshi', system-ui, sans-serif;
@@ -56,7 +56,7 @@
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--teal);
+      color: rgba(240,240,242,0.42);
       margin-bottom: 20px;
     }
 
@@ -118,8 +118,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 50% 42% at 50% 50%, rgba(93,221,232,0.05) 0%, transparent 70%),
-        radial-gradient(ellipse 30% 28% at 50% 50%, rgba(44,196,176,0.03) 0%, transparent 60%);
+        radial-gradient(ellipse 50% 42% at 50% 50%, rgba(101,200,208,0.04) 0%, transparent 70%),
+        radial-gradient(ellipse 30% 28% at 50% 50%, rgba(101,200,208,0.02) 0%, transparent 60%);
       pointer-events: none;
     }
     .hero::after {
@@ -214,7 +214,7 @@
       top: -20px; left: 48px;
       font-family: var(--font-display);
       font-size: 200px;
-      color: rgba(93,221,232,0.03);
+      color: rgba(101,200,208,0.03);
       line-height: 1;
       pointer-events: none;
       user-select: none;
@@ -306,7 +306,7 @@
       font-weight: 700;
       margin-top: 2px;
     }
-    .icon-teal  { background: rgba(93,221,232,0.10); color: var(--teal-bright); }
+    .icon-teal  { background: rgba(101,200,208,0.10); color: var(--teal-bright); }
     .icon-brick { background: rgba(177,102,116,0.10); color: var(--brick); }
 
     /* ── PROBLEM ── */
@@ -333,25 +333,22 @@
     .problem-card p { font-size: 14px; color: var(--text-60); line-height: 1.55; margin: 0; }
 
     /* ── RANGE STANDARDS GRAPHIC ── */
-    .range-standards {
-      margin: 48px 0 0;
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
-    .range-block-title {
-      font-family: var(--font-display);
-      font-size: 17px;
+    .range-standards { margin: 48px 0 0; }
+    .range-compare-wrap { display: flex; flex-direction: column; gap: 24px; }
+    .range-compare-row { display: flex; flex-direction: column; gap: 8px; }
+    .range-compare-label {
+      font-size: 11px;
       font-weight: 700;
-      margin-bottom: 14px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
     }
-    .range-block-title.traditional { color: var(--text-60); }
-    .range-block-title.sp { color: var(--teal); }
+    .range-compare-label.traditional { color: var(--text-60); }
+    .range-compare-label.sp { color: var(--teal); }
 
     .range-bar {
       display: flex;
       width: 100%;
-      height: 64px;
       border-radius: 8px;
       overflow: hidden;
     }
@@ -366,10 +363,16 @@
       color: #fff;
       text-align: center;
       line-height: 1.3;
-      padding: 0 4px;
+      padding: 0 6px;
     }
-    .rz-label.lg { font-size: 16px; }
-    .rz-label.sm { font-size: 10px; }
+    .rz-label.lg { font-size: 15px; }
+    .rz-label.sm { font-size: 10px; letter-spacing: 0.02em; }
+    .range-bar-note {
+      font-size: 12px;
+      color: var(--text-60);
+      font-style: italic;
+      line-height: 1.5;
+    }
 
     /* Traditional bar colors */
     .rz-disease-trad { background: #C0392B; flex: 12; }
@@ -380,65 +383,126 @@
     .rz-deficient { background: #E53935; }
     .rz-sufficient{ background: #FB8C00; }
     .rz-optimal   { background: #388E3C; }
-    .rz-elite     { background: #2CC4B0; }
-
-    .sp-bar-wrap { position: relative; }
-
-    .sp-arrow-row {
-      display: flex;
-      width: 100%;
-      margin-top: 0;
-    }
-    .sp-arrow-cell {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0;
-    }
-    .sp-arrow-line {
-      width: 1px;
-      height: 20px;
-      background: currentColor;
-      opacity: 0.45;
-      flex-shrink: 0;
-    }
-    .sp-arrow-lbl {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding-top: 4px;
-      white-space: nowrap;
-    }
-    .lbl-critical  { color: #E53935; }
-    .lbl-deficient { color: #FB8C00; }
-    .lbl-sufficient{ color: #FFA726; }
-    .lbl-optimal   { color: #66BB6A; }
-    .lbl-elite     { color: var(--teal); }
-    .range-caption {
-      font-size: 13px;
-      color: var(--text-60);
-      font-style: italic;
-      margin-top: 20px;
-      line-height: 1.6;
-    }
+    .rz-elite     { background: #65C8D0; }
 
     /* ── PILLARS ── */
     .pillars-intro { font-size: 18px; color: var(--text-60); max-width: 660px; line-height: 1.7; margin-bottom: 52px; }
-    .pillar-grid { display: flex; flex-direction: column; gap: 20px; }
-    .pillar-card { display: flex; align-items: flex-start; gap: 32px; padding: 44px 40px; }
+    .pillar-grid { display: flex; flex-direction: column; gap: 0; }
+    .pillar-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .pillar-split.flipped .pillar-photo-slot { order: -1; }
+    .pillar-text-col {
+      background: var(--card);
+      padding: 52px 48px;
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+    }
+    .pillar-photo-slot {
+      position: relative;
+      min-height: 320px;
+      overflow: hidden;
+    }
+    .pillar-photo-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .pillar-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      background: var(--highlight);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 32px;
+      text-align: center;
+    }
+    .photo-ph-icon { font-size: 32px; opacity: 0.3; }
+    .photo-ph-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--text-60);
+      opacity: 0.6;
+    }
+    .photo-ph-hint {
+      font-size: 11px;
+      color: var(--text-60);
+      opacity: 0.45;
+      line-height: 1.5;
+    }
     .pillar-number {
       font-family: var(--font-display);
       font-size: 72px;
       font-weight: 800;
       line-height: 1;
-      color: rgba(93,221,232,0.06);
+      color: rgba(101,200,208,0.06);
       flex-shrink: 0;
       min-width: 80px;
       user-select: none;
     }
     .pillar-content h3 { font-size: 28px; font-weight: 700; color: var(--text); margin-bottom: 12px; }
     .pillar-content p { font-size: 16px; color: var(--text-60); line-height: 1.7; }
+
+    /* ── PHOTO BANNER ── */
+    .photo-banner {
+      position: relative;
+      width: 100%;
+      height: 340px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin: 64px 0 0;
+      background: var(--highlight);
+    }
+    .photo-banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .photo-banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(13,13,18,0.75) 0%, transparent 60%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 60px;
+    }
+    .photo-banner-label { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+    .photo-banner-quote {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 3vw, 32px);
+      font-weight: 700;
+      color: var(--text);
+      max-width: 480px;
+      line-height: 1.3;
+    }
+    .photo-banner-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--highlight);
+    }
+    @media (max-width: 720px) {
+      .pillar-split { grid-template-columns: 1fr; }
+      .pillar-split.flipped .pillar-photo-slot { order: 0; }
+      .pillar-photo-slot { min-height: 220px; }
+      .pillar-text-col { padding: 36px 28px; }
+      .photo-banner { height: 240px; }
+      .photo-banner-overlay { padding: 0 32px; }
+    }
 
     /* ── PROCESS ── */
     .phase-list { display: flex; flex-direction: column; gap: 16px; }
@@ -576,9 +640,10 @@
     }
     .col-head:first-child { text-align: left; }
     .col-head.sp {
-      color: var(--teal);
-      background: rgba(44,196,176,0.06);
+      color: var(--text);
+      background: rgba(255,255,255,0.04);
     }
+    .col-head-logo { height: 22px; width: auto; display: block; margin: 0 auto 6px; }
     .col-head-sub {
       display: block;
       font-size: 9px;
@@ -608,7 +673,7 @@
       color: rgba(240,240,242,0.70);
     }
     .compare-cell.sp {
-      background: rgba(44,196,176,0.04);
+      background: rgba(101,200,208,0.04);
     }
     /* Alternating row shading — every other set of 5 cells */
     .compare-grid > *:nth-child(10n+6),
@@ -679,7 +744,7 @@
       cursor: pointer;
       transition: border-color 0.2s;
     }
-    .video-thumb:hover { border-color: rgba(93,221,232,0.22); }
+    .video-thumb:hover { border-color: rgba(101,200,208,0.22); }
     .video-placeholder {
       aspect-ratio: 16/9;
       background: var(--highlight);
@@ -690,7 +755,7 @@
     .play-btn {
       width: 52px;
       height: 52px;
-      background: rgba(93,221,232,0.08);
+      background: rgba(101,200,208,0.08);
       border: 2px solid var(--teal-bright);
       border-radius: 50%;
       display: flex;
@@ -699,7 +764,7 @@
       color: var(--teal-bright);
       font-size: 16px;
       padding-left: 3px;
-      box-shadow: 0 0 22px rgba(93,221,232,0.10);
+      box-shadow: 0 0 22px rgba(101,200,208,0.10);
     }
     .video-info { padding: 20px; }
     .video-client { font-family: var(--font-display); font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
@@ -957,49 +1022,38 @@
       <p><strong>Here&rsquo;s what&rsquo;s actually happening:</strong></p>
     </div>
 
-    <!-- REFERENCE RANGE GRAPHIC -->
+    <!-- REFERENCE RANGE COMPARISON -->
     <div class="range-standards">
 
-      <div>
-        <div class="range-block-title traditional">Traditional Healthcare Ranges</div>
-        <div class="range-bar">
-          <div class="rz rz-disease-trad" style="flex:12"><span class="rz-label sm">Disease</span></div>
-          <div class="rz rz-normal" style="flex:76"><span class="rz-label lg">&ldquo;Normal&rdquo; &nbsp;|&nbsp; Healthy</span></div>
-          <div class="rz rz-disease-trad" style="flex:12"><span class="rz-label sm">Disease</span></div>
-        </div>
-      </div>
+      <div class="range-compare-wrap">
 
-      <div class="sp-bar-wrap">
-        <div class="range-block-title sp">Second Prime Precision Standards</div>
-        <div class="range-bar">
-          <div class="rz rz-critical"  style="flex:8"><span  class="rz-label sm"></span></div>
-          <div class="rz rz-deficient" style="flex:10"><span class="rz-label sm"></span></div>
-          <div class="rz rz-sufficient"style="flex:12"><span class="rz-label sm"></span></div>
-          <div class="rz rz-optimal"   style="flex:15"><span class="rz-label sm"></span></div>
-          <div class="rz rz-elite"     style="flex:20"><span class="rz-label">Elite</span></div>
-          <div class="rz rz-optimal"   style="flex:15"><span class="rz-label sm"></span></div>
-          <div class="rz rz-sufficient"style="flex:12"><span class="rz-label sm"></span></div>
-          <div class="rz rz-deficient" style="flex:10"><span class="rz-label sm"></span></div>
-          <div class="rz rz-critical"  style="flex:8"><span  class="rz-label sm"></span></div>
+        <div class="range-compare-row">
+          <div class="range-compare-label traditional">Traditional Medicine</div>
+          <div class="range-bar" style="height:56px;">
+            <div class="rz rz-disease-trad" style="flex:12"><span class="rz-label sm">Disease</span></div>
+            <div class="rz rz-normal" style="flex:76"><span class="rz-label lg">&ldquo;Normal&rdquo; &nbsp;/&nbsp; Healthy</span></div>
+            <div class="rz rz-disease-trad" style="flex:12"><span class="rz-label sm">Disease</span></div>
+          </div>
+          <div class="range-bar-note">2 zones. You&rsquo;re either sick or you&rsquo;re not.</div>
         </div>
-        <!-- Arrow labels aligned to each zone -->
-        <div class="sp-arrow-row">
-          <div class="sp-arrow-cell lbl-critical"  style="flex:8"><div class="sp-arrow-line"></div><div class="sp-arrow-lbl">Critical</div></div>
-          <div class="sp-arrow-cell lbl-deficient" style="flex:10"><div class="sp-arrow-line"></div><div class="sp-arrow-lbl">Deficient</div></div>
-          <div class="sp-arrow-cell lbl-sufficient"style="flex:12"><div class="sp-arrow-line"></div><div class="sp-arrow-lbl">Sufficient</div></div>
-          <div class="sp-arrow-cell lbl-optimal"   style="flex:15"><div class="sp-arrow-line"></div><div class="sp-arrow-lbl">Optimal</div></div>
-          <div class="sp-arrow-cell lbl-elite"     style="flex:20"><div class="sp-arrow-line"></div><div class="sp-arrow-lbl">Elite</div></div>
-          <div class="sp-arrow-cell lbl-optimal"   style="flex:15"></div>
-          <div class="sp-arrow-cell lbl-sufficient"style="flex:12"></div>
-          <div class="sp-arrow-cell lbl-deficient" style="flex:10"></div>
-          <div class="sp-arrow-cell lbl-critical"  style="flex:8"></div>
+
+        <div class="range-compare-row">
+          <div class="range-compare-label sp">Second Prime</div>
+          <div class="range-bar" style="height:56px;">
+            <div class="rz rz-critical"   style="flex:10"><span class="rz-label sm">Critical</span></div>
+            <div class="rz rz-deficient"  style="flex:14"><span class="rz-label sm">Deficient</span></div>
+            <div class="rz rz-sufficient" style="flex:16"><span class="rz-label sm">Sufficient</span></div>
+            <div class="rz rz-optimal"    style="flex:22"><span class="rz-label">Optimal</span></div>
+            <div class="rz rz-elite"      style="flex:22"><span class="rz-label"><strong>Elite</strong></span></div>
+          </div>
+          <div class="range-bar-note">5 precision zones. We tell you exactly where you are &mdash; and what it takes to reach Elite.</div>
         </div>
-        <p class="range-caption">Most doctors flag only the outer edges &mdash; Critical or Disease. Second Prime interprets every biomarker against all five precision zones, so you know not just whether you&rsquo;re &ldquo;normal,&rdquo; but exactly where you stand and what it takes to reach Elite.</p>
+
       </div>
 
     </div>
 
-    <div class="problem-grid">
+    <div class="problem-grid" style="margin-top:64px;">
       <div class="problem-card"><p>Generic programs ignore your stress load and recovery capacity</p></div>
       <div class="problem-card"><p>Basic labs miss functional optimization and early dysfunction</p></div>
       <div class="problem-card"><p>Trendy diets don&rsquo;t account for your individual metabolic state</p></div>
@@ -1023,27 +1077,60 @@
 
     <div class="pillar-grid">
 
-      <div class="card pillar-card">
-        <div class="pillar-number">01</div>
-        <div class="pillar-content">
-          <h3>Mitigate Health Risks</h3>
-          <p>Identify and address cardiovascular, metabolic, and hormonal risks before they become liabilities. We find what&rsquo;s coming before it arrives &mdash; and put a plan in place to stop it.</p>
+      <!-- Pillar 01: text left, photo right -->
+      <div class="pillar-split">
+        <div class="pillar-text-col">
+          <div class="pillar-number">01</div>
+          <div class="pillar-content">
+            <h3>Mitigate Health Risks</h3>
+            <p>Identify and address cardiovascular, metabolic, and hormonal risks before they become liabilities. We find what&rsquo;s coming before it arrives &mdash; and put a plan in place to stop it.</p>
+          </div>
+        </div>
+        <div class="pillar-photo-slot">
+          <!-- PHOTO: Executive in a medical or clinical setting — serious, composed, results-oriented. Think: a fit man in his 40s reviewing lab results or with a physician. -->
+          <div class="pillar-photo-placeholder">
+            <div class="photo-ph-icon">🩺</div>
+            <div class="photo-ph-label">Photo Placeholder</div>
+            <div class="photo-ph-hint">Suggested: Executive in clinical/medical setting &mdash; reviewing results, composed, 40s–50s</div>
+          </div>
         </div>
       </div>
 
-      <div class="card pillar-card">
-        <div class="pillar-number">02</div>
-        <div class="pillar-content">
-          <h3>Build Peak Performance</h3>
-          <p>Optimize energy, cognition, body composition, and recovery. So you can operate at your highest level &mdash; in the boardroom, in the gym, and at home.</p>
+      <!-- Pillar 02: photo left, text right -->
+      <div class="pillar-split flipped">
+        <div class="pillar-text-col">
+          <div class="pillar-number">02</div>
+          <div class="pillar-content">
+            <h3>Build Peak Performance</h3>
+            <p>Optimize energy, cognition, body composition, and recovery. So you can operate at your highest level &mdash; in the boardroom, in the gym, and at home.</p>
+          </div>
+        </div>
+        <div class="pillar-photo-slot">
+          <!-- PHOTO: High-intensity athletic training — barbell, track, performance environment. Athlete in 40s showing strength and drive. Not a stock gym photo — real, raw effort. -->
+          <div class="pillar-photo-placeholder">
+            <div class="photo-ph-icon">🏋️</div>
+            <div class="photo-ph-label">Photo Placeholder</div>
+            <div class="photo-ph-hint">Suggested: Athletic training — barbell, track, or performance gym. Focused, high-effort, real.</div>
+          </div>
         </div>
       </div>
 
-      <div class="card pillar-card">
-        <div class="pillar-number">03</div>
-        <div class="pillar-content">
-          <h3>Extend Longevity</h3>
-          <p>Not just more years &mdash; more years at peak. Longevity means how long you operate at your best, not just how long you survive. We engineer for the long game.</p>
+      <!-- Pillar 03: text left, photo right -->
+      <div class="pillar-split">
+        <div class="pillar-text-col">
+          <div class="pillar-number">03</div>
+          <div class="pillar-content">
+            <h3>Extend Longevity</h3>
+            <p>Not just more years &mdash; more years at peak. Longevity means how long you operate at your best, not just how long you survive. We engineer for the long game.</p>
+          </div>
+        </div>
+        <div class="pillar-photo-slot">
+          <!-- PHOTO: Lifestyle longevity image — active man in his 40s–50s outdoors with family, hiking, or in nature. Present, energized, looks younger than his age. -->
+          <div class="pillar-photo-placeholder">
+            <div class="photo-ph-icon">🌿</div>
+            <div class="photo-ph-label">Photo Placeholder</div>
+            <div class="photo-ph-hint">Suggested: Outdoors lifestyle — hiking, active with family, or at peace. Energized, looks younger than age.</div>
+          </div>
         </div>
       </div>
 
@@ -1215,13 +1302,6 @@
         <div class="assess-item">
           <div class="assess-dot"></div>
           <div class="assess-item-text">
-            <div class="assess-item-name">Inflammatory Markers</div>
-            <div class="assess-item-desc">CRP, IL-6, homocysteine, fibrinogen</div>
-          </div>
-        </div>
-        <div class="assess-item">
-          <div class="assess-dot"></div>
-          <div class="assess-item-text">
             <div class="assess-item-name">Cellular Biomapping</div>
             <div class="assess-item-desc">Cell health, cellular energy production, and metabolic efficiency</div>
           </div>
@@ -1335,7 +1415,11 @@
 
     <div class="compare-grid">
       <div class="col-head"></div>
-      <div class="col-head sp">Second Prime</div>
+      <div class="col-head sp">
+        <img src="logo-white.png" alt="Second Prime" class="col-head-logo"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+        <span style="display:none;">Second Prime</span>
+      </div>
       <div class="col-head">Standard Doctor</div>
       <div class="col-head">
         Function Health<br>/ Lab-Only Testing
@@ -1449,6 +1533,26 @@
         </ul>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════
+     10. PHOTO BANNER
+════════════════════════ -->
+<section style="padding: 0; border-top: 1px solid var(--border);">
+  <div class="wrap" style="padding-top: 96px; padding-bottom: 96px;">
+    <div class="photo-banner">
+      <!-- PHOTO: Wide-format executive lifestyle photo — a high-performer in motion. Could be a boardroom, a private gym, or looking out over a city. Dark, cinematic, confident. -->
+      <div class="photo-banner-placeholder">
+        <div class="photo-ph-icon" style="font-size:40px;">📸</div>
+        <div class="photo-ph-label" style="font-size:12px; color: rgba(240,240,242,0.45); letter-spacing:0.14em; text-transform:uppercase;">Photo Placeholder</div>
+        <div class="photo-ph-hint" style="font-size:12px; color:rgba(240,240,242,0.30); max-width:420px; text-align:center; line-height:1.6;">Suggested: Wide cinematic shot of a high-performer — boardroom, private gym, or overlooking a city. Dark, confident, aspirational.</div>
+      </div>
+      <div class="photo-banner-overlay">
+        <div class="photo-banner-label">The Standard</div>
+        <div class="photo-banner-quote">&ldquo;The people who get the most from this are already good. They just haven&rsquo;t had the right data.&rdquo;</div>
+      </div>
     </div>
   </div>
 </section>
