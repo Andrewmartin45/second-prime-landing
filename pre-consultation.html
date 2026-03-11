@@ -351,16 +351,18 @@
       display: flex;
       align-items: flex-start;
       gap: 24px;
+      min-height: 400px;
     }
     .pillar-photo-slot {
       position: relative;
-      min-height: 320px;
+      height: 400px;
       overflow: hidden;
     }
     .pillar-photo-slot img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center center;
       display: block;
     }
     .pillar-photo-placeholder {
@@ -528,7 +530,7 @@
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--teal);
+      color: var(--text);
     }
 
     .assess-item {
@@ -566,7 +568,7 @@
     /* ── COMPARISON ── */
     .compare-grid {
       display: grid;
-      grid-template-columns: 2fr 1.1fr 1.1fr 1.1fr 1.1fr;
+      grid-template-columns: 2fr 1.2fr 1.2fr 1.2fr;
       gap: 2px;
       background: rgba(255,255,255,0.06);
       border: 1px solid var(--border);
@@ -622,12 +624,11 @@
     .compare-cell.sp {
       background: rgba(101,200,208,0.04);
     }
-    /* Alternating row shading — every other set of 5 cells */
-    .compare-grid > *:nth-child(10n+6),
-    .compare-grid > *:nth-child(10n+7),
-    .compare-grid > *:nth-child(10n+8),
-    .compare-grid > *:nth-child(10n+9),
-    .compare-grid > *:nth-child(10n+10) {
+    /* Alternating row shading — every other set of 4 cells */
+    .compare-grid > *:nth-child(8n+5),
+    .compare-grid > *:nth-child(8n+6),
+    .compare-grid > *:nth-child(8n+7),
+    .compare-grid > *:nth-child(8n+8) {
       filter: brightness(0.93);
     }
     .check { color: var(--teal); font-size: 17px; font-weight: 700; }
@@ -832,21 +833,29 @@
       /* Full width layout */
       .wrap { max-width: 100%; padding: 0; }
 
-      /* Compress section padding */
+      /* Section padding + page breaks — every section starts on its own page */
       section { padding: 40px 0; }
-      section + section { border-top: 1px solid rgba(255,255,255,0.08); }
-
-      /* ── HERO ── */
-      .hero {
-        min-height: auto;
-        padding: 52px 0 44px;
-        page-break-after: always;
-        break-after: page;
+      section + section { border-top: none; }
+      section:not(.hero) {
+        break-before: page;
+        page-break-before: always;
       }
+
+      /* ── HERO: compact cover page, not full-viewport-height ── */
+      .hero {
+        min-height: 0 !important;
+        height: auto !important;
+        display: block !important;
+        text-align: center;
+        padding: 88px 32px 72px;
+        break-after: page;
+        page-break-after: always;
+      }
+      .hero-inner { max-width: 640px; margin: 0 auto; }
       .hero h1 { font-size: 44px; }
       .hero-sub { font-size: 13px; }
       .hero-logo img { height: 32px; }
-      .hero-logo { margin-bottom: 32px; }
+      .hero-logo { margin-bottom: 36px; }
 
       /* ── HEADINGS ── */
       h1 { font-size: 44px; }
@@ -895,7 +904,7 @@
 
       /* ── COMPARISON CHART ── */
       .compare-grid {
-        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
         font-size: 9px;
         gap: 1px;
         margin-bottom: 24px;
@@ -958,7 +967,6 @@
       /* Don't break inside these elements */
       .founder-letter,
       .for-grid,
-      .range-compare-row,
       .pillar-split,
       .phase-block,
       .stat-card,
@@ -967,12 +975,6 @@
       .step-card,
       .diff-card,
       .problem-card { break-inside: avoid; }
-
-      /* Suggested page breaks before major sections */
-      .pillar-grid,
-      .assess-categories,
-      .compare-grid,
-      .testimonial-grid { break-before: auto; }
     }
 
     /* ── RESPONSIVE ── */
@@ -992,8 +994,7 @@
       .differentiator-grid { grid-template-columns: 1fr; }
       .assess-categories { grid-template-columns: 1fr; }
       .compare-grid { grid-template-columns: 2fr 1fr 1fr; }
-      .compare-grid > *:nth-child(5n+4),
-      .compare-grid > *:nth-child(5n+5) { display: none; }
+      .compare-grid > *:nth-child(4n+3) { display: none; }
       .founder-letter { padding: 36px 28px; }
       .founder-photo { width: 80px; height: 80px; margin: 0 0 12px 16px; }
       .pillar-card { flex-direction: column; gap: 12px; }
@@ -1368,6 +1369,13 @@
         <div class="assess-item">
           <div class="assess-dot"></div>
           <div class="assess-item-text">
+            <div class="assess-item-name">Salivary &amp; Urinary Hormone Analysis</div>
+            <div class="assess-item-desc">Diurnal cortisol rhythm, hormone metabolites, adrenal function &amp; recovery capacity</div>
+          </div>
+        </div>
+        <div class="assess-item">
+          <div class="assess-dot"></div>
+          <div class="assess-item-text">
             <div class="assess-item-name">Cellular Biomapping</div>
             <div class="assess-item-desc">Cell health, cellular energy production, and metabolic efficiency</div>
           </div>
@@ -1486,28 +1494,24 @@
              onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
         <span style="display:none;">Second Prime</span>
       </div>
-      <div class="col-head">Standard Doctor</div>
       <div class="col-head">
-        Function Health<br>/ Lab-Only Testing
+        Lab-Only Testing
         <span class="col-head-sub">e.g. Function Health</span>
       </div>
       <div class="col-head">Functional Medicine Doctors</div>
 
       <div class="compare-cell feature">1,000+ biomarker assessment</div>
       <div class="compare-cell sp"><span class="check">&#10003;</span></div>
-      <div class="compare-cell"><span class="cross">&#10005;</span></div>
       <div class="compare-cell"><span class="check">&#10003;</span></div>
       <div class="compare-cell"><span class="partial">Partial</span></div>
 
       <div class="compare-cell feature">Interpreted for optimization (not just &ldquo;normal&rdquo;)</div>
       <div class="compare-cell sp"><span class="check">&#10003;</span></div>
       <div class="compare-cell"><span class="cross">&#10005;</span></div>
-      <div class="compare-cell"><span class="cross">&#10005;</span></div>
       <div class="compare-cell"><span class="partial">Partial</span></div>
 
       <div class="compare-cell feature">Root cause identification</div>
       <div class="compare-cell sp"><span class="check">&#10003;</span></div>
-      <div class="compare-cell"><span class="partial">Partial</span></div>
       <div class="compare-cell"><span class="cross">&#10005;</span></div>
       <div class="compare-cell"><span class="check">&#10003;</span></div>
 
@@ -1515,11 +1519,9 @@
       <div class="compare-cell sp"><span class="check">&#10003;</span></div>
       <div class="compare-cell"><span class="cross">&#10005;</span></div>
       <div class="compare-cell"><span class="cross">&#10005;</span></div>
-      <div class="compare-cell"><span class="cross">&#10005;</span></div>
 
       <div class="compare-cell feature">Executive context &amp; lifestyle integration</div>
       <div class="compare-cell sp"><span class="check">&#10003;</span></div>
-      <div class="compare-cell"><span class="cross">&#10005;</span></div>
       <div class="compare-cell"><span class="cross">&#10005;</span></div>
       <div class="compare-cell"><span class="cross">&#10005;</span></div>
 
@@ -1527,17 +1529,14 @@
       <div class="compare-cell sp"><span class="check">&#10003;</span></div>
       <div class="compare-cell"><span class="cross">&#10005;</span></div>
       <div class="compare-cell"><span class="cross">&#10005;</span></div>
-      <div class="compare-cell"><span class="cross">&#10005;</span></div>
 
       <div class="compare-cell feature">Ongoing optimization &amp; real-time adjustment</div>
       <div class="compare-cell sp"><span class="check">&#10003;</span></div>
       <div class="compare-cell"><span class="cross">&#10005;</span></div>
       <div class="compare-cell"><span class="cross">&#10005;</span></div>
-      <div class="compare-cell"><span class="cross">&#10005;</span></div>
 
       <div class="compare-cell feature">Medical oversight (TRT / HRT / peptides)</div>
       <div class="compare-cell sp"><span class="check">&#10003;</span></div>
-      <div class="compare-cell"><span class="cross">&#10005;</span></div>
       <div class="compare-cell"><span class="cross">&#10005;</span></div>
       <div class="compare-cell"><span class="partial">Partial</span></div>
     </div>
