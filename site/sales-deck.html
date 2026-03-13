@@ -372,15 +372,15 @@
     .offer-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin-top: 12px;
+      gap: 10px;
+      margin-top: 14px;
       align-items: stretch;
     }
 
     .offer-card {
       border: 1px solid var(--bd-dark);
-      border-radius: 10px;
-      padding: 14px 13px;
+      border-radius: 12px;
+      padding: 20px 18px;
       position: relative;
       overflow: hidden;
       display: flex;
@@ -450,58 +450,48 @@
       color: var(--teal);
     }
 
-    .offer-brand {
-      display: block;
-      font-size: 8.5px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--lt-20);
-      margin-bottom: 1px;
-    }
-
     .offer-name {
       font-family: var(--display);
-      font-size: 15px;
+      font-size: 20px;
       font-weight: 700;
-      margin-bottom: 4px;
-      line-height: 1.15;
+      margin-bottom: 6px;
+      line-height: 1.2;
     }
 
     .offer-sub {
-      font-size: 10px;
+      font-size: 12px;
       color: var(--lt-40);
-      margin-bottom: 10px;
-      line-height: 1.4;
+      margin-bottom: 14px;
+      line-height: 1.45;
     }
 
     .price-block {
-      margin-bottom: 10px;
-      padding-bottom: 10px;
+      margin-bottom: 14px;
+      padding-bottom: 14px;
       border-bottom: 1px solid var(--bd-dark);
     }
 
     .price-main {
       font-family: var(--display);
-      font-size: clamp(18px, 1.6vw, 24px);
+      font-size: clamp(20px, 1.8vw, 28px);
       font-weight: 700;
       line-height: 1;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
     }
 
     .price-main--teal { color: var(--accent); }
     .price-main--sand { color: var(--sand); }
 
     .price-note {
-      font-size: 10px;
+      font-size: 11px;
       color: var(--lt-40);
     }
 
     .price-alt {
-      margin-top: 5px;
-      font-size: 10px;
+      margin-top: 6px;
+      font-size: 11px;
       color: var(--lt-40);
-      padding: 4px 8px;
+      padding: 5px 10px;
       background: var(--lt-10);
       border-radius: 5px;
     }
@@ -513,23 +503,23 @@
     .offer-features li {
       display: flex;
       align-items: flex-start;
-      gap: 7px;
-      padding: 4px 0;
+      gap: 8px;
+      padding: 5.5px 0;
       border-bottom: 1px solid var(--bd-dark);
-      font-size: 10.5px;
+      font-size: 12px;
       color: var(--lt-60);
-      line-height: 1.35;
+      line-height: 1.4;
     }
 
     .offer-features li:last-child { border-bottom: none; }
 
     .offer-features li::before {
       content: '';
-      width: 11px;
-      height: 11px;
+      width: 13px;
+      height: 13px;
       border-radius: 50%;
       flex-shrink: 0;
-      margin-top: 1px;
+      margin-top: 2px;
     }
 
     .offer-card--body-comp .offer-features li::before {
@@ -1587,8 +1577,7 @@
 
         <!-- BODY COMPOSITION -->
         <div class="offer-card offer-card--body-comp">
-          <div class="offer-badge offer-badge--body">Entry</div>
-          <div class="offer-name"><span class="offer-brand">Second Prime</span>Body Composition</div>
+          <div class="offer-name">Second Prime<br>Body Comp</div>
           <div class="offer-sub">Foundational coaching built around your biology and lifestyle.</div>
           <div class="price-block">
             <div class="price-main" style="color:var(--lt);">$10,000</div>
@@ -1607,8 +1596,7 @@
 
         <!-- CORE -->
         <div class="offer-card offer-card--core">
-          <div class="offer-badge offer-badge--core">Core Program</div>
-          <div class="offer-name"><span class="offer-brand">Second Prime</span>Core</div>
+          <div class="offer-name">Second Prime<br>Core</div>
           <div class="offer-sub">The complete system — every variable tracked, every pillar managed.</div>
           <div class="price-block">
             <div class="price-main price-main--sand">$8,500</div>
@@ -1628,8 +1616,7 @@
 
         <!-- SECOND PRIME PRO -->
         <div class="offer-card offer-card--pro">
-          <div class="offer-badge offer-badge--pro">3 Spots Available</div>
-          <div class="offer-name"><span class="offer-brand">Second Prime</span>Pro</div>
+          <div class="offer-name">Second Prime<br>Pro</div>
           <div class="offer-sub">Everything in Core — plus in-person diagnostics and daily access to Andrew.</div>
           <div class="price-block">
             <div class="price-main price-main--teal">$50,000</div>
