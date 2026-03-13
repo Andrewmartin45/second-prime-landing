@@ -372,15 +372,15 @@
     .offer-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 16px;
+      gap: 8px;
+      margin-top: 12px;
       align-items: stretch;
     }
 
     .offer-card {
       border: 1px solid var(--bd-dark);
-      border-radius: 12px;
-      padding: 18px 16px;
+      border-radius: 10px;
+      padding: 14px 13px;
       position: relative;
       overflow: hidden;
       display: flex;
@@ -423,13 +423,13 @@
 
     .offer-badge {
       display: inline-block;
-      font-size: 9px;
+      font-size: 8.5px;
       font-weight: 700;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      padding: 3px 8px;
-      border-radius: 4px;
-      margin-bottom: 10px;
+      padding: 3px 7px;
+      border-radius: 3px;
+      margin-bottom: 8px;
     }
 
     .offer-badge--body {
@@ -450,50 +450,60 @@
       color: var(--teal);
     }
 
+    .offer-brand {
+      display: block;
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--lt-20);
+      margin-bottom: 1px;
+    }
+
     .offer-name {
       font-family: var(--display);
-      font-size: 18px;
+      font-size: 15px;
       font-weight: 700;
       margin-bottom: 4px;
-      line-height: 1.2;
+      line-height: 1.15;
     }
 
     .offer-sub {
-      font-size: 11px;
+      font-size: 10px;
       color: var(--lt-40);
-      margin-bottom: 14px;
-      line-height: 1.45;
+      margin-bottom: 10px;
+      line-height: 1.4;
     }
 
     .price-block {
-      margin-bottom: 14px;
-      padding-bottom: 14px;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
       border-bottom: 1px solid var(--bd-dark);
     }
 
     .price-main {
       font-family: var(--display);
-      font-size: clamp(20px, 1.8vw, 28px);
+      font-size: clamp(18px, 1.6vw, 24px);
       font-weight: 700;
       line-height: 1;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .price-main--teal { color: var(--accent); }
     .price-main--sand { color: var(--sand); }
 
     .price-note {
-      font-size: 11px;
+      font-size: 10px;
       color: var(--lt-40);
     }
 
     .price-alt {
-      margin-top: 6px;
-      font-size: 11px;
+      margin-top: 5px;
+      font-size: 10px;
       color: var(--lt-40);
-      padding: 5px 10px;
+      padding: 4px 8px;
       background: var(--lt-10);
-      border-radius: 6px;
+      border-radius: 5px;
     }
 
     .offer-features {
@@ -503,20 +513,20 @@
     .offer-features li {
       display: flex;
       align-items: flex-start;
-      gap: 8px;
-      padding: 5px 0;
+      gap: 7px;
+      padding: 4px 0;
       border-bottom: 1px solid var(--bd-dark);
-      font-size: 11.5px;
+      font-size: 10.5px;
       color: var(--lt-60);
-      line-height: 1.4;
+      line-height: 1.35;
     }
 
     .offer-features li:last-child { border-bottom: none; }
 
     .offer-features li::before {
       content: '';
-      width: 13px;
-      height: 13px;
+      width: 11px;
+      height: 11px;
       border-radius: 50%;
       flex-shrink: 0;
       margin-top: 1px;
@@ -1567,26 +1577,24 @@
   </section>
 
   <!-- ══ SLIDE 08 · OFFER COMPARISON ════════════════════════ -->
-  <section class="slide slide--card" style="align-items:flex-start; padding-top:36px; padding-bottom:36px;">
+  <section class="slide slide--card" style="align-items:flex-start; padding-top:28px; padding-bottom:28px;">
     <div class="slide-inner">
       <span class="eyebrow eyebrow--teal">Your Options</span>
-      <h2 style="font-size:clamp(18px, 2.2vw, 30px); margin-bottom:0;">Three programs. One continuum.</h2>
-      <div class="rule" style="margin:12px 0;"></div>
+      <h2 style="font-size:clamp(16px, 2vw, 26px); margin-bottom:0;">Three programs. One continuum.</h2>
+      <div class="rule" style="margin:10px 0;"></div>
 
       <div class="offer-grid">
 
         <!-- BODY COMPOSITION -->
         <div class="offer-card offer-card--body-comp">
           <div class="offer-badge offer-badge--body">Entry</div>
-          <div class="offer-name">Second Prime<br>Body Composition</div>
+          <div class="offer-name"><span class="offer-brand">Second Prime</span>Body Composition</div>
           <div class="offer-sub">Foundational coaching built around your biology and lifestyle.</div>
-
           <div class="price-block">
             <div class="price-main" style="color:var(--lt);">$10,000</div>
             <div class="price-note">6-month program</div>
-            <div class="price-alt">Option: <strong style="color:var(--lt);">2 payments of $6,000</strong> · 30 days apart</div>
+            <div class="price-alt">Option: <strong style="color:var(--lt);">2 × $6,000</strong> · 30 days apart</div>
           </div>
-
           <ul class="offer-features">
             <li>Comprehensive blood panel — 60+ key biomarkers</li>
             <li>Lifestyle assessment &amp; personalized planning</li>
@@ -1600,15 +1608,13 @@
         <!-- CORE -->
         <div class="offer-card offer-card--core">
           <div class="offer-badge offer-badge--core">Core Program</div>
-          <div class="offer-name">Second Prime<br>Core</div>
+          <div class="offer-name"><span class="offer-brand">Second Prime</span>Core</div>
           <div class="offer-sub">The complete system — every variable tracked, every pillar managed.</div>
-
           <div class="price-block">
             <div class="price-main price-main--sand">$8,500</div>
-            <div class="price-note">to start — covers assessment + first 90 days</div>
-            <div class="price-alt">Then <strong style="color:var(--lt);">$4,000/quarter</strong> · 6-month min · or <strong style="color:var(--lt);">$16,000/year</strong></div>
+            <div class="price-note">to start — assessment + first 90 days</div>
+            <div class="price-alt">Then <strong style="color:var(--lt);">$4,000/quarter</strong> · 6-month min · or <strong style="color:var(--lt);">$16,000/yr</strong></div>
           </div>
-
           <ul class="offer-features">
             <li>Full Executive Assessment (1,000+ biomarkers, 4,000+ data points)</li>
             <li>90-min protocol review with Andrew</li>
@@ -1623,29 +1629,18 @@
         <!-- SECOND PRIME PRO -->
         <div class="offer-card offer-card--pro">
           <div class="offer-badge offer-badge--pro">3 Spots Available</div>
-          <div class="offer-name">Second Prime<br>Pro</div>
+          <div class="offer-name"><span class="offer-brand">Second Prime</span>Pro</div>
           <div class="offer-sub">Everything in Core — plus in-person diagnostics and daily access to Andrew.</div>
-
           <div class="price-block">
             <div class="price-main price-main--teal">$50,000</div>
             <div class="price-note">annual investment</div>
             <div class="price-alt"><strong style="color:var(--lt);">$20,000 to start</strong>, then 2 × $15,000 · 30 days apart</div>
           </div>
-
           <ul class="offer-features">
             <li>Everything in Core, plus:</li>
-            <li>
-              <span>Full-day in-person diagnostics at partner facility
-                <ul class="offer-sub-list">
-                  <li>· Coronary CT Angiography · Low-Dose Lung CT</li>
-                  <li>· Multi-Cancer Early Detection Blood Test</li>
-                  <li>· Multi-Modal Brain Health Assessment</li>
-                  <li>· Whole Body MRI · DEXA Scan · VO₂ Max</li>
-                </ul>
-              </span>
-            </li>
+            <li><span>Full-day in-person diagnostics at partner facility<ul class="offer-sub-list"><li>Coronary CT · Lung CT · Multi-Cancer Detection</li><li>Brain Health MRI · Whole Body MRI · DEXA + VO₂</li></ul></span></li>
             <li>At-home sleep study</li>
-            <li>Daily monitoring by Andrew with frequent protocol adjustments</li>
+            <li>Daily monitoring by Andrew + frequent protocol adjustments</li>
             <li>Priority direct access to Andrew</li>
           </ul>
         </div>
