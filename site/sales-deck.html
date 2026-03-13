@@ -374,7 +374,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
       margin-top: 14px;
-      align-items: stretch;
+      align-items: start;
     }
 
     .offer-card {
@@ -552,18 +552,26 @@
     /* Nested test list inside Pro card */
     .offer-sub-list {
       list-style: none;
-      margin: 6px 0 0 4px;
+      margin: 7px 0 0 2px;
       display: flex;
       flex-direction: column;
       gap: 3px;
     }
 
     .offer-sub-list li {
-      font-size: 11px;
+      font-size: 12px;
       color: var(--lt-40);
-      padding: 0 !important;
+      padding: 1px 0 !important;
       border: none !important;
-      display: block !important;
+      display: flex !important;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .offer-sub-list li::before {
+      content: '–';
+      color: var(--lt-20);
+      flex-shrink: 0;
     }
 
     .offer-sub-list li::before {
@@ -1625,7 +1633,7 @@
           </div>
           <ul class="offer-features">
             <li>Everything in Core, plus:</li>
-            <li><span>Full-day in-person diagnostics at partner facility<ul class="offer-sub-list"><li>Coronary CT · Lung CT · Multi-Cancer Detection</li><li>Brain Health MRI · Whole Body MRI · DEXA + VO₂</li></ul></span></li>
+            <li><span>Full-day in-person diagnostics at partner facility<ul class="offer-sub-list"><li>Coronary CT</li><li>Lung CT</li><li>Multi-Cancer Detection</li><li>Brain Health MRI</li><li>Whole Body MRI</li><li>DEXA + VO₂ Max</li></ul></span></li>
             <li>At-home sleep study</li>
             <li>Daily monitoring by Andrew + frequent protocol adjustments</li>
             <li>Priority direct access to Andrew</li>
