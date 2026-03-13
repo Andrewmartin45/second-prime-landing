@@ -511,6 +511,53 @@
       background-size: 9px;
     }
 
+    /* ── OUTCOME TAGS ──────────────────────────────────────── */
+    .tag-note {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--lt-40);
+      margin-bottom: 16px;
+      font-style: italic;
+      font-family: var(--body);
+    }
+
+    .tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 5px 12px;
+      border-radius: 20px;
+      line-height: 1;
+    }
+
+    .tag--teal {
+      background: var(--teal-faint);
+      border: 1px solid var(--teal-edge);
+      color: var(--teal);
+    }
+
+    .tag--accent {
+      background: rgba(120,236,245,0.08);
+      border: 1px solid rgba(120,236,245,0.20);
+      color: var(--accent);
+    }
+
+    .tag--sand {
+      background: var(--sand-faint);
+      border: 1px solid var(--sand-edge);
+      color: var(--sand);
+    }
+
     /* Key differentiator callout */
     .diff-callout {
       background: var(--teal-faint);
@@ -751,46 +798,10 @@
         </div>
       </div>
     </div>
-    <span class="slide-num">01 / 12</span>
+    <span class="slide-num">01 / 11</span>
   </section>
 
-  <!-- ══ SLIDE 02 · THE PROBLEM ════════════════════════════ -->
-  <section class="slide slide--dark">
-    <div class="slide-inner">
-      <span class="eyebrow">The Challenge</span>
-      <h2>You've built a high-output life.<br>Your biology is running to keep up.</h2>
-      <div class="rule"></div>
-      <p style="max-width:620px;">
-        The performance demands of running a business at the top level put a unique tax on your body — one that standard medicine doesn't measure, and generic fitness doesn't solve.
-      </p>
-
-      <div class="problem-grid">
-        <div class="problem-item">
-          <div class="problem-dot"></div>
-          <h4>Energy that no longer keeps pace</h4>
-          <p>Afternoon crashes, inconsistent output, relying on caffeine to sustain a schedule that used to feel effortless.</p>
-        </div>
-        <div class="problem-item">
-          <div class="problem-dot"></div>
-          <h4>Cognitive edge slipping</h4>
-          <p>Decision fatigue setting in earlier. Clarity and focus — the tools you've always relied on — feel less sharp.</p>
-        </div>
-        <div class="problem-item">
-          <div class="problem-dot" style="background:var(--teal);"></div>
-          <h4>Body composition drifting</h4>
-          <p>Despite effort in the gym, the body isn't responding the way it used to. The inputs aren't producing the outputs.</p>
-        </div>
-        <div class="problem-item">
-          <div class="problem-dot" style="background:var(--teal);"></div>
-          <h4>Fragmented, incomplete guidance</h4>
-          <p>A primary care doctor who flags crises but doesn't build performance. Specialists who work in silos, not systems.</p>
-        </div>
-      </div>
-    </div>
-    <span class="slide-num">02 / 12</span>
-  </section>
-
-  <!-- ══ SLIDE 03 · THE THREE OUTCOMES ════════════════════ -->
+  <!-- ══ SLIDE 02 · THE THREE OUTCOMES ════════════════════ -->
   <section class="slide slide--card">
     <div class="slide-inner">
       <span class="eyebrow eyebrow--teal">What We Do</span>
@@ -802,23 +813,45 @@
           <div class="card-num">01</div>
           <h3>Mitigate<br>Health Risks</h3>
           <div class="rule" style="margin: 16px 0;"></div>
-          <p>Identify hidden risks before they become crises. Comprehensive biomarker analysis reveals what standard panels miss — hormonal dysfunction, metabolic imbalance, inflammation, cardiovascular risk.</p>
+          <p class="tag-note">Proactive risk reduction — not diagnosis</p>
+          <div class="tag-group">
+            <span class="tag tag--teal">Cardiovascular Disease</span>
+            <span class="tag tag--teal">Neurodegenerative Disease</span>
+            <span class="tag tag--teal">Metabolic Disorders</span>
+            <span class="tag tag--teal">Cancer Risk</span>
+          </div>
         </div>
         <div class="card card--accent">
           <div class="card-num" style="color:var(--accent);">02</div>
           <h3>Maximize Human Performance</h3>
           <div class="rule" style="margin: 16px 0;"></div>
-          <p>Data-driven protocols calibrated to your actual biology — not a generic plan. Nutrition, training, supplementation, and recovery designed for your specific constraints and demands.</p>
+          <div class="tag-group">
+            <span class="tag tag--accent">Energy</span>
+            <span class="tag tag--accent">Focus</span>
+            <span class="tag tag--accent">Productivity</span>
+            <span class="tag tag--accent">Strength</span>
+            <span class="tag tag--accent">Endurance</span>
+            <span class="tag tag--accent">Mobility</span>
+            <span class="tag tag--accent">Body Composition</span>
+            <span class="tag tag--accent">Recovery</span>
+          </div>
         </div>
         <div class="card card--sand">
           <div class="card-num" style="color:var(--sand);">03</div>
           <h3>Extend the Longevity of Performance</h3>
           <div class="rule rule--sand" style="margin: 16px 0;"></div>
-          <p>This isn't a sprint. It's a compounding system. Quarterly reassessment and protocol evolution ensure your performance continues to build — and your biological age works in your favor.</p>
+          <div class="tag-group">
+            <span class="tag tag--sand">Active Decades</span>
+            <span class="tag tag--sand">Present for Your Family</span>
+            <span class="tag tag--sand">Peak Capacity at Any Age</span>
+            <span class="tag tag--sand">Sport &amp; Recreation for Life</span>
+            <span class="tag tag--sand">High-Output at 60+</span>
+            <span class="tag tag--sand">Outlast Decline</span>
+          </div>
         </div>
       </div>
     </div>
-    <span class="slide-num">03 / 12</span>
+    <span class="slide-num">02 / 11</span>
   </section>
 
   <!-- ══ SLIDE 04 · WHAT WE MEASURE ════════════════════════ -->
@@ -833,7 +866,7 @@
         <div class="measure-col measure-col--inputs">
           <div class="measure-label measure-label--sand">What Goes In</div>
           <h3>Inputs</h3>
-          <p style="font-size:14px; color:var(--lt-40);">The environment your biology operates in every day.</p>
+          <p style="font-size:14px; color:var(--lt-60);">The environment your biology operates in every day.</p>
           <ul class="measure-items">
             <li>Nutrition &amp; dietary patterns</li>
             <li>Hydration quality &amp; volume</li>
@@ -845,9 +878,9 @@
         <div class="measure-col measure-col--inside">
           <div class="measure-label measure-label--teal">What Happens Inside</div>
           <h3>Internals</h3>
-          <p style="font-size:14px; color:var(--lt-40);">The biological reality those inputs create.</p>
+          <p style="font-size:14px; color:var(--lt-60);">The biological reality those inputs create.</p>
           <ul class="measure-items">
-            <li>Blood — 1,000+ biomarkers</li>
+            <li>Blood — 180 biomarkers</li>
             <li>Gut microbiome (stool analysis)</li>
             <li>Hormonal panel (urine + saliva)</li>
             <li>Metabolic &amp; inflammatory markers</li>
@@ -857,7 +890,7 @@
         <div class="measure-col measure-col--outputs">
           <div class="measure-label measure-label--accent">What Comes Out</div>
           <h3>Outputs</h3>
-          <p style="font-size:14px; color:var(--lt-40);">Objective performance metrics — your biological output.</p>
+          <p style="font-size:14px; color:var(--lt-60);">Objective performance metrics — your biological output.</p>
           <ul class="measure-items">
             <li>VO₂ max (cardiovascular capacity)</li>
             <li>DEXA scan (body composition)</li>
@@ -868,7 +901,7 @@
         </div>
       </div>
     </div>
-    <span class="slide-num">04 / 12</span>
+    <span class="slide-num">03 / 11</span>
   </section>
 
   <!-- ══ SLIDE 05 · THE ASSESSMENT PROCESS ═════════════════ -->
@@ -902,7 +935,7 @@
         </div>
       </div>
     </div>
-    <span class="slide-num">05 / 12</span>
+    <span class="slide-num">04 / 11</span>
   </section>
 
   <!-- ══ SLIDE 06 · YOUR PROTOCOL ══════════════════════════ -->
@@ -940,7 +973,7 @@
         </div>
       </div>
     </div>
-    <span class="slide-num">06 / 12</span>
+    <span class="slide-num">05 / 11</span>
   </section>
 
   <!-- ══ SLIDE 07 · IMPLEMENTATION ═════════════════════════ -->
@@ -969,7 +1002,7 @@
         </div>
       </div>
     </div>
-    <span class="slide-num">07 / 12</span>
+    <span class="slide-num">06 / 11</span>
   </section>
 
   <!-- ══ SLIDE 08 · THE FULL STACK DIFFERENCE ══════════════ -->
@@ -999,7 +1032,7 @@
                 <span style="color:var(--teal); margin-right:10px;">✓</span> Integrated across all health systems
               </li>
               <li style="border-bottom:1px solid var(--bd-dark); padding: 10px 0; font-size:13px; color:var(--lt-60);">
-                <span style="color:var(--teal); margin-right:10px;">✓</span> 1,000+ biomarkers vs. standard annual panel
+                <span style="color:var(--teal); margin-right:10px;">✓</span> 1,000+ biomarkers total (blood, gut, urine, saliva) vs. standard annual panel
               </li>
               <li style="border-bottom:1px solid var(--bd-dark); padding: 10px 0; font-size:13px; color:var(--lt-60);">
                 <span style="color:var(--teal); margin-right:10px;">✓</span> Medical oversight with data-backed protocols
@@ -1018,7 +1051,7 @@
         </div>
       </div>
     </div>
-    <span class="slide-num">08 / 12</span>
+    <span class="slide-num">07 / 11</span>
   </section>
 
   <!-- ══ SLIDE 09 · ANDREW'S CREDENTIALS ═══════════════════ -->
@@ -1054,7 +1087,7 @@
         </div>
       </div>
     </div>
-    <span class="slide-num">09 / 12</span>
+    <span class="slide-num">08 / 11</span>
   </section>
 
   <!-- ══ SLIDE 10 · WHO WE WORK WITH ════════════════════════ -->
@@ -1087,7 +1120,7 @@
         </div>
       </div>
     </div>
-    <span class="slide-num">10 / 12</span>
+    <span class="slide-num">09 / 11</span>
   </section>
 
   <!-- ══ SLIDE 11 · OFFER COMPARISON ════════════════════════ -->
@@ -1168,7 +1201,7 @@
         <strong style="color:var(--lt);">Start in Core, upgrade to Private Advisory anytime.</strong> Many clients begin with the $8,500 option, go through the assessment and first 90 days, and upgrade after experiencing the value firsthand. The difference in investment is credited toward the Private Advisory fee.
       </div>
     </div>
-    <span class="slide-num">11 / 12</span>
+    <span class="slide-num">10 / 11</span>
   </section>
 
   <!-- ══ SLIDE 12 · NEXT STEPS ══════════════════════════════ -->
@@ -1234,7 +1267,7 @@
         </div>
       </div>
     </div>
-    <span class="slide-num">12 / 12</span>
+    <span class="slide-num">11 / 11</span>
   </section>
 
 </div><!-- /deck -->
