@@ -372,17 +372,23 @@
     .offer-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 24px;
-      align-items: start;
+      gap: 10px;
+      margin-top: 16px;
+      align-items: stretch;
     }
 
     .offer-card {
       border: 1px solid var(--bd-dark);
-      border-radius: 14px;
-      padding: 26px 22px;
+      border-radius: 12px;
+      padding: 18px 16px;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .offer-card .offer-features {
+      flex: 1;
     }
 
     .offer-card--body-comp {
@@ -417,13 +423,13 @@
 
     .offer-badge {
       display: inline-block;
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 700;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      padding: 4px 10px;
+      padding: 3px 8px;
       border-radius: 4px;
-      margin-bottom: 16px;
+      margin-bottom: 10px;
     }
 
     .offer-badge--body {
@@ -446,27 +452,28 @@
 
     .offer-name {
       font-family: var(--display);
-      font-size: 24px;
+      font-size: 18px;
       font-weight: 700;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
+      line-height: 1.2;
     }
 
     .offer-sub {
-      font-size: 13px;
+      font-size: 11px;
       color: var(--lt-40);
-      margin-bottom: 20px;
-      line-height: 1.5;
+      margin-bottom: 14px;
+      line-height: 1.45;
     }
 
     .price-block {
-      margin-bottom: 20px;
-      padding-bottom: 20px;
+      margin-bottom: 14px;
+      padding-bottom: 14px;
       border-bottom: 1px solid var(--bd-dark);
     }
 
     .price-main {
       font-family: var(--display);
-      font-size: clamp(22px, 2.2vw, 34px);
+      font-size: clamp(20px, 1.8vw, 28px);
       font-weight: 700;
       line-height: 1;
       margin-bottom: 6px;
@@ -476,17 +483,17 @@
     .price-main--sand { color: var(--sand); }
 
     .price-note {
-      font-size: 13px;
+      font-size: 11px;
       color: var(--lt-40);
     }
 
     .price-alt {
-      margin-top: 14px;
-      font-size: 14px;
+      margin-top: 6px;
+      font-size: 11px;
       color: var(--lt-40);
-      padding: 12px 16px;
+      padding: 5px 10px;
       background: var(--lt-10);
-      border-radius: 8px;
+      border-radius: 6px;
     }
 
     .offer-features {
@@ -496,23 +503,23 @@
     .offer-features li {
       display: flex;
       align-items: flex-start;
-      gap: 10px;
-      padding: 7px 0;
+      gap: 8px;
+      padding: 5px 0;
       border-bottom: 1px solid var(--bd-dark);
-      font-size: 13px;
+      font-size: 11.5px;
       color: var(--lt-60);
-      line-height: 1.45;
+      line-height: 1.4;
     }
 
     .offer-features li:last-child { border-bottom: none; }
 
     .offer-features li::before {
       content: '';
-      width: 14px;
-      height: 14px;
+      width: 13px;
+      height: 13px;
       border-radius: 50%;
       flex-shrink: 0;
-      margin-top: 2px;
+      margin-top: 1px;
     }
 
     .offer-card--body-comp .offer-features li::before {
@@ -1560,27 +1567,24 @@
   </section>
 
   <!-- ══ SLIDE 08 · OFFER COMPARISON ════════════════════════ -->
-  <section class="slide slide--card" style="align-items:flex-start; padding-top:48px; padding-bottom:48px;">
+  <section class="slide slide--card" style="align-items:flex-start; padding-top:36px; padding-bottom:36px;">
     <div class="slide-inner">
       <span class="eyebrow eyebrow--teal">Your Options</span>
-      <h2 style="font-size:clamp(20px, 2.5vw, 36px);">Three programs.<br>One continuum.</h2>
-      <div class="rule" style="margin:16px 0;"></div>
-      <p style="max-width:680px; margin-bottom:0; font-size:14px; color:var(--lt-60);">Each program is built on the same philosophy — the difference is depth of assessment, breadth of support, and how closely Andrew is in the mix.</p>
+      <h2 style="font-size:clamp(18px, 2.2vw, 30px); margin-bottom:0;">Three programs. One continuum.</h2>
+      <div class="rule" style="margin:12px 0;"></div>
 
       <div class="offer-grid">
 
         <!-- BODY COMPOSITION -->
         <div class="offer-card offer-card--body-comp">
-          <div class="offer-badge offer-badge--body">Body Composition</div>
+          <div class="offer-badge offer-badge--body">Entry</div>
           <div class="offer-name">Second Prime<br>Body Composition</div>
-          <div class="offer-sub">Foundational coaching. Built around your biology and lifestyle.</div>
+          <div class="offer-sub">Foundational coaching built around your biology and lifestyle.</div>
 
           <div class="price-block">
             <div class="price-main" style="color:var(--lt);">$10,000</div>
             <div class="price-note">6-month program</div>
-            <div class="price-alt" style="margin-top:8px; padding: 7px 12px;">
-              Option: <strong style="color:var(--lt);">2 payments of $6,000</strong> · 30 days apart
-            </div>
+            <div class="price-alt">Option: <strong style="color:var(--lt);">2 payments of $6,000</strong> · 30 days apart</div>
           </div>
 
           <ul class="offer-features">
@@ -1595,29 +1599,22 @@
 
         <!-- CORE -->
         <div class="offer-card offer-card--core">
-          <div class="offer-badge offer-badge--core">Most Comprehensive</div>
+          <div class="offer-badge offer-badge--core">Core Program</div>
           <div class="offer-name">Second Prime<br>Core</div>
-          <div class="offer-sub">The complete system. Every variable tracked, every pillar managed.</div>
+          <div class="offer-sub">The complete system — every variable tracked, every pillar managed.</div>
 
           <div class="price-block">
             <div class="price-main price-main--sand">$8,500</div>
             <div class="price-note">to start — covers assessment + first 90 days</div>
-            <div class="price-alt" style="margin-top:8px; padding: 7px 12px;">
-              Then <strong style="color:var(--lt);">$4,000 / quarter</strong> · 6-month minimum
-            </div>
-            <div class="price-alt" style="margin-top:6px; padding: 7px 12px;">
-              Or pay in full: <strong style="color:var(--lt);">$16,000 / year</strong> — one quarter free
-            </div>
+            <div class="price-alt">Then <strong style="color:var(--lt);">$4,000/quarter</strong> · 6-month min · or <strong style="color:var(--lt);">$16,000/year</strong></div>
           </div>
 
           <ul class="offer-features">
             <li>Full Executive Assessment (1,000+ biomarkers, 4,000+ data points)</li>
-            <li>90-min protocol review call with Andrew</li>
+            <li>90-min protocol review with Andrew</li>
             <li>Custom protocol — nutrition, training &amp; supplementation</li>
-            <li>Dedicated performance coach — monthly 1:1s</li>
-            <li>Monthly 1:1 call with Andrew</li>
-            <li>Shared team channel — direct line to your full team</li>
-            <li>Continuous WHOOP monitoring &amp; real-time adjustments</li>
+            <li>Dedicated performance coach + monthly 1:1 with Andrew</li>
+            <li>Shared team channel &amp; continuous WHOOP monitoring</li>
             <li>Wholesale access to peptides, TRT/HRT via medical staff</li>
             <li>Quarterly retesting &amp; protocol updates</li>
           </ul>
@@ -1627,38 +1624,30 @@
         <div class="offer-card offer-card--pro">
           <div class="offer-badge offer-badge--pro">3 Spots Available</div>
           <div class="offer-name">Second Prime<br>Pro</div>
-          <div class="offer-sub">Everything in Core — plus in-person diagnostics and direct daily access to Andrew.</div>
+          <div class="offer-sub">Everything in Core — plus in-person diagnostics and daily access to Andrew.</div>
 
           <div class="price-block">
             <div class="price-main price-main--teal">$50,000</div>
             <div class="price-note">annual investment</div>
-            <div class="price-alt" style="margin-top:8px; padding: 7px 12px;">
-              <strong style="color:var(--lt);">$20,000 to start</strong>, then 2 payments of $15,000 · 30 days apart
-            </div>
+            <div class="price-alt"><strong style="color:var(--lt);">$20,000 to start</strong>, then 2 × $15,000 · 30 days apart</div>
           </div>
 
           <ul class="offer-features">
             <li>Everything in Core, plus:</li>
             <li>
-              <span>In-person full-day assessment at our partner facility
+              <span>Full-day in-person diagnostics at partner facility
                 <ul class="offer-sub-list">
-                  <li>· Coronary CT Angiography</li>
-                  <li>· Low-Dose Lung CT Scan</li>
+                  <li>· Coronary CT Angiography · Low-Dose Lung CT</li>
                   <li>· Multi-Cancer Early Detection Blood Test</li>
                   <li>· Multi-Modal Brain Health Assessment</li>
-                  <li>· Whole Body MRI</li>
-                  <li>· DEXA Scan &amp; VO₂ Max Testing</li>
+                  <li>· Whole Body MRI · DEXA Scan · VO₂ Max</li>
                 </ul>
               </span>
             </li>
-            <li>At-home sleep study included</li>
-            <li>Daily monitoring by Andrew — faster protocol adjustments as your data evolves</li>
-            <li>Priority access to Andrew for real-time decisions and guidance</li>
+            <li>At-home sleep study</li>
+            <li>Daily monitoring by Andrew with frequent protocol adjustments</li>
+            <li>Priority direct access to Andrew</li>
           </ul>
-
-          <div class="diff-callout" style="margin-top:14px;">
-            <strong>The difference at this level:</strong> You're working directly with Andrew on a daily basis, and we're doing the most comprehensive diagnostic workup available — including early cancer detection and full neurological assessment.
-          </div>
         </div>
 
       </div>
