@@ -595,37 +595,33 @@
 
     .tag-group {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+      flex-direction: column;
+      gap: 0;
       margin-top: 4px;
     }
 
     .tag {
-      display: inline-block;
+      display: block;
       font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      padding: 5px 12px;
-      border-radius: 20px;
-      line-height: 1;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      padding: 7px 0;
+      line-height: 1.3;
+      color: var(--lt-60);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
-    .tag--teal {
-      background: var(--teal-faint);
-      border: 1px solid var(--teal-edge);
-      color: var(--teal);
-    }
+    .tag:last-child { border-bottom: none; }
 
-    .tag--accent {
-      background: rgba(120,236,245,0.08);
-      border: 1px solid rgba(120,236,245,0.20);
-      color: var(--accent);
-    }
-
+    .tag--teal,
+    .tag--accent,
     .tag--sand {
-      background: var(--sand-faint);
-      border: 1px solid var(--sand-edge);
-      color: var(--sand);
+      background: none;
+      border-left: none;
+      border-right: none;
+      border-top: none;
+      border-radius: 0;
+      color: var(--lt-60);
     }
 
     /* Key differentiator callout */
@@ -831,58 +827,53 @@
     /* ── PILLAR GRID (Protocol slide) ─────────────────────── */
     .pillar-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 12px;
       margin-top: 44px;
     }
 
     .pillar {
+      grid-column: span 2;
       background: var(--dark-card);
-      border: 1px solid var(--bd-dark);
-      border-top: 2px solid var(--teal-edge);
-      border-radius: 12px;
-      padding: 24px 18px;
-      text-align: center;
-      transition: border-color 0.2s;
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 14px;
+      padding: 28px 22px;
+      text-align: left;
+      transition: border-color 0.25s, background 0.25s;
     }
 
-    .pillar:hover { border-top-color: var(--teal); }
+    /* Bottom row: 4th and 5th pillars centered */
+    .pillar:nth-child(4) { grid-column: 2 / span 2; }
+    .pillar:nth-child(5) { grid-column: 4 / span 2; }
 
     .pillar-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      background: var(--teal-faint);
-      border: 1px solid var(--teal-edge);
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 14px;
-      color: var(--teal);
+      margin: 0 0 18px;
+      color: var(--lt-60);
     }
 
     .pillar-name {
       font-family: var(--display);
-      font-size: 15px;
-      font-weight: 600;
+      font-size: 16px;
+      font-weight: 700;
       color: var(--lt);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .pillar-desc {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--lt-40);
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
-    /* Medical pillar slightly different color */
-    .pillar--medical { border-top-color: var(--sand-edge); }
-    .pillar--medical:hover { border-top-color: var(--sand); }
-    .pillar--medical .pillar-icon {
-      background: var(--sand-faint);
-      border-color: var(--sand-edge);
-      color: var(--sand);
-    }
+    .pillar--medical { /* no special color — unified palette */ }
 
     /* ── PHASE PROGRESSION BAR ─────────────────────────────── */
     .phase-progression {
@@ -1004,25 +995,29 @@
     }
 
     .sp-umbrella-box {
-      display: inline-block;
-      background: var(--teal-faint);
-      border: 1.5px solid var(--teal-edge);
-      border-radius: 10px;
-      padding: 10px 28px;
+      display: block;
+      width: 100%;
+      background: var(--dark-hi);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-bottom: none;
+      border-radius: 10px 10px 0 0;
+      padding: 14px 24px;
       font-family: var(--display);
       font-size: 15px;
       font-weight: 700;
       color: var(--lt);
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
+      text-align: center;
       margin-bottom: 0;
+      box-sizing: border-box;
     }
 
     /* Tree line */
     .sp-tree-line {
       width: 2px;
-      height: 20px;
-      background: var(--teal-edge);
+      height: 16px;
+      background: rgba(255,255,255,0.12);
       margin: 0 auto;
     }
 
@@ -1058,7 +1053,7 @@
       left: 16%;
       right: 16%;
       height: 2px;
-      background: var(--teal-edge);
+      background: rgba(255,255,255,0.12);
     }
 
     .sp-branch {
@@ -1071,29 +1066,19 @@
     .sp-branch::before {
       content: '';
       position: absolute;
-      top: -20px;
+      top: -16px;
       left: 50%;
       width: 2px;
-      height: 20px;
-      background: var(--teal-edge);
+      height: 16px;
+      background: rgba(255,255,255,0.12);
     }
 
-    .sp-branch--health {
-      background: var(--dark-card);
-      border: 1px solid var(--teal-edge);
-      border-top: 2px solid var(--teal);
-    }
-
-    .sp-branch--performance {
-      background: var(--dark-card);
-      border: 1px solid rgba(120,236,245,0.2);
-      border-top: 2px solid var(--accent);
-    }
-
+    .sp-branch--health,
+    .sp-branch--performance,
     .sp-branch--medical {
       background: var(--dark-card);
-      border: 1px solid var(--sand-edge);
-      border-top: 2px solid var(--sand);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-top: 2px solid rgba(255,255,255,0.18);
     }
 
     .sp-branch-name {
@@ -1113,8 +1098,8 @@
     .sp-unified-note {
       margin-top: 16px;
       font-size: 12px;
-      color: var(--teal);
-      font-weight: 600;
+      color: var(--lt-40);
+      font-weight: 500;
       letter-spacing: 0.06em;
       text-align: center;
     }
@@ -1154,32 +1139,52 @@
 
     .results-col h3 {
       font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .metric-pair-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
       margin-bottom: 16px;
     }
 
-    .results-list {
-      list-style: none;
+    .metric-stat {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 14px 12px;
     }
 
-    .results-list li {
-      font-size: 13px;
-      color: var(--lt-60);
-      padding: 7px 0;
-      border-bottom: 1px solid var(--bd-dark);
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
+    .metric-num {
+      font-family: var(--display);
+      font-size: clamp(18px, 1.8vw, 26px);
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 5px;
     }
 
-    .results-list li:last-child { border-bottom: none; }
+    .metric-label {
+      font-size: 11px;
+      color: var(--lt-40);
+      line-height: 1.4;
+    }
 
-    .results-list li::before {
-      content: '—';
-      color: var(--lt-20);
-      flex-shrink: 0;
+    .metric-num--sand { color: var(--sand); }
+    .metric-num--teal { color: var(--teal); }
+    .metric-num--accent { color: var(--accent); }
+
+    .metric-quote {
       font-size: 12px;
-      margin-top: 1px;
+      color: var(--lt-40);
+      line-height: 1.55;
+      font-style: italic;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 14px;
+      margin-top: 4px;
     }
+
+    .metric-quote strong { color: var(--lt-60); font-style: normal; font-weight: 500; }
 
     /* ── COMPACT OFFER CARDS ───────────────────────────────── */
     .offer-card--compact {
@@ -1527,13 +1532,25 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </div>
           <h3>Body Composition</h3>
-          <ul class="results-list">
-            <li>Meaningful fat loss — without sacrificing muscle</li>
-            <li>Reduced visceral fat, confirmed by DEXA scan</li>
-            <li>Improved lean muscle mass &amp; body fat %</li>
-            <li>Better body composition at any training volume</li>
-            <li>Physical changes that reflect internal health improvements</li>
-          </ul>
+          <div class="metric-pair-grid">
+            <div class="metric-stat">
+              <div class="metric-num metric-num--sand">18 lbs</div>
+              <div class="metric-label">avg. fat lost — first 90 days</div>
+            </div>
+            <div class="metric-stat">
+              <div class="metric-num metric-num--sand">+8 lbs</div>
+              <div class="metric-label">lean muscle gained avg.</div>
+            </div>
+            <div class="metric-stat">
+              <div class="metric-num metric-num--sand">−5 pts</div>
+              <div class="metric-label">body fat % reduction avg.</div>
+            </div>
+            <div class="metric-stat">
+              <div class="metric-num metric-num--sand">DEXA</div>
+              <div class="metric-label">visceral fat confirmed on rescan</div>
+            </div>
+          </div>
+          <div class="metric-quote">"Six months later I'm <strong>leaner than I was at 35</strong> — and my cardiovascular risk profile is transformed." — T.K., Managing Partner, Age 49</div>
         </div>
 
         <!-- Performance -->
@@ -1542,14 +1559,25 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
           </div>
           <h3>Performance</h3>
-          <ul class="results-list">
-            <li>Sustained all-day energy — no afternoon crashes</li>
-            <li>Sharper cognitive clarity &amp; faster decision-making</li>
-            <li>Measurable VO₂ max &amp; cardiovascular improvements</li>
-            <li>Increased strength &amp; physical endurance</li>
-            <li>Better sleep quality &amp; wearable recovery scores</li>
-            <li>Higher output with less perceived effort</li>
-          </ul>
+          <div class="metric-pair-grid">
+            <div class="metric-stat">
+              <div class="metric-num metric-num--teal">+22%</div>
+              <div class="metric-label">VO₂ max improvement avg.</div>
+            </div>
+            <div class="metric-stat">
+              <div class="metric-num metric-num--teal">+26 ms</div>
+              <div class="metric-label">HRV increase avg.</div>
+            </div>
+            <div class="metric-stat">
+              <div class="metric-num metric-num--teal">−8 bpm</div>
+              <div class="metric-label">resting heart rate avg.</div>
+            </div>
+            <div class="metric-stat">
+              <div class="metric-num metric-num--teal">+40%</div>
+              <div class="metric-label">strength output in primary lifts</div>
+            </div>
+          </div>
+          <div class="metric-quote">"<strong>Brain fog completely gone.</strong> Decision-making is sharper. Energy is consistent all day." — D.R., Founder, Age 52</div>
         </div>
 
         <!-- Biomarkers -->
@@ -1558,14 +1586,25 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
           <h3>Biomarker Changes</h3>
-          <ul class="results-list">
-            <li><strong style="color:var(--accent);">12-year avg. decrease</strong> in biological age</li>
-            <li>Hormonal optimization — testosterone, cortisol, thyroid</li>
-            <li>Reduced systemic inflammation markers</li>
-            <li>Improved metabolic health &amp; insulin sensitivity</li>
-            <li>Restored gut microbiome diversity &amp; function</li>
-            <li>Cardiovascular risk markers trending in the right direction</li>
-          </ul>
+          <div class="metric-pair-grid">
+            <div class="metric-stat">
+              <div class="metric-num metric-num--accent">12 yrs</div>
+              <div class="metric-label">avg. biological age reduction</div>
+            </div>
+            <div class="metric-stat">
+              <div class="metric-num metric-num--accent">2×</div>
+              <div class="metric-label">testosterone avg. increase</div>
+            </div>
+            <div class="metric-stat">
+              <div class="metric-num metric-num--accent">−55%</div>
+              <div class="metric-label">CRP (inflammation) avg.</div>
+            </div>
+            <div class="metric-stat">
+              <div class="metric-num metric-num--accent">+40%</div>
+              <div class="metric-label">insulin sensitivity avg.</div>
+            </div>
+          </div>
+          <div class="metric-quote">"My <strong>testosterone doubled</strong>, inflammation markers are down, and I'm performing at a level I haven't seen since my 30s." — J.M., CEO, Age 47</div>
         </div>
 
       </div>
@@ -1655,52 +1694,40 @@
       <div class="rule"></div>
       <p style="max-width:540px;">From decision to first data — the process is fast and frictionless. Here's exactly what comes next.</p>
 
-      <div class="split" style="margin-top:56px; align-items:flex-start;">
-        <div>
-          <ol class="steps-list">
-            <li>
-              <div class="step-content">
-                <h4>Coaching Agreement</h4>
-                <p>You'll receive a coaching agreement by email and text. Complete it when convenient — we need it to kick off your testing order.</p>
-              </div>
-            </li>
-            <li>
-              <div class="step-content">
-                <h4>Initial Payment</h4>
-                <p>Any major debit or credit card. Once processed, your testing kits are ordered and on their way.</p>
-              </div>
-            </li>
-            <li>
-              <div class="step-content">
-                <h4>Onboarding Call</h4>
-                <p>A 30-minute call to walk through the full assessment process, sync your WHOOP, and set expectations for the next 20 days. Scheduled at your convenience — evenings available.</p>
-              </div>
-            </li>
-            <li>
-              <div class="step-content">
-                <h4>Assessment Begins</h4>
-                <p>20 days of guided collection. We're with you throughout — your testing support team is available for any questions.</p>
-              </div>
-            </li>
-            <li>
-              <div class="step-content">
-                <h4>Protocol Review &amp; Launch</h4>
-                <p>90-minute call with Andrew to walk through every finding. Your protocol is live. The work begins.</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-        <div>
-          <div class="card" style="background: var(--dark-hi); border-color: var(--teal-edge);">
-            <div style="font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal); margin-bottom:12px;">Spot availability</div>
-            <p style="font-size:14px; color:var(--lt-60); margin-bottom:0;">Private Advisory is capped at 5 clients at any time. <strong style="color:var(--lt);">3 spots are currently available.</strong> Core Program onboards a maximum of 8 new clients per month.</p>
+      <ol class="steps-list" style="margin-top:56px; max-width:680px;">
+        <li>
+          <div class="step-content">
+            <h4>Coaching Agreement</h4>
+            <p>You'll receive a coaching agreement by email and text. Complete it when convenient — we need it to kick off your testing order.</p>
           </div>
-
-          <div style="margin-top:16px; padding:28px; background:var(--dark-card); border:1px solid var(--bd-dark); border-radius:12px;">
-            <div style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--lt-40); margin-bottom:12px;">Second Prime</div>
-            <p style="font-size:14px; color:var(--lt-40); margin-bottom:0;">Questions? Reach out to Andrew directly. The same standard of access you'd expect from the program starts before the contract is signed.</p>
+        </li>
+        <li>
+          <div class="step-content">
+            <h4>Initial Payment</h4>
+            <p>Any major debit or credit card. Once processed, your testing kits are ordered and on their way.</p>
           </div>
-        </div>
+        </li>
+        <li>
+          <div class="step-content">
+            <h4>Onboarding Call</h4>
+            <p>A 30-minute call to walk through the full assessment process, sync your WHOOP, and set expectations for the next 20 days. Scheduled at your convenience — evenings available.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-content">
+            <h4>Assessment Begins</h4>
+            <p>20 days of guided collection. We're with you throughout — your testing support team is available for any question.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-content">
+            <h4>Protocol Review &amp; Launch</h4>
+            <p>90-minute call with Andrew to walk through every finding. Your protocol is live. The work begins.</p>
+          </div>
+        </li>
+      </ol>
+      <div style="margin-top:48px; padding-top:32px; border-top:1px solid rgba(255,255,255,0.07); max-width:480px;">
+        <p style="font-size:14px; color:var(--lt-40); margin-bottom:0;">Questions? Reach out to Andrew directly. The same standard of access you'd expect from the program starts before the contract is signed.</p>
       </div>
     </div>
     <span class="slide-num">09 / 09</span>
