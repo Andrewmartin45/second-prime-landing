@@ -758,6 +758,387 @@
       margin-bottom: 16px;
     }
 
+    /* ── PILLAR GRID (Protocol slide) ─────────────────────── */
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 44px;
+    }
+
+    .pillar {
+      background: var(--dark-card);
+      border: 1px solid var(--bd-dark);
+      border-top: 2px solid var(--teal-edge);
+      border-radius: 12px;
+      padding: 24px 18px;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+
+    .pillar:hover { border-top-color: var(--teal); }
+
+    .pillar-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--teal-faint);
+      border: 1px solid var(--teal-edge);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px;
+      color: var(--teal);
+    }
+
+    .pillar-name {
+      font-family: var(--display);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--lt);
+      margin-bottom: 6px;
+    }
+
+    .pillar-desc {
+      font-size: 12px;
+      color: var(--lt-40);
+      line-height: 1.5;
+    }
+
+    /* Medical pillar slightly different color */
+    .pillar--medical { border-top-color: var(--sand-edge); }
+    .pillar--medical:hover { border-top-color: var(--sand); }
+    .pillar--medical .pillar-icon {
+      background: var(--sand-faint);
+      border-color: var(--sand-edge);
+      color: var(--sand);
+    }
+
+    /* ── PHASE PROGRESSION BAR ─────────────────────────────── */
+    .phase-progression {
+      display: grid;
+      grid-template-columns: 1fr 40px 1fr 40px 1fr;
+      align-items: center;
+      margin-top: 32px;
+      gap: 0;
+    }
+
+    .prog-step {
+      background: var(--dark-hi);
+      border: 1px solid var(--bd-dark);
+      border-radius: 10px;
+      padding: 20px 20px;
+      position: relative;
+    }
+
+    .prog-step--1 { border-left: 3px solid var(--lt-20); }
+    .prog-step--2 { border-left: 3px solid var(--teal); }
+    .prog-step--3 { border-left: 3px solid var(--accent); }
+
+    .prog-num {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--lt-40);
+      margin-bottom: 4px;
+    }
+
+    .prog-title {
+      font-family: var(--display);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--lt);
+      margin-bottom: 4px;
+    }
+
+    .prog-desc {
+      font-size: 12px;
+      color: var(--lt-40);
+      line-height: 1.5;
+    }
+
+    .prog-arrow {
+      text-align: center;
+      color: var(--lt-20);
+      font-size: 20px;
+      font-weight: 300;
+    }
+
+    /* ── ECOSYSTEM DIAGRAM (Why Second Prime) ──────────────── */
+    .ecosystem-wrap {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-top: 48px;
+    }
+
+    .eco-vs {
+      font-family: var(--display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--lt-20);
+      text-align: center;
+    }
+
+    /* Alt (elsewhere) side */
+    .alt-side-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--lt-20);
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .alt-boxes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .alt-box {
+      background: var(--dark-card);
+      border: 1px solid var(--bd-dark);
+      border-radius: 8px;
+      padding: 14px 12px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--lt-40);
+    }
+
+    .alt-box span {
+      display: block;
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--lt-20);
+      margin-top: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .alt-note {
+      font-size: 11px;
+      color: var(--lt-20);
+      text-align: center;
+      margin-top: 12px;
+      font-style: italic;
+    }
+
+    /* SP side */
+    .sp-eco-side {
+      text-align: center;
+    }
+
+    .sp-umbrella-box {
+      display: inline-block;
+      background: var(--teal-faint);
+      border: 1.5px solid var(--teal-edge);
+      border-radius: 10px;
+      padding: 10px 28px;
+      font-family: var(--display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--lt);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0;
+    }
+
+    /* Tree line */
+    .sp-tree-line {
+      width: 2px;
+      height: 20px;
+      background: var(--teal-edge);
+      margin: 0 auto;
+    }
+
+    .sp-tree-branches-line {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .sp-tree-branches-line::before {
+      content: '';
+      width: calc(100% - 80px);
+      max-width: 340px;
+      height: 2px;
+      background: var(--teal-edge);
+      display: block;
+      align-self: flex-start;
+      margin-top: 0;
+    }
+
+    .sp-branches {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 0;
+      position: relative;
+    }
+
+    .sp-branches::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 16%;
+      right: 16%;
+      height: 2px;
+      background: var(--teal-edge);
+    }
+
+    .sp-branch {
+      position: relative;
+      border-radius: 10px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+
+    .sp-branch::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      width: 2px;
+      height: 20px;
+      background: var(--teal-edge);
+    }
+
+    .sp-branch--health {
+      background: var(--dark-card);
+      border: 1px solid var(--teal-edge);
+      border-top: 2px solid var(--teal);
+    }
+
+    .sp-branch--performance {
+      background: var(--dark-card);
+      border: 1px solid rgba(120,236,245,0.2);
+      border-top: 2px solid var(--accent);
+    }
+
+    .sp-branch--medical {
+      background: var(--dark-card);
+      border: 1px solid var(--sand-edge);
+      border-top: 2px solid var(--sand);
+    }
+
+    .sp-branch-name {
+      font-family: var(--display);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--lt);
+      margin-bottom: 6px;
+    }
+
+    .sp-branch-items {
+      font-size: 11px;
+      color: var(--lt-40);
+      line-height: 1.6;
+    }
+
+    .sp-unified-note {
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--teal);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-align: center;
+    }
+
+    /* ── RESULTS GRID ──────────────────────────────────────── */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .results-col {
+      background: var(--dark-card);
+      border: 1px solid var(--bd-dark);
+      border-radius: 12px;
+      padding: 32px 28px;
+    }
+
+    .results-col--body   { border-top: 2px solid var(--sand); }
+    .results-col--perf   { border-top: 2px solid var(--teal); }
+    .results-col--bio    { border-top: 2px solid var(--accent); }
+
+    .results-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .results-icon--body { background: var(--sand-faint); border: 1px solid var(--sand-edge); color: var(--sand); }
+    .results-icon--perf { background: var(--teal-faint); border: 1px solid var(--teal-edge); color: var(--teal); }
+    .results-icon--bio  { background: rgba(120,236,245,0.08); border: 1px solid rgba(120,236,245,0.2); color: var(--accent); }
+
+    .results-col h3 {
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+
+    .results-list {
+      list-style: none;
+    }
+
+    .results-list li {
+      font-size: 13px;
+      color: var(--lt-60);
+      padding: 7px 0;
+      border-bottom: 1px solid var(--bd-dark);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .results-list li:last-child { border-bottom: none; }
+
+    .results-list li::before {
+      content: '—';
+      color: var(--lt-20);
+      flex-shrink: 0;
+      font-size: 12px;
+      margin-top: 1px;
+    }
+
+    /* ── COMPACT OFFER CARDS ───────────────────────────────── */
+    .offer-card--compact {
+      padding: 28px 26px;
+    }
+
+    .offer-card--compact .price-block {
+      margin-bottom: 18px;
+      padding-bottom: 18px;
+    }
+
+    .offer-card--compact .price-main {
+      font-size: clamp(22px, 2.2vw, 32px);
+    }
+
+    .offer-card--compact .offer-features li {
+      padding: 7px 0;
+      font-size: 13px;
+    }
+
+    .offer-card--compact .offer-name {
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+
+    .offer-card--compact .offer-sub {
+      margin-bottom: 18px;
+    }
+
     /* ── PRINT / PDF HINT ──────────────────────────────────── */
     @media print {
       .slide { min-height: 100vh; page-break-after: always; }
@@ -798,7 +1179,7 @@
         </div>
       </div>
     </div>
-    <span class="slide-num">01 / 11</span>
+    <span class="slide-num">01 / 09</span>
   </section>
 
   <!-- ══ SLIDE 02 · THE THREE OUTCOMES ════════════════════ -->
@@ -851,7 +1232,7 @@
         </div>
       </div>
     </div>
-    <span class="slide-num">02 / 11</span>
+    <span class="slide-num">02 / 09</span>
   </section>
 
   <!-- ══ SLIDE 04 · WHAT WE MEASURE ════════════════════════ -->
@@ -901,7 +1282,7 @@
         </div>
       </div>
     </div>
-    <span class="slide-num">03 / 11</span>
+    <span class="slide-num">03 / 09</span>
   </section>
 
   <!-- ══ SLIDE 05 · THE ASSESSMENT PROCESS ═════════════════ -->
@@ -935,273 +1316,266 @@
         </div>
       </div>
     </div>
-    <span class="slide-num">04 / 11</span>
+    <span class="slide-num">04 / 09</span>
   </section>
 
-  <!-- ══ SLIDE 06 · YOUR PROTOCOL ══════════════════════════ -->
+  <!-- ══ SLIDE 05 · YOUR PROTOCOL ══════════════════════════ -->
   <section class="slide slide--dark">
     <div class="slide-inner">
-      <span class="eyebrow">Phase 02</span>
-      <h2>Your protocol.<br>Built on your biology.</h2>
+      <span class="eyebrow">Phases 02 — 03</span>
+      <h2>Your system.<br>Built on your biology.</h2>
       <div class="rule"></div>
+      <p style="max-width:680px;">After your assessment, every variable is calibrated to your specific biology. Five integrated pillars. One phased sequence. All of it managed for you.</p>
 
-      <div class="split">
-        <div>
-          <p style="max-width:480px; margin-bottom:32px;">
-            After your assessment review, you receive a fully customized protocol — not a recommendation list, a game plan. Every variable calibrated to your specific biology, lifestyle constraints, and performance targets.
-          </p>
-          <ul class="check-list">
-            <li>Root-cause analysis across all three input/internal/output layers</li>
-            <li>Nutrition strategy matched to your metabolic state</li>
-            <li>Training plan calibrated to your actual recovery capacity</li>
-            <li>Precision supplementation targeting your real deficiencies</li>
-            <li>Peptide and hormone therapy where biologically indicated</li>
-            <li>Phased sequencing: stabilize → build → optimize</li>
-          </ul>
+      <!-- 5 Pillars -->
+      <div class="pillar-grid">
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a9 9 0 0 1 9 9c0 3.6-2.1 6.8-5.2 8.3L12 22l-3.8-2.7A9 9 0 0 1 3 11a9 9 0 0 1 9-9z"/><path d="M12 6v6l3 3"/></svg>
+          </div>
+          <div class="pillar-name">Nutrition</div>
+          <div class="pillar-desc">Matched to your metabolic state, gut biology &amp; energy demands</div>
         </div>
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div class="pillar-name">Training</div>
+          <div class="pillar-desc">Calibrated to your real recovery capacity &amp; performance goals</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </div>
+          <div class="pillar-name">Lifestyle</div>
+          <div class="pillar-desc">Sleep, stress, environment — systematically optimized</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+          </div>
+          <div class="pillar-name">Biohacking</div>
+          <div class="pillar-desc">HRV monitoring, red light, cold therapy &amp; data-driven tools</div>
+        </div>
+        <div class="pillar pillar--medical">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          </div>
+          <div class="pillar-name">Medical Team</div>
+          <div class="pillar-desc">TRT, HRT, peptides &amp; prescriptions — with full medical oversight</div>
+        </div>
+      </div>
+
+      <!-- Phase Progression -->
+      <div class="phase-progression">
+        <div class="prog-step prog-step--1">
+          <div class="prog-num">Phase 01</div>
+          <div class="prog-title">Stabilize</div>
+          <div class="prog-desc">Address deficiencies, reduce inflammation, build the foundation</div>
+        </div>
+        <div class="prog-arrow">→</div>
+        <div class="prog-step prog-step--2">
+          <div class="prog-num">Phase 02</div>
+          <div class="prog-title">Build</div>
+          <div class="prog-desc">Increase output, compound performance across all five pillars</div>
+        </div>
+        <div class="prog-arrow">→</div>
+        <div class="prog-step prog-step--3">
+          <div class="prog-num">Phase 03</div>
+          <div class="prog-title">Optimize</div>
+          <div class="prog-desc">Fine-tune for peak sustained performance — continuously evolving</div>
+        </div>
+      </div>
+    </div>
+    <span class="slide-num">05 / 09</span>
+  </section>
+
+  <!-- ══ SLIDE 06 · WHY SECOND PRIME ══════════════════════ -->
+  <section class="slide slide--card">
+    <div class="slide-inner">
+      <span class="eyebrow eyebrow--teal">Why Second Prime</span>
+      <h2>Three branches.<br>One ecosystem.</h2>
+      <div class="rule"></div>
+      <p style="max-width:660px;">Most people are patching together a health solution — a lab testing company here, a personal trainer there, maybe a functional medicine doctor. You get one slot per provider. No one shares data. No one sees the full picture.</p>
+
+      <div class="ecosystem-wrap">
+
+        <!-- Left: The Alternative -->
         <div>
-          <div class="card" style="background:var(--dark-hi); border-color: var(--teal-edge);">
-            <div class="phase-tag">Medical Oversight</div>
-            <h3 style="font-size:20px; margin-bottom:16px;">Peptides, TRT &amp; HRT</h3>
-            <p style="font-size:14px; color:var(--lt-40); margin-bottom:20px;">
-              All therapeutic interventions are backed by your biological data and managed through full medical oversight — 503A and 503B compounding pharmacies in the U.S. No gray-market sourcing. No guesswork.
-            </p>
-            <div style="border-top: 1px solid var(--bd-dark); padding-top: 20px; font-size:13px; color:var(--lt-40);">
-              Our medical team has access to <strong style="color:var(--lt);">6,000+ prescriptions</strong> and can get you what you need, fast — when you need it.
+          <div class="alt-side-label">The Alternative</div>
+          <div class="alt-boxes">
+            <div class="alt-box">Lab Testing Co.<span>data, no system</span></div>
+            <div class="alt-box">Personal Trainer<span>fitness only</span></div>
+            <div class="alt-box">Nutritionist<span>food only</span></div>
+            <div class="alt-box">Doctor<span>crisis management</span></div>
+          </div>
+          <div class="alt-note">No shared data. No coordination. No full picture.</div>
+        </div>
+
+        <!-- Center: VS -->
+        <div class="eco-vs">vs.</div>
+
+        <!-- Right: Second Prime -->
+        <div class="sp-eco-side">
+          <div class="sp-umbrella-box">Second Prime</div>
+          <div class="sp-tree-line"></div>
+          <div class="sp-branches">
+            <div class="sp-branch sp-branch--health">
+              <div class="sp-branch-name">SP Health</div>
+              <div class="sp-branch-items">1,000+ Biomarkers · Root-Cause Analysis · Gut, Hormones, Metabolism</div>
+            </div>
+            <div class="sp-branch sp-branch--performance">
+              <div class="sp-branch-name">SP Performance</div>
+              <div class="sp-branch-items">Expert Coaching · Training · Nutrition · Wearable Monitoring</div>
+            </div>
+            <div class="sp-branch sp-branch--medical">
+              <div class="sp-branch-name">SP Medical</div>
+              <div class="sp-branch-items">Peptides · TRT / HRT · 6,000+ Prescriptions · 503A/B Pharmacies</div>
             </div>
           </div>
+          <div class="sp-unified-note">One protocol. Every system connected.</div>
         </div>
+
       </div>
     </div>
-    <span class="slide-num">05 / 11</span>
+    <span class="slide-num">06 / 09</span>
   </section>
 
-  <!-- ══ SLIDE 07 · IMPLEMENTATION ═════════════════════════ -->
-  <section class="slide slide--card">
-    <div class="slide-inner">
-      <span class="eyebrow eyebrow--teal">Phase 03</span>
-      <h2>Implementation.<br>Done for you.</h2>
-      <div class="rule"></div>
-      <p style="max-width:640px;">You execute. We manage the complexity. Real-time monitoring, protocol adjustments, and expert support — so your attention stays on the work that demands it.</p>
-
-      <div class="phases" style="margin-top:48px;">
-        <div class="phase">
-          <div class="phase-tag">Real-Time</div>
-          <h3>Continuous Monitoring</h3>
-          <p>Your WHOOP data pulls directly into our dashboard. We're watching your recovery, strain, sleep, and HRV — and adjusting as needed, not just at your next scheduled call.</p>
-        </div>
-        <div class="phase">
-          <div class="phase-tag">Ongoing</div>
-          <h3>Expert Coaching</h3>
-          <p>Nutrition and training adjustments, supplementation optimization, protocol tweaks — handled by your dedicated team. Direct communication in a shared channel so nothing falls through the cracks.</p>
-        </div>
-        <div class="phase">
-          <div class="phase-tag">Quarterly</div>
-          <h3>Retesting &amp; Evolution</h3>
-          <p>Every 90 days, we retest and rebuild. Your biology changes as you improve — your protocol evolves with it. This is how compounding results are built.</p>
-        </div>
-      </div>
-    </div>
-    <span class="slide-num">06 / 11</span>
-  </section>
-
-  <!-- ══ SLIDE 08 · THE FULL STACK DIFFERENCE ══════════════ -->
+  <!-- ══ SLIDE 07 · EXPECTED RESULTS ══════════════════════ -->
   <section class="slide slide--dark">
     <div class="slide-inner">
-      <span class="eyebrow">Why Second Prime</span>
-      <h2>One ecosystem.<br>Every vertical integrated.</h2>
+      <span class="eyebrow eyebrow--teal">What to Expect</span>
+      <h2>Results across<br>every dimension.</h2>
       <div class="rule"></div>
+      <p style="max-width:660px;">Every client is different — but the patterns are consistent. Here's what the data shows across 500+ business owners and executives who've gone through the system.</p>
 
-      <div class="split split--3-2" style="gap:64px; margin-top:40px;">
-        <div>
-          <p style="margin-bottom:40px; max-width:520px;">
-            Most providers give you a vertical. A functional medicine doctor manages labs. A trainer manages workouts. A nutritionist manages food. None of them talk to each other — and none of them see the full picture.
-          </p>
-          <div class="pullquote" style="font-size:clamp(18px, 2vw, 28px); max-width:520px; border-left: 2px solid var(--teal); padding-left:24px;">
-            "You get the verticals — you don't get the full stack."
+      <div class="results-grid">
+
+        <!-- Body Composition -->
+        <div class="results-col results-col--body">
+          <div class="results-icon results-icon--body">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </div>
-          <p style="margin-top:32px; font-size:15px; max-width:520px;">
-            Second Prime integrates clinical health, performance coaching, nutrition, and medical oversight under one roof — driven by a single data layer that connects all of it. For executives, this isn't a luxury. It's the only thing that actually works.
-          </p>
+          <h3>Body Composition</h3>
+          <ul class="results-list">
+            <li>Meaningful fat loss — without sacrificing muscle</li>
+            <li>Reduced visceral fat, confirmed by DEXA scan</li>
+            <li>Improved lean muscle mass &amp; body fat %</li>
+            <li>Better body composition at any training volume</li>
+            <li>Physical changes that reflect internal health improvements</li>
+          </ul>
         </div>
-        <div>
-          <div class="card" style="background:var(--dark-card);">
-            <h4 style="margin-bottom:20px; color:var(--sand);">Second Prime vs. The Alternative</h4>
-            <ul class="offer-features" style="list-style:none;">
-              <li style="border-bottom:1px solid var(--bd-dark); padding: 10px 0; font-size:13px; color:var(--lt-60);" class="list-none">
-                <span style="color:var(--teal); margin-right:10px;">✓</span> Integrated across all health systems
-              </li>
-              <li style="border-bottom:1px solid var(--bd-dark); padding: 10px 0; font-size:13px; color:var(--lt-60);">
-                <span style="color:var(--teal); margin-right:10px;">✓</span> 1,000+ biomarkers total (blood, gut, urine, saliva) vs. standard annual panel
-              </li>
-              <li style="border-bottom:1px solid var(--bd-dark); padding: 10px 0; font-size:13px; color:var(--lt-60);">
-                <span style="color:var(--teal); margin-right:10px;">✓</span> Medical oversight with data-backed protocols
-              </li>
-              <li style="border-bottom:1px solid var(--bd-dark); padding: 10px 0; font-size:13px; color:var(--lt-60);">
-                <span style="color:var(--teal); margin-right:10px;">✓</span> Real-time adjustments, not annual check-ins
-              </li>
-              <li style="border-bottom:1px solid var(--bd-dark); padding: 10px 0; font-size:13px; color:var(--lt-60);">
-                <span style="color:var(--teal); margin-right:10px;">✓</span> Built around executive schedules and demands
-              </li>
-              <li style="padding: 10px 0; font-size:13px; color:var(--lt-60);">
-                <span style="color:var(--teal); margin-right:10px;">✓</span> Zero decision fatigue — we manage the complexity
-              </li>
-            </ul>
+
+        <!-- Performance -->
+        <div class="results-col results-col--perf">
+          <div class="results-icon results-icon--perf">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
           </div>
+          <h3>Performance</h3>
+          <ul class="results-list">
+            <li>Sustained all-day energy — no afternoon crashes</li>
+            <li>Sharper cognitive clarity &amp; faster decision-making</li>
+            <li>Measurable VO₂ max &amp; cardiovascular improvements</li>
+            <li>Increased strength &amp; physical endurance</li>
+            <li>Better sleep quality &amp; wearable recovery scores</li>
+            <li>Higher output with less perceived effort</li>
+          </ul>
         </div>
+
+        <!-- Biomarkers -->
+        <div class="results-col results-col--bio">
+          <div class="results-icon results-icon--bio">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Biomarker Changes</h3>
+          <ul class="results-list">
+            <li><strong style="color:var(--accent);">12-year avg. decrease</strong> in biological age</li>
+            <li>Hormonal optimization — testosterone, cortisol, thyroid</li>
+            <li>Reduced systemic inflammation markers</li>
+            <li>Improved metabolic health &amp; insulin sensitivity</li>
+            <li>Restored gut microbiome diversity &amp; function</li>
+            <li>Cardiovascular risk markers trending in the right direction</li>
+          </ul>
+        </div>
+
       </div>
     </div>
-    <span class="slide-num">07 / 11</span>
+    <span class="slide-num">07 / 09</span>
   </section>
 
-  <!-- ══ SLIDE 09 · ANDREW'S CREDENTIALS ═══════════════════ -->
-  <section class="slide slide--card">
-    <div class="slide-inner">
-      <span class="eyebrow">Who You're Working With</span>
-      <h2>Andrew Martin.<br>Functional biologist. Performance architect.</h2>
-      <div class="rule"></div>
-      <p style="max-width:640px;">
-        12 years building the framework that most practitioners don't have — a bridge between clinical rigor and real-world performance that actually works for people at this level.
-      </p>
-
-      <div class="cred-grid">
-        <div class="cred-item">
-          <div class="cred-icon">🔬</div>
-          <h4>Biochemistry &amp; Biology Foundation</h4>
-          <p>Degree in biochemistry and biology, followed by clinical research — a hard science base that informs every protocol he builds.</p>
-        </div>
-        <div class="cred-item">
-          <div class="cred-icon">📊</div>
-          <h4>Functional Medicine Depth</h4>
-          <p>10+ years of functional medicine mentorships and certifications — gut health, hormones, metabolism, and the systems that govern peak output.</p>
-        </div>
-        <div class="cred-item">
-          <div class="cred-icon">🏆</div>
-          <h4>500+ Executives Optimized</h4>
-          <p>Exclusively serving business owners and executives. The lifestyle, the constraints, the demands — this is the only world Second Prime is built for.</p>
-        </div>
-        <div class="cred-item">
-          <div class="cred-icon">⚙️</div>
-          <h4>Full-Stack System, Not a Vertical</h4>
-          <p>Not a supplement recommendation. Not a workout plan. An integrated system — clinical labs, performance coaching, nutrition, and medical oversight under one protocol.</p>
-        </div>
-      </div>
-    </div>
-    <span class="slide-num">08 / 11</span>
-  </section>
-
-  <!-- ══ SLIDE 10 · WHO WE WORK WITH ════════════════════════ -->
-  <section class="slide slide--dark">
-    <div class="slide-inner" style="text-align:center; max-width:740px; margin:0 auto;">
-      <span class="eyebrow" style="display:block; text-align:center;">Our Client</span>
-      <h2 style="text-align:center;">Built for operators<br>who run at a different level.</h2>
-      <div class="rule" style="margin: 28px auto;"></div>
-
-      <div class="pullquote" style="text-align:center; font-size:clamp(20px, 2.5vw, 34px); margin-bottom:40px;">
-        "A teacher and a CEO live different lives. The tools of implementation are going to be different for someone like you."
-      </div>
-
-      <p style="text-align:center; max-width:520px; margin:0 auto 56px;">
-        We work exclusively with founders, executives, and high-capacity operators. The scheduling realities, travel demands, cognitive load, and stress profile of this life are built into every part of how Second Prime works.
-      </p>
-
-      <div class="stats-row">
-        <div class="stat-block" style="text-align:left;">
-          <div class="stat-num">500+</div>
-          <div class="stat-label">Business owners &amp; executives served</div>
-        </div>
-        <div class="stat-block" style="text-align:left;">
-          <div class="stat-num">8</div>
-          <div class="stat-label">New clients accepted per month</div>
-        </div>
-        <div class="stat-block" style="text-align:left;">
-          <div class="stat-num">12 yr</div>
-          <div class="stat-label">Avg. decrease in biological age</div>
-        </div>
-      </div>
-    </div>
-    <span class="slide-num">09 / 11</span>
-  </section>
-
-  <!-- ══ SLIDE 11 · OFFER COMPARISON ════════════════════════ -->
-  <section class="slide slide--card" style="align-items:flex-start; padding-top:80px; padding-bottom:80px;">
+  <!-- ══ SLIDE 08 · OFFER COMPARISON ════════════════════════ -->
+  <section class="slide slide--card" style="align-items:flex-start; padding-top:60px; padding-bottom:60px;">
     <div class="slide-inner">
       <span class="eyebrow eyebrow--teal">Your Options</span>
-      <h2>Two paths.<br>Both start with the same foundation.</h2>
-      <div class="rule"></div>
-      <p style="max-width:640px; margin-bottom:0;">The assessment is identical in both programs. The difference is access — to Andrew, to treatments, and to the depth of ongoing support.</p>
+      <h2 style="font-size:clamp(22px, 2.8vw, 40px);">Two paths. Both start with the same foundation.</h2>
+      <div class="rule" style="margin:18px 0;"></div>
+      <p style="max-width:640px; margin-bottom:0; font-size:15px;">The assessment is identical in both programs. The difference is access — to Andrew, to treatments, and to the depth of ongoing support.</p>
 
-      <div class="offer-grid">
+      <div class="offer-grid" style="margin-top:28px; gap:16px;">
 
         <!-- CORE PROGRAM -->
-        <div class="offer-card offer-card--core">
+        <div class="offer-card offer-card--core offer-card--compact">
           <div class="offer-badge offer-badge--core">Core Program</div>
           <div class="offer-name">Core</div>
           <div class="offer-sub">The complete system. Delivered by a high-performance team.</div>
 
           <div class="price-block">
-            <div class="price-main price-main--sand">$8,500</div>
-            <div class="price-note">to start — covers your assessment + first 90 days</div>
-            <div class="price-alt">
-              Then <strong style="color:var(--lt);">$4,000 / quarter</strong> · 6-month minimum commitment
+            <div class="price-main price-main--sand" style="font-size:clamp(22px, 2.2vw, 34px);">$8,500</div>
+            <div class="price-note">to start — covers assessment + first 90 days</div>
+            <div class="price-alt" style="margin-top:8px; padding: 8px 12px;">
+              Then <strong style="color:var(--lt);">$4,000 / quarter</strong> · 6-month minimum
             </div>
-            <div class="price-alt" style="margin-top:8px;">
+            <div class="price-alt" style="margin-top:6px; padding: 8px 12px;">
               Or pay in full: <strong style="color:var(--lt);">$16,000 / year</strong> — one quarter free
             </div>
           </div>
 
           <ul class="offer-features">
             <li>Full Executive Assessment (1,000+ biomarkers, 4,000+ data points)</li>
-            <li>90-minute protocol review call with Andrew</li>
-            <li>Custom performance protocol for nutrition, training &amp; supplementation</li>
-            <li>Dedicated performance coach — monthly 1:1 calls</li>
+            <li>90-min protocol review call with Andrew</li>
+            <li>Custom protocol — nutrition, training &amp; supplementation</li>
+            <li>Dedicated performance coach — monthly 1:1s</li>
             <li>Monthly 1:1 call with Andrew</li>
-            <li>Shared team chat channel for ongoing communication</li>
+            <li>Shared team chat channel (you, Andrew, your coach)</li>
             <li>Continuous WHOOP monitoring &amp; real-time adjustments</li>
             <li>Wholesale access to peptides, TRT/HRT via medical staff</li>
             <li>Quarterly retesting &amp; protocol updates</li>
-            <li>Treatments &amp; labs billed separately at wholesale rates</li>
           </ul>
         </div>
 
         <!-- PRIVATE ADVISORY -->
-        <div class="offer-card offer-card--private">
+        <div class="offer-card offer-card--private offer-card--compact">
           <div class="offer-badge offer-badge--private">Private Advisory — 3 Spots Available</div>
           <div class="offer-name">Private Advisory</div>
           <div class="offer-sub">Concierge access to Andrew. Everything included. Nothing left out.</div>
 
           <div class="price-block">
-            <div class="price-main price-main--teal">$35,000</div>
+            <div class="price-main price-main--teal" style="font-size:clamp(22px, 2.2vw, 34px);">$35,000</div>
             <div class="price-note">annual investment — all-inclusive</div>
-            <div class="price-alt">
+            <div class="price-alt" style="margin-top:8px; padding: 8px 12px;">
               Payable in <strong style="color:var(--lt);">1, 2, or 3 installments</strong> · settled within first 90 days
             </div>
           </div>
 
           <ul class="offer-features">
             <li>Everything in Core, plus:</li>
-            <li><strong style="color:var(--lt);">Direct access to Andrew's personal cell</strong> — call when you need him</li>
+            <li><strong style="color:var(--lt);">Direct access to Andrew's personal cell</strong></li>
             <li>Unlimited communication — no gatekeeping, no waiting</li>
             <li>All peptides, TRT/HRT, supplements <strong style="color:var(--lt);">fully covered</strong> for the year</li>
-            <li>All additional labs &amp; testing included as needed mid-quarter</li>
+            <li>All additional labs &amp; testing included as needed</li>
             <li>Medical prescriptions (6,000+ available) fulfilled on-demand</li>
-            <li>Maximum 5 clients total — currently 3 spots available</li>
-            <li>One-year engagement — built for compounding, lasting results</li>
+            <li>Maximum 5 clients — currently <strong style="color:var(--lt);">3 spots available</strong></li>
+            <li>One-year engagement — built for compounding results</li>
           </ul>
 
-          <div class="diff-callout">
-            <strong>The core difference:</strong> In the top tier, you have Andrew in your back pocket. His personal cell, direct access, and all treatments covered — for the entire year.
+          <div class="diff-callout" style="margin-top:16px;">
+            <strong>The key difference:</strong> Andrew in your back pocket — personal cell, direct access, all treatments covered for the year.
           </div>
         </div>
 
       </div>
-
-      <!-- Upgrade path note -->
-      <div style="margin-top:24px; padding:20px 24px; background:var(--dark); border:1px solid var(--bd-dark); border-radius:12px; font-size:14px; color:var(--lt-40);">
-        <strong style="color:var(--lt);">Start in Core, upgrade to Private Advisory anytime.</strong> Many clients begin with the $8,500 option, go through the assessment and first 90 days, and upgrade after experiencing the value firsthand. The difference in investment is credited toward the Private Advisory fee.
-      </div>
     </div>
-    <span class="slide-num">10 / 11</span>
+    <span class="slide-num">08 / 09</span>
   </section>
 
   <!-- ══ SLIDE 12 · NEXT STEPS ══════════════════════════════ -->
@@ -1249,25 +1623,18 @@
         </div>
         <div>
           <div class="card" style="background: var(--dark-hi); border-color: var(--teal-edge);">
-            <div class="phase-tag">Worth Noting</div>
-            <h3 style="font-size:20px; margin-bottom:16px;">No Lab Duplication Required</h3>
-            <p style="font-size:14px; color:var(--lt-40); margin-bottom:20px;">
-              Our assessment covers more ground than a standard annual physical. If you have a concierge physician, you can hand them our full lab panel — there's nothing they'd need to run in addition to what we provide.
-            </p>
-            <div style="border-top: 1px solid var(--bd-dark); padding-top:20px;">
-              <div style="font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal); margin-bottom:8px;">Spot availability</div>
-              <p style="font-size:14px; color:var(--lt-40);">Private Advisory is limited to 5 clients at any time. <strong style="color:var(--lt);">3 spots are currently available.</strong> Core Program onboards a maximum of 8 new clients per month.</p>
-            </div>
+            <div style="font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal); margin-bottom:12px;">Spot availability</div>
+            <p style="font-size:14px; color:var(--lt-60); margin-bottom:0;">Private Advisory is capped at 5 clients at any time. <strong style="color:var(--lt);">3 spots are currently available.</strong> Core Program onboards a maximum of 8 new clients per month.</p>
           </div>
 
-          <div style="margin-top:20px; padding:28px; background:var(--dark-card); border:1px solid var(--bd-dark); border-radius:12px;">
+          <div style="margin-top:16px; padding:28px; background:var(--dark-card); border:1px solid var(--bd-dark); border-radius:12px;">
             <div style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--lt-40); margin-bottom:12px;">Second Prime</div>
             <p style="font-size:14px; color:var(--lt-40); margin-bottom:0;">Questions? Reach out to Andrew directly. The same standard of access you'd expect from the program starts before the contract is signed.</p>
           </div>
         </div>
       </div>
     </div>
-    <span class="slide-num">11 / 11</span>
+    <span class="slide-num">09 / 09</span>
   </section>
 
 </div><!-- /deck -->
