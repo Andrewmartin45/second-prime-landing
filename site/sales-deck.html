@@ -12,22 +12,25 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --dark:       #0D0D12;
-      --dark-card:  #1C1C2A;
-      --dark-hi:    #24243A;
-      --lt:         #F0F0F2;
+      /* ── Slate Scale (Structure) ─────────────────────────── */
+      --dark:       #101016;   /* Slate 1100 — deepest bg      */
+      --dark-card:  #1F1F27;   /* Slate 900  — card/panel bg   */
+      --dark-hi:    #292933;   /* Slate 800  — elevated bg     */
+      --lt:         #F0F0F2;   /* Slate 50   — primary text    */
       --lt-60:      rgba(240,240,242,0.60);
       --lt-40:      rgba(240,240,242,0.40);
       --lt-20:      rgba(240,240,242,0.20);
       --lt-10:      rgba(240,240,242,0.10);
       --bd-dark:    rgba(255,255,255,0.09);
-      --accent:     #78ECF5;
-      --accent-dk:  #65C8D0;
-      --teal:       #2CC4B0;
-      --teal-dk:    #239E8E;
-      --teal-faint: rgba(44,196,176,0.12);
-      --teal-edge:  rgba(44,196,176,0.25);
-      --sand:       #D9C8AE;
+      /* ── Teal Scale (Systems Intelligence) ──────────────── */
+      --accent:     #78ECF5;   /* Teal 100   — soft highlight  */
+      --accent-dk:  #65C8D0;   /* Teal 200   — data highlight  */
+      --teal:       #65C8D0;   /* Teal 200   — primary accent  */
+      --teal-dk:    #458D93;   /* Teal 500   — data range      */
+      --teal-faint: rgba(101,200,208,0.12);
+      --teal-edge:  rgba(101,200,208,0.25);
+      /* ── Sand Scale (Controlled Power) ──────────────────── */
+      --sand:       #D9C8AE;   /* Sand 700   — CTA/emphasis    */
       --sand-faint: rgba(217,200,174,0.10);
       --sand-edge:  rgba(217,200,174,0.20);
       --display:    'Zodiak', Georgia, serif;
