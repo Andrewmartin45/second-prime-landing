@@ -181,6 +181,7 @@
     }
 
     .rule--sand { background: var(--sand); }
+    .rule--teal { background: var(--teal); }
 
     /* ── STAT BLOCK ────────────────────────────────────────── */
     .stats-row {
@@ -230,9 +231,9 @@
       border-radius: 12px;
     }
 
-    .card--teal   { border-top: 2px solid var(--teal); }   /* Teal 200  */
-    .card--sand   { border-top: 2px solid var(--sand); }   /* Sand 700  */
-    .card--accent { border-top: 2px solid #686877; }       /* Slate 500 */
+    .card--teal,
+    .card--sand,
+    .card--accent { border-top: 2px solid var(--sand); }   /* Sand 700 — all cards */
 
     .card-num {
       font-family: var(--display);
@@ -1283,9 +1284,9 @@
 
       <div class="cards-3">
         <div class="card card--teal">
-          <div class="card-num">01</div>
+          <div class="card-num" style="color:var(--teal);">01</div>
           <h3>Mitigate<br>Health Risks</h3>
-          <div class="rule" style="margin: 16px 0;"></div>
+          <div class="rule rule--teal" style="margin: 16px 0;"></div>
           <p class="tag-note">Proactive risk reduction — not diagnosis</p>
           <div class="tag-group">
             <span class="tag tag--teal">Cardiovascular Disease</span>
@@ -1295,9 +1296,9 @@
           </div>
         </div>
         <div class="card card--accent">
-          <div class="card-num" style="color:var(--sand);">02</div>
+          <div class="card-num" style="color:var(--teal);">02</div>
           <h3>Maximize Human Performance</h3>
-          <div class="rule rule--sand" style="margin: 16px 0;"></div>
+          <div class="rule rule--teal" style="margin: 16px 0;"></div>
           <div class="tag-group">
             <span class="tag tag--accent">Energy</span>
             <span class="tag tag--accent">Focus</span>
@@ -1310,9 +1311,9 @@
           </div>
         </div>
         <div class="card card--sand">
-          <div class="card-num" style="color:#686877;">03</div>
+          <div class="card-num" style="color:var(--teal);">03</div>
           <h3>Extend the Longevity of Performance</h3>
-          <div class="rule" style="margin: 16px 0; background:#686877;"></div>
+          <div class="rule rule--teal" style="margin: 16px 0;"></div>
           <div class="tag-group">
             <span class="tag tag--sand">Active Decades</span>
             <span class="tag tag--sand">Present for Your Family</span>
