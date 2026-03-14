@@ -1245,6 +1245,178 @@
     @media print {
       .slide { min-height: 100vh; page-break-after: always; }
     }
+
+    /* ── MOBILE ─────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+
+      /* Base slide */
+      .slide {
+        padding: 48px 24px !important;
+        min-height: auto;
+        align-items: flex-start;
+      }
+
+      .slide-inner {
+        min-height: auto !important;
+        height: auto !important;
+      }
+
+      .slide-num {
+        position: static;
+        display: block;
+        margin-top: 32px;
+        text-align: right;
+        right: auto;
+        bottom: auto;
+      }
+
+      /* Typography */
+      p { font-size: 15px; }
+
+      /* Stats row → single column */
+      .stats-row {
+        grid-template-columns: 1fr;
+        margin-top: 32px;
+        gap: 2px;
+      }
+      .stat-block:first-child { border-radius: 12px 12px 0 0; }
+      .stat-block:last-child  { border-radius: 0 0 12px 12px; }
+      .stat-block { padding: 28px 24px; }
+
+      /* 3-col cards → single column */
+      .cards-3 {
+        grid-template-columns: 1fr;
+        margin-top: 32px;
+        gap: 8px;
+      }
+
+      /* Split layouts → stack */
+      .split,
+      .split--3-2 {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      /* Phases → single column */
+      .phases {
+        grid-template-columns: 1fr;
+        margin-top: 32px;
+        gap: 8px;
+      }
+
+      /* Measure grid → single column */
+      .measure-grid {
+        grid-template-columns: 1fr;
+        margin-top: 32px;
+        gap: 8px;
+      }
+
+      /* Offer grid → single column */
+      .offer-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      /* Timeline → single column, hide side arrows */
+      .timeline {
+        grid-template-columns: 1fr;
+        margin-top: 32px;
+        gap: 8px;
+      }
+      .tl-step:not(:last-child)::after { display: none; }
+
+      /* Credential grid → single column */
+      .cred-grid {
+        grid-template-columns: 1fr;
+        margin-top: 32px;
+        gap: 2px;
+      }
+      .cred-item:nth-child(1) { border-radius: 12px 12px 0 0; }
+      .cred-item:nth-child(2) { border-radius: 0; }
+      .cred-item:nth-child(3) { border-radius: 0; }
+      .cred-item:nth-child(4) { border-radius: 0 0 12px 12px; }
+
+      /* Problem grid → single column */
+      .problem-grid {
+        grid-template-columns: 1fr;
+        margin-top: 32px;
+        gap: 2px;
+      }
+      .problem-item:nth-child(1) { border-radius: 12px 12px 0 0; }
+      .problem-item:nth-child(2) { border-radius: 0; }
+      .problem-item:nth-child(3) { border-radius: 0; }
+      .problem-item:nth-child(4) { border-radius: 0 0 12px 12px; }
+
+      /* Protocol timeline → vertical */
+      .proto-timeline {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        margin-top: 24px;
+        margin-bottom: 16px;
+      }
+      .proto-connector {
+        width: 1px;
+        height: 16px;
+        flex: none;
+        align-self: center;
+        margin: 0;
+      }
+
+      /* Bucket grid → single column */
+      .bucket-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        grid-auto-flow: row;
+        gap: 8px;
+      }
+
+      /* Ecosystem → stack */
+      .ecosystem-wrap {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .eco-vs { padding: 8px 0; }
+
+      /* SP branches tree → single column, hide decorative lines */
+      .sp-branches {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .sp-branches::before { display: none; }
+      .sp-branch::before   { display: none; }
+
+      /* Pillar grid → single column */
+      .pillar-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .pillar,
+      .pillar:nth-child(4),
+      .pillar:nth-child(5) { grid-column: span 1; }
+
+      /* Results grid → single column */
+      .results-grid {
+        grid-template-columns: 1fr;
+        margin-top: 32px;
+        gap: 8px;
+      }
+
+      /* Metric pair grid → keep 2-col (small enough) */
+      .metric-pair-grid { gap: 6px; }
+
+      /* Steps list - tighten */
+      .steps-list li { gap: 16px; }
+
+      /* Check list - tighten */
+      .check-list li { font-size: 15px; gap: 12px; }
+
+      /* Lede */
+      .lede { margin-top: 16px; }
+
+      /* Rule margin */
+      .rule { margin: 20px 0; }
+    }
   </style>
 </head>
 <body>
