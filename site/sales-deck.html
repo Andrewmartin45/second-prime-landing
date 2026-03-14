@@ -1249,16 +1249,37 @@
     /* ── MOBILE ─────────────────────────────────────────────── */
     @media (max-width: 768px) {
 
-      /* Base slide */
+      /* Prevent horizontal overflow from causing asymmetric spacing */
+      html, body {
+        overflow-x: hidden;
+        width: 100%;
+      }
+
+      .deck {
+        width: 100%;
+        overflow-x: hidden;
+      }
+
+      /* Base slide — override all inline padding with !important */
       .slide {
         padding: 48px 24px !important;
         min-height: auto;
-        align-items: flex-start;
+        align-items: stretch;
+        width: 100%;
+        box-sizing: border-box;
       }
 
       .slide-inner {
         min-height: auto !important;
         height: auto !important;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      /* Remove background image from Executive Assessment slide */
+      .slide[style*="photo-blood-draw"] {
+        background-image: none !important;
       }
 
       .slide-num {
@@ -1273,9 +1294,13 @@
       /* Typography */
       p { font-size: 15px; }
 
-      /* Stats row → single column */
+      /* Inline max-width on paragraphs shouldn't bleed into layout */
+      p[style*="max-width"] { max-width: 100% !important; }
+
+      /* Stats row → single column, full width */
       .stats-row {
         grid-template-columns: 1fr;
+        width: 100%;
         margin-top: 32px;
         gap: 2px;
       }
@@ -1283,9 +1308,10 @@
       .stat-block:last-child  { border-radius: 0 0 12px 12px; }
       .stat-block { padding: 28px 24px; }
 
-      /* 3-col cards → single column */
+      /* 3-col cards → single column, full width */
       .cards-3 {
         grid-template-columns: 1fr;
+        width: 100%;
         margin-top: 32px;
         gap: 8px;
       }
@@ -1294,32 +1320,37 @@
       .split,
       .split--3-2 {
         grid-template-columns: 1fr;
+        width: 100%;
         gap: 36px;
       }
 
       /* Phases → single column */
       .phases {
         grid-template-columns: 1fr;
+        width: 100%;
         margin-top: 32px;
         gap: 8px;
       }
 
-      /* Measure grid → single column */
+      /* Measure grid → single column, full width */
       .measure-grid {
         grid-template-columns: 1fr;
+        width: 100%;
         margin-top: 32px;
         gap: 8px;
       }
 
-      /* Offer grid → single column */
+      /* Offer grid → single column, full width */
       .offer-grid {
         grid-template-columns: 1fr;
+        width: 100%;
         gap: 8px;
       }
 
       /* Timeline → single column, hide side arrows */
       .timeline {
         grid-template-columns: 1fr;
+        width: 100%;
         margin-top: 32px;
         gap: 8px;
       }
@@ -1328,6 +1359,7 @@
       /* Credential grid → single column */
       .cred-grid {
         grid-template-columns: 1fr;
+        width: 100%;
         margin-top: 32px;
         gap: 2px;
       }
@@ -1339,6 +1371,7 @@
       /* Problem grid → single column */
       .problem-grid {
         grid-template-columns: 1fr;
+        width: 100%;
         margin-top: 32px;
         gap: 2px;
       }
@@ -1347,40 +1380,51 @@
       .problem-item:nth-child(3) { border-radius: 0; }
       .problem-item:nth-child(4) { border-radius: 0 0 12px 12px; }
 
-      /* Protocol timeline → vertical */
+      /* Protocol timeline → simple horizontal row, no decorative connectors */
       .proto-timeline {
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
         margin-top: 24px;
         margin-bottom: 16px;
+        gap: 0;
+      }
+      .proto-phase {
+        flex: 1;
       }
       .proto-connector {
-        width: 1px;
-        height: 16px;
-        flex: none;
-        align-self: center;
-        margin: 0;
+        display: none;
       }
 
-      /* Bucket grid → single column */
+      /* Bucket grid → single column, full width */
       .bucket-grid {
         grid-template-columns: 1fr;
         grid-template-rows: none;
         grid-auto-flow: row;
+        width: 100%;
         gap: 8px;
       }
 
-      /* Ecosystem → stack */
+      /* Ecosystem → stack, full width */
       .ecosystem-wrap {
         grid-template-columns: 1fr;
+        width: 100%;
         gap: 24px;
       }
-      .eco-vs { padding: 8px 0; }
+      .eco-vs { padding: 8px 0; text-align: center; }
+
+      /* Alt boxes — keep 2-col, full width */
+      .alt-boxes { width: 100%; }
+
+      /* SP eco side — full width */
+      .sp-eco-side { width: 100%; }
+      .sp-umbrella-box { width: 100%; box-sizing: border-box; }
 
       /* SP branches tree → single column, hide decorative lines */
       .sp-branches {
         grid-template-columns: 1fr;
+        width: 100%;
         gap: 8px;
       }
       .sp-branches::before { display: none; }
@@ -1389,33 +1433,42 @@
       /* Pillar grid → single column */
       .pillar-grid {
         grid-template-columns: 1fr;
+        width: 100%;
         gap: 8px;
       }
       .pillar,
       .pillar:nth-child(4),
       .pillar:nth-child(5) { grid-column: span 1; }
 
-      /* Results grid → single column */
+      /* Results grid → single column, full width */
       .results-grid {
         grid-template-columns: 1fr;
+        width: 100%;
         margin-top: 32px;
         gap: 8px;
       }
 
-      /* Metric pair grid → keep 2-col (small enough) */
-      .metric-pair-grid { gap: 6px; }
+      /* Metric pair grid — keep 2-col */
+      .metric-pair-grid { gap: 6px; width: 100%; }
 
-      /* Steps list - tighten */
+      /* Steps list */
+      .steps-list { width: 100%; max-width: 100% !important; }
       .steps-list li { gap: 16px; }
 
-      /* Check list - tighten */
+      /* Check list */
       .check-list li { font-size: 15px; gap: 12px; }
 
       /* Lede */
-      .lede { margin-top: 16px; }
+      .lede { margin-top: 16px; max-width: 100% !important; }
 
       /* Rule margin */
       .rule { margin: 20px 0; }
+
+      /* Inline max-width wrappers at slide bottom */
+      div[style*="max-width:480px"],
+      div[style*="max-width:680px"] {
+        max-width: 100% !important;
+      }
     }
   </style>
 </head>
