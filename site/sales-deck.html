@@ -1260,20 +1260,22 @@
         overflow-x: hidden;
       }
 
-      /* Base slide — override all inline padding with !important */
+      /* Base slide — switch to block layout to eliminate flex-child sizing quirks on iOS */
       .slide {
+        display: block !important;
         padding: 48px 24px !important;
-        min-height: auto;
-        align-items: stretch;
+        min-height: auto !important;
         width: 100%;
         box-sizing: border-box;
       }
 
       .slide-inner {
+        display: block !important;
         min-height: auto !important;
         height: auto !important;
         width: 100%;
-        max-width: 100%;
+        max-width: 100% !important;
+        margin: 0;
         box-sizing: border-box;
       }
 
