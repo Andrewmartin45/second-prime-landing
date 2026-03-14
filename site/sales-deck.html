@@ -1,0 +1,1751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Second Prime — Sales Deck</title>
+
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600,700,800&f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* ── Slate Scale (Structure) ─────────────────────────── */
+      --dark:       #101016;   /* Slate 1100 — deepest bg      */
+      --dark-card:  #1F1F27;   /* Slate 900  — card/panel bg   */
+      --dark-hi:    #292933;   /* Slate 800  — elevated bg     */
+      --lt:         #F0F0F2;   /* Slate 50   — primary text    */
+      --lt-60:      rgba(240,240,242,0.60);
+      --lt-40:      rgba(240,240,242,0.40);
+      --lt-20:      rgba(240,240,242,0.20);
+      --lt-10:      rgba(240,240,242,0.10);
+      --bd-dark:    rgba(255,255,255,0.09);
+      /* ── Teal Scale (Systems Intelligence) ──────────────── */
+      --accent:     #78ECF5;   /* Teal 100   — soft highlight  */
+      --accent-dk:  #65C8D0;   /* Teal 200   — data highlight  */
+      --teal:       #65C8D0;   /* Teal 200   — primary accent  */
+      --teal-dk:    #458D93;   /* Teal 500   — data range      */
+      --teal-faint: rgba(101,200,208,0.12);
+      --teal-edge:  rgba(101,200,208,0.25);
+      /* ── Sand Scale (Controlled Power) ──────────────────── */
+      --sand:       #D9C8AE;   /* Sand 700   — CTA/emphasis    */
+      --sand-faint: rgba(217,200,174,0.10);
+      --sand-edge:  rgba(217,200,174,0.20);
+      --display:    'Zodiak', Georgia, serif;
+      --body:       'Satoshi', system-ui, -apple-system, sans-serif;
+    }
+
+    html, body {
+      background: var(--dark);
+      color: var(--lt);
+      font-family: var(--body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── SLIDE CONTAINER ───────────────────────────────────── */
+    .deck {
+      width: 100%;
+    }
+
+    .slide {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 60px;
+      position: relative;
+      border-bottom: 1px solid var(--bd-dark);
+    }
+
+    .slide-inner {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── NOISE TEXTURE ─────────────────────────────────────── */
+    .slide::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.04;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+    }
+
+    /* ── SLIDE VARIANTS ────────────────────────────────────── */
+    .slide--dark  { background: var(--dark); }
+    .slide--card  { background: var(--dark-card); }
+    .slide--hi    { background: var(--dark-hi); }
+    .slide--teal-border { border-left: 3px solid var(--teal); }
+
+    /* ── TYPOGRAPHY ────────────────────────────────────────── */
+    .eyebrow {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--lt-40);
+      margin-bottom: 20px;
+    }
+    .eyebrow--teal { color: var(--teal); }
+    .eyebrow--sand { color: var(--sand); }
+
+    h1 {
+      font-family: var(--display);
+      font-size: clamp(36px, 4.5vw, 68px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-family: var(--display);
+      font-size: clamp(28px, 3.5vw, 52px);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      font-family: var(--display);
+      font-size: clamp(20px, 2.2vw, 32px);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h4 {
+      font-family: var(--body);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--lt-60);
+    }
+
+    p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--lt-60);
+    }
+
+    em.teal { font-style: normal; color: var(--accent); }
+    em.sand { font-style: normal; color: var(--sand); }
+
+    .lede {
+      font-size: clamp(16px, 1.8vw, 22px);
+      line-height: 1.6;
+      color: var(--lt-60);
+      max-width: 680px;
+      margin-top: 24px;
+    }
+
+    /* ── SLIDE NUMBER ──────────────────────────────────────── */
+    .slide-num {
+      position: absolute;
+      bottom: 40px;
+      right: 60px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--lt-20);
+      z-index: 2;
+    }
+
+    /* ── LOGO ──────────────────────────────────────────────── */
+    .logo-mark {
+      font-family: var(--display);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--lt-40);
+    }
+
+    /* ── DIVIDER LINE ──────────────────────────────────────── */
+    .rule {
+      width: 48px;
+      height: 2px;
+      background: var(--teal);
+      margin: 28px 0;
+    }
+
+    .rule--sand { background: var(--sand); }
+    .rule--teal { background: var(--teal); }
+
+    /* ── STAT BLOCK ────────────────────────────────────────── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 64px;
+    }
+
+    .stat-block {
+      background: var(--dark-card);
+      border: 1px solid var(--bd-dark);
+      padding: 40px 32px;
+    }
+
+    .stat-block:first-child { border-radius: 12px 0 0 12px; }
+    .stat-block:last-child  { border-radius: 0 12px 12px 0; }
+
+    .stat-num {
+      font-family: var(--display);
+      font-size: clamp(36px, 4vw, 60px);
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--lt-60);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── THREE-COLUMN CARDS ────────────────────────────────── */
+    .cards-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 56px;
+    }
+
+    .card {
+      background: var(--dark-card);
+      border: 1px solid var(--bd-dark);
+      padding: 40px 32px;
+      border-radius: 12px;
+    }
+
+    .card--teal,
+    .card--sand,
+    .card--accent { border-top: 2px solid var(--teal); }   /* Teal — consistent with numbers */
+
+    .card-num {
+      font-family: var(--display);
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 20px;
+      opacity: 0.5;
+    }
+
+    .card h3 { margin-bottom: 12px; }
+    .card p { font-size: 15px; }
+
+    /* ── TWO-COLUMN SPLIT ──────────────────────────────────── */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .split--3-2 {
+      grid-template-columns: 3fr 2fr;
+    }
+
+    /* ── LIST ──────────────────────────────────────────────── */
+    .check-list {
+      list-style: none;
+      margin-top: 28px;
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--bd-dark);
+      font-size: 16px;
+      color: var(--lt-60);
+    }
+
+    .check-list li:last-child { border-bottom: none; }
+
+    .check-list li::before {
+      content: '';
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--teal-faint);
+      border: 1.5px solid var(--teal-edge);
+      flex-shrink: 0;
+      margin-top: 3px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%232CC4B0' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 10px;
+    }
+
+    /* ── PHASE BLOCKS ──────────────────────────────────────── */
+    .phases {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 56px;
+    }
+
+    .phase {
+      background: var(--dark-card);
+      border: 1px solid var(--bd-dark);
+      padding: 36px 28px;
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .phase-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: var(--teal-faint);
+      border: 1px solid var(--teal-edge);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    .phase h3 { font-size: 20px; margin-bottom: 12px; }
+    .phase p  { font-size: 14px; color: var(--lt-40); line-height: 1.6; }
+
+    /* ── MEASURE GRID ──────────────────────────────────────── */
+    .measure-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 56px;
+    }
+
+    .measure-col {
+      background: var(--dark-card);
+      border: 1px solid var(--bd-dark);
+      border-radius: 12px;
+      padding: 36px 28px;
+    }
+
+    .measure-col--inputs,
+    .measure-col--inside,
+    .measure-col--outputs { border-top: 2px solid var(--teal); }
+
+    .measure-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .measure-label--sand,
+    .measure-label--teal,
+    .measure-label--accent { color: var(--teal); }
+
+    .measure-col h3 { font-size: 22px; margin-bottom: 16px; }
+
+    .measure-items {
+      list-style: none;
+      margin-top: 12px;
+    }
+
+    .measure-items li {
+      font-size: 14px;
+      color: var(--lt-40);
+      padding: 7px 0;
+      border-bottom: 1px solid var(--bd-dark);
+    }
+    .measure-items li:last-child { border-bottom: none; }
+
+    /* ── OFFER COMPARISON ──────────────────────────────────── */
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+      align-items: stretch;
+    }
+
+    .offer-card {
+      border: 1px solid rgba(255,255,255,0.11);
+      border-radius: 14px;
+      padding: 22px 22px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .offer-card .offer-features {
+      flex: 1;
+    }
+
+    .offer-card--body-comp {
+      background: var(--dark-card);
+    }
+
+    .offer-card--core {
+      background: var(--dark-card);
+      border-color: var(--sand-edge);
+    }
+
+    .offer-card--core::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--sand);
+    }
+
+    .offer-card--pro {
+      background: var(--dark-hi);
+      border-color: var(--teal-edge);
+      box-shadow: 0 0 40px rgba(44,196,176,0.09), 0 2px 24px rgba(0,0,0,0.3);
+    }
+
+    .offer-card--pro::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--accent));
+    }
+
+    .offer-badge {
+      display: inline-block;
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 3px 7px;
+      border-radius: 3px;
+      margin-bottom: 8px;
+    }
+
+    .offer-badge--body {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--bd-dark);
+      color: var(--lt-40);
+    }
+
+    .offer-badge--core {
+      background: var(--sand-faint);
+      border: 1px solid var(--sand-edge);
+      color: var(--sand);
+    }
+
+    .offer-badge--pro {
+      background: var(--teal-faint);
+      border: 1px solid var(--teal-edge);
+      color: var(--teal);
+    }
+
+    .offer-name {
+      font-family: var(--display);
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .offer-sub {
+      font-size: 13px;
+      color: var(--lt-40);
+      margin-bottom: 22px;
+      line-height: 1.5;
+    }
+
+    .price-block {
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.09);
+    }
+
+    .price-main {
+      font-family: var(--display);
+      font-size: clamp(22px, 2vw, 32px);
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .price-main--teal { color: var(--accent); }
+    .price-main--sand { color: var(--sand); }
+
+    .price-note {
+      font-size: 12px;
+      color: var(--lt-40);
+    }
+
+    .price-alt {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--lt-40);
+      padding: 7px 12px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .offer-features {
+      list-style: none;
+    }
+
+    .offer-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      padding: 5px 0;
+      font-size: 12px;
+      color: var(--lt-60);
+      line-height: 1.35;
+    }
+
+    .offer-features li::before {
+      content: '';
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .offer-card--body-comp .offer-features li::before {
+      background: rgba(255,255,255,0.05);
+      border: 1.5px solid rgba(255,255,255,0.15);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23aaa' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 10px;
+    }
+
+    .offer-card--core .offer-features li::before {
+      background: var(--sand-faint);
+      border: 1.5px solid var(--sand-edge);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23D9C8AE' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 10px;
+    }
+
+    .offer-card--pro .offer-features li::before {
+      background: var(--teal-faint);
+      border: 1.5px solid var(--teal-edge);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%2378ECF5' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 10px;
+    }
+
+    /* Nested test list inside Pro card */
+    .offer-sub-list {
+      list-style: none;
+      margin: 7px 0 0 2px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .offer-sub-list li {
+      font-size: 12px;
+      color: var(--lt-40);
+      padding: 1px 0 !important;
+      border: none !important;
+      display: flex !important;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .offer-sub-list li::before {
+      content: '–';
+      color: var(--lt-20);
+      flex-shrink: 0;
+    }
+
+    .offer-sub-list li::before {
+      display: none !important;
+    }
+
+    .offer-sub-list li::after {
+      content: none;
+    }
+
+    /* ── OUTCOME TAGS ──────────────────────────────────────── */
+    .tag-note {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--lt-40);
+      margin-bottom: 16px;
+      font-style: italic;
+      font-family: var(--body);
+    }
+
+    .tag-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 4px;
+    }
+
+    .tag {
+      display: block;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      padding: 7px 0;
+      line-height: 1.3;
+      color: var(--lt-60);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .tag:last-child { border-bottom: none; }
+
+    .tag--teal,
+    .tag--accent,
+    .tag--sand {
+      background: none;
+      border-left: none;
+      border-right: none;
+      border-top: none;
+      border-radius: 0;
+      color: var(--lt-60);
+    }
+
+    /* Key differentiator callout */
+    .diff-callout {
+      background: var(--teal-faint);
+      border: 1px solid var(--teal-edge);
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 13px;
+      color: var(--lt-60);
+      margin-top: 24px;
+    }
+
+    .diff-callout strong { color: var(--accent); font-weight: 600; }
+
+    /* ── QUOTE BLOCK ───────────────────────────────────────── */
+    .pullquote {
+      font-family: var(--display);
+      font-size: clamp(22px, 2.8vw, 42px);
+      font-weight: 500;
+      font-style: italic;
+      line-height: 1.3;
+      color: var(--lt);
+      max-width: 800px;
+    }
+
+    .pullquote em { font-style: normal; color: var(--accent); }
+
+    /* ── TIMELINE ROW ──────────────────────────────────────── */
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-top: 56px;
+    }
+
+    .tl-step {
+      background: var(--dark-card);
+      border: 1px solid var(--bd-dark);
+      padding: 32px 24px;
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .tl-step:not(:last-child)::after {
+      content: '→';
+      position: absolute;
+      right: -16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--lt-20);
+      font-size: 18px;
+      z-index: 2;
+    }
+
+    .tl-num {
+      font-family: var(--display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .tl-step h4 {
+      font-family: var(--display);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--lt);
+      text-transform: none;
+      letter-spacing: 0;
+      margin-bottom: 8px;
+    }
+
+    .tl-step p { font-size: 13px; }
+
+    /* ── CREDENTIAL BLOCK ──────────────────────────────────── */
+    .cred-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    .cred-item {
+      background: var(--dark-card);
+      border: 1px solid var(--bd-dark);
+      padding: 28px 28px;
+    }
+
+    .cred-item:nth-child(1) { border-radius: 12px 0 0 0; }
+    .cred-item:nth-child(2) { border-radius: 0 12px 0 0; }
+    .cred-item:nth-child(3) { border-radius: 0 0 0 12px; }
+    .cred-item:nth-child(4) { border-radius: 0 0 12px 0; }
+
+    .cred-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--teal-faint);
+      border: 1px solid var(--teal-edge);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+
+    .cred-item h4 {
+      font-family: var(--display);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--lt);
+      text-transform: none;
+      letter-spacing: 0;
+      margin-bottom: 6px;
+    }
+
+    .cred-item p { font-size: 13px; }
+
+    /* ── NEXT STEPS ────────────────────────────────────────── */
+    .steps-list {
+      counter-reset: steps;
+      list-style: none;
+      margin-top: 48px;
+    }
+
+    .steps-list li {
+      counter-increment: steps;
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--bd-dark);
+    }
+
+    .steps-list li:last-child { border-bottom: none; }
+
+    .steps-list li::before {
+      content: counter(steps, decimal-leading-zero);
+      font-family: var(--display);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--teal);
+      opacity: 0.5;
+      flex-shrink: 0;
+      line-height: 1;
+      width: 48px;
+    }
+
+    .steps-list li .step-content h4 {
+      font-family: var(--display);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--lt);
+      text-transform: none;
+      letter-spacing: 0;
+      margin-bottom: 4px;
+    }
+
+    .steps-list li .step-content p { font-size: 14px; }
+
+    /* ── PROBLEM SLIDE ITEMS ───────────────────────────────── */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    .problem-item {
+      background: var(--dark-card);
+      border: 1px solid var(--bd-dark);
+      padding: 28px 28px;
+    }
+
+    .problem-item:nth-child(1) { border-radius: 12px 0 0 0; }
+    .problem-item:nth-child(2) { border-radius: 0 12px 0 0; }
+    .problem-item:nth-child(3) { border-radius: 0 0 0 12px; }
+    .problem-item:nth-child(4) { border-radius: 0 0 12px 0; }
+
+    .problem-item h4 {
+      font-family: var(--display);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--lt);
+      text-transform: none;
+      letter-spacing: 0;
+      margin-bottom: 8px;
+    }
+
+    .problem-item p { font-size: 14px; }
+
+    .problem-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sand);
+      margin-bottom: 16px;
+    }
+
+    /* ── PILLAR GRID (Protocol slide) ─────────────────────── */
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      margin-top: 44px;
+    }
+
+    .pillar {
+      grid-column: span 2;
+      background: var(--dark-card);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 14px;
+      padding: 28px 22px;
+      text-align: left;
+      transition: border-color 0.25s, background 0.25s;
+    }
+
+    /* Bottom row: 4th and 5th pillars centered */
+    .pillar:nth-child(4) { grid-column: 2 / span 2; }
+    .pillar:nth-child(5) { grid-column: 4 / span 2; }
+
+    .pillar-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 0 18px;
+      color: var(--lt-60);
+    }
+
+    .pillar-name {
+      font-family: var(--display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--lt);
+      margin-bottom: 8px;
+    }
+
+    .pillar-desc {
+      font-size: 13px;
+      color: var(--lt-40);
+      line-height: 1.55;
+    }
+
+    .pillar--medical { /* no special color — unified palette */ }
+
+    /* ── PROTOCOL SECTION — TIMELINE + BUCKET CARDS ─────────── */
+    .proto-timeline {
+      display: flex;
+      align-items: flex-start;
+      margin-top: 44px;
+      margin-bottom: 20px;
+    }
+
+    .proto-phase {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .proto-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--dark-hi);
+      border: 2px solid rgba(255,255,255,0.30);
+      margin-bottom: 10px;
+      flex-shrink: 0;
+    }
+
+    .proto-connector {
+      flex: 0.4;
+      height: 1px;
+      background: rgba(255,255,255,0.12);
+      align-self: flex-start;
+      margin-top: 4px;
+    }
+
+    .proto-phase-num {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--lt-20);
+      margin-bottom: 3px;
+    }
+
+    .proto-phase-name {
+      font-family: var(--display);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--lt-60);
+    }
+
+    .bucket-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      grid-auto-flow: column;
+      gap: 10px;
+    }
+
+    .bucket-card {
+      background: var(--dark-card);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 12px;
+      padding: 22px 20px;
+    }
+
+    .bucket-name {
+      font-family: var(--display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--lt);
+      margin-bottom: 7px;
+    }
+
+    .bucket-desc {
+      font-size: 12px;
+      color: var(--lt-40);
+      line-height: 1.55;
+    }
+
+    /* ── ECOSYSTEM DIAGRAM (Why Second Prime) ──────────────── */
+    .ecosystem-wrap {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-top: 48px;
+    }
+
+    .eco-vs {
+      font-family: var(--display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--lt-20);
+      text-align: center;
+    }
+
+    /* Alt (elsewhere) side */
+    .alt-side-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--lt-20);
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .alt-boxes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .alt-box {
+      background: var(--dark-card);
+      border: 1px solid var(--bd-dark);
+      border-radius: 8px;
+      padding: 14px 12px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--lt-40);
+    }
+
+    .alt-box span {
+      display: block;
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--lt-20);
+      margin-top: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .alt-note {
+      font-size: 11px;
+      color: var(--lt-20);
+      text-align: center;
+      margin-top: 12px;
+      font-style: italic;
+    }
+
+    /* SP side */
+    .sp-eco-side {
+      text-align: center;
+    }
+
+    .sp-umbrella-box {
+      display: block;
+      width: 100%;
+      background: var(--dark-hi);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-bottom: none;
+      border-radius: 10px 10px 0 0;
+      padding: 14px 24px;
+      font-family: var(--display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--lt);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 0;
+      box-sizing: border-box;
+    }
+
+    /* Tree line */
+    .sp-tree-line {
+      width: 2px;
+      height: 16px;
+      background: rgba(255,255,255,0.12);
+      margin: 0 auto;
+    }
+
+    .sp-tree-branches-line {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .sp-tree-branches-line::before {
+      content: '';
+      width: calc(100% - 80px);
+      max-width: 340px;
+      height: 2px;
+      background: var(--teal-edge);
+      display: block;
+      align-self: flex-start;
+      margin-top: 0;
+    }
+
+    .sp-branches {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 0;
+      position: relative;
+    }
+
+    .sp-branches::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 16%;
+      right: 16%;
+      height: 2px;
+      background: rgba(255,255,255,0.12);
+    }
+
+    .sp-branch {
+      position: relative;
+      border-radius: 10px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+
+    .sp-branch::before {
+      content: '';
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      width: 2px;
+      height: 16px;
+      background: rgba(255,255,255,0.12);
+    }
+
+    .sp-branch--health,
+    .sp-branch--performance,
+    .sp-branch--medical {
+      background: var(--dark-card);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-top: 2px solid rgba(255,255,255,0.18);
+    }
+
+    .sp-branch-name {
+      font-family: var(--display);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--lt);
+      margin-bottom: 6px;
+    }
+
+    .sp-branch-items {
+      font-size: 11px;
+      color: var(--lt-40);
+      line-height: 1.6;
+    }
+
+    .sp-unified-note {
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--lt-40);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-align: center;
+    }
+
+    /* ── RESULTS GRID ──────────────────────────────────────── */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .results-col {
+      background: var(--dark-card);
+      border: 1px solid var(--bd-dark);
+      border-radius: 12px;
+      padding: 32px 28px;
+    }
+
+    .results-col--body,
+    .results-col--perf,
+    .results-col--bio   { border-top: 2px solid var(--teal); }
+
+    .results-col h3 {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .metric-pair-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .metric-stat {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 14px 12px;
+    }
+
+    .metric-num {
+      font-family: var(--display);
+      font-size: clamp(18px, 1.8vw, 26px);
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+    .metric-label {
+      font-size: 11px;
+      color: var(--lt-40);
+      line-height: 1.4;
+    }
+
+    .metric-num--sand,
+    .metric-num--teal,
+    .metric-num--accent { color: var(--lt); }
+
+    .metric-quote {
+      font-size: 12px;
+      color: var(--lt-40);
+      line-height: 1.55;
+      font-style: italic;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 14px;
+      margin-top: 4px;
+    }
+
+    .metric-quote strong { color: var(--lt-60); font-style: normal; font-weight: 500; }
+
+    /* ── COMPACT OFFER CARDS ───────────────────────────────── */
+    .offer-card--compact {
+      padding: 28px 26px;
+    }
+
+    .offer-card--compact .price-block {
+      margin-bottom: 18px;
+      padding-bottom: 18px;
+    }
+
+    .offer-card--compact .price-main {
+      font-size: clamp(22px, 2.2vw, 32px);
+    }
+
+    .offer-card--compact .offer-features li {
+      padding: 7px 0;
+      font-size: 13px;
+    }
+
+    .offer-card--compact .offer-name {
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+
+    .offer-card--compact .offer-sub {
+      margin-bottom: 18px;
+    }
+
+    /* ── PRINT / PDF HINT ──────────────────────────────────── */
+    @media print {
+      .slide { min-height: 100vh; page-break-after: always; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- ══ SLIDE 01 · COVER ══════════════════════════════════ -->
+  <section class="slide slide--dark" style="min-height:100vh; justify-content:space-between; flex-direction:column; align-items:flex-start; padding: 80px 120px;">
+    <div class="slide-inner" style="display:flex; flex-direction:column; justify-content:space-between; height:100%; min-height: calc(100vh - 160px);">
+      <div>
+        <span class="logo-mark">Second Prime</span>
+      </div>
+      <div>
+        <span class="eyebrow eyebrow--teal">Confidential · Client Overview</span>
+        <h1 style="margin-bottom:32px;">
+          Engineering Peak Human<br>Performance and Longevity.
+        </h1>
+        <p style="font-size:18px; max-width:540px; color:var(--lt-60);">
+          A comprehensive health optimization system built specifically for founders and executives who demand more from their body — and their time.
+        </p>
+      </div>
+      <div class="stats-row" style="margin-top:0;">
+        <div class="stat-block">
+          <div class="stat-num">1,000+</div>
+          <div class="stat-label">Biomarkers analyzed per client</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Business owners &amp; executives served</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">12 yrs</div>
+          <div class="stat-label">Clinical &amp; performance expertise</div>
+        </div>
+      </div>
+    </div>
+    <span class="slide-num">01 / 09</span>
+  </section>
+
+  <!-- ══ SLIDE 02 · THE THREE OUTCOMES ════════════════════ -->
+  <section class="slide slide--card">
+    <div class="slide-inner">
+      <span class="eyebrow eyebrow--teal">What We Do</span>
+      <h2>Three outcomes.<br>One integrated system.</h2>
+      <div class="rule"></div>
+
+      <div class="cards-3">
+        <div class="card card--teal">
+          <div class="card-num" style="color:var(--teal);">01</div>
+          <h3>Mitigate<br>Health Risks</h3>
+          <div class="rule rule--teal" style="margin: 16px 0;"></div>
+          <p class="tag-note">Proactive risk reduction — not diagnosis</p>
+          <div class="tag-group">
+            <span class="tag tag--teal">Cardiovascular Disease</span>
+            <span class="tag tag--teal">Neurodegenerative Disease</span>
+            <span class="tag tag--teal">Metabolic Disorders</span>
+            <span class="tag tag--teal">Cancer Risk</span>
+          </div>
+        </div>
+        <div class="card card--accent">
+          <div class="card-num" style="color:var(--teal);">02</div>
+          <h3>Maximize Human Performance</h3>
+          <div class="rule rule--teal" style="margin: 16px 0;"></div>
+          <div class="tag-group">
+            <span class="tag tag--accent">Energy</span>
+            <span class="tag tag--accent">Focus</span>
+            <span class="tag tag--accent">Productivity</span>
+            <span class="tag tag--accent">Strength</span>
+            <span class="tag tag--accent">Endurance</span>
+            <span class="tag tag--accent">Mobility</span>
+            <span class="tag tag--accent">Body Composition</span>
+            <span class="tag tag--accent">Recovery</span>
+          </div>
+        </div>
+        <div class="card card--sand">
+          <div class="card-num" style="color:var(--teal);">03</div>
+          <h3>Extend<br>Longevity</h3>
+          <div class="rule rule--teal" style="margin: 16px 0;"></div>
+          <div class="tag-group">
+            <span class="tag tag--sand">Active Decades</span>
+            <span class="tag tag--sand">Present for Your Family</span>
+            <span class="tag tag--sand">Peak Capacity at Any Age</span>
+            <span class="tag tag--sand">Sport &amp; Recreation for Life</span>
+            <span class="tag tag--sand">High-Output at 60+</span>
+            <span class="tag tag--sand">Outlast Decline</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="slide-num">02 / 09</span>
+  </section>
+
+  <!-- ══ SLIDE 04 · WHAT WE MEASURE ════════════════════════ -->
+  <section class="slide slide--dark">
+    <div class="slide-inner">
+      <span class="eyebrow">The Assessment Framework</span>
+      <h2>We map the full picture.<br>Inputs. Internals. Outputs.</h2>
+      <div class="rule"></div>
+      <p style="max-width:620px;">Most programs optimize one variable. We analyze all three — because they're deeply connected, and treating them in isolation is why results stall.</p>
+
+      <div class="measure-grid">
+        <div class="measure-col measure-col--inputs">
+          <div class="measure-label measure-label--sand">What Goes In</div>
+          <h3>Inputs</h3>
+          <p style="font-size:14px; color:var(--lt-60);">The environment your biology operates in every day.</p>
+          <ul class="measure-items">
+            <li>Nutrition &amp; dietary patterns</li>
+            <li>Hydration quality &amp; volume</li>
+            <li>Sleep architecture &amp; recovery</li>
+            <li>Environmental stressors</li>
+            <li>Lifestyle load &amp; demands</li>
+          </ul>
+        </div>
+        <div class="measure-col measure-col--inside">
+          <div class="measure-label measure-label--teal">What Happens Inside</div>
+          <h3>Internals</h3>
+          <p style="font-size:14px; color:var(--lt-60);">The biological reality those inputs create.</p>
+          <ul class="measure-items">
+            <li>Blood — 180 biomarkers</li>
+            <li>Gut microbiome (stool analysis)</li>
+            <li>Hormonal panel (urine + saliva)</li>
+            <li>Metabolic &amp; inflammatory markers</li>
+            <li>4,000+ total data points analyzed</li>
+          </ul>
+        </div>
+        <div class="measure-col measure-col--outputs">
+          <div class="measure-label measure-label--accent">What Comes Out</div>
+          <h3>Outputs</h3>
+          <p style="font-size:14px; color:var(--lt-60);">Objective performance metrics — your biological output.</p>
+          <ul class="measure-items">
+            <li>VO₂ max (cardiovascular capacity)</li>
+            <li>DEXA scan (body composition)</li>
+            <li>Strength &amp; power</li>
+            <li>Mobility &amp; flexibility</li>
+            <li>Continuous wearable data (WHOOP)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <span class="slide-num">03 / 09</span>
+  </section>
+
+  <!-- ══ SLIDE 05 · THE ASSESSMENT PROCESS ═════════════════ -->
+  <section class="slide slide--card" style="background-image: linear-gradient(rgba(16,16,22,0.88), rgba(16,16,22,0.88)), url('photo-blood-draw.jpg'); background-size: cover; background-position: center;">
+    <div class="slide-inner">
+      <span class="eyebrow eyebrow--teal">Phase 01</span>
+      <h2>The Executive Assessment.</h2>
+      <div class="rule"></div>
+      <p style="max-width:640px;">A 20-day comprehensive evaluation designed to give us every data point we need — no guessing, no generic assumptions. This is the most complete health picture most of our clients have ever seen.</p>
+
+      <div class="timeline">
+        <div class="tl-step">
+          <div class="tl-num">Day 1</div>
+          <h4>Onboarding Call</h4>
+          <p>We walk you through the full assessment process, set up your testing kits, and get your wearable synced to our dashboard.</p>
+        </div>
+        <div class="tl-step">
+          <div class="tl-num">Days 1–20</div>
+          <h4>Sample Collection</h4>
+          <p>Blood, stool, urine, saliva. Every biological sample we can take — collected through our guided process on your schedule.</p>
+        </div>
+        <div class="tl-step">
+          <div class="tl-num">Days 14–20</div>
+          <h4>Performance Testing</h4>
+          <p>VO₂ max, DEXA scan, strength and mobility baseline. A complete map of where your body's output stands right now.</p>
+        </div>
+        <div class="tl-step">
+          <div class="tl-num">Day 21+</div>
+          <h4>90-Min Results Call</h4>
+          <p>Andrew walks you through every finding, line by line. You leave with full clarity on what's happening — and what we're doing about it.</p>
+        </div>
+      </div>
+    </div>
+    <span class="slide-num">04 / 09</span>
+  </section>
+
+  <!-- ══ SLIDE 05 · YOUR PROTOCOL ══════════════════════════ -->
+  <section class="slide slide--dark">
+    <div class="slide-inner">
+      <span class="eyebrow">Phases 01 — 03</span>
+      <h2>Your system.<br>Built on your biology.</h2>
+      <div class="rule"></div>
+      <p style="max-width:680px;">After your assessment, every variable is calibrated to your specific biology. Three phased sequences — each building on the last. All of it managed for you.</p>
+
+      <!-- Slim phase timeline -->
+      <div class="proto-timeline">
+        <div class="proto-phase">
+          <div class="proto-dot"></div>
+          <div class="proto-phase-num">Phase 01</div>
+          <div class="proto-phase-name">Stabilize</div>
+        </div>
+        <div class="proto-connector"></div>
+        <div class="proto-phase">
+          <div class="proto-dot"></div>
+          <div class="proto-phase-num">Phase 02</div>
+          <div class="proto-phase-name">Build</div>
+        </div>
+        <div class="proto-connector"></div>
+        <div class="proto-phase">
+          <div class="proto-dot"></div>
+          <div class="proto-phase-num">Phase 03</div>
+          <div class="proto-phase-name">Optimize</div>
+        </div>
+      </div>
+
+      <!-- Big bucket cards — column-flow aligns each column under its phase -->
+      <div class="bucket-grid">
+        <!-- Phase 01: Stabilize -->
+        <div class="bucket-card">
+          <div class="bucket-name">Nutrient Quality</div>
+          <div class="bucket-desc">Matched to your metabolic state, gut biology &amp; energy demands</div>
+        </div>
+        <div class="bucket-card">
+          <div class="bucket-name">Sleep Optimization</div>
+          <div class="bucket-desc">Sleep architecture, recovery windows &amp; circadian rhythm</div>
+        </div>
+        <div class="bucket-card">
+          <div class="bucket-name">Stress Protocol</div>
+          <div class="bucket-desc">HPA axis regulation, cortisol management &amp; resilience building</div>
+        </div>
+        <!-- Phase 02: Build -->
+        <div class="bucket-card">
+          <div class="bucket-name">Training</div>
+          <div class="bucket-desc">Calibrated to your real recovery capacity &amp; performance goals</div>
+        </div>
+        <div class="bucket-card">
+          <div class="bucket-name">Macros</div>
+          <div class="bucket-desc">Protein targets, carbohydrate timing &amp; total energy balance</div>
+        </div>
+        <div class="bucket-card">
+          <div class="bucket-name">Supplementation</div>
+          <div class="bucket-desc">Evidence-based protocol targeting gaps, performance &amp; longevity</div>
+        </div>
+        <!-- Phase 03: Optimize -->
+        <div class="bucket-card">
+          <div class="bucket-name">Biohacking</div>
+          <div class="bucket-desc">HRV monitoring, red light, cold therapy &amp; data-driven tools</div>
+        </div>
+        <div class="bucket-card">
+          <div class="bucket-name">Medical Team</div>
+          <div class="bucket-desc">TRT, HRT, peptides &amp; prescriptions — full medical oversight</div>
+        </div>
+        <div class="bucket-card">
+          <div class="bucket-name">Continuous Monitoring</div>
+          <div class="bucket-desc">Quarterly retesting, wearable data &amp; ongoing protocol refinement</div>
+        </div>
+      </div>
+    </div>
+    <span class="slide-num">05 / 09</span>
+  </section>
+
+  <!-- ══ SLIDE 06 · WHY SECOND PRIME ══════════════════════ -->
+  <section class="slide slide--card">
+    <div class="slide-inner">
+      <span class="eyebrow eyebrow--teal">Why Second Prime</span>
+      <h2>Three branches.<br>One ecosystem.</h2>
+      <div class="rule"></div>
+      <p style="max-width:660px;">Most people are patching together a health solution — a lab testing company here, a personal trainer there, maybe a functional medicine doctor. You get one slot per provider. No one shares data. No one sees the full picture.</p>
+
+      <div class="ecosystem-wrap">
+
+        <!-- Left: The Alternative -->
+        <div>
+          <div class="alt-side-label">The Alternative</div>
+          <div class="alt-boxes">
+            <div class="alt-box">Lab Testing Co.<span>data, no system</span></div>
+            <div class="alt-box">Personal Trainer<span>fitness only</span></div>
+            <div class="alt-box">Nutritionist<span>food only</span></div>
+            <div class="alt-box">Doctor<span>crisis management</span></div>
+          </div>
+          <div class="alt-note">No shared data. No coordination. No full picture.</div>
+        </div>
+
+        <!-- Center: VS -->
+        <div class="eco-vs">vs.</div>
+
+        <!-- Right: Second Prime -->
+        <div class="sp-eco-side">
+          <div class="sp-umbrella-box">Second Prime</div>
+          <div class="sp-tree-line"></div>
+          <div class="sp-branches">
+            <div class="sp-branch sp-branch--health">
+              <div class="sp-branch-name">SP Health</div>
+              <div class="sp-branch-items">1,000+ Biomarkers · Root-Cause Analysis · Gut, Hormones, Metabolism</div>
+            </div>
+            <div class="sp-branch sp-branch--performance">
+              <div class="sp-branch-name">SP Performance</div>
+              <div class="sp-branch-items">Expert Coaching · Training · Nutrition · Wearable Monitoring</div>
+            </div>
+            <div class="sp-branch sp-branch--medical">
+              <div class="sp-branch-name">SP Medical</div>
+              <div class="sp-branch-items">Peptides · TRT / HRT · 6,000+ Prescriptions · 503A/B Pharmacies</div>
+            </div>
+          </div>
+          <div class="sp-unified-note">One protocol. Every system connected.</div>
+        </div>
+
+      </div>
+    </div>
+    <span class="slide-num">06 / 09</span>
+  </section>
+
+  <!-- ══ SLIDE 07 · EXPECTED RESULTS ══════════════════════ -->
+  <section class="slide slide--dark">
+    <div class="slide-inner">
+      <span class="eyebrow eyebrow--teal">What to Expect</span>
+      <h2>Results across<br>every dimension.</h2>
+      <div class="rule"></div>
+      <p style="max-width:660px;">Every client is different — but the patterns are consistent. Here's what the data shows across 500+ business owners and executives who've gone through the system.</p>
+
+      <div class="results-grid">
+
+        <!-- Body Composition -->
+        <div class="results-col results-col--body">
+          <h3>Body Composition</h3>
+          <div class="metric-pair-grid">
+            <div class="metric-stat">
+              <div class="metric-num metric-num--sand">23 lbs</div>
+              <div class="metric-label">avg. fat lost — first 90 days</div>
+            </div>
+            <div class="metric-stat">
+              <div class="metric-num metric-num--sand">+8 lbs</div>
+              <div class="metric-label">lean muscle gained avg.</div>
+            </div>
+            <div class="metric-stat">
+              <div class="metric-num metric-num--sand">−10%</div>
+              <div class="metric-label">body fat % reduction avg.</div>
+            </div>
+            <div class="metric-stat">
+              <div class="metric-num metric-num--sand">−28%</div>
+              <div class="metric-label">reduction in visceral fat avg.</div>
+            </div>
+          </div>
+          <div class="metric-quote">"Six months later I'm <strong>leaner than I was at 35</strong> — and my cardiovascular risk profile is transformed." — T.K., Managing Partner, Age 49</div>
+        </div>
+
+        <!-- Performance -->
+        <div class="results-col results-col--perf">
+          <h3>Performance</h3>
+          <div class="metric-pair-grid">
+            <div class="metric-stat">
+              <div class="metric-num metric-num--teal">+22%</div>
+              <div class="metric-label">VO₂ max improvement avg.</div>
+            </div>
+            <div class="metric-stat">
+              <div class="metric-num metric-num--teal">79%</div>
+              <div class="metric-label">of clients report increased energy</div>
+            </div>
+            <div class="metric-stat">
+              <div class="metric-num metric-num--teal">−13 bpm</div>
+              <div class="metric-label">resting heart rate avg.</div>
+            </div>
+            <div class="metric-stat">
+              <div class="metric-num metric-num--teal">+40%</div>
+              <div class="metric-label">strength output in primary lifts</div>
+            </div>
+          </div>
+          <div class="metric-quote">"<strong>Brain fog completely gone.</strong> Decision-making is sharper. Energy is consistent all day." — D.R., Founder, Age 52</div>
+        </div>
+
+        <!-- Biomarkers -->
+        <div class="results-col results-col--bio">
+          <h3>Biomarker Changes</h3>
+          <div class="metric-pair-grid">
+            <div class="metric-stat">
+              <div class="metric-num metric-num--accent">12 yrs</div>
+              <div class="metric-label">avg. biological age reduction</div>
+            </div>
+            <div class="metric-stat">
+              <div class="metric-num metric-num--accent">2×</div>
+              <div class="metric-label">testosterone avg. increase</div>
+            </div>
+            <div class="metric-stat">
+              <div class="metric-num metric-num--accent">−55%</div>
+              <div class="metric-label">CRP (inflammation) avg.</div>
+            </div>
+            <div class="metric-stat">
+              <div class="metric-num metric-num--accent">+40%</div>
+              <div class="metric-label">insulin sensitivity avg.</div>
+            </div>
+          </div>
+          <div class="metric-quote">"My <strong>testosterone doubled</strong>, inflammation markers are down, and I'm performing at a level I haven't seen since my 30s." — J.M., CEO, Age 47</div>
+        </div>
+
+      </div>
+    </div>
+    <span class="slide-num">07 / 09</span>
+  </section>
+
+  <!-- ══ SLIDE 08 · OFFER COMPARISON ════════════════════════ -->
+  <section class="slide slide--card" style="align-items:flex-start; padding-top:28px; padding-bottom:28px;">
+    <div class="slide-inner">
+      <span class="eyebrow eyebrow--teal">Your Options</span>
+      <h2 style="font-size:clamp(16px, 2vw, 26px); margin-bottom:0;">Three programs. One continuum.</h2>
+      <div class="rule" style="margin:10px 0;"></div>
+
+      <div class="offer-grid">
+
+        <!-- BODY COMPOSITION -->
+        <div class="offer-card offer-card--body-comp">
+          <div class="offer-name">Second Prime<br>Body Comp</div>
+          <div class="price-block">
+            <div class="price-main" style="color:var(--lt);">$10,000</div>
+            <div class="price-note">6-month program</div>
+            <div class="price-alt">Option: <strong style="color:var(--lt);">2 × $6,000</strong> · 30 days apart</div>
+          </div>
+          <ul class="offer-features">
+            <li>Comprehensive blood panel — 60+ key biomarkers</li>
+            <li>Lifestyle assessment &amp; personalized planning</li>
+            <li>Nutrition coaching with custom meal strategy</li>
+            <li>Fitness coaching with periodized training plans</li>
+            <li>Custom supplementation protocol</li>
+            <li>Wholesale access to peptide therapies</li>
+          </ul>
+        </div>
+
+        <!-- CORE -->
+        <div class="offer-card offer-card--core">
+          <div class="offer-name">Second Prime<br>Core</div>
+          <div class="price-block">
+            <div class="price-main price-main--sand">$8,500</div>
+            <div class="price-note">to start — assessment + first 90 days</div>
+            <div class="price-alt">Then <strong style="color:var(--lt);">$4,000/quarter</strong> · 6-month min · or <strong style="color:var(--lt);">$16,000/yr</strong></div>
+          </div>
+          <ul class="offer-features">
+            <li>Full Executive Assessment — 1,000+ biomarkers</li>
+            <li>90-min protocol review with Andrew</li>
+            <li>Custom nutrition</li>
+            <li>Personalized training program + coaching</li>
+            <li>Precision supplementation</li>
+            <li>Dedicated coach + monthly 1:1 with Andrew</li>
+            <li>Shared team channel + WHOOP monitoring</li>
+            <li>Wholesale peptides, TRT/HRT via medical staff</li>
+            <li>Quarterly retesting &amp; protocol updates</li>
+          </ul>
+        </div>
+
+        <!-- SECOND PRIME PRO -->
+        <div class="offer-card offer-card--pro">
+          <div class="offer-name">Second Prime<br>Pro</div>
+          <div class="price-block">
+            <div class="price-main price-main--teal">$50,000</div>
+            <div class="price-note">annual investment</div>
+            <div class="price-alt"><strong style="color:var(--lt);">$20,000 to start</strong>, then 2 × $15,000 · 30 days apart</div>
+          </div>
+          <ul class="offer-features">
+            <li>Everything in Core, plus:</li>
+            <li><span>Full-day in-person diagnostics at partner facility<ul class="offer-sub-list"><li>Coronary CT</li><li>Lung CT</li><li>Multi-Cancer Detection</li><li>Brain Health MRI</li><li>Whole Body MRI</li><li>DEXA + VO₂ Max</li></ul></span></li>
+            <li>At-home sleep study</li>
+            <li>Daily monitoring + frequent protocol adjustments</li>
+            <li>Priority direct access to Andrew</li>
+            <li>Semi-annual in-person consultations</li>
+            <li>Concierge prescription &amp; pharmacy coordination</li>
+            <li>Annual longevity strategy &amp; roadmap review</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <span class="slide-num">08 / 09</span>
+  </section>
+
+  <!-- ══ SLIDE 12 · NEXT STEPS ══════════════════════════════ -->
+  <section class="slide slide--dark" style="min-height:100vh;">
+    <div class="slide-inner">
+      <span class="eyebrow eyebrow--teal">Getting Started</span>
+      <h2>What happens<br>when you say yes.</h2>
+      <div class="rule"></div>
+      <p style="max-width:540px;">From decision to first data — the process is fast and frictionless. Here's exactly what comes next.</p>
+
+      <ol class="steps-list" style="margin-top:56px; max-width:680px;">
+        <li>
+          <div class="step-content">
+            <h4>Coaching Agreement</h4>
+            <p>You'll receive a coaching agreement by email and text. Complete it when convenient — we need it to kick off your testing order.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-content">
+            <h4>Initial Payment</h4>
+            <p>Any major debit or credit card. Once processed, your testing kits are ordered and on their way.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-content">
+            <h4>Onboarding Call</h4>
+            <p>A 30-minute call to walk through the full assessment process, sync your WHOOP, and set expectations for the next 20 days. Scheduled at your convenience — evenings available.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-content">
+            <h4>Assessment Begins</h4>
+            <p>20 days of guided collection. We're with you throughout — your testing support team is available for any question.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-content">
+            <h4>Protocol Review &amp; Launch</h4>
+            <p>90-minute call with Andrew to walk through every finding. Your protocol is live. The work begins.</p>
+          </div>
+        </li>
+      </ol>
+      <div style="margin-top:48px; padding-top:32px; border-top:1px solid rgba(255,255,255,0.07); max-width:480px;">
+        <p style="font-size:14px; color:var(--lt-40); margin-bottom:0;">Questions? Reach out to Andrew directly. The same standard of access you'd expect from the program starts before the contract is signed.</p>
+      </div>
+    </div>
+    <span class="slide-num">09 / 09</span>
+  </section>
+
+</div><!-- /deck -->
+
+</body>
+</html>
