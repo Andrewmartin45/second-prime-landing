@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/sales-deck.html",
+      "permanent": false,
+      "has": [
+        {
+          "type": "host",
+          "value": "deck.secondprime.io"
+        }
+      ]
+    }
+  ]
+}
