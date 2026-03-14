@@ -875,82 +875,83 @@
 
     .pillar--medical { /* no special color — unified palette */ }
 
-    /* ── PHASE PROGRESSION BAR ─────────────────────────────── */
-    .phase-progression {
-      display: grid;
-      grid-template-columns: 1fr 40px 1fr 40px 1fr;
-      align-items: start;
-      margin-top: 32px;
-      gap: 0;
+    /* ── PROTOCOL SECTION — TIMELINE + BUCKET CARDS ─────────── */
+    .proto-timeline {
+      display: flex;
+      align-items: flex-start;
+      margin-top: 44px;
+      margin-bottom: 20px;
     }
 
-    .prog-step {
-      background: var(--dark-hi);
-      border: 1px solid var(--bd-dark);
-      border-radius: 10px;
-      padding: 24px 22px;
-      position: relative;
-    }
-
-    .prog-pillars {
-      margin-top: 16px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(255,255,255,0.07);
+    .proto-phase {
+      flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 9px;
-    }
-
-    .prog-pillar-item {
-      font-size: 12px;
-      color: var(--lt-60);
-      display: flex;
       align-items: center;
-      gap: 10px;
-      line-height: 1.3;
+      text-align: center;
     }
 
-    .prog-pillar-item::before {
-      content: '';
-      width: 5px;
-      height: 5px;
+    .proto-dot {
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.20);
+      background: var(--dark-hi);
+      border: 2px solid rgba(255,255,255,0.30);
+      margin-bottom: 10px;
       flex-shrink: 0;
     }
 
-    .prog-step--1 { border-left: 3px solid var(--lt-20); }
-    .prog-step--2 { border-left: 3px solid var(--teal); }
-    .prog-step--3 { border-left: 3px solid var(--accent); }
+    .proto-connector {
+      flex: 0.4;
+      height: 1px;
+      background: rgba(255,255,255,0.12);
+      align-self: flex-start;
+      margin-top: 4px;
+    }
 
-    .prog-num {
+    .proto-phase-num {
       font-size: 10px;
       font-weight: 700;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--lt-40);
-      margin-bottom: 4px;
+      color: var(--lt-20);
+      margin-bottom: 3px;
     }
 
-    .prog-title {
+    .proto-phase-name {
       font-family: var(--display);
-      font-size: 18px;
+      font-size: 15px;
       font-weight: 600;
-      color: var(--lt);
-      margin-bottom: 4px;
+      color: var(--lt-60);
     }
 
-    .prog-desc {
+    .bucket-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      grid-auto-flow: column;
+      gap: 10px;
+    }
+
+    .bucket-card {
+      background: var(--dark-card);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 12px;
+      padding: 22px 20px;
+    }
+
+    .bucket-name {
+      font-family: var(--display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--lt);
+      margin-bottom: 7px;
+    }
+
+    .bucket-desc {
       font-size: 12px;
       color: var(--lt-40);
-      line-height: 1.5;
-    }
-
-    .prog-arrow {
-      text-align: center;
-      color: var(--lt-20);
-      font-size: 20px;
-      font-weight: 300;
+      line-height: 1.55;
     }
 
     /* ── ECOSYSTEM DIAGRAM (Why Second Prime) ──────────────── */
@@ -1146,23 +1147,9 @@
       padding: 32px 28px;
     }
 
-    .results-col--body   { border-top: 2px solid var(--sand); }
-    .results-col--perf   { border-top: 2px solid var(--teal); }
-    .results-col--bio    { border-top: 2px solid var(--accent); }
-
-    .results-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 9px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-    }
-
-    .results-icon--body { background: var(--sand-faint); border: 1px solid var(--sand-edge); color: var(--sand); }
-    .results-icon--perf { background: var(--teal-faint); border: 1px solid var(--teal-edge); color: var(--teal); }
-    .results-icon--bio  { background: rgba(120,236,245,0.08); border: 1px solid rgba(120,236,245,0.2); color: var(--accent); }
+    .results-col--body,
+    .results-col--perf,
+    .results-col--bio   { border-top: 2px solid rgba(255,255,255,0.16); }
 
     .results-col h3 {
       font-size: 18px;
@@ -1197,9 +1184,9 @@
       line-height: 1.4;
     }
 
-    .metric-num--sand { color: var(--sand); }
-    .metric-num--teal { color: var(--teal); }
-    .metric-num--accent { color: var(--accent); }
+    .metric-num--sand,
+    .metric-num--teal,
+    .metric-num--accent { color: var(--lt); }
 
     .metric-quote {
       font-size: 12px;
@@ -1429,38 +1416,67 @@
       <div class="rule"></div>
       <p style="max-width:680px;">After your assessment, every variable is calibrated to your specific biology. Three phased sequences — each building on the last. All of it managed for you.</p>
 
-      <!-- Phase Progression with disciplines embedded -->
-      <div class="phase-progression">
-        <div class="prog-step prog-step--1">
-          <div class="prog-num">Phase 01</div>
-          <div class="prog-title">Stabilize</div>
-          <div class="prog-desc">Address deficiencies, reduce inflammation, build the foundation</div>
-          <div class="prog-pillars">
-            <div class="prog-pillar-item">Nutrient Quality</div>
-            <div class="prog-pillar-item">Sleep Optimization</div>
-            <div class="prog-pillar-item">Stress Protocol</div>
-          </div>
+      <!-- Slim phase timeline -->
+      <div class="proto-timeline">
+        <div class="proto-phase">
+          <div class="proto-dot"></div>
+          <div class="proto-phase-num">Phase 01</div>
+          <div class="proto-phase-name">Stabilize</div>
         </div>
-        <div class="prog-arrow">→</div>
-        <div class="prog-step prog-step--2">
-          <div class="prog-num">Phase 02</div>
-          <div class="prog-title">Build</div>
-          <div class="prog-desc">Increase output, compound performance across every variable</div>
-          <div class="prog-pillars">
-            <div class="prog-pillar-item">Training</div>
-            <div class="prog-pillar-item">Macros</div>
-            <div class="prog-pillar-item">Supplementation</div>
-          </div>
+        <div class="proto-connector"></div>
+        <div class="proto-phase">
+          <div class="proto-dot"></div>
+          <div class="proto-phase-num">Phase 02</div>
+          <div class="proto-phase-name">Build</div>
         </div>
-        <div class="prog-arrow">→</div>
-        <div class="prog-step prog-step--3">
-          <div class="prog-num">Phase 03</div>
-          <div class="prog-title">Optimize</div>
-          <div class="prog-desc">Fine-tune for peak sustained performance — continuously evolving</div>
-          <div class="prog-pillars">
-            <div class="prog-pillar-item">Biohacking</div>
-            <div class="prog-pillar-item">Medical Team</div>
-          </div>
+        <div class="proto-connector"></div>
+        <div class="proto-phase">
+          <div class="proto-dot"></div>
+          <div class="proto-phase-num">Phase 03</div>
+          <div class="proto-phase-name">Optimize</div>
+        </div>
+      </div>
+
+      <!-- Big bucket cards — column-flow aligns each column under its phase -->
+      <div class="bucket-grid">
+        <!-- Phase 01: Stabilize -->
+        <div class="bucket-card">
+          <div class="bucket-name">Nutrient Quality</div>
+          <div class="bucket-desc">Matched to your metabolic state, gut biology &amp; energy demands</div>
+        </div>
+        <div class="bucket-card">
+          <div class="bucket-name">Sleep Optimization</div>
+          <div class="bucket-desc">Sleep architecture, recovery windows &amp; circadian rhythm</div>
+        </div>
+        <div class="bucket-card">
+          <div class="bucket-name">Stress Protocol</div>
+          <div class="bucket-desc">HPA axis regulation, cortisol management &amp; resilience building</div>
+        </div>
+        <!-- Phase 02: Build -->
+        <div class="bucket-card">
+          <div class="bucket-name">Training</div>
+          <div class="bucket-desc">Calibrated to your real recovery capacity &amp; performance goals</div>
+        </div>
+        <div class="bucket-card">
+          <div class="bucket-name">Macros</div>
+          <div class="bucket-desc">Protein targets, carbohydrate timing &amp; total energy balance</div>
+        </div>
+        <div class="bucket-card">
+          <div class="bucket-name">Supplementation</div>
+          <div class="bucket-desc">Evidence-based protocol targeting gaps, performance &amp; longevity</div>
+        </div>
+        <!-- Phase 03: Optimize -->
+        <div class="bucket-card">
+          <div class="bucket-name">Biohacking</div>
+          <div class="bucket-desc">HRV monitoring, red light, cold therapy &amp; data-driven tools</div>
+        </div>
+        <div class="bucket-card">
+          <div class="bucket-name">Medical Team</div>
+          <div class="bucket-desc">TRT, HRT, peptides &amp; prescriptions — full medical oversight</div>
+        </div>
+        <div class="bucket-card">
+          <div class="bucket-name">Continuous Monitoring</div>
+          <div class="bucket-desc">Quarterly retesting, wearable data &amp; ongoing protocol refinement</div>
         </div>
       </div>
     </div>
@@ -1530,9 +1546,6 @@
 
         <!-- Body Composition -->
         <div class="results-col results-col--body">
-          <div class="results-icon results-icon--body">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </div>
           <h3>Body Composition</h3>
           <div class="metric-pair-grid">
             <div class="metric-stat">
@@ -1557,9 +1570,6 @@
 
         <!-- Performance -->
         <div class="results-col results-col--perf">
-          <div class="results-icon results-icon--perf">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
           <h3>Performance</h3>
           <div class="metric-pair-grid">
             <div class="metric-stat">
@@ -1567,8 +1577,8 @@
               <div class="metric-label">VO₂ max improvement avg.</div>
             </div>
             <div class="metric-stat">
-              <div class="metric-num metric-num--teal">+79%</div>
-              <div class="metric-label">report sustained all-day energy</div>
+              <div class="metric-num metric-num--teal">79%</div>
+              <div class="metric-label">of clients report increased energy</div>
             </div>
             <div class="metric-stat">
               <div class="metric-num metric-num--teal">−13 bpm</div>
@@ -1584,9 +1594,6 @@
 
         <!-- Biomarkers -->
         <div class="results-col results-col--bio">
-          <div class="results-icon results-icon--bio">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
           <h3>Biomarker Changes</h3>
           <div class="metric-pair-grid">
             <div class="metric-stat">
