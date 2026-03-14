@@ -10,6 +10,17 @@
           "value": "deck.secondprime.io"
         }
       ]
+    },
+    {
+      "source": "/",
+      "destination": "/pre-consultation.html",
+      "permanent": false,
+      "has": [
+        {
+          "type": "host",
+          "value": "consult.secondprime.io"
+        }
+      ]
     }
   ]
 }
