@@ -1241,6 +1241,85 @@
       margin-bottom: 18px;
     }
 
+    /* ── INDIVIDUAL OFFER SLIDES ───────────────────────────── */
+    .offer-solo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: start;
+      margin-top: 48px;
+    }
+
+    .offer-solo-left .offer-badge {
+      margin-bottom: 20px;
+      font-size: 10px;
+      padding: 5px 12px;
+    }
+
+    .offer-solo-name { margin-bottom: 20px; }
+
+    .offer-solo-desc {
+      font-size: 16px;
+      color: var(--lt-60);
+      margin-bottom: 36px;
+      line-height: 1.65;
+    }
+
+    .offer-solo-price-block {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 12px;
+      padding: 28px 32px;
+    }
+
+    .offer-solo-price-num {
+      font-family: var(--display);
+      font-size: clamp(44px, 5vw, 72px);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--lt);
+      margin-bottom: 8px;
+    }
+
+    .offer-solo-features { list-style: none; }
+
+    .offer-solo-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 13px 0;
+      font-size: 16px;
+      color: var(--lt-60);
+      border-bottom: 1px solid var(--bd-dark);
+      line-height: 1.4;
+    }
+
+    .offer-solo-features li:last-child { border-bottom: none; }
+
+    .offer-solo-features li::before {
+      content: '';
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 2px;
+      background: var(--teal-faint);
+      border: 1.5px solid var(--teal-edge);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%2378ECF5' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 10px;
+    }
+
+    .offer-solo-features--sand li::before {
+      background: var(--sand-faint);
+      border-color: var(--sand-edge);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23D9C8AE' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 10px;
+    }
+
     /* ── PRINT / PDF HINT ──────────────────────────────────── */
     @media print {
       .slide { min-height: 100vh; page-break-after: always; }
@@ -1260,20 +1339,22 @@
         overflow-x: hidden;
       }
 
-      /* Base slide — override all inline padding with !important */
+      /* Base slide — switch to block layout to eliminate flex-child sizing quirks on iOS */
       .slide {
+        display: block !important;
         padding: 48px 24px !important;
-        min-height: auto;
-        align-items: stretch;
+        min-height: auto !important;
         width: 100%;
         box-sizing: border-box;
       }
 
       .slide-inner {
+        display: block !important;
         min-height: auto !important;
         height: auto !important;
         width: 100%;
-        max-width: 100%;
+        max-width: 100% !important;
+        margin: 0;
         box-sizing: border-box;
       }
 
@@ -1464,6 +1545,16 @@
       /* Rule margin */
       .rule { margin: 20px 0; }
 
+      /* Individual offer slides → stack */
+      .offer-solo {
+        grid-template-columns: 1fr;
+        width: 100%;
+        gap: 32px;
+      }
+
+      .offer-solo-desc { margin-bottom: 24px; }
+      .offer-solo-price-block { padding: 20px 24px; }
+
       /* Inline max-width wrappers at slide bottom */
       div[style*="max-width:480px"],
       div[style*="max-width:680px"] {
@@ -1506,7 +1597,7 @@
         </div>
       </div>
     </div>
-    <span class="slide-num">01 / 09</span>
+    <span class="slide-num">01 / 12</span>
   </section>
 
   <!-- ══ SLIDE 02 · THE THREE OUTCOMES ════════════════════ -->
@@ -1559,7 +1650,7 @@
         </div>
       </div>
     </div>
-    <span class="slide-num">02 / 09</span>
+    <span class="slide-num">02 / 12</span>
   </section>
 
   <!-- ══ SLIDE 04 · WHAT WE MEASURE ════════════════════════ -->
@@ -1609,7 +1700,7 @@
         </div>
       </div>
     </div>
-    <span class="slide-num">03 / 09</span>
+    <span class="slide-num">03 / 12</span>
   </section>
 
   <!-- ══ SLIDE 05 · THE ASSESSMENT PROCESS ═════════════════ -->
@@ -1643,7 +1734,7 @@
         </div>
       </div>
     </div>
-    <span class="slide-num">04 / 09</span>
+    <span class="slide-num">04 / 12</span>
   </section>
 
   <!-- ══ SLIDE 05 · YOUR PROTOCOL ══════════════════════════ -->
@@ -1718,7 +1809,7 @@
         </div>
       </div>
     </div>
-    <span class="slide-num">05 / 09</span>
+    <span class="slide-num">05 / 12</span>
   </section>
 
   <!-- ══ SLIDE 06 · WHY SECOND PRIME ══════════════════════ -->
@@ -1769,7 +1860,7 @@
 
       </div>
     </div>
-    <span class="slide-num">06 / 09</span>
+    <span class="slide-num">06 / 12</span>
   </section>
 
   <!-- ══ SLIDE 07 · EXPECTED RESULTS ══════════════════════ -->
@@ -1856,10 +1947,123 @@
 
       </div>
     </div>
-    <span class="slide-num">07 / 09</span>
+    <span class="slide-num">07 / 12</span>
   </section>
 
-  <!-- ══ SLIDE 08 · OFFER COMPARISON ════════════════════════ -->
+  <!-- ══ SLIDE 08 · OFFER: BODY COMP ═══════════════════════ -->
+  <section class="slide slide--dark">
+    <div class="slide-inner">
+      <span class="eyebrow">Your Options · 1 of 3</span>
+      <h2>Second Prime<br>Body Comp</h2>
+      <div class="rule"></div>
+
+      <div class="offer-solo">
+
+        <div class="offer-solo-left">
+          <div class="offer-badge offer-badge--body">Entry Point</div>
+          <p class="offer-solo-desc">A data-backed 6-month body transformation program. The fastest path to real, measurable results — without the full diagnostic commitment.</p>
+          <div class="offer-solo-price-block">
+            <div class="offer-solo-price-num">$10,000</div>
+            <div class="price-note">6-month program, paid in full</div>
+            <div class="price-alt" style="margin-top:12px;">Option: <strong style="color:var(--lt);">2 × $6,000</strong> · 30 days apart</div>
+          </div>
+        </div>
+
+        <div class="offer-solo-right">
+          <div class="eyebrow" style="margin-bottom:20px;">What's included</div>
+          <ul class="offer-solo-features">
+            <li>Comprehensive blood panel — 60+ key biomarkers</li>
+            <li>Lifestyle assessment &amp; personalized planning</li>
+            <li>Nutrition coaching with custom meal strategy</li>
+            <li>Fitness coaching with periodized training plans</li>
+            <li>Custom supplementation protocol</li>
+            <li>Wholesale access to peptide therapies</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <span class="slide-num">08 / 12</span>
+  </section>
+
+  <!-- ══ SLIDE 09 · OFFER: CORE ══════════════════════════════ -->
+  <section class="slide slide--card">
+    <div class="slide-inner">
+      <span class="eyebrow eyebrow--sand">Your Options · 2 of 3</span>
+      <h2>Second Prime<br>Core</h2>
+      <div class="rule rule--sand"></div>
+
+      <div class="offer-solo">
+
+        <div class="offer-solo-left">
+          <div class="offer-badge offer-badge--core">Most Popular</div>
+          <p class="offer-solo-desc">The full system — Executive Assessment, custom protocol, ongoing coaching, and medical support. Built for executives who want the complete picture and real accountability.</p>
+          <div class="offer-solo-price-block">
+            <div class="offer-solo-price-num" style="color:var(--sand);">$8,500</div>
+            <div class="price-note">to start — assessment + first 90 days</div>
+            <div class="price-alt" style="margin-top:12px;">Then <strong style="color:var(--lt);">$4,000/quarter</strong> · 6-month min · or <strong style="color:var(--lt);">$16,000/yr</strong></div>
+          </div>
+        </div>
+
+        <div class="offer-solo-right">
+          <div class="eyebrow eyebrow--sand" style="margin-bottom:20px;">What's included</div>
+          <ul class="offer-solo-features offer-solo-features--sand">
+            <li>Full Executive Assessment — 1,000+ biomarkers</li>
+            <li>90-min protocol review with Andrew</li>
+            <li>Custom nutrition</li>
+            <li>Personalized training program + coaching</li>
+            <li>Precision supplementation</li>
+            <li>Dedicated coach + monthly 1:1 with Andrew</li>
+            <li>Shared team channel + WHOOP monitoring</li>
+            <li>Wholesale peptides, TRT/HRT via medical staff</li>
+            <li>Quarterly retesting &amp; protocol updates</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <span class="slide-num">09 / 12</span>
+  </section>
+
+  <!-- ══ SLIDE 10 · OFFER: PRO ═══════════════════════════════ -->
+  <section class="slide slide--hi" style="background: linear-gradient(160deg, var(--dark-hi) 0%, #1a1a26 100%); border-top: 1px solid var(--teal-edge);">
+    <div class="slide-inner">
+      <span class="eyebrow eyebrow--teal">Your Options · 3 of 3</span>
+      <h2>Second Prime<br>Pro</h2>
+      <div class="rule rule--teal"></div>
+
+      <div class="offer-solo">
+
+        <div class="offer-solo-left">
+          <div class="offer-badge offer-badge--pro">Flagship</div>
+          <p class="offer-solo-desc">Complete concierge health management. Everything in Core — plus full-day in-person diagnostics, daily monitoring, and direct access to Andrew whenever you need it.</p>
+          <div class="offer-solo-price-block" style="border-color: var(--teal-edge); background: var(--teal-faint);">
+            <div class="offer-solo-price-num" style="color:var(--accent);">$50,000</div>
+            <div class="price-note">annual investment</div>
+            <div class="price-alt" style="margin-top:12px;"><strong style="color:var(--lt);">$20,000 to start</strong>, then 2 × $15,000 · 30 days apart</div>
+          </div>
+        </div>
+
+        <div class="offer-solo-right">
+          <div class="eyebrow eyebrow--teal" style="margin-bottom:20px;">What's included</div>
+          <ul class="offer-solo-features">
+            <li>Everything in Core, plus:</li>
+            <li>Full-day in-person diagnostics — Coronary CT, Lung CT, Multi-Cancer Detection, Brain Health MRI, Whole Body MRI, DEXA + VO₂ Max</li>
+            <li>At-home sleep study</li>
+            <li>Daily monitoring + frequent protocol adjustments</li>
+            <li>Priority direct access to Andrew</li>
+            <li>Semi-annual in-person consultations</li>
+            <li>Concierge prescription &amp; pharmacy coordination</li>
+            <li>Annual longevity strategy &amp; roadmap review</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <span class="slide-num">10 / 12</span>
+  </section>
+
+  <!-- ══ SLIDE 11 · OFFER COMPARISON ════════════════════════ -->
   <section class="slide slide--card" style="align-items:flex-start; padding-top:28px; padding-bottom:28px;">
     <div class="slide-inner">
       <span class="eyebrow eyebrow--teal">Your Options</span>
@@ -1929,7 +2133,7 @@
 
       </div>
     </div>
-    <span class="slide-num">08 / 09</span>
+    <span class="slide-num">11 / 12</span>
   </section>
 
   <!-- ══ SLIDE 12 · NEXT STEPS ══════════════════════════════ -->
@@ -1976,7 +2180,7 @@
         <p style="font-size:14px; color:var(--lt-40); margin-bottom:0;">Questions? Reach out to Andrew directly. The same standard of access you'd expect from the program starts before the contract is signed.</p>
       </div>
     </div>
-    <span class="slide-num">09 / 09</span>
+    <span class="slide-num">12 / 12</span>
   </section>
 
 </div><!-- /deck -->
