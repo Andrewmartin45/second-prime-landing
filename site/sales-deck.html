@@ -1320,6 +1320,121 @@
       background-size: 10px;
     }
 
+    /* ── VS COMPARISON TABLE ──────────────────────────────── */
+    .vs-table {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-top: 40px;
+    }
+
+    .vs-header {
+      padding: 22px 28px;
+    }
+
+    .vs-header--alt {
+      background: var(--dark-card);
+      border: 1px solid var(--bd-dark);
+      border-radius: 12px 0 0 0;
+      border-right: none;
+      border-bottom: 2px solid rgba(255,255,255,0.12);
+    }
+
+    .vs-header--sp {
+      background: var(--dark-hi);
+      border: 1px solid var(--teal-edge);
+      border-radius: 0 12px 0 0;
+      border-left: none;
+      border-bottom: 2px solid var(--teal);
+    }
+
+    .vs-col-label {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .vs-col-label--alt { color: var(--lt-40); }
+    .vs-col-label--sp  { color: var(--teal); }
+
+    .vs-col-title {
+      font-family: var(--display);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--lt);
+    }
+
+    .vs-cell {
+      padding: 18px 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      border: 1px solid var(--bd-dark);
+    }
+
+    .vs-cell--alt {
+      background: var(--dark-card);
+      border-right: none;
+    }
+
+    .vs-cell--sp {
+      background: var(--dark-hi);
+      border-left: none;
+      border-color: rgba(101,200,208,0.15);
+    }
+
+    .vs-table > .vs-cell:nth-last-child(2) { border-radius: 0 0 0 12px; }
+    .vs-table > .vs-cell:last-child         { border-radius: 0 0 12px 0; }
+
+    .vs-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .vs-icon--x {
+      background: rgba(220,130,60,0.10);
+      border: 1.5px solid rgba(220,130,60,0.28);
+      color: rgba(220,150,80,0.85);
+    }
+
+    .vs-icon--check {
+      background: var(--teal-faint);
+      border: 1.5px solid var(--teal-edge);
+      color: var(--teal);
+    }
+
+    .vs-row-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--lt-20);
+      margin-bottom: 5px;
+    }
+
+    .vs-text {
+      font-size: 14px;
+      color: var(--lt-60);
+      line-height: 1.55;
+    }
+
+    .vs-text--sp {
+      font-size: 14px;
+      color: var(--lt);
+      line-height: 1.55;
+    }
+
     /* ── PRINT / PDF HINT ──────────────────────────────────── */
     @media print {
       .slide { min-height: 100vh; page-break-after: always; }
@@ -1545,6 +1660,15 @@
       /* Rule margin */
       .rule { margin: 20px 0; }
 
+      /* VS comparison table — keep 2-col but tighten */
+      .vs-table { width: 100%; gap: 2px; }
+      .vs-header { padding: 14px 12px; }
+      .vs-col-title { font-size: 13px; }
+      .vs-cell { padding: 12px 10px; gap: 8px; }
+      .vs-row-label { display: none; }
+      .vs-text, .vs-text--sp { font-size: 12px; }
+      .vs-icon { width: 18px; height: 18px; font-size: 10px; }
+
       /* Individual offer slides → stack */
       .offer-solo {
         grid-template-columns: 1fr;
@@ -1612,13 +1736,13 @@
           <div class="card-num" style="color:var(--teal);">01</div>
           <h3>Mitigate<br>Health Risks</h3>
           <div class="rule rule--teal" style="margin: 16px 0;"></div>
-          <p class="tag-note">Proactive risk reduction — not diagnosis</p>
           <div class="tag-group">
             <span class="tag tag--teal">Cardiovascular Disease</span>
             <span class="tag tag--teal">Neurodegenerative Disease</span>
             <span class="tag tag--teal">Metabolic Disorders</span>
             <span class="tag tag--teal">Cancer Risk</span>
           </div>
+          <p class="tag-note" style="margin-top:16px; margin-bottom:0;">Proactive risk reduction — not diagnosis</p>
         </div>
         <div class="card card--accent">
           <div class="card-num" style="color:var(--teal);">02</div>
@@ -1816,46 +1940,84 @@
   <section class="slide slide--card">
     <div class="slide-inner">
       <span class="eyebrow eyebrow--teal">Why Second Prime</span>
-      <h2>Three branches.<br>One ecosystem.</h2>
+      <h2>One system.<br>Every variable.</h2>
       <div class="rule"></div>
-      <p style="max-width:660px;">Most people are patching together a health solution — a lab testing company here, a personal trainer there, maybe a functional medicine doctor. You get one slot per provider. No one shares data. No one sees the full picture.</p>
+      <p style="max-width:680px;">Most executives are patching together a health stack — labs here, a trainer there, a functional medicine doctor somewhere else. Each provider sees one piece. No one shares data. No one builds a system. Here's what that looks like vs. what we do.</p>
 
-      <div class="ecosystem-wrap">
+      <div class="vs-table">
 
-        <!-- Left: The Alternative -->
-        <div>
-          <div class="alt-side-label">The Alternative</div>
-          <div class="alt-boxes">
-            <div class="alt-box">Lab Testing Co.<span>data, no system</span></div>
-            <div class="alt-box">Personal Trainer<span>fitness only</span></div>
-            <div class="alt-box">Nutritionist<span>food only</span></div>
-            <div class="alt-box">Doctor<span>crisis management</span></div>
-          </div>
-          <div class="alt-note">No shared data. No coordination. No full picture.</div>
+        <!-- Column headers -->
+        <div class="vs-header vs-header--alt">
+          <span class="vs-col-label vs-col-label--alt">The Fragmented Approach</span>
+          <div class="vs-col-title">What Most People Do</div>
+        </div>
+        <div class="vs-header vs-header--sp">
+          <span class="vs-col-label vs-col-label--sp">Second Prime</span>
+          <div class="vs-col-title">What We Build for You</div>
         </div>
 
-        <!-- Center: VS -->
-        <div class="eco-vs">vs.</div>
-
-        <!-- Right: Second Prime -->
-        <div class="sp-eco-side">
-          <div class="sp-umbrella-box">Second Prime</div>
-          <div class="sp-tree-line"></div>
-          <div class="sp-branches">
-            <div class="sp-branch sp-branch--health">
-              <div class="sp-branch-name">SP Health</div>
-              <div class="sp-branch-items">1,000+ Biomarkers · Root-Cause Analysis · Gut, Hormones, Metabolism</div>
-            </div>
-            <div class="sp-branch sp-branch--performance">
-              <div class="sp-branch-name">SP Performance</div>
-              <div class="sp-branch-items">Expert Coaching · Training · Nutrition · Wearable Monitoring</div>
-            </div>
-            <div class="sp-branch sp-branch--medical">
-              <div class="sp-branch-name">SP Medical</div>
-              <div class="sp-branch-items">Peptides · TRT / HRT · 6,000+ Prescriptions · 503A/B Pharmacies</div>
-            </div>
+        <!-- Row: Testing & Data -->
+        <div class="vs-cell vs-cell--alt">
+          <div class="vs-icon vs-icon--x">✕</div>
+          <div>
+            <div class="vs-row-label">Testing &amp; Data</div>
+            <div class="vs-text">Piecemeal labs ordered reactively. Results sit in a portal — no one connects the dots or acts on the full picture.</div>
           </div>
-          <div class="sp-unified-note">One protocol. Every system connected.</div>
+        </div>
+        <div class="vs-cell vs-cell--sp">
+          <div class="vs-icon vs-icon--check">✓</div>
+          <div>
+            <div class="vs-row-label">Testing &amp; Data</div>
+            <div class="vs-text--sp">1,000+ biomarkers — blood, gut, hormones, metabolism — analyzed together as one connected system.</div>
+          </div>
+        </div>
+
+        <!-- Row: Coaching -->
+        <div class="vs-cell vs-cell--alt">
+          <div class="vs-icon vs-icon--x">✕</div>
+          <div>
+            <div class="vs-row-label">Coaching</div>
+            <div class="vs-text">Generic trainer with no access to your labs, hormones, or recovery data. Program is guesswork.</div>
+          </div>
+        </div>
+        <div class="vs-cell vs-cell--sp">
+          <div class="vs-icon vs-icon--check">✓</div>
+          <div>
+            <div class="vs-row-label">Coaching</div>
+            <div class="vs-text--sp">Expert coaches building your training and nutrition protocols directly from your biology — updated as you retest.</div>
+          </div>
+        </div>
+
+        <!-- Row: Medical -->
+        <div class="vs-cell vs-cell--alt">
+          <div class="vs-icon vs-icon--x">✕</div>
+          <div>
+            <div class="vs-row-label">Medical Access</div>
+            <div class="vs-text">Primary care reacts to symptoms when it's too late. No access to advanced therapies or proactive optimization.</div>
+          </div>
+        </div>
+        <div class="vs-cell vs-cell--sp">
+          <div class="vs-icon vs-icon--check">✓</div>
+          <div>
+            <div class="vs-row-label">Medical Access</div>
+            <div class="vs-text--sp">Proactive medical team. TRT, HRT, peptides, and 6,000+ prescriptions — all coordinated within your protocol.</div>
+          </div>
+        </div>
+
+        <!-- Row: Coordination -->
+        <div class="vs-cell vs-cell--alt">
+          <div class="vs-icon vs-icon--x">✕</div>
+          <div>
+            <div class="vs-row-label">Coordination</div>
+            <div class="vs-text">You're the coordinator. Providers don't talk. Data doesn't flow. Nothing is integrated into a single plan.</div>
+          </div>
+        </div>
+        <div class="vs-cell vs-cell--sp">
+          <div class="vs-icon vs-icon--check">✓</div>
+          <div>
+            <div class="vs-row-label">Coordination</div>
+            <div class="vs-text--sp">One unified protocol. SP Health, SP Performance, and SP Medical operate as a single team around you.</div>
+          </div>
         </div>
 
       </div>
@@ -1960,7 +2122,7 @@
       <div class="offer-solo">
 
         <div class="offer-solo-left">
-          <div class="offer-badge offer-badge--body">Entry Point</div>
+          <div class="offer-badge offer-badge--body">Aesthetics Focused</div>
           <p class="offer-solo-desc">A data-backed 6-month body transformation program. The fastest path to real, measurable results — without the full diagnostic commitment.</p>
           <div class="offer-solo-price-block">
             <div class="offer-solo-price-num">$10,000</div>
@@ -2035,9 +2197,10 @@
       <div class="offer-solo">
 
         <div class="offer-solo-left">
+          <div class="offer-badge offer-badge--pro">Full Longevity Workup</div>
           <p class="offer-solo-desc">Complete concierge health management. Everything in Core — plus full-day in-person diagnostics, daily monitoring, and direct access to Andrew whenever you need it.</p>
           <div class="offer-solo-price-block" style="background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.10);">
-            <div class="offer-solo-price-num">$50,000</div>
+            <div class="offer-solo-price-num" style="color:var(--accent);">$50,000</div>
             <div class="price-note">annual investment</div>
             <div class="price-alt" style="margin-top:12px;"><strong style="color:var(--lt);">$20,000 to start</strong>, then 2 × $15,000 · 30 days apart</div>
           </div>
@@ -2111,7 +2274,7 @@
         </div>
 
         <!-- SECOND PRIME PRO -->
-        <div class="offer-card offer-card--pro">
+        <div class="offer-card offer-card--pro" style="background: var(--dark-card);">
           <div class="offer-name">Second Prime<br>Pro</div>
           <div class="price-block">
             <div class="price-main price-main--teal">$50,000</div>
