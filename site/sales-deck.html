@@ -1337,7 +1337,7 @@
       font-weight: 700;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--lt-40);
+      color: var(--lt-60);
     }
 
     .eco-alt-grid {
@@ -1347,8 +1347,8 @@
     }
 
     .eco-alt-box {
-      background: var(--dark-card);
-      border: 1px dashed rgba(255,255,255,0.13);
+      background: rgba(255,255,255,0.03);
+      border: 1px dashed rgba(255,255,255,0.22);
       border-radius: 10px;
       padding: 14px 16px;
     }
@@ -1356,18 +1356,18 @@
     .eco-alt-name {
       font-size: 13px;
       font-weight: 600;
-      color: var(--lt-40);
+      color: rgba(240,240,242,0.65);
       margin-bottom: 3px;
     }
 
     .eco-alt-note {
       font-size: 11px;
-      color: var(--lt-20);
+      color: var(--lt-40);
     }
 
     .eco-alt-verdict {
       font-size: 12px;
-      color: rgba(215,130,55,0.75);
+      color: rgba(215,130,55,0.80);
       text-align: center;
       padding-top: 2px;
     }
@@ -1381,20 +1381,22 @@
       text-align: center;
     }
 
-    /* SP side */
-    .eco-sp { display: flex; flex-direction: column; }
+    /* SP side — one enclosed card = one integrated system */
+    .eco-sp {
+      border: 1.5px solid var(--teal-edge);
+      border-top: 2.5px solid var(--teal);
+      border-radius: 12px;
+      overflow: hidden;
+    }
 
-    .eco-sp-umbrella {
+    .eco-sp-header {
       background: var(--dark-hi);
-      border: 1px solid var(--teal-edge);
-      border-bottom: none;
-      border-top: 2px solid var(--teal);
-      border-radius: 12px 12px 0 0;
       padding: 16px 22px;
       display: flex;
       align-items: baseline;
       justify-content: space-between;
       gap: 12px;
+      border-bottom: 1px solid rgba(101,200,208,0.18);
     }
 
     .eco-sp-uname {
@@ -1414,47 +1416,28 @@
     .eco-sp-branches {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 0;
+      background: var(--dark-hi);
     }
 
     .eco-sp-branch {
-      background: var(--dark-hi);
-      border: 1px solid rgba(101,200,208,0.13);
-      border-top: 2px solid;
-      padding: 18px 14px;
+      padding: 18px 16px;
+      border-right: 1px solid rgba(101,200,208,0.12);
     }
 
-    .eco-sp-branch:nth-child(2) { border-left: none; border-right: none; }
-    .eco-sp-branch:first-child  { border-radius: 0 0 0 12px; }
-    .eco-sp-branch:last-child   { border-radius: 0 0 12px 0; }
-
-    .eco-sp-branch--h { border-top-color: var(--teal); }
-    .eco-sp-branch--p { border-top-color: var(--sand); }
-    .eco-sp-branch--m { border-top-color: #9b8ef5; }
+    .eco-sp-branch:last-child { border-right: none; }
 
     .eco-sp-bname {
       font-family: var(--display);
       font-size: 15px;
       font-weight: 700;
+      color: var(--lt);
       margin-bottom: 8px;
     }
-
-    .eco-sp-branch--h .eco-sp-bname { color: var(--teal); }
-    .eco-sp-branch--p .eco-sp-bname { color: var(--sand); }
-    .eco-sp-branch--m .eco-sp-bname { color: #9b8ef5; }
 
     .eco-sp-bdesc {
       font-size: 12px;
       color: var(--lt-60);
       line-height: 1.65;
-    }
-
-    .eco-sp-verdict {
-      font-size: 12px;
-      color: var(--teal);
-      opacity: 0.75;
-      text-align: center;
-      padding-top: 12px;
     }
 
     /* ── PRINT / PDF HINT ──────────────────────────────────── */
@@ -1993,27 +1976,26 @@
         <!-- Center VS -->
         <div class="eco-vs-label">vs.</div>
 
-        <!-- Right: Second Prime -->
+        <!-- Right: Second Prime — one card = one system -->
         <div class="eco-sp">
-          <div class="eco-sp-umbrella">
+          <div class="eco-sp-header">
             <span class="eco-sp-uname">Second Prime</span>
             <span class="eco-sp-utag">All data shared. One protocol.</span>
           </div>
           <div class="eco-sp-branches">
-            <div class="eco-sp-branch eco-sp-branch--h">
+            <div class="eco-sp-branch">
               <div class="eco-sp-bname">SP Health</div>
               <div class="eco-sp-bdesc">1,000+ Biomarkers<br>Root-cause analysis<br>Gut · Hormones · Metabolism</div>
             </div>
-            <div class="eco-sp-branch eco-sp-branch--p">
+            <div class="eco-sp-branch">
               <div class="eco-sp-bname">SP Performance</div>
               <div class="eco-sp-bdesc">Expert Coaching<br>Training · Nutrition<br>Wearable Monitoring</div>
             </div>
-            <div class="eco-sp-branch eco-sp-branch--m">
+            <div class="eco-sp-branch">
               <div class="eco-sp-bname">SP Medical</div>
               <div class="eco-sp-bdesc">TRT · HRT · Peptides<br>6,000+ Prescriptions<br>503A/B Pharmacies</div>
             </div>
           </div>
-          <div class="eco-sp-verdict">Three branches. Every system connected.</div>
         </div>
 
       </div>
