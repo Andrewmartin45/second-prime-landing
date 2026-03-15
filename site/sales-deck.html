@@ -1320,119 +1320,141 @@
       background-size: 10px;
     }
 
-    /* ── VS COMPARISON TABLE ──────────────────────────────── */
-    .vs-table {
+    /* ── SLIDE 06 ECOSYSTEM VISUAL ────────────────────────── */
+    .eco-compare {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
+      grid-template-columns: 1fr 44px 1.45fr;
+      align-items: center;
+      gap: 0;
       margin-top: 40px;
     }
 
-    .vs-header {
-      padding: 22px 28px;
-    }
+    /* ALT side */
+    .eco-alt { display: flex; flex-direction: column; gap: 10px; }
 
-    .vs-header--alt {
-      background: var(--dark-card);
-      border: 1px solid var(--bd-dark);
-      border-radius: 12px 0 0 0;
-      border-right: none;
-      border-bottom: 2px solid rgba(255,255,255,0.12);
-    }
-
-    .vs-header--sp {
-      background: var(--dark-hi);
-      border: 1px solid var(--teal-edge);
-      border-radius: 0 12px 0 0;
-      border-left: none;
-      border-bottom: 2px solid var(--teal);
-    }
-
-    .vs-col-label {
-      display: block;
+    .eco-alt-label {
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      margin-bottom: 6px;
+      color: var(--lt-40);
     }
 
-    .vs-col-label--alt { color: var(--lt-40); }
-    .vs-col-label--sp  { color: var(--teal); }
-
-    .vs-col-title {
-      font-family: var(--display);
-      font-size: 17px;
-      font-weight: 600;
-      color: var(--lt);
+    .eco-alt-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
     }
 
-    .vs-cell {
-      padding: 18px 28px;
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      border: 1px solid var(--bd-dark);
-    }
-
-    .vs-cell--alt {
+    .eco-alt-box {
       background: var(--dark-card);
-      border-right: none;
+      border: 1px dashed rgba(255,255,255,0.13);
+      border-radius: 10px;
+      padding: 14px 16px;
     }
 
-    .vs-cell--sp {
-      background: var(--dark-hi);
-      border-left: none;
-      border-color: rgba(101,200,208,0.15);
+    .eco-alt-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--lt-40);
+      margin-bottom: 3px;
     }
 
-    .vs-table > .vs-cell:nth-last-child(2) { border-radius: 0 0 0 12px; }
-    .vs-table > .vs-cell:last-child         { border-radius: 0 0 12px 0; }
-
-    .vs-icon {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .eco-alt-note {
       font-size: 11px;
+      color: var(--lt-20);
+    }
+
+    .eco-alt-verdict {
+      font-size: 12px;
+      color: rgba(215,130,55,0.75);
+      text-align: center;
+      padding-top: 2px;
+    }
+
+    /* VS divider */
+    .eco-vs-label {
+      font-family: var(--display);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--lt-20);
+      text-align: center;
+    }
+
+    /* SP side */
+    .eco-sp { display: flex; flex-direction: column; }
+
+    .eco-sp-umbrella {
+      background: var(--dark-hi);
+      border: 1px solid var(--teal-edge);
+      border-bottom: none;
+      border-top: 2px solid var(--teal);
+      border-radius: 12px 12px 0 0;
+      padding: 16px 22px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .eco-sp-uname {
+      font-family: var(--display);
+      font-size: 19px;
       font-weight: 700;
-      margin-top: 2px;
-    }
-
-    .vs-icon--x {
-      background: rgba(220,130,60,0.10);
-      border: 1.5px solid rgba(220,130,60,0.28);
-      color: rgba(220,150,80,0.85);
-    }
-
-    .vs-icon--check {
-      background: var(--teal-faint);
-      border: 1.5px solid var(--teal-edge);
       color: var(--teal);
     }
 
-    .vs-row-label {
-      font-size: 10px;
+    .eco-sp-utag {
+      font-size: 11px;
+      color: var(--lt-40);
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    .eco-sp-branches {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+    }
+
+    .eco-sp-branch {
+      background: var(--dark-hi);
+      border: 1px solid rgba(101,200,208,0.13);
+      border-top: 2px solid;
+      padding: 18px 14px;
+    }
+
+    .eco-sp-branch:nth-child(2) { border-left: none; border-right: none; }
+    .eco-sp-branch:first-child  { border-radius: 0 0 0 12px; }
+    .eco-sp-branch:last-child   { border-radius: 0 0 12px 0; }
+
+    .eco-sp-branch--h { border-top-color: var(--teal); }
+    .eco-sp-branch--p { border-top-color: var(--sand); }
+    .eco-sp-branch--m { border-top-color: #9b8ef5; }
+
+    .eco-sp-bname {
+      font-family: var(--display);
+      font-size: 15px;
       font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--lt-20);
-      margin-bottom: 5px;
+      margin-bottom: 8px;
     }
 
-    .vs-text {
-      font-size: 14px;
+    .eco-sp-branch--h .eco-sp-bname { color: var(--teal); }
+    .eco-sp-branch--p .eco-sp-bname { color: var(--sand); }
+    .eco-sp-branch--m .eco-sp-bname { color: #9b8ef5; }
+
+    .eco-sp-bdesc {
+      font-size: 12px;
       color: var(--lt-60);
-      line-height: 1.55;
+      line-height: 1.65;
     }
 
-    .vs-text--sp {
-      font-size: 14px;
-      color: var(--lt);
-      line-height: 1.55;
+    .eco-sp-verdict {
+      font-size: 12px;
+      color: var(--teal);
+      opacity: 0.75;
+      text-align: center;
+      padding-top: 12px;
     }
 
     /* ── PRINT / PDF HINT ──────────────────────────────────── */
@@ -1660,14 +1682,12 @@
       /* Rule margin */
       .rule { margin: 20px 0; }
 
-      /* VS comparison table — keep 2-col but tighten */
-      .vs-table { width: 100%; gap: 2px; }
-      .vs-header { padding: 14px 12px; }
-      .vs-col-title { font-size: 13px; }
-      .vs-cell { padding: 12px 10px; gap: 8px; }
-      .vs-row-label { display: none; }
-      .vs-text, .vs-text--sp { font-size: 12px; }
-      .vs-icon { width: 18px; height: 18px; font-size: 10px; }
+      /* Ecosystem compare → stack vertically */
+      .eco-compare { grid-template-columns: 1fr; gap: 20px; }
+      .eco-vs-label { display: none; }
+      .eco-sp-branches { grid-template-columns: 1fr 1fr 1fr; }
+      .eco-sp-bname { font-size: 13px; }
+      .eco-sp-bdesc { font-size: 11px; }
 
       /* Individual offer slides → stack */
       .offer-solo {
@@ -1940,84 +1960,60 @@
   <section class="slide slide--card">
     <div class="slide-inner">
       <span class="eyebrow eyebrow--teal">Why Second Prime</span>
-      <h2>One system.<br>Every variable.</h2>
+      <h2>Three branches.<br>One ecosystem.</h2>
       <div class="rule"></div>
-      <p style="max-width:680px;">Most executives are patching together a health stack — labs here, a trainer there, a functional medicine doctor somewhere else. Each provider sees one piece. No one shares data. No one builds a system. Here's what that looks like vs. what we do.</p>
+      <p style="max-width:600px;">Most executives are patching together four separate providers. None share data. None build a system. We built something different.</p>
 
-      <div class="vs-table">
+      <div class="eco-compare">
 
-        <!-- Column headers -->
-        <div class="vs-header vs-header--alt">
-          <span class="vs-col-label vs-col-label--alt">The Fragmented Approach</span>
-          <div class="vs-col-title">What Most People Do</div>
-        </div>
-        <div class="vs-header vs-header--sp">
-          <span class="vs-col-label vs-col-label--sp">Second Prime</span>
-          <div class="vs-col-title">What We Build for You</div>
-        </div>
-
-        <!-- Row: Testing & Data -->
-        <div class="vs-cell vs-cell--alt">
-          <div class="vs-icon vs-icon--x">✕</div>
-          <div>
-            <div class="vs-row-label">Testing &amp; Data</div>
-            <div class="vs-text">Piecemeal labs ordered reactively. Results sit in a portal — no one connects the dots or acts on the full picture.</div>
+        <!-- Left: The Alternative -->
+        <div class="eco-alt">
+          <div class="eco-alt-label">The Alternative</div>
+          <div class="eco-alt-grid">
+            <div class="eco-alt-box">
+              <div class="eco-alt-name">Lab Testing Co.</div>
+              <div class="eco-alt-note">data, no system</div>
+            </div>
+            <div class="eco-alt-box">
+              <div class="eco-alt-name">Personal Trainer</div>
+              <div class="eco-alt-note">fitness only</div>
+            </div>
+            <div class="eco-alt-box">
+              <div class="eco-alt-name">Nutritionist</div>
+              <div class="eco-alt-note">food only</div>
+            </div>
+            <div class="eco-alt-box">
+              <div class="eco-alt-name">GP / Doctor</div>
+              <div class="eco-alt-note">reactive only</div>
+            </div>
           </div>
-        </div>
-        <div class="vs-cell vs-cell--sp">
-          <div class="vs-icon vs-icon--check">✓</div>
-          <div>
-            <div class="vs-row-label">Testing &amp; Data</div>
-            <div class="vs-text--sp">1,000+ biomarkers — blood, gut, hormones, metabolism — analyzed together as one connected system.</div>
-          </div>
+          <div class="eco-alt-verdict">No coordination. No shared data.</div>
         </div>
 
-        <!-- Row: Coaching -->
-        <div class="vs-cell vs-cell--alt">
-          <div class="vs-icon vs-icon--x">✕</div>
-          <div>
-            <div class="vs-row-label">Coaching</div>
-            <div class="vs-text">Generic trainer with no access to your labs, hormones, or recovery data. Program is guesswork.</div>
-          </div>
-        </div>
-        <div class="vs-cell vs-cell--sp">
-          <div class="vs-icon vs-icon--check">✓</div>
-          <div>
-            <div class="vs-row-label">Coaching</div>
-            <div class="vs-text--sp">Expert coaches building your training and nutrition protocols directly from your biology — updated as you retest.</div>
-          </div>
-        </div>
+        <!-- Center VS -->
+        <div class="eco-vs-label">vs.</div>
 
-        <!-- Row: Medical -->
-        <div class="vs-cell vs-cell--alt">
-          <div class="vs-icon vs-icon--x">✕</div>
-          <div>
-            <div class="vs-row-label">Medical Access</div>
-            <div class="vs-text">Primary care reacts to symptoms when it's too late. No access to advanced therapies or proactive optimization.</div>
+        <!-- Right: Second Prime -->
+        <div class="eco-sp">
+          <div class="eco-sp-umbrella">
+            <span class="eco-sp-uname">Second Prime</span>
+            <span class="eco-sp-utag">All data shared. One protocol.</span>
           </div>
-        </div>
-        <div class="vs-cell vs-cell--sp">
-          <div class="vs-icon vs-icon--check">✓</div>
-          <div>
-            <div class="vs-row-label">Medical Access</div>
-            <div class="vs-text--sp">Proactive medical team. TRT, HRT, peptides, and 6,000+ prescriptions — all coordinated within your protocol.</div>
+          <div class="eco-sp-branches">
+            <div class="eco-sp-branch eco-sp-branch--h">
+              <div class="eco-sp-bname">SP Health</div>
+              <div class="eco-sp-bdesc">1,000+ Biomarkers<br>Root-cause analysis<br>Gut · Hormones · Metabolism</div>
+            </div>
+            <div class="eco-sp-branch eco-sp-branch--p">
+              <div class="eco-sp-bname">SP Performance</div>
+              <div class="eco-sp-bdesc">Expert Coaching<br>Training · Nutrition<br>Wearable Monitoring</div>
+            </div>
+            <div class="eco-sp-branch eco-sp-branch--m">
+              <div class="eco-sp-bname">SP Medical</div>
+              <div class="eco-sp-bdesc">TRT · HRT · Peptides<br>6,000+ Prescriptions<br>503A/B Pharmacies</div>
+            </div>
           </div>
-        </div>
-
-        <!-- Row: Coordination -->
-        <div class="vs-cell vs-cell--alt">
-          <div class="vs-icon vs-icon--x">✕</div>
-          <div>
-            <div class="vs-row-label">Coordination</div>
-            <div class="vs-text">You're the coordinator. Providers don't talk. Data doesn't flow. Nothing is integrated into a single plan.</div>
-          </div>
-        </div>
-        <div class="vs-cell vs-cell--sp">
-          <div class="vs-icon vs-icon--check">✓</div>
-          <div>
-            <div class="vs-row-label">Coordination</div>
-            <div class="vs-text--sp">One unified protocol. SP Health, SP Performance, and SP Medical operate as a single team around you.</div>
-          </div>
+          <div class="eco-sp-verdict">Three branches. Every system connected.</div>
         </div>
 
       </div>
@@ -2197,7 +2193,7 @@
       <div class="offer-solo">
 
         <div class="offer-solo-left">
-          <div class="offer-badge offer-badge--pro">Full Longevity Workup</div>
+          <div class="offer-badge offer-badge--pro">Most Comprehensive</div>
           <p class="offer-solo-desc">Complete concierge health management. Everything in Core — plus full-day in-person diagnostics, daily monitoring, and direct access to Andrew whenever you need it.</p>
           <div class="offer-solo-price-block" style="background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.10);">
             <div class="offer-solo-price-num" style="color:var(--accent);">$50,000</div>
