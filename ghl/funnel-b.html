@@ -9,11 +9,13 @@
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    html, body { background: #0D0D12; }
     /* Break out of GHL section padding/background */
     .sp-page {
       width: 100vw;
       margin-left: calc(-50vw + 50%);
+      margin-top: -60px;
+      padding-top: 60px;
       background: #0D0D12;
       color: #F0F0F2;
       font-family: 'Satoshi', system-ui, -apple-system, sans-serif;
@@ -23,7 +25,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .sp-noise {
       position: absolute;
       inset: 0;
@@ -33,19 +34,17 @@
       pointer-events: none;
       z-index: 0;
     }
-
     .sp-glow {
       position: absolute;
-      top: -120px;
+      top: 0;
       left: 50%;
       transform: translateX(-50%);
       width: 900px;
       height: 600px;
-      background: radial-gradient(ellipse at center top, rgba(177,102,116,0.18) 0%, transparent 65%);
+      background: radial-gradient(ellipse at center top, rgba(120,236,245,0.12) 0%, transparent 65%);
       pointer-events: none;
       z-index: 0;
     }
-
     .sp-inner {
       position: relative;
       z-index: 1;
@@ -56,20 +55,8 @@
       max-width: 820px;
       margin: 0 auto;
     }
-
     .sp-logo { margin-bottom: 52px; }
     .sp-logo img { height: 40px; display: block; }
-
-    .sp-eyebrow {
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #8A9BB0;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
     .sp-h1 {
       font-size: clamp(26px, 3.8vw, 48px);
       font-weight: 800;
@@ -79,7 +66,6 @@
       color: #F0F0F2;
       margin-bottom: 20px;
     }
-
     .sp-sub {
       font-size: 17px;
       color: rgba(240,240,242,0.60);
@@ -88,7 +74,6 @@
       line-height: 1.7;
       margin-bottom: 44px;
     }
-
     .sp-video-wrap { width: 100%; margin-bottom: 40px; }
     .sp-video-frame {
       position: relative;
@@ -103,7 +88,6 @@
       top: 0; left: 0;
       width: 100%; height: 100%;
     }
-
     .sp-cta {
       display: flex;
       flex-direction: column;
@@ -119,8 +103,8 @@
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      background: #B16674;
-      color: #fff;
+      background: #78ECF5;
+      color: #101016;
       padding: 20px 64px;
       border-radius: 10px;
       border: none;
@@ -128,15 +112,13 @@
       text-decoration: none;
       transition: background 0.2s, transform 0.15s;
     }
-    .sp-btn:hover { background: #955561; transform: translateY(-1px); }
-
+    .sp-btn:hover { background: #65C8D0; transform: translateY(-1px); }
     .sp-note {
       font-size: 11px;
       color: rgba(240,240,242,0.40);
       letter-spacing: 0.04em;
       text-align: center;
     }
-
     /* ── Footer ── */
     .sp-footer {
       position: relative;
@@ -168,43 +150,27 @@
       color: rgba(240,240,242,0.22);
       letter-spacing: 0.04em;
     }
-
-    /* ── Modal ── */
+    /* ── Modal — always full-screen ── */
     .sp-modal-overlay {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.75);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
       z-index: 9999;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
     }
     .sp-modal-overlay.open { display: flex; }
-
     .sp-modal {
       background: #0D0D12;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 14px;
       width: 100%;
-      max-width: 560px;
-      max-height: 90vh;
-      overflow-y: auto;
+      height: 100%;
+      overflow: hidden;
       position: relative;
-      padding: 40px 32px 36px;
-      animation: sp-modal-in 0.22s ease;
+      display: flex;
+      flex-direction: column;
     }
-    @keyframes sp-modal-in {
-      from { opacity: 0; transform: translateY(16px) scale(0.98); }
-      to   { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
     .sp-modal-close {
       position: absolute;
-      top: 16px;
-      right: 16px;
+      top: 12px;
+      right: 12px;
       width: 32px;
       height: 32px;
       background: rgba(255,255,255,0.07);
@@ -218,45 +184,26 @@
       font-size: 18px;
       line-height: 1;
       transition: background 0.2s, color 0.2s;
+      z-index: 1;
     }
     .sp-modal-close:hover { background: rgba(255,255,255,0.12); color: #F0F0F2; }
-
-    .sp-modal-heading {
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      text-transform: uppercase;
-      color: #F0F0F2;
-      margin-bottom: 6px;
-      text-align: center;
-    }
-    .sp-modal-sub {
-      font-size: 13px;
-      color: rgba(240,240,242,0.45);
-      text-align: center;
-      margin-bottom: 28px;
-    }
-
-    /* GHL form iframe container — swap in your GHL embed code here */
+    .sp-modal-heading,
+    .sp-modal-sub { display: none; }
     .sp-modal-form {
       width: 100%;
-      min-height: 420px;
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: hidden;
     }
     .sp-modal-form iframe {
       width: 100%;
+      height: 100%;
       border: none;
-      min-height: 420px;
+      display: block;
     }
-
     @media (max-width: 600px) {
       .sp-inner { padding: 36px 20px 48px; }
       .sp-logo { margin-bottom: 28px; }
-      .sp-eyebrow {
-        font-size: 9px;
-        letter-spacing: 0.07em;
-        margin-bottom: 14px;
-        white-space: nowrap;
-      }
       .sp-h1 {
         font-size: 23px;
         margin-bottom: 14px;
@@ -268,40 +215,30 @@
         line-height: 1.65;
       }
       .sp-video-wrap { margin-bottom: 28px; }
-      .sp-modal-overlay { padding: 8px; }
-      .sp-modal { padding: 28px 12px 24px; }
     }
   </style>
 </head>
 <body>
-
 <!-- ── Main page ── -->
 <div class="sp-page">
   <div class="sp-noise"></div>
   <div class="sp-glow"></div>
   <div class="sp-inner">
-
     <div class="sp-logo">
       <img src="https://assets.cdn.filesafe.space/FlDP3vggPbCWokd7J6xc/media/69a8d6f9c7e71f99a9e409dc.svg" alt="Second Prime" />
     </div>
-
     <h1 class="sp-h1">Biologist Explains Why You're Exhausted, Flat, and Not Getting Results Despite Doing Everything Right.</h1>
-
     <p class="sp-sub">Discover the data-driven system using 1,000+ biomarkers and advanced therapies to unlock peak performance and longevity</p>
-
     <div class="sp-video-wrap">
       <div class="sp-video-frame">
         <iframe src="https://player.vimeo.com/video/1170398256?badge=0&autopause=0&player_id=0&app_id=58479&texttrack=false" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Second Prime VSL"></iframe>
       </div>
     </div>
-
     <div class="sp-cta">
       <button class="sp-btn" onclick="spOpenModal()">Apply for Second Prime</button>
       <span class="sp-note">Limited to 8 new clients per month &nbsp;&middot;&nbsp; Application required</span>
     </div>
-
   </div>
-
   <!-- ── Footer ── -->
   <footer class="sp-footer">
     <div class="sp-footer-logo">
@@ -316,30 +253,40 @@
     <p class="sp-footer-copy">&copy; 2026 Second Prime. All rights reserved.</p>
   </footer>
 </div>
-
 <!-- ── Modal ── -->
 <div class="sp-modal-overlay" id="spModal" onclick="spOverlayClose(event)">
   <div class="sp-modal">
     <button class="sp-modal-close" onclick="spCloseModal()" aria-label="Close">&times;</button>
     <p class="sp-modal-heading">Start Your Application</p>
     <p class="sp-modal-sub">Takes less than 3 minutes. We'll be in touch to confirm your spot.</p>
-
-    <div class="sp-modal-form">
-      <iframe src="https://app.fitnessforms.co/widget/survey/EMOKLtyh37pTXEUmxEQc" style="border:none;width:100%;" scrolling="no" id="EMOKLtyh37pTXEUmxEQc" title="survey"></iframe>
+    <div class="sp-modal-form" id="spTfContainer">
+      <iframe id="spTfIframe"
+        src=""
+        frameborder="0"
+        allow="camera; microphone; autoplay; encrypted-media; fullscreen"
+        style="width:100%;height:100%;border:none;"
+        title="Apply for Second Prime"
+      ></iframe>
     </div>
   </div>
 </div>
-
 <script src="https://player.vimeo.com/api/player.js"></script>
-<script src="https://app.fitnessforms.co/js/form_embed.js"></script>
 <script>
   function spOpenModal() {
+    var vp = document.querySelector('meta[name="viewport"]');
+    vp.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0');
+    var iframe = document.getElementById('spTfIframe');
+    if (!iframe.src || iframe.src === window.location.href) {
+      iframe.src = 'https://form.typeform.com/to/T6fa2a2p';
+    }
     document.getElementById('spModal').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
   function spCloseModal() {
     document.getElementById('spModal').classList.remove('open');
     document.body.style.overflow = '';
+    var vp = document.querySelector('meta[name="viewport"]');
+    vp.setAttribute('content', 'width=device-width, initial-scale=1.0');
   }
   function spOverlayClose(e) {
     if (e.target === document.getElementById('spModal')) spCloseModal();
