@@ -31,17 +31,6 @@
           "value": "consult.secondprime.io"
         }
       ]
-    },
-    {
-      "source": "/",
-      "destination": "/heart-disease-lead-magnet.html",
-      "permanent": false,
-      "has": [
-        {
-          "type": "host",
-          "value": "10markers.secondprime.io"
-        }
-      ]
     }
   ]
 }
