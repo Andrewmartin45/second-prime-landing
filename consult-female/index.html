@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Second Prime: Your Second Prime Begins Here</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Second Prime — Executive Health Optimization" />
+  <meta property="og:description" content="A comprehensive health system built for women who lead — and demand more from their body and their time." />
+  <meta property="og:image" content="https://consult.secondprime.io/photo-blood-draw.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://consult.secondprime.io" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://consult.secondprime.io/photo-blood-draw.jpg" />
+
+  <!-- Fonts: Zodiak (display) + Satoshi (body) via Fontshare -->
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,800,900&f[]=zodiak@600,700,800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:           #0D1117;
+      --card:         #161B27;
+      --highlight:    #1E2536;
+      --teal-bright:  #65C8D0;
+      --teal:         #65C8D0;
+      --teal-dark:    #458D93;
+      --sand:         #D9C8AE;
+      --brick:        #B16674;
+      --text:         #F0F0F2;
+      --text-60:      rgba(240,240,242,0.60);
+      --border:       rgba(255,255,255,0.08);
+      --border-teal:  rgba(101,200,208,0.20);
+      --border-brick: rgba(177,102,116,0.30);
+      --font-display: 'Zodiak', Georgia, serif;
+      --font-body:    'Satoshi', system-ui, sans-serif;
+      --radius-lg:    20px;
+      --radius-md:    16px;
+      --radius-sm:    10px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { scroll-behavior: smooth; overflow-x: hidden; }
+
+    body {
+      background: #FFFFFF;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      padding: 0 24px;
+    }
+
+    /* ── PANEL SYSTEM (alternating dark / light cards on white page) ── */
+    .panel--dark { background: var(--bg); color: var(--text); }
+    .panel--grey {
+      --text: #0D0D12;
+      --text-60: rgba(13,13,18,0.75);
+      --text-40: rgba(13,13,18,0.50);
+      --card: #FFFFFF;
+      --highlight: #F0F0F2;
+      --border: rgba(13,13,18,0.10);
+      --border-teal: rgba(69,141,147,0.30);
+      --border-brick: rgba(177,102,116,0.30);
+      background: #FAFAFA;
+      color: var(--text);
+    }
+    .panel--grey .eyebrow { color: rgba(13,13,18,0.40); }
+    .panel--grey .teal-line { background: var(--teal-dark); opacity: 0.5; }
+    .panel--grey h2,
+    .panel--grey h3,
+    .panel--grey h4 { color: var(--text); }
+    .panel--grey .section-subtitle { color: var(--text-60); }
+    .panel--grey .founder-letter p { color: rgba(13,13,18,0.78); }
+    .panel--grey .founder-letter em { color: var(--teal-dark); }
+    .panel--grey .testimonial-quote { color: rgba(13,13,18,0.75); }
+    .panel--grey .compare-cell.feature { color: rgba(13,13,18,0.70); }
+    .panel--grey .cross { color: rgba(13,13,18,0.45); }
+    .panel--grey .col-head { color: rgba(240,240,242,0.70); }
+    .panel--grey .compare-grid { background: rgba(13,13,18,0.08); border-color: rgba(13,13,18,0.12); }
+    .panel--grey .col-head.sp { background: var(--teal-dark); color: #FFFFFF; }
+    .panel--grey .compare-cell.sp { background: rgba(101,200,208,0.10); }
+
+    .wrap { max-width: 900px; margin: 0 auto; padding: 0 32px; }
+
+    section { padding: 96px 0; border-radius: 16px; overflow: hidden; margin-bottom: 8px; }
+
+    .eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(240,240,242,0.42);
+      margin-bottom: 20px;
+    }
+
+    h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; }
+    h1 { font-size: clamp(40px, 6vw, 68px); font-weight: 800; }
+    h2 { font-size: clamp(28px, 3.8vw, 44px); font-weight: 700; color: var(--text); margin-bottom: 16px; }
+    h3 { font-size: 24px; font-weight: 600; color: var(--text); margin-bottom: 12px; }
+    h4 { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+
+    .section-subtitle { font-size: 18px; color: var(--text-60); max-width: 640px; margin-bottom: 56px; line-height: 1.6; }
+
+    p { color: var(--text-60); margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--text); font-weight: 600; }
+
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; }
+    .card-teal { border-color: var(--border-teal); background: var(--card); }
+    .card-brick { border-color: var(--border-brick); background: var(--card); }
+
+    .teal-line {
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, var(--teal-bright), transparent);
+      border-radius: 2px; margin-bottom: 32px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; overflow: hidden; padding: 80px 32px;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 50% 42% at 50% 50%, rgba(101,200,208,0.04) 0%, transparent 70%),
+        radial-gradient(ellipse 30% 28% at 50% 50%, rgba(101,200,208,0.02) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 180px;
+      background: linear-gradient(to bottom, transparent, var(--bg)); pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 760px; }
+    .hero-logo { margin-bottom: 56px; display: flex; align-items: center; justify-content: center; }
+    .hero-logo img { height: 64px; width: auto; }
+    .hero-logo-text {
+      font-family: var(--font-display); font-size: 22px; font-weight: 700;
+      letter-spacing: 0.10em; color: var(--text); text-transform: uppercase;
+    }
+    .hero h1 {
+      margin-bottom: 28px;
+      background: linear-gradient(135deg, #ffffff 0%, rgba(240,240,242,0.85) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero h1 .h1-accent { -webkit-text-fill-color: var(--teal); background: none; -webkit-background-clip: initial; background-clip: initial; }
+    .hero-sub { font-size: 19px; color: var(--text-60); max-width: 580px; margin: 0 auto 40px; line-height: 1.65; }
+    .hero-pill {
+      display: inline-flex; align-items: center; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase; color: rgba(240,240,242,0.38); margin-bottom: 40px;
+    }
+    .hero-note {
+      display: inline-block; font-size: 13px; color: var(--text-60);
+      border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 24px; font-style: italic;
+    }
+
+    /* ── FOUNDER ── */
+    .founder-photo {
+      width: 120px; height: 120px; border-radius: 50%; object-fit: cover;
+      border: 2px solid var(--teal-bright); float: right; margin: 0 0 16px 24px;
+    }
+    .founder-letter {
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 56px 64px; position: relative; overflow: hidden;
+    }
+    .founder-letter::before {
+      content: '\201C'; position: absolute; top: -20px; left: 48px;
+      font-family: var(--font-display); font-size: 200px; color: rgba(101,200,208,0.03);
+      line-height: 1; pointer-events: none; user-select: none;
+    }
+    .founder-letter p { font-size: 17px; line-height: 1.8; color: rgba(240,240,242,0.78); margin-bottom: 20px; }
+    .founder-letter em { color: var(--sand); font-style: italic; }
+    .founder-sig { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--border); clear: both; }
+    .founder-sig-name { font-family: var(--font-display); font-size: 20px; font-weight: 600; color: var(--text); }
+    .founder-sig-title { font-size: 13px; color: var(--text-60); margin-top: 4px; }
+
+    .credential-strip {
+      display: flex; margin-top: 40px; background: var(--highlight);
+      border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden;
+    }
+    .credential-item { flex: 1; padding: 20px 24px; text-align: center; border-right: 1px solid var(--border); }
+    .credential-item:last-child { border-right: none; }
+    .credential-num { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--sand); display: block; }
+    .credential-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: var(--text-60); text-transform: uppercase; margin-top: 4px; display: block; }
+
+    /* ── WHO IT'S FOR ── */
+    .for-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .for-card { padding: 40px 36px; }
+    .for-card-label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 24px; }
+    .teal-label { color: var(--teal-bright); }
+    .brick-label { color: var(--brick); }
+    .for-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .for-list li { display: flex; align-items: flex-start; flex-direction: row; gap: 12px; font-size: 15px; color: var(--text-60); line-height: 1.5; }
+    .li-icon {
+      flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; margin-top: 2px;
+    }
+    .icon-teal { background: rgba(101,200,208,0.10); color: var(--teal-bright); }
+    .icon-brick { background: rgba(177,102,116,0.10); color: var(--brick); }
+
+    /* ── PROBLEM ── */
+    .problem-body { max-width: 720px; margin-bottom: 48px; }
+    .problem-body p { font-size: 17px; line-height: 1.8; color: var(--text-60); }
+    .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .problem-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 24px; position: relative; overflow: hidden; }
+    .problem-card::before {
+      content: '\00D7'; position: absolute; top: 10px; right: 14px; font-size: 20px;
+      color: rgba(177,102,116,0.15); font-family: var(--font-display); font-weight: 700;
+    }
+    .problem-card p { font-size: 14px; color: var(--text-60); line-height: 1.55; margin: 0; }
+
+    /* ── PILLARS ── */
+    .pillars-intro { font-size: 18px; color: var(--text-60); max-width: 660px; line-height: 1.7; margin-bottom: 52px; }
+    .pillar-grid { display: flex; flex-direction: column; gap: 0; }
+    .pillar-split {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 20px;
+    }
+    .pillar-split.flipped .pillar-photo-slot { order: -1; }
+    .pillar-text-col { background: var(--card); padding: 52px 48px; display: flex; align-items: flex-start; gap: 24px; min-height: 400px; }
+    .pillar-photo-slot { position: relative; height: 400px; overflow: hidden; }
+    .pillar-photo-slot img { width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block; }
+    .pillar-photo-placeholder {
+      width: 100%; height: 100%; background: var(--highlight);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 32px; text-align: center;
+    }
+    .photo-ph-icon { font-size: 32px; opacity: 0.3; }
+    .photo-ph-label { font-size: 12px; font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase; color: var(--text-60); opacity: 0.6; }
+    .photo-ph-hint { font-size: 11px; color: var(--text-60); opacity: 0.45; line-height: 1.5; }
+    .pillar-number { font-family: var(--font-display); font-size: 72px; font-weight: 800; line-height: 1; color: rgba(101,200,208,0.22); flex-shrink: 0; min-width: 80px; user-select: none; }
+    .pillar-content h3 { font-size: 28px; font-weight: 700; color: var(--text); margin-bottom: 12px; }
+    .pillar-content p { font-size: 16px; color: var(--text-60); line-height: 1.7; }
+
+    /* ── PHOTO BANNER ── */
+    .photo-banner { position: relative; width: 100%; height: 340px; border-radius: var(--radius-lg); overflow: hidden; margin: 64px 0 0; background: var(--highlight); }
+    .photo-banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .photo-banner-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(13,13,18,0.75) 0%, transparent 60%);
+      display: flex; flex-direction: column; justify-content: center; padding: 0 60px;
+    }
+    .photo-banner-label { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+    .photo-banner-quote { font-family: var(--font-display); font-size: clamp(20px, 3vw, 32px); font-weight: 700; color: var(--text); max-width: 480px; line-height: 1.3; }
+    .photo-banner-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; background: var(--highlight); }
+    @media screen and (max-width: 720px) {
+      .pillar-split { grid-template-columns: 1fr; }
+      .pillar-split.flipped .pillar-photo-slot { order: 0; }
+      .pillar-photo-slot { min-height: 220px; }
+      .pillar-text-col { padding: 36px 28px; }
+      .photo-banner { height: 240px; }
+      .photo-banner-overlay { padding: 0 32px; }
+    }
+
+    /* ── PROCESS ── */
+    .phase-list { display: flex; flex-direction: column; gap: 16px; }
+    .phase-block { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; }
+    .phase-header { display: grid; grid-template-columns: 120px 1fr; border-bottom: 1px solid var(--border); }
+    .phase-num-box { background: var(--highlight); border-right: 1px solid var(--border); display: flex; align-items: center; justify-content: center; padding: 24px; min-height: 80px; }
+    .phase-num { font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); }
+    .phase-name-box { padding: 24px 32px; }
+    .phase-label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-60); margin-bottom: 4px; }
+    .phase-name { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--text); }
+    .phase-body { padding: 32px; }
+    .phase-points { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .phase-points li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: var(--text-60); line-height: 1.5; }
+    .phase-points li::before { content: '\2192'; color: var(--teal); flex-shrink: 0; margin-top: 1px; }
+    .phase-callout { margin-top: 20px; background: var(--highlight); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px 20px; font-size: 14px; color: var(--text-60); font-style: italic; }
+
+    /* ── ASSESSMENTS ── */
+    .assess-intro { font-size: 17px; color: var(--text-60); max-width: 700px; line-height: 1.75; margin-bottom: 40px; }
+    .assess-flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 12px; }
+    .assess-flow-step { background: var(--card); padding: 28px 28px 24px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+    .assess-flow-num { font-family: var(--font-display); font-size: 10px; font-weight: 700; letter-spacing: 0.20em; color: var(--teal); text-transform: uppercase; }
+    .assess-flow-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--text); }
+    .assess-flow-role { font-size: 12px; color: var(--text-60); line-height: 1.5; max-width: 200px; }
+    .assess-flow-connector { background: var(--highlight); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 20px; gap: 4px; border-left: 1px solid var(--border); border-right: 1px solid var(--border); }
+    .assess-flow-verb { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); }
+    .assess-flow-arrow { color: var(--teal); font-size: 20px; line-height: 1; }
+    .assess-flow-caption { font-size: 13px; color: var(--text-60); font-style: italic; line-height: 1.6; margin-bottom: 32px; text-align: center; }
+    .assess-categories { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
+    .assess-category { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; }
+    .assess-cat-header { background: var(--highlight); border-bottom: 1px solid var(--border); padding: 14px 20px; display: flex; align-items: center; gap: 10px; }
+    .assess-cat-num { font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; color: var(--teal); }
+    .assess-cat-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text); }
+    .assess-item { display: flex; align-items: flex-start; gap: 12px; padding: 16px 20px; border-bottom: 1px solid var(--border); }
+    .assess-item:last-child { border-bottom: none; }
+    .assess-dot { flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%; background: var(--teal-bright); margin-top: 7px; }
+    .assess-item-name { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.3; margin-bottom: 3px; }
+    .assess-item-desc { font-size: 12px; color: var(--text-60); line-height: 1.45; }
+
+    /* ── COMPARISON ── */
+    .compare-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 40px; }
+    .compare-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 2px; background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; }
+    .col-head { background: #1A1A28; padding: 14px 10px; font-size: 9px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: var(--text-60); line-height: 1.45; text-align: center; }
+    .col-head:first-child { text-align: left; }
+    .col-head.sp { color: var(--text); background: rgba(255,255,255,0.04); }
+    .col-head-logo { height: 28px; width: auto; display: block; margin: 0 auto 5px; }
+    .col-head-sub { display: block; font-size: 8px; font-weight: 400; letter-spacing: 0.03em; text-transform: none; color: rgba(240,240,242,0.30); margin-top: 4px; line-height: 1.4; }
+    .compare-cell { background: var(--card); padding: 12px 8px; font-size: 12px; color: var(--text-60); line-height: 1.5; display: flex; align-items: center; justify-content: center; text-align: center; }
+    .compare-cell.feature { justify-content: flex-start; text-align: left; padding: 12px 14px; font-size: 12.5px; color: rgba(240,240,242,0.70); }
+    .compare-cell.sp { background: rgba(101,200,208,0.04); }
+    .compare-grid > *:nth-child(8n+5),
+    .compare-grid > *:nth-child(8n+6),
+    .compare-grid > *:nth-child(8n+7),
+    .compare-grid > *:nth-child(8n+8) { filter: brightness(0.93); }
+    .check { color: var(--teal); font-size: 17px; font-weight: 700; }
+    .cross { color: rgba(240,240,242,0.18); font-size: 17px; }
+    .partial { color: var(--sand); font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+
+    .diff-cards { display: flex; flex-direction: column; gap: 12px; }
+    .diff-card { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--teal); border-radius: var(--radius-md); padding: 28px 32px; }
+    .diff-card h4 { font-family: var(--font-display); font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+    .diff-card p { font-size: 15px; color: var(--text-60); line-height: 1.6; margin: 0; }
+
+    /* ── TRANSFORMATION ── */
+    .transform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .transform-card { padding: 40px 36px; }
+    .transform-label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 28px; }
+    .before-label { color: var(--brick); }
+    .after-label { color: var(--teal-bright); }
+    .transform-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .transform-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; line-height: 1.5; color: var(--text-60); }
+    .t-icon { flex-shrink: 0; font-size: 14px; font-weight: 700; margin-top: 1px; width: 16px; text-align: center; }
+    .t-before { color: var(--brick); }
+    .t-after { color: var(--teal-bright); }
+
+    /* ── TESTIMONIALS ── */
+    .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .testimonial-card { background: var(--card); border: 1px solid var(--border-teal); border-radius: var(--radius-lg); padding: 32px 28px; display: flex; flex-direction: column; gap: 16px; }
+    .stars { color: var(--sand); font-size: 14px; letter-spacing: 2px; }
+    .testimonial-quote { font-size: 14px; color: rgba(240,240,242,0.75); line-height: 1.7; flex: 1; font-style: italic; }
+    .testimonial-author { padding-top: 16px; border-top: 1px solid var(--border); }
+    .testimonial-name { font-family: var(--font-display); font-size: 15px; font-weight: 600; color: var(--text); }
+    .testimonial-role { font-size: 12px; color: var(--text-60); margin-top: 3px; }
+
+    /* ── VIDEO ── */
+    .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .video-thumb { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; cursor: pointer; transition: border-color 0.2s; }
+    .video-thumb:hover { border-color: rgba(101,200,208,0.22); }
+    .video-placeholder { aspect-ratio: 16/9; background: var(--highlight); display: flex; align-items: center; justify-content: center; }
+    .play-btn { width: 52px; height: 52px; background: rgba(101,200,208,0.08); border: 2px solid var(--teal-bright); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--teal-bright); font-size: 16px; padding-left: 3px; box-shadow: 0 0 22px rgba(101,200,208,0.10); }
+    .video-info { padding: 20px; }
+    .video-client { font-family: var(--font-display); font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .video-result { font-size: 12px; color: var(--text-60); font-style: italic; line-height: 1.4; }
+    .video-note { text-align: center; font-size: 13px; color: var(--text-60); margin-top: 28px; font-style: italic; }
+
+    /* ── RESULTS: 3-CATEGORY SECTION ── */
+    .results-category { margin-bottom: 60px; }
+    .results-category:last-child { margin-bottom: 0; }
+    .results-cat-header { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+    .results-cat-num { font-family: var(--font-display); font-size: 36px; font-weight: 800; color: var(--teal); line-height: 1; opacity: 0.45; flex-shrink: 0; min-width: 42px; }
+    .results-cat-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 5px; }
+    .results-cat-desc { font-size: 14px; color: var(--text-60); line-height: 1.5; }
+
+    .ba-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+    .ba-slot { aspect-ratio: 1/1; background: var(--bg); border: none; border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; position: relative; }
+    .ba-slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; z-index: 1; }
+    .ba-ph-icon { display: none; }
+    .ba-ph-num { display: none; }
+    .results-disclaimer { font-size: 11px; color: var(--text-60); opacity: 0.55; font-style: italic; text-align: center; line-height: 1.5; }
+
+    .exp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .exp-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 24px 22px; }
+    .exp-title { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .exp-quote { font-size: 12.5px; color: var(--text-60); line-height: 1.55; font-style: italic; margin-bottom: 0; }
+    .exp-attr { font-size: 11px; font-weight: 600; color: #94a3b8; margin-top: 14px; letter-spacing: 0.01em; }
+
+    /* ── STATS ── */
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 24px 24px; display: flex; flex-direction: column; gap: 0; overflow: hidden; }
+    .stat-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); background: rgba(101,200,208,0.08); border: 1px solid var(--border-teal); border-radius: 4px; padding: 4px 8px; margin-bottom: 16px; width: fit-content; }
+    .stat-delta { font-family: var(--font-display); font-size: 52px; font-weight: 800; color: var(--text); line-height: 1; margin-bottom: 4px; }
+    .stat-sublabel { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-60); margin-bottom: 18px; }
+    .stat-bar-track { height: 6px; background: var(--highlight); border-radius: 3px; overflow: hidden; margin-bottom: 14px; }
+    .stat-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--teal), var(--teal-dark)); }
+    .stat-compare { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+    .stat-compare-row { display: flex; align-items: center; gap: 10px; }
+    .stat-compare-lbl { font-size: 9px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-60); min-width: 52px; }
+    .stat-compare-track { flex: 1; height: 6px; background: var(--highlight); border-radius: 3px; overflow: hidden; }
+    .stat-compare-fill { height: 100%; border-radius: 3px; }
+    .stat-compare-fill.risk { background: var(--brick); }
+    .stat-compare-fill.safe { background: linear-gradient(90deg, var(--teal), var(--teal-dark)); }
+    .stat-dots { display: flex; gap: 7px; align-items: center; margin-bottom: 14px; }
+    .stat-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .stat-dot.on { background: var(--teal); box-shadow: 0 0 6px rgba(101,200,208,0.40); }
+    .stat-dot.off { background: var(--highlight); border: 1px solid var(--border); }
+    .stat-context { font-size: 12px; color: var(--text-60); line-height: 1.55; margin-top: auto; }
+
+    /* ── FAQ ── */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; }
+    .faq-q { padding: 24px 28px; font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; user-select: none; transition: color 0.2s; }
+    .faq-q:hover { color: var(--teal); }
+    .faq-q::after { content: '+'; font-family: var(--font-body); font-size: 22px; font-weight: 300; color: var(--teal); flex-shrink: 0; line-height: 1; transition: transform 0.25s ease; }
+    .faq-item.open .faq-q { border-bottom: 1px solid var(--border); }
+    .faq-item.open .faq-q::after { transform: rotate(45deg); }
+    .faq-a { overflow: hidden; max-height: 0; padding: 0 28px; font-size: 15px; color: var(--text-60); line-height: 1.75; transition: max-height 0.3s ease, padding 0.3s ease; }
+    .faq-item.open .faq-a { max-height: 600px; padding: 24px 28px; }
+    .faq-a p { margin: 0; color: var(--text-60); }
+
+    /* ── NEXT STEPS ── */
+    .steps-grid { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+    .step-card { display: grid; grid-template-columns: 80px 1fr; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; }
+    .step-num-col { background: var(--highlight); border-right: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 32px; font-weight: 800; color: var(--sand); }
+    .step-content { padding: 28px 32px; }
+    .step-content h3 { font-size: 20px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+    .step-content p { font-size: 15px; color: var(--text-60); line-height: 1.65; margin: 0; }
+    .next-note { background: var(--highlight); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 24px 32px; font-size: 15px; color: var(--text-60); line-height: 1.7; font-style: italic; }
+
+    /* ── SECTION-FINAL ── */
+    .section-final { padding-bottom: 0; }
+    .section-final .footer { margin-top: 48px; }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--card); border-top: 1px solid var(--border); padding: 40px 32px 36px; text-align: center; }
+    .footer-logo-wrap { display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+    .footer-logo-wrap img { height: 52px; width: auto; }
+    .footer-logo-text { font-family: var(--font-display); font-size: 26px; font-weight: 700; color: var(--text); letter-spacing: 0.04em; }
+    .footer-tagline { font-size: 11px; font-weight: 700; letter-spacing: 0.20em; text-transform: uppercase; color: var(--teal); margin-bottom: 20px; }
+    .footer-divider { width: 40px; height: 1px; background: var(--border); margin: 0 auto 16px; }
+    .footer-copy { font-size: 13px; color: var(--text-60); margin-bottom: 8px; }
+    .footer-legal { font-size: 12px; color: rgba(240,240,242,0.30); font-style: italic; }
+
+    /* ── RESPONSIVE ── */
+    @media screen and (max-width: 900px) {
+      h2 { white-space: normal; }
+      .assess-categories { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      section { padding: 72px 0; }
+      body { padding: 0 12px; }
+    }
+    @media screen and (max-width: 720px) {
+      body { padding: 0 8px; }
+      .wrap { padding: 0 20px; }
+      section { padding: 64px 0; }
+      h2 { font-size: 28px; white-space: normal; }
+      h1 { font-size: 36px; }
+      .for-grid, .transform-grid { grid-template-columns: 1fr; }
+      .testimonial-grid, .video-grid { grid-template-columns: 1fr; }
+      .problem-grid { grid-template-columns: 1fr; }
+      .differentiator-grid { grid-template-columns: 1fr; }
+      .assess-categories { grid-template-columns: 1fr; }
+      .exp-grid { grid-template-columns: 1fr; }
+      .ba-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .compare-scroll { margin-bottom: 28px; }
+      .assess-flow { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .assess-flow-connector { border-left: none; border-right: none; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); flex-direction: row; padding: 10px 20px; justify-content: center; }
+      .assess-flow-verb { writing-mode: horizontal-tb; }
+      .assess-flow-arrow { transform: rotate(90deg); }
+      .founder-letter { padding: 32px 24px; }
+      .founder-photo { width: 72px; height: 72px; margin: 0 0 12px 14px; }
+      .pillar-card { flex-direction: column; gap: 12px; }
+      .pillar-number { font-size: 40px; min-width: unset; }
+      .pillar-content h3 { font-size: 22px; }
+      .pillar-text-col { padding: 32px 24px; }
+      .photo-banner-overlay { padding: 0 24px; }
+      .credential-strip { flex-direction: column; }
+      .credential-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .credential-item:last-child { border-bottom: none; }
+      .phase-header { grid-template-columns: 80px 1fr; }
+      .phase-name-box { padding: 18px 20px; }
+      .phase-name { font-size: 18px; }
+      .phase-body { padding: 24px 20px; }
+      .step-card { grid-template-columns: 56px 1fr; }
+      .step-num-col { font-size: 22px; }
+      .step-content { padding: 22px 20px; }
+      .stat-delta { font-size: 40px; }
+      .faq-q { padding: 18px 20px; font-size: 16px; }
+      .faq-item.open .faq-a { padding: 18px 20px; }
+    }
+    @media screen and (max-width: 480px) {
+      body { padding: 0 6px; }
+      .wrap { padding: 0 16px; }
+      section { padding: 52px 0; }
+      .hero { padding: 64px 20px; }
+      .section-subtitle { font-size: 15px; margin-bottom: 36px; }
+      .hero-sub { font-size: 16px; }
+      .hero-note { font-size: 12px; padding: 10px 16px; }
+      .for-card { padding: 28px 22px; }
+      .transform-card { padding: 28px 22px; }
+      .ba-grid { grid-template-columns: 1fr; gap: 8px; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .phase-header { grid-template-columns: 1fr; }
+      .phase-num-box { border-right: none; border-bottom: 1px solid var(--border); min-height: unset; padding: 14px 20px; justify-content: flex-start; }
+      .step-card { grid-template-columns: 1fr; }
+      .step-num-col { border-right: none; border-bottom: 1px solid var(--border); padding: 16px 20px; justify-content: flex-start; font-size: 20px; }
+      .founder-photo { float: none; display: block; margin: 0 auto 20px; }
+    }
+  </style>
+</head>
+<body>
+<!-- ════════════════════════
+     1. HERO
+════════════════════════ -->
+<section class="hero panel panel--dark">
+  <div class="hero-inner">
+
+    <div class="hero-logo">
+      <img src="logo.png" alt="Second Prime"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+      <span class="hero-logo-text" style="display:none;">SECOND PRIME</span>
+    </div>
+
+    <div class="hero-pill">Health &nbsp;&middot;&nbsp; Performance &nbsp;&middot;&nbsp; Longevity</div>
+
+    <h1>Your Second Prime <span class="h1-accent">Begins Here</span>.</h1>
+
+    <p class="hero-sub">
+      Everything you need to understand what Second Prime is, how we work, and whether this is right for you. Before your consultation.
+    </p>
+
+    <div class="hero-note">
+      This document was prepared for your upcoming consultation. Please read it in full.
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════
+     2. FOUNDER LETTER
+════════════════════════ -->
+<section class="panel panel--grey">
+  <div class="wrap">
+    <span class="eyebrow">A Note from the Founder</span>
+    <div class="teal-line"></div>
+
+    <div class="founder-letter">
+      <img src="https://consult.secondprime.io/founder-photo.jpg" alt="Founder" class="founder-photo" />
+      <p>I didn&rsquo;t come to this work through a textbook. I came through my own body.</p>
+      <p>A decade ago, I was a biologist with a background in human physiology, and I was sick. An autoimmune condition was quietly dismantling my health. Despite everything I knew professionally, I was exhausted, inflamed, and running at a fraction of my capacity. Conventional medicine offered management. I wanted answers.</p>
+      <p>What followed was years of deep work, applying the same precision I&rsquo;d used in research to my own biology. <em>I rebuilt myself from the ground up.</em> Not through willpower or a new supplement stack. Through data, root-cause clarity, and a system that actually matched the demands I was placing on my body.</p>
+      <p>That transformation became Second Prime. Over the last 10 years, I&rsquo;ve worked with more than 1,000 clients, more than 500 of them founders, executives, and high-output operators. The pattern I see is always the same: disciplined, intelligent people who are putting in real effort and still not getting the results they deserve. Not because they&rsquo;re doing something wrong, but because no one has given them a system built for <em>them</em>.</p>
+      <p>Standard medicine flags crisis. It doesn&rsquo;t build performance. Generic fitness is designed for average demands, not yours. And the wellness industry? It&rsquo;s built to sell products, not solve root causes.</p>
+      <p>Second Prime is different. It&rsquo;s a precision-engineered, data-driven system built for the highest-output version of you. One that treats your body like the asset it is.</p>
+      <p>This document will walk you through exactly what we do, how we do it, and whether this is the right fit. Read it carefully. Come to our call prepared.</p>
+      <p>I&rsquo;m looking forward to talking with you.</p>
+      <div class="founder-sig">
+        <div class="founder-sig-name">Andrew Martin</div>
+        <div class="founder-sig-title">Founder &amp; Biologist, Second Prime</div>
+      </div>
+    </div>
+
+    <div class="credential-strip">
+      <div class="credential-item">
+        <span class="credential-num">10+</span>
+        <span class="credential-label">Years in the Field</span>
+      </div>
+      <div class="credential-item">
+        <span class="credential-num">1,000+</span>
+        <span class="credential-label">Clients Served</span>
+      </div>
+      <div class="credential-item">
+        <span class="credential-num">500+</span>
+        <span class="credential-label">Executives &amp; Business Owners</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════
+     3. WHO THIS IS FOR
+════════════════════════ -->
+<section class="panel panel--dark">
+  <div class="wrap">
+    <span class="eyebrow">Fit Assessment</span>
+    <div class="teal-line"></div>
+    <h2>Is This for You?</h2>
+    <p class="section-subtitle">Second Prime is built for a specific kind of woman. Understanding whether that&rsquo;s you is the first honest step.</p>
+
+    <div class="for-grid">
+
+      <div class="card card-teal for-card">
+        <div class="for-card-label teal-label">Who This Is For</div>
+        <ul class="for-list">
+          <li><span class="li-icon icon-teal">&#10003;</span>Women founders and executives 40+ running at maximum output</li>
+          <li><span class="li-icon icon-teal">&#10003;</span>Former athletes who know what peak performance feels like, and want it back</li>
+          <li><span class="li-icon icon-teal">&#10003;</span>Women who want root-cause clarity, not another supplement stack or fad</li>
+          <li><span class="li-icon icon-teal">&#10003;</span>Navigating perimenopause or menopause and refusing to just &ldquo;push through&rdquo; it</li>
+          <li><span class="li-icon icon-teal">&#10003;</span>Those with a family history (heart, hormones, bone density, longevity) they refuse to ignore</li>
+          <li><span class="li-icon icon-teal">&#10003;</span>Building health as a legacy, present and strong for their family for decades, not just years</li>
+        </ul>
+      </div>
+
+      <div class="card card-brick for-card">
+        <div class="for-card-label brick-label">Who This Is Not For</div>
+        <ul class="for-list">
+          <li><span class="li-icon icon-brick">&#10005;</span>You&rsquo;re not a founder, executive, or high performer</li>
+          <li><span class="li-icon icon-brick">&#10005;</span>Anyone looking for a quick fix or a generic 12-week program</li>
+          <li><span class="li-icon icon-brick">&#10005;</span>Those who need external motivation just to get started</li>
+          <li><span class="li-icon icon-brick">&#10005;</span>Anyone not ready to make a serious investment in root-cause optimization</li>
+          <li><span class="li-icon icon-brick">&#10005;</span>People who want a plan handed to them, but won&rsquo;t execute without constant hand-holding</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════
+     4. THE REAL PROBLEM
+════════════════════════ -->
+<section class="panel panel--grey">
+  <div class="wrap">
+    <span class="eyebrow">Root Cause Analysis</span>
+    <div class="teal-line"></div>
+    <h2>Why You&rsquo;re Not Where You Want to Be</h2>
+    <p class="section-subtitle">It&rsquo;s not effort. It&rsquo;s not willpower. It&rsquo;s the wrong system.</p>
+
+    <div class="problem-body">
+      <p>The women we work with aren&rsquo;t lazy. They&rsquo;re disciplined. They&rsquo;ve tried trainers, doctors, specialists, diets. They&rsquo;re putting in the work.</p>
+      <p>The problem isn&rsquo;t you. The existing systems weren&rsquo;t designed for someone like you, and too often, women&rsquo;s symptoms get waved off as &ldquo;just stress,&rdquo; &ldquo;just hormones,&rdquo; or &ldquo;just getting older.&rdquo;</p>
+      <p>Conventional medicine is built to detect and treat disease. It defines &ldquo;normal&rdquo; as &ldquo;not sick.&rdquo; But you&rsquo;re not trying to be &ldquo;not sick.&rdquo; You&rsquo;re trying to operate at your highest level. Those are completely different targets.</p>
+      <p>Generic fitness programs are designed for average people with average stress loads. You&rsquo;re not average. You carry more responsibility, more pressure, more consequence per decision than most people will experience in a lifetime.</p>
+      <p><strong>Here&rsquo;s what&rsquo;s actually happening:</strong></p>
+    </div>
+
+    <div class="problem-grid" style="margin-top:40px;">
+      <div class="problem-card"><p>Generic programs ignore your stress load, hormones, and recovery capacity</p></div>
+      <div class="problem-card"><p>Basic labs miss functional optimization and early dysfunction</p></div>
+      <div class="problem-card"><p>Your symptoms get dismissed as &ldquo;just stress&rdquo; or &ldquo;just hormones&rdquo;</p></div>
+      <div class="problem-card"><p>Random supplements create interactions without fixing root causes</p></div>
+      <div class="problem-card"><p>Fragmented specialists miss how your systems interact with each other</p></div>
+      <div class="problem-card"><p>More effort without proper recovery actually compounds the problem</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════
+     5. THREE PILLARS
+════════════════════════ -->
+<section class="panel panel--dark">
+  <div class="wrap">
+    <span class="eyebrow">The System</span>
+    <div class="teal-line"></div>
+    <h2>What Second Prime Actually Does</h2>
+
+    <p class="pillars-intro">We don&rsquo;t treat symptoms. We don&rsquo;t prescribe generic protocols. We engineer a system, built around your specific biology, your specific demands, and your specific goals.</p>
+
+    <div class="pillar-grid">
+
+      <!-- Pillar 01: text left, photo right -->
+      <div class="pillar-split">
+        <div class="pillar-text-col">
+          <div class="pillar-number">01</div>
+          <div class="pillar-content">
+            <h3>Mitigate Health Risks</h3>
+            <p>Identify and address cardiovascular, metabolic, hormonal, and bone-density risks before they become liabilities. We find what&rsquo;s coming, heart disease, osteoporosis, metabolic decline, before it arrives, and put a plan in place to stop it.</p>
+          </div>
+        </div>
+        <div class="pillar-photo-slot">
+          <img src="assets/photo-blood-draw.jpg" alt="Health assessment"
+               onerror="this.onerror=null;this.src='https://consult.secondprime.io/photo-blood-draw.jpg';" />
+        </div>
+      </div>
+
+      <!-- Pillar 02: photo left, text right -->
+      <div class="pillar-split flipped">
+        <div class="pillar-text-col">
+          <div class="pillar-number">02</div>
+          <div class="pillar-content">
+            <h3>Build Peak Performance</h3>
+            <p>Optimize energy, cognition, body composition, strength, and recovery. So you can operate at your highest level, in the boardroom, in the gym, and at home.</p>
+          </div>
+        </div>
+        <div class="pillar-photo-slot">
+          <img src="assets/photo-runner.jpg" alt="Peak performance training" style="object-position: center 15%;"
+               onerror="this.onerror=null;this.src='https://consult.secondprime.io/photo-runner.jpg';" />
+        </div>
+      </div>
+
+      <!-- Pillar 03: text left, photo right -->
+      <div class="pillar-split">
+        <div class="pillar-text-col">
+          <div class="pillar-number">03</div>
+          <div class="pillar-content">
+            <h3>Extend Longevity</h3>
+            <p>Not just more years. More years at peak. Longevity means how long you operate at your best, not just how long you survive. We engineer for the long game.</p>
+          </div>
+        </div>
+        <div class="pillar-photo-slot">
+          <img src="assets/photo-family.jpg" alt="Active with family"
+               onerror="this.onerror=null;this.src='https://consult.secondprime.io/photo-soccer-kids.jpg';" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════
+     6. THE PROCESS
+════════════════════════ -->
+<section class="section-phases panel panel--grey">
+  <div class="wrap">
+    <span class="eyebrow">The Method</span>
+    <div class="teal-line"></div>
+    <h2>How It Works</h2>
+    <p class="section-subtitle">Three phases. One system. Built for you.</p>
+
+    <div class="phase-list">
+
+      <div class="phase-block">
+        <div class="phase-header">
+          <div class="phase-num-box"><span class="phase-num">Phase 01</span></div>
+          <div class="phase-name-box">
+            <div class="phase-label">Assess</div>
+            <div class="phase-name">The Executive Assessment</div>
+          </div>
+        </div>
+        <div class="phase-body">
+          <ul class="phase-points">
+            <li>Advanced blood panel: 180 biomarkers across metabolic, hormonal, immune, inflammatory, and micronutrient markers</li>
+            <li>Gut microbiome analysis, food sensitivity testing (209 foods), and toxic heavy metal panel</li>
+            <li>DEXA body composition &amp; bone density scan: body fat %, lean mass, visceral fat, and bone health</li>
+            <li>VO2 Max cardiovascular assessment: the single strongest predictor of all-cause mortality</li>
+            <li>Hormonal baseline: estrogen, progesterone, testosterone, cortisol, thyroid, and adrenal function, including perimenopause/menopause staging</li>
+            <li>Strength, movement, and mobility assessment (grip strength, single-leg power, range of motion)</li>
+            <li>Comprehensive health &amp; lifestyle questionnaires: symptoms, sleep patterns, stress load, nutrition habits</li>
+            <li>All results interpreted against precision performance ranges, not just &ldquo;normal&rdquo;</li>
+          </ul>
+          <div class="phase-callout">&ldquo;Most clients discover 3&ndash;5 root cause issues that have never been identified.&rdquo;</div>
+        </div>
+      </div>
+
+      <div class="phase-block">
+        <div class="phase-header">
+          <div class="phase-num-box"><span class="phase-num">Phase 02</span></div>
+          <div class="phase-name-box">
+            <div class="phase-label">Engineer</div>
+            <div class="phase-name">The Performance Blueprint</div>
+          </div>
+        </div>
+        <div class="phase-body">
+          <ul class="phase-points">
+            <li>Root cause analysis through a holistic systems lens</li>
+            <li>Nutrition matched to your specific metabolic state</li>
+            <li>Precision supplementation targeting actual deficiencies</li>
+            <li>Training calibrated to your true recovery capacity</li>
+            <li>Peptides, HRT (estrogen, progesterone, thyroid) with full medical oversight</li>
+            <li>Phased sequencing: Stabilize &rarr; Build &rarr; Optimize</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase-block">
+        <div class="phase-header">
+          <div class="phase-num-box"><span class="phase-num">Phase 03</span></div>
+          <div class="phase-name-box">
+            <div class="phase-label">Execute</div>
+            <div class="phase-name">Expert Implementation</div>
+          </div>
+        </div>
+        <div class="phase-body">
+          <ul class="phase-points">
+            <li>Dedicated medical oversight &amp; ongoing monitoring</li>
+            <li>Expert coaching for daily execution</li>
+            <li>Real-time biomarker-driven adjustments</li>
+            <li>Done-for-you structure, zero decision fatigue</li>
+            <li>Integrated care that connects all your systems</li>
+            <li>Long-term performance compounding over years, not weeks</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════
+     7. ASSESSMENTS
+════════════════════════ -->
+<section class="panel panel--dark">
+  <div class="wrap">
+    <span class="eyebrow">Diagnostics</span>
+    <div class="teal-line"></div>
+    <h2>What We Actually Measure</h2>
+    <p class="section-subtitle">1,000+ biomarkers. Zero guesswork.</p>
+
+    <p class="assess-intro">The reason most people never get real answers is because they&rsquo;ve never had a real assessment. Most standard bloodwork panels test 20&ndash;40 markers. We analyze over 1,000 targeted biomarkers across inputs, internal function, and performance outputs, interpreted against optimal ranges, not just clinical &ldquo;normal.&rdquo;</p>
+
+    <div class="assess-flow">
+      <div class="assess-flow-step">
+        <div class="assess-flow-num">01</div>
+        <div class="assess-flow-title">Inputs</div>
+        <div class="assess-flow-role">What you consume, absorb &amp; expose your body to</div>
+      </div>
+      <div class="assess-flow-connector">
+        <div class="assess-flow-verb">shapes</div>
+        <div class="assess-flow-arrow">&#8594;</div>
+      </div>
+      <div class="assess-flow-step">
+        <div class="assess-flow-num">02</div>
+        <div class="assess-flow-title">Internal Function</div>
+        <div class="assess-flow-role">How your systems process, regulate &amp; respond</div>
+      </div>
+      <div class="assess-flow-connector">
+        <div class="assess-flow-verb">drives</div>
+        <div class="assess-flow-arrow">&#8594;</div>
+      </div>
+      <div class="assess-flow-step">
+        <div class="assess-flow-num">03</div>
+        <div class="assess-flow-title">Performance</div>
+        <div class="assess-flow-role">What you&rsquo;re able to output, sustain &amp; achieve</div>
+      </div>
+    </div>
+    <p class="assess-flow-caption">These aren&rsquo;t three separate checkboxes. Your inputs set your internal environment. Your internal environment determines what you can build on top of it. Performance is the output, and it can&rsquo;t exceed the quality of its foundation.</p>
+
+    <div class="assess-categories">
+
+      <!-- INPUTS -->
+      <div class="assess-category">
+        <div class="assess-cat-header">
+          <div class="assess-cat-num">01</div>
+          <div class="assess-cat-label">Inputs</div>
+        </div>
+        <div class="assess-item"><div class="assess-dot"></div><div class="assess-item-text"><div class="assess-item-name">Nutrition Assessment</div><div class="assess-item-desc">Macronutrient &amp; micronutrient intake, meal timing, digestion quality</div></div></div>
+        <div class="assess-item"><div class="assess-dot"></div><div class="assess-item-text"><div class="assess-item-name">Lifestyle Tracking</div><div class="assess-item-desc">Daily activity, water intake, alcohol consumption, bowel function, energy rating</div></div></div>
+        <div class="assess-item"><div class="assess-dot"></div><div class="assess-item-text"><div class="assess-item-name">Sleep Quality</div><div class="assess-item-desc">Bed &amp; wake times, sleep hours, nighttime wakes, recovery patterns</div></div></div>
+        <div class="assess-item"><div class="assess-dot"></div><div class="assess-item-text"><div class="assess-item-name">Environmental Exposure</div><div class="assess-item-desc">Toxic burden, heavy metals, CO2 tolerance, nervous system stress load</div></div></div>
+        <div class="assess-item"><div class="assess-dot"></div><div class="assess-item-text"><div class="assess-item-name">Stress &amp; Psychological Load</div><div class="assess-item-desc">Stress management capacity, coping patterns, mental toughness, adaptive behavior</div></div></div>
+        <div class="assess-item"><div class="assess-dot"></div><div class="assess-item-text"><div class="assess-item-name">Health History Questionnaires</div><div class="assess-item-desc">Symptom inventory, medical history, medications, and performance goals</div></div></div>
+      </div>
+
+      <!-- INTERNAL FUNCTION -->
+      <div class="assess-category">
+        <div class="assess-cat-header">
+          <div class="assess-cat-num">02</div>
+          <div class="assess-cat-label">Internal Function</div>
+        </div>
+        <div class="assess-item"><div class="assess-dot"></div><div class="assess-item-text"><div class="assess-item-name">Advanced Blood Panel</div><div class="assess-item-desc">180 biomarkers: cardiometabolic, immunity, thyroid, electrolytes, vitamins &amp; minerals</div></div></div>
+        <div class="assess-item"><div class="assess-dot"></div><div class="assess-item-text"><div class="assess-item-name">Hormonal Panel (Full)</div><div class="assess-item-desc">Estrogen, progesterone, testosterone, DHEA, cortisol, thyroid function</div></div></div>
+        <div class="assess-item"><div class="assess-dot"></div><div class="assess-item-text"><div class="assess-item-name">Salivary &amp; Urinary Hormone Analysis</div><div class="assess-item-desc">Diurnal cortisol rhythm, hormone metabolites, adrenal function &amp; recovery capacity</div></div></div>
+        <div class="assess-item"><div class="assess-dot"></div><div class="assess-item-text"><div class="assess-item-name">Cellular Biomapping</div><div class="assess-item-desc">Cell health, cellular energy production, and metabolic efficiency</div></div></div>
+        <div class="assess-item"><div class="assess-dot"></div><div class="assess-item-text"><div class="assess-item-name">Gut Microbiome Analysis</div><div class="assess-item-desc">Microbiome diversity, pathogenic bacteria, yeast, parasites, leaky gut, maldigestion</div></div></div>
+        <div class="assess-item"><div class="assess-dot"></div><div class="assess-item-text"><div class="assess-item-name">Food Sensitivity Testing</div><div class="assess-item-desc">Reactivity to 209 foods, preservatives, additives, food dyes &amp; pesticides</div></div></div>
+        <div class="assess-item"><div class="assess-dot"></div><div class="assess-item-text"><div class="assess-item-name">Inflammatory Markers</div><div class="assess-item-desc">CRP, IL-6, homocysteine, fibrinogen, and metabolic inflammation indicators</div></div></div>
+        <div class="assess-item"><div class="assess-dot"></div><div class="assess-item-text"><div class="assess-item-name">Toxic Heavy Metals</div><div class="assess-item-desc">Arsenic, lead, mercury &amp; 17 additional metals: environmental burden assessment</div></div></div>
+        <div class="assess-item"><div class="assess-dot"></div><div class="assess-item-text"><div class="assess-item-name">Cardiovascular Risk</div><div class="assess-item-desc">Advanced lipid panel, ApoB, Lp(a), insulin sensitivity, HbA1c</div></div></div>
+      </div>
+
+      <!-- PERFORMANCE -->
+      <div class="assess-category">
+        <div class="assess-cat-header">
+          <div class="assess-cat-num">03</div>
+          <div class="assess-cat-label">Performance</div>
+        </div>
+        <div class="assess-item"><div class="assess-dot"></div><div class="assess-item-text"><div class="assess-item-name">VO2 Max Testing</div><div class="assess-item-desc">Cardiovascular fitness &amp; oxygen utilization: the strongest predictor of all-cause mortality</div></div></div>
+        <div class="assess-item"><div class="assess-dot"></div><div class="assess-item-text"><div class="assess-item-name">DEXA Body Composition &amp; Bone Density</div><div class="assess-item-desc">Body fat %, lean mass, visceral fat, bone density, and basal metabolic rate</div></div></div>
+        <div class="assess-item"><div class="assess-dot"></div><div class="assess-item-text"><div class="assess-item-name">Sleep Architecture</div><div class="assess-item-desc">Sleep stages, HRV, nighttime recovery quality and patterns</div></div></div>
+        <div class="assess-item"><div class="assess-dot"></div><div class="assess-item-text"><div class="assess-item-name">Cognitive Performance</div><div class="assess-item-desc">Focus, memory, and processing speed baselines</div></div></div>
+        <div class="assess-item"><div class="assess-dot"></div><div class="assess-item-text"><div class="assess-item-name">Strength Assessment</div><div class="assess-item-desc">Grip strength, single-leg power, functional output &amp; fall risk screening</div></div></div>
+        <div class="assess-item"><div class="assess-dot"></div><div class="assess-item-text"><div class="assess-item-name">Movement &amp; Mobility</div><div class="assess-item-desc">Range of motion, joint flexibility, movement quality &amp; injury risk assessment</div></div></div>
+        <div class="assess-item"><div class="assess-dot"></div><div class="assess-item-text"><div class="assess-item-name">HRV &amp; Nervous System</div><div class="assess-item-desc">Autonomic balance, CO2 tolerance, and stress response capacity</div></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════
+     8. WHY DIFFERENT
+════════════════════════ -->
+<section class="panel panel--grey">
+  <div class="wrap">
+    <span class="eyebrow">The Difference</span>
+    <div class="teal-line"></div>
+    <h2>Why Second Prime Is Different</h2>
+    <p class="section-subtitle">We&rsquo;re not another wellness program. We&rsquo;re not a concierge doctor. We&rsquo;re not a personal trainer with a nutrition guide.</p>
+
+    <div class="compare-scroll">
+      <div class="compare-grid">
+        <div class="col-head"></div>
+        <div class="col-head sp">Second Prime</div>
+        <div class="col-head">Lab-Only Testing<span class="col-head-sub">e.g. Function Health</span></div>
+        <div class="col-head">Functional Medicine Doctors</div>
+
+        <div class="compare-cell feature">1,000+ biomarker assessment</div>
+        <div class="compare-cell sp"><span class="check">&#10003;</span></div>
+        <div class="compare-cell"><span class="cross">&#10005;</span></div>
+        <div class="compare-cell"><span class="partial">Partial</span></div>
+
+        <div class="compare-cell feature">Interpreted for optimization (not just &ldquo;normal&rdquo;)</div>
+        <div class="compare-cell sp"><span class="check">&#10003;</span></div>
+        <div class="compare-cell"><span class="cross">&#10005;</span></div>
+        <div class="compare-cell"><span class="partial">Partial</span></div>
+
+        <div class="compare-cell feature">Root cause identification</div>
+        <div class="compare-cell sp"><span class="check">&#10003;</span></div>
+        <div class="compare-cell"><span class="cross">&#10005;</span></div>
+        <div class="compare-cell"><span class="check">&#10003;</span></div>
+
+        <div class="compare-cell feature">Ongoing coaching &amp; protocol integration</div>
+        <div class="compare-cell sp"><span class="check">&#10003;</span></div>
+        <div class="compare-cell"><span class="cross">&#10005;</span></div>
+        <div class="compare-cell"><span class="cross">&#10005;</span></div>
+
+        <div class="compare-cell feature">Executive context &amp; lifestyle integration</div>
+        <div class="compare-cell sp"><span class="check">&#10003;</span></div>
+        <div class="compare-cell"><span class="cross">&#10005;</span></div>
+        <div class="compare-cell"><span class="cross">&#10005;</span></div>
+
+        <div class="compare-cell feature">Performance focus (not just disease management)</div>
+        <div class="compare-cell sp"><span class="check">&#10003;</span></div>
+        <div class="compare-cell"><span class="cross">&#10005;</span></div>
+        <div class="compare-cell"><span class="cross">&#10005;</span></div>
+
+        <div class="compare-cell feature">Ongoing optimization &amp; real-time adjustment</div>
+        <div class="compare-cell sp"><span class="check">&#10003;</span></div>
+        <div class="compare-cell"><span class="cross">&#10005;</span></div>
+        <div class="compare-cell"><span class="cross">&#10005;</span></div>
+
+        <div class="compare-cell feature">Medical oversight (HRT / peptides)</div>
+        <div class="compare-cell sp"><span class="check">&#10003;</span></div>
+        <div class="compare-cell"><span class="cross">&#10005;</span></div>
+        <div class="compare-cell"><span class="partial">Partial</span></div>
+      </div>
+    </div>
+
+    <div class="diff-cards">
+      <div class="diff-card">
+        <h4>Depth of Diagnosis</h4>
+        <p>Most programs start with a protocol. We start with data: 1,000+ targeted biomarkers before a single recommendation is made.</p>
+      </div>
+      <div class="diff-card">
+        <h4>Integrated Execution</h4>
+        <p>We don&rsquo;t hand you a plan and wave goodbye. We implement it with you, adjust in real-time, and manage every moving part.</p>
+      </div>
+      <div class="diff-card">
+        <h4>Built for Operators</h4>
+        <p>Every recommendation is designed for someone carrying maximum load. We account for your stress, your travel, your schedule, your demands.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════
+     9. TRANSFORMATION
+════════════════════════ -->
+<section class="panel panel--dark">
+  <div class="wrap">
+    <span class="eyebrow">The Outcome</span>
+    <div class="teal-line"></div>
+    <h2>What Changes</h2>
+    <p class="section-subtitle">From where you are now, to where you should be operating.</p>
+
+    <div class="transform-grid">
+
+      <div class="card card-brick transform-card">
+        <div class="transform-label before-label">Before Second Prime</div>
+        <ul class="transform-list">
+          <li><span class="t-icon t-before">&minus;</span>Exhausted after 8 hours of sleep</li>
+          <li><span class="t-icon t-before">&minus;</span>Brain fog slowing every decision</li>
+          <li><span class="t-icon t-before">&minus;</span>Body composition that doesn&rsquo;t reflect your effort</li>
+          <li><span class="t-icon t-before">&minus;</span>Recovery takes 3&ndash;4 days after training</li>
+          <li><span class="t-icon t-before">&minus;</span>Energy crashes every afternoon</li>
+          <li><span class="t-icon t-before">&minus;</span>&ldquo;Normal&rdquo; lab results with no real answers</li>
+          <li><span class="t-icon t-before">&minus;</span>Too depleted to be fully present at home</li>
+          <li><span class="t-icon t-before">&minus;</span>Experimenting randomly, nothing sticking</li>
+        </ul>
+      </div>
+
+      <div class="card card-teal transform-card">
+        <div class="transform-label after-label">After Second Prime</div>
+        <ul class="transform-list">
+          <li><span class="t-icon t-after">+</span>Wake up sharp, before the alarm</li>
+          <li><span class="t-icon t-after">+</span>Razor-sharp focus, faster and clearer decisions</li>
+          <li><span class="t-icon t-after">+</span>Leanest and strongest since your athletic years</li>
+          <li><span class="t-icon t-after">+</span>Recovered in 24 hours, training harder than ever</li>
+          <li><span class="t-icon t-after">+</span>Sustained energy from morning to night</li>
+          <li><span class="t-icon t-after">+</span>Optimized biomarkers and a clear, personalized roadmap</li>
+          <li><span class="t-icon t-after">+</span>Fully present with your family every single night</li>
+          <li><span class="t-icon t-after">+</span>A system that runs itself, zero decision fatigue</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════
+     10. TESTIMONIALS
+════════════════════════ -->
+<section class="panel panel--grey">
+  <div class="wrap">
+    <span class="eyebrow">Client Results</span>
+    <div class="teal-line"></div>
+    <h2>From the Women Who&rsquo;ve Done It</h2>
+    <p class="section-subtitle">Executives and founders who&rsquo;ve gone through the full system.</p>
+
+    <div class="testimonial-grid">
+
+      <div class="testimonial-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-quote">&ldquo;I&rsquo;d spent years being told my labs were &lsquo;normal&rsquo; while I felt anything but. Second Prime found what everyone else missed. My energy is back, my hormones are balanced, and I&rsquo;m sharper than I&rsquo;ve been in a decade.&rdquo;</p>
+        <div class="testimonial-author">
+          <div class="testimonial-name">L.M.</div>
+          <div class="testimonial-role">Founder &amp; CEO, Marketing &middot; Age 47</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-quote">&ldquo;The brain fog and 3pm crashes I&rsquo;d written off as perimenopause are gone. I&rsquo;m sleeping through the night, my body is responding again, and I feel like myself. Best investment I&rsquo;ve made in years.&rdquo;</p>
+        <div class="testimonial-author">
+          <div class="testimonial-name">S.R.</div>
+          <div class="testimonial-role">Partner, Law Firm &middot; Age 51</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-quote">&ldquo;I was doing everything right and still gaining weight and losing strength. Turns out I had three major root cause issues nobody had identified. Six months later I&rsquo;m leaner and stronger than I was at 40.&rdquo;</p>
+        <div class="testimonial-author">
+          <div class="testimonial-name">T.K.</div>
+          <div class="testimonial-role">Managing Director, Finance &middot; Age 49</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════
+     11. CLIENT RESULTS
+════════════════════════ -->
+<section class="panel panel--dark">
+  <div class="wrap">
+    <span class="eyebrow">Client Results</span>
+    <div class="teal-line"></div>
+    <h2>What Changes When You Have the Right System</h2>
+    <p class="section-subtitle">This is not a body composition program. The body transforms. Results show up across three dimensions: what you see, what your labs confirm, and what you feel every day.</p>
+
+    <!-- ── 01: Aesthetic Results ── -->
+    <div class="results-category">
+      <div class="results-cat-header">
+        <span class="results-cat-num">01</span>
+        <div>
+          <div class="results-cat-title">Aesthetic Results</div>
+          <div class="results-cat-desc">Physical transformation is a byproduct of the system, not the goal. These are representative client outcomes.</div>
+        </div>
+      </div>
+
+      <div class="ba-grid">
+        <div class="ba-slot"><img src="assets/before-after/mara.png" alt="Client 01 results" /></div>
+        <div class="ba-slot"><img src="assets/before-after/monique.png" alt="Client 02 results" /></div>
+        <div class="ba-slot"><img src="assets/before-after/annette.png" alt="Client 03 results" /></div>
+        <div class="ba-slot"><img src="assets/before-after/brianna.png" alt="Client 04 results" /></div>
+        <div class="ba-slot"><img src="assets/before-after/pam.png" alt="Client 05 results" /></div>
+        <div class="ba-slot"><img src="assets/before-after/jennifer.png" alt="Client 06 results" /></div>
+        <div class="ba-slot"><img src="assets/before-after/wendy.png" alt="Client 07 results" /></div>
+        <div class="ba-slot"><img src="assets/before-after/megan.png" alt="Client 08 results" /></div>
+        <div class="ba-slot"><img src="assets/before-after/kristi.png" alt="Client 09 results" /></div>
+      </div>
+
+      <p class="results-disclaimer">Results shown with client permission. Individual outcomes depend on starting point, protocol adherence, and biological factors. These are not typical results.</p>
+    </div>
+
+    <!-- ── 02: Biomarker & Health Changes ── -->
+    <div class="results-category">
+      <div class="results-cat-header">
+        <span class="results-cat-num">02</span>
+        <div>
+          <div class="results-cat-title">Biomarker &amp; Health Marker Changes</div>
+          <div class="results-cat-desc">The numbers that determine how long and how well you operate</div>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+
+        <!-- Biological Age -->
+        <div class="stat-card">
+          <div class="stat-badge">&#8595; Decrease</div>
+          <div class="stat-delta">&minus;12</div>
+          <div class="stat-sublabel">Years / Biological Age</div>
+          <div class="stat-bar-track"><div class="stat-bar-fill" style="width:60%;"></div></div>
+          <div class="stat-context">Average reduction in epigenetic biological age across our client base</div>
+        </div>
+
+        <!-- Perimenopausal Symptom Load -->
+        <div class="stat-card">
+          <div class="stat-badge">&#8595; Decrease</div>
+          <div class="stat-delta">&minus;47%</div>
+          <div class="stat-sublabel">Perimenopausal Symptom Load</div>
+          <div class="stat-bar-track"><div class="stat-bar-fill" style="width:47%;"></div></div>
+          <div class="stat-context">Average reduction in tracked symptoms, sleep, mood, and hot flashes, within 6 months</div>
+        </div>
+
+        <!-- Insulin Resistance -->
+        <div class="stat-card">
+          <div class="stat-badge">&#8595; Decrease</div>
+          <div class="stat-delta">&minus;35%</div>
+          <div class="stat-sublabel">Insulin Resistance (HOMA-IR)</div>
+          <div class="stat-bar-track"><div class="stat-bar-fill" style="width:35%;"></div></div>
+          <div class="stat-context">Average HOMA-IR reduction, a primary driver of metabolic decline and energy loss</div>
+        </div>
+
+        <!-- Mortality Risk -->
+        <div class="stat-card">
+          <div class="stat-badge">&#8595; Lower Risk</div>
+          <div class="stat-delta">5&times;</div>
+          <div class="stat-sublabel">Mortality Risk Reduction</div>
+          <div class="stat-compare">
+            <div class="stat-compare-row">
+              <span class="stat-compare-lbl">Low VO&#8322;</span>
+              <div class="stat-compare-track"><div class="stat-compare-fill risk" style="width:100%;"></div></div>
+            </div>
+            <div class="stat-compare-row">
+              <span class="stat-compare-lbl">Elite VO&#8322;</span>
+              <div class="stat-compare-track"><div class="stat-compare-fill safe" style="width:20%;"></div></div>
+            </div>
+          </div>
+          <div class="stat-context">All-cause mortality risk: elite vs. low VO&#8322; Max performers</div>
+        </div>
+
+        <!-- Body Composition -->
+        <div class="stat-card">
+          <div class="stat-badge">&#8595; Decrease</div>
+          <div class="stat-delta">&minus;10%</div>
+          <div class="stat-sublabel">Body Fat</div>
+          <div class="stat-bar-track"><div class="stat-bar-fill" style="width:40%;"></div></div>
+          <div class="stat-context">Average body fat reduction within the first 6 months, without sacrificing lean mass</div>
+        </div>
+
+        <!-- Inflammatory Markers -->
+        <div class="stat-card">
+          <div class="stat-badge">&#8595; Decrease</div>
+          <div class="stat-delta">&minus;52%</div>
+          <div class="stat-sublabel">Inflammatory Markers (hsCRP)</div>
+          <div class="stat-bar-track"><div class="stat-bar-fill" style="width:52%;"></div></div>
+          <div class="stat-context">Average reduction in high-sensitivity CRP, a leading marker of systemic inflammation and disease risk</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── 03: Subjective Experience ── -->
+    <div class="results-category">
+      <div class="results-cat-header">
+        <span class="results-cat-num">03</span>
+        <div>
+          <div class="results-cat-title">How Clients Describe the Shift</div>
+          <div class="results-cat-desc">These changes show up in how you feel before they show up in your labs</div>
+        </div>
+      </div>
+
+      <div class="exp-grid">
+
+        <div class="exp-card">
+          <div class="exp-title">Energy &amp; Stamina</div>
+          <div class="exp-quote">&ldquo;I used to need two coffees before 9am just to feel human. Now I sustain energy through a full day of back-to-back meetings without hitting a wall.&rdquo;</div>
+          <div class="exp-attr">S.R., Law Partner, 51</div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-title">Cognitive Clarity</div>
+          <div class="exp-quote">&ldquo;There were months where I was making decisions I knew weren&rsquo;t sharp. The brain fog is gone. I&rsquo;m thinking the way I was when I was building my first company.&rdquo;</div>
+          <div class="exp-attr">T.K., Finance, 46</div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-title">Sleep Quality</div>
+          <div class="exp-quote">&ldquo;I hadn&rsquo;t had a full night of restorative sleep in years, I blamed my hormones. Within 60 days my HRV doubled and I wake up actually recovered.&rdquo;</div>
+          <div class="exp-attr">L.M., Marketing Founder, 48</div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-title">Presence &amp; Attention</div>
+          <div class="exp-quote">&ldquo;My family noticed before I did. I was there. At the table, at the game. Not just physically but actually present.&rdquo;</div>
+          <div class="exp-attr">M.A., Private Equity, 51</div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-title">Physical Confidence</div>
+          <div class="exp-quote">&ldquo;I lost 18 pounds, but that wasn&rsquo;t what changed everything. It&rsquo;s the way I carry myself. I feel strong and capable again.&rdquo;</div>
+          <div class="exp-attr">R.S., Tech Founder, 44</div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-title">Drive &amp; Motivation</div>
+          <div class="exp-quote">&ldquo;I&rsquo;d been running on obligation for three years, doing what needed to be done, not what I wanted to build. That shifted around month four.&rdquo;</div>
+          <div class="exp-attr">C.W., Agency CEO, 49</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════
+     13. FAQ
+════════════════════════ -->
+<section class="panel panel--grey">
+  <div class="wrap">
+    <span class="eyebrow">Common Questions</span>
+    <div class="teal-line"></div>
+    <h2 style="white-space:normal;">Questions We Hear Before Every Consultation</h2>
+    <p class="section-subtitle">Honest answers to the questions worth asking.</p>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-q">&ldquo;Is this just another wellness program?&rdquo;</div>
+        <div class="faq-a"><p>No. Most wellness programs hand you a generic protocol and call it personalized. We start with the most comprehensive diagnostic assessment available outside of a research hospital, with 1,000+ biomarkers, and build everything from your specific data. The result is a system engineered for you, not adapted from a template designed for someone else.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">&ldquo;How is this different from working with my regular doctor?&rdquo;</div>
+        <div class="faq-a"><p>Your doctor is trained to detect and treat disease. We&rsquo;re engineered for performance optimization. We use different testing protocols, different reference ranges, different goals, and a completely different implementation model. The targets are different, and so is everything else.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">&ldquo;Do I need to already be healthy to start?&rdquo;</div>
+        <div class="faq-a"><p>No. Most clients come to us having &ldquo;done everything right&rdquo; and still feeling like something is off. The assessment reveals what&rsquo;s actually happening, and we build from there, wherever you are. The gap between your current state and your potential is often the biggest opportunity we have.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">&ldquo;Can you help if I&rsquo;m in perimenopause or menopause?&rdquo;</div>
+        <div class="faq-a"><p>Yes, this is one of the most common reasons women come to us. Perimenopause and menopause shift your hormones, metabolism, sleep, body composition, and cardiovascular and bone health all at once, and most care addresses one piece in isolation. We map the full picture and build an integrated plan, lifestyle and nutrition first, with hormone therapy layered in when your data and symptoms support it.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">&ldquo;What does the time commitment look like?&rdquo;</div>
+        <div class="faq-a"><p>The assessment phase takes close to a month, it&rsquo;s thorough by design. After that, the ongoing commitment is minimal. Our goal isn&rsquo;t to add more to your plate. It&rsquo;s to subtract the things you&rsquo;re doing that aren&rsquo;t working and focus only on what actually moves the needle. We handle the logistics, the adjustments, and the coordination. You execute a leaner, more precise system, and get better results than you were getting doing more.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">&ldquo;Is this right for me if I&rsquo;m already in good shape?&rdquo;</div>
+        <div class="faq-a"><p>Especially yes. The clients who get the most dramatic results are often those who are already disciplined and executing, but doing so without the right data. Precision transforms effort into results. Most high-performers are leaving significant performance on the table without knowing it.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">&ldquo;How are you different from lab testing companies like Function Health?&rdquo;</div>
+        <div class="faq-a"><p>Lab testing companies give you data, not a system. Function Health and similar services test around 100 markers and deliver a report. We analyze 1,000+ targeted biomarkers, interpret them against performance ranges (not just &ldquo;normal&rdquo;), and then build and execute a complete protocol around your specific biology. The test is our starting point. For them, it&rsquo;s the product.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">&ldquo;How does medical oversight for HRT and peptides work?&rdquo;</div>
+        <div class="faq-a"><p>We have physicians on the team who specialize in performance medicine. If your data supports hormone therapy (estrogen, progesterone, thyroid) or peptide protocols, we handle everything, prescribing, sourcing through licensed pharmacies, dosing, and ongoing monitoring. You don&rsquo;t manage any of this on your own. Every decision is driven by your labs and your response, not a one-size-fits-all default.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">&ldquo;Do you put everyone on hormone therapy, or are there options for natural improvement?&rdquo;</div>
+        <div class="faq-a"><p>No. Hormonal protocols are only recommended when the data clearly supports them and you&rsquo;re an appropriate candidate. Many women see significant improvement through lifestyle, nutrition, sleep, and targeted supplementation alone. We exhaust natural optimization first. Pharmacological support is a clinical decision based on your labs, not a starting point or a default.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">&ldquo;I see a lot of people online doing something similar. What makes you different?&rdquo;</div>
+        <div class="faq-a"><p>Most of what you see online is single-modality, a hormone clinic, a functional medicine doctor, a coaching program, a supplement stack. We integrate all of it: comprehensive diagnostics, medical oversight, performance coaching, and ongoing protocol management in one system built around your specific biology. Anyone can prescribe hormones. Building a precision optimization engine around your exact data, demands, and goals is a different thing entirely.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">&ldquo;How long before I start seeing results?&rdquo;</div>
+        <div class="faq-a"><p>Most clients notice meaningful shifts in energy, clarity, and recovery within the first 4&ndash;8 weeks as protocols take effect. Deeper changes, body composition, hormonal optimization, cardiovascular performance, compound over 3&ndash;6 months. The system is designed for both: early wins that build confidence, and long-term compounding that most approaches never reach.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════
+     14. WHAT HAPPENS NEXT + FOOTER
+════════════════════════ -->
+<section class="section-final panel panel--dark">
+  <div class="wrap">
+    <span class="eyebrow">Your Next Step</span>
+    <div class="teal-line"></div>
+    <h2>What Happens Next</h2>
+    <p class="section-subtitle">Here&rsquo;s exactly what to expect from your consultation.</p>
+
+    <div class="steps-grid">
+
+      <div class="step-card">
+        <div class="step-num-col">1</div>
+        <div class="step-content">
+          <h3>The Call (45 Min)</h3>
+          <p>We&rsquo;ll cover your current health picture, your goals, your history, and what&rsquo;s not working. No pressure, no pitch. Just clarity on where you are and what&rsquo;s possible.</p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num-col">2</div>
+        <div class="step-content">
+          <h3>Fit Assessment</h3>
+          <p>We&rsquo;ll tell you honestly whether Second Prime is the right system for you, and if so, what the path forward looks like. We only take on clients we know we can deliver for.</p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num-col">3</div>
+        <div class="step-content">
+          <h3>The Plan</h3>
+          <p>If we&rsquo;re aligned, we&rsquo;ll walk through exactly how the process works, the timeline, and how to get started. From there, your assessment is scheduled and the system begins.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="next-note">
+      This consultation is not a sales call. It&rsquo;s a diagnostic conversation. Come prepared to be honest about where you are and what you want.
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer-logo-wrap">
+      <img src="logo.png" alt="Second Prime"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+      <span class="footer-logo-text" style="display:none;">Second Prime</span>
+    </div>
+    <div class="footer-tagline">Health &nbsp;&middot;&nbsp; Performance &nbsp;&middot;&nbsp; Longevity</div>
+    <div class="footer-divider"></div>
+    <div class="footer-copy">&copy; 2025 Second Prime. All rights reserved.</div>
+    <div class="footer-legal">This document is confidential and prepared exclusively for consultation purposes.</div>
+  </footer>
+</section>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(function(q) {
+    q.addEventListener('click', function() {
+      var item = q.closest('.faq-item');
+      item.classList.toggle('open');
+    });
+  });
+</script>
+</body>
+</html>
